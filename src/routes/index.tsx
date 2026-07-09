@@ -110,7 +110,7 @@ const OFFER = [
   {
     icon: PhoneCall,
     title: "Cold Calling",
-    desc: "Persuasive outbound calls to decision-makers — from opener to booked meeting, with strong objection handling.",
+    desc: "Persuasive outbound calls to decision-makers, from opener to booked meeting, with strong objection handling.",
   },
   {
     icon: Target,
