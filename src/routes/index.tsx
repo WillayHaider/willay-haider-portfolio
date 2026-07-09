@@ -317,6 +317,20 @@ function Hero() {
           <h1 className="mt-2 text-4xl font-bold leading-[1.05] tracking-tight sm:mt-3 sm:text-5xl md:text-6xl lg:text-7xl">
             Willay <br /> Haider
           </h1>
+          {/* Mobile portrait: sits directly under the name */}
+          <div className="relative mx-auto mt-6 flex w-full items-center justify-center md:hidden animate-scale-in">
+            <div
+              className="absolute inset-0 -z-0 rounded-full blur-3xl animate-pulse"
+              style={{ background: "var(--gradient-primary)", opacity: 0.35 }}
+            />
+            <img
+              src={heroPortrait}
+              alt="Willay Haider — Business Development Representative"
+              width={800}
+              height={1000}
+              className="relative z-10 h-auto w-[240px] object-contain"
+            />
+          </div>
           <div className="mt-4 space-y-1 sm:mt-6">
             <p
               className="text-2xl font-semibold sm:text-3xl md:text-4xl"
@@ -380,8 +394,8 @@ function Hero() {
           </div>
         </div>
 
-        {/* Center: portrait */}
-        <div className="relative mx-auto flex items-center justify-center order-first md:order-none animate-scale-in">
+        {/* Center: portrait (desktop only; mobile version sits under the name) */}
+        <div className="relative mx-auto hidden items-center justify-center md:flex animate-scale-in">
           <div
             className="absolute inset-0 -z-0 rounded-full blur-3xl animate-pulse"
             style={{ background: "var(--gradient-primary)", opacity: 0.35 }}
@@ -391,7 +405,7 @@ function Hero() {
             alt="Willay Haider — Business Development Representative"
             width={800}
             height={1000}
-            className="relative z-10 h-auto w-[220px] object-contain transition-transform duration-500 hover:scale-[1.03] sm:w-[280px] md:w-[360px] lg:w-[440px]"
+            className="relative z-10 h-auto w-[360px] object-contain transition-transform duration-500 hover:scale-[1.03] lg:w-[440px]"
           />
         </div>
 
