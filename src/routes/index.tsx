@@ -12,6 +12,7 @@ import {
   Star,
   Briefcase,
   GraduationCap,
+  Award,
 } from "lucide-react";
 import heroPortraitAsset from "@/assets/willay-portrait-nobg.png.asset.json";
 const heroPortrait = heroPortraitAsset.url;
@@ -161,6 +162,7 @@ function Portfolio() {
       <Hero />
       <Projects />
       <Experience />
+      <Certifications />
       <Offer />
       <Testimonials />
       <Contact />
