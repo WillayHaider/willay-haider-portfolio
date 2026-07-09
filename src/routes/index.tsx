@@ -407,6 +407,69 @@ function Experience() {
 }
 
 function Offer() {
+  return OfferInner();
+}
+
+const CERTIFICATIONS = [
+  { title: "Google Analytics Certification", org: "Google" },
+  { title: "Data Analytics Job Simulation", org: "Deloitte" },
+  { title: "Matriculation", org: "BHSS" },
+  { title: "Cybersecurity", org: "ADBI Institute" },
+  { title: "Exploring AI Use Cases and Applications", org: "AWS" },
+];
+
+function Certifications() {
+  return (
+    <section id="certifications" className="relative py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex flex-col items-center text-center">
+          <span
+            className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.25em] text-primary"
+            style={{ background: "var(--gradient-card)" }}
+          >
+            <Award className="h-3.5 w-3.5" /> Credentials
+          </span>
+          <h2 className="mt-5 text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+            My <span className="text-primary">Certifications</span>
+          </h2>
+          <p className="mt-4 max-w-xl text-sm text-muted-foreground">
+            Verified certifications and training that back my sales, analytics, and technology skill set.
+          </p>
+        </div>
+
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {CERTIFICATIONS.map((c, i) => (
+            <div
+              key={c.title}
+              className="group relative overflow-hidden rounded-2xl border border-border p-6 transition-all hover:-translate-y-1 hover:border-primary/60"
+              style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
+            >
+              <div className="flex items-start gap-4">
+                <div
+                  className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl text-primary-foreground"
+                  style={{ background: "var(--gradient-primary)" }}
+                >
+                  <Award className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                    Certificate 0{i + 1}
+                  </p>
+                  <h3 className="mt-1 text-base font-semibold leading-snug">
+                    {c.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-primary">{c.org}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function OfferInner() {
   return (
     <section className="relative py-24">
       <div className="mx-auto max-w-7xl px-6">
