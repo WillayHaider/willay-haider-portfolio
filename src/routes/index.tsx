@@ -115,7 +115,7 @@ const OFFER = [
   {
     icon: Target,
     title: "Lead Generation & Qualification",
-    desc: "Sourcing high-intent prospects via LinkedIn, email, and databases — then qualifying for decision maker, need, and budget.",
+    desc: "Sourcing high-intent prospects via LinkedIn, email, tools and databases, then qualifying for decision maker, need, and budget.",
   },
   {
     icon: TrendingUp,
