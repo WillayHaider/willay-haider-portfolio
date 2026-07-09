@@ -13,6 +13,7 @@ import {
   Briefcase,
   GraduationCap,
   Award,
+  Search,
 } from "lucide-react";
 import heroPortraitAsset from "@/assets/willay-portrait-nobg.png.asset.json";
 const heroPortrait = heroPortraitAsset.url;
@@ -107,6 +108,11 @@ const EDUCATION = [
 ];
 
 const OFFER = [
+  {
+    icon: Search,
+    title: "Deep Project Research",
+    desc: "Before a single dial, I deeply research the project, product, ICP, and market to understand every possibility, angle, and objection.",
+  },
   {
     icon: PhoneCall,
     title: "Cold Calling",
