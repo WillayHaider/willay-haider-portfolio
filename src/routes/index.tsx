@@ -182,7 +182,7 @@ export function Nav() {
     <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#" className="text-sm font-semibold tracking-wide text-foreground">
-          Willay<span className="text-primary">.Haider</span>
+          Willay<span className="text-foreground">.Haider</span>
         </a>
         <nav className="hidden gap-8 md:flex">
           {NAV.map((n) => (
