@@ -314,11 +314,15 @@ function Hero() {
           </div>
           <div className="mt-8 grid grid-cols-3 gap-4 sm:mt-10 sm:flex sm:flex-wrap sm:gap-8">
             <div>
-              <p className="text-2xl font-bold text-primary sm:text-3xl">1.5+</p>
+              <p className="text-2xl font-bold text-primary sm:text-3xl">
+                <CountUp end={1.5} decimals={1} suffix="+" />
+              </p>
               <p className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">Years Experience</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-primary sm:text-3xl">50+</p>
+              <p className="text-2xl font-bold text-primary sm:text-3xl">
+                <CountUp end={50} suffix="+" />
+              </p>
               <p className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">Projects Delivered</p>
             </div>
             <div>
