@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Linkedin,
   Instagram,
@@ -21,6 +21,55 @@ const heroPortrait = heroPortraitAsset.url;
 export const Route = createFileRoute("/")({
   component: Portfolio,
 });
+
+function CountUp({
+  end,
+  decimals = 0,
+  suffix = "",
+  duration = 1600,
+}: {
+  end: number;
+  decimals?: number;
+  suffix?: string;
+  duration?: number;
+}) {
+  const [value, setValue] = useState(0);
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !started.current) {
+            started.current = true;
+            const start = performance.now();
+            const tick = (now: number) => {
+              const p = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - p, 3);
+              setValue(end * eased);
+              if (p < 1) requestAnimationFrame(tick);
+              else setValue(end);
+            };
+            requestAnimationFrame(tick);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [end, duration]);
+
+  return (
+    <span ref={ref}>
+      {value.toFixed(decimals)}
+      {suffix}
+    </span>
+  );
+}
 
 const NAV = [
   { label: "About Me", href: "/about" },
@@ -265,11 +314,15 @@ function Hero() {
           </div>
           <div className="mt-8 grid grid-cols-3 gap-4 sm:mt-10 sm:flex sm:flex-wrap sm:gap-8">
             <div>
-              <p className="text-2xl font-bold text-primary sm:text-3xl">1.5+</p>
+              <p className="text-2xl font-bold text-primary sm:text-3xl">
+                <CountUp end={1.5} decimals={1} suffix="+" />
+              </p>
               <p className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">Years Experience</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-primary sm:text-3xl">50+</p>
+              <p className="text-2xl font-bold text-primary sm:text-3xl">
+                <CountUp end={50} suffix="+" />
+              </p>
               <p className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">Projects Delivered</p>
             </div>
             <div>
