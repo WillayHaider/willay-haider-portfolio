@@ -309,7 +309,7 @@ function Hero() {
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 sm:gap-12 sm:px-6 md:grid-cols-[1fr_auto_1fr]">
         {/* Left: text */}
-        <div className="relative z-10">
+        <div className="relative z-10 animate-fade-in">
           <p className="text-xs font-medium text-primary sm:text-sm">Hello, I'm</p>
           <h1 className="mt-2 text-4xl font-bold leading-[1.05] tracking-tight sm:mt-3 sm:text-5xl md:text-6xl lg:text-7xl">
             Willay <br /> Haider
@@ -378,9 +378,9 @@ function Hero() {
         </div>
 
         {/* Center: portrait */}
-        <div className="relative mx-auto flex items-center justify-center order-first md:order-none">
+        <div className="relative mx-auto flex items-center justify-center order-first md:order-none animate-scale-in">
           <div
-            className="absolute inset-0 -z-0 rounded-full blur-3xl"
+            className="absolute inset-0 -z-0 rounded-full blur-3xl animate-pulse"
             style={{ background: "var(--gradient-primary)", opacity: 0.35 }}
           />
           <img
@@ -388,18 +388,19 @@ function Hero() {
             alt="Willay Haider — Business Development Representative"
             width={800}
             height={1000}
-            className="relative z-10 h-auto w-[220px] object-contain sm:w-[280px] md:w-[360px] lg:w-[440px]"
+            className="relative z-10 h-auto w-[220px] object-contain transition-transform duration-500 hover:scale-[1.03] sm:w-[280px] md:w-[360px] lg:w-[440px]"
           />
         </div>
 
         {/* Right: socials rail */}
         <div className="hidden flex-col items-end gap-4 md:flex">
-          {SOCIALS.map((s) => (
+          {SOCIALS.map((s, i) => (
             <a
               key={s.label}
               href={s.href}
               aria-label={s.label}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/40 text-muted-foreground transition-all hover:border-primary hover:text-primary"
+              style={{ animationDelay: `${i * 80}ms` }}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/40 text-muted-foreground transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary hover:shadow-[0_0_20px_var(--primary)] animate-fade-in"
             >
               <s.icon className="h-4 w-4" />
             </a>
