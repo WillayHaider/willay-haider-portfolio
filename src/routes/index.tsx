@@ -13,7 +13,7 @@ import {
   Briefcase,
   GraduationCap,
 } from "lucide-react";
-import heroPortraitAsset from "@/assets/willay-portrait.jpeg.asset.json";
+import heroPortraitAsset from "@/assets/willay-portrait-nobg.png.asset.json";
 const heroPortrait = heroPortraitAsset.url;
 
 export const Route = createFileRoute("/")({
@@ -272,8 +272,7 @@ function Hero() {
             alt="Willay Haider — Business Development Representative"
             width={800}
             height={1000}
-            className="relative z-10 aspect-[4/5] w-[280px] rounded-[2rem] border border-primary/30 object-cover shadow-2xl md:w-[360px] lg:w-[420px]"
-            style={{ boxShadow: "var(--shadow-glow)" }}
+            className="relative z-10 h-auto w-[280px] object-contain md:w-[360px] lg:w-[440px]"
           />
         </div>
 
