@@ -130,7 +130,7 @@ const TESTIMONIALS = [
     role: "B2B SaaS Client",
     stars: 5,
     quote:
-      "Willay consistently books qualified meetings. His discovery is sharp and prospects arrive to demos already warmed up.",
+      "Mr Haider consistently books qualified meetings. His discovery is sharp and prospects arrive to demos already warmed up.",
   },
   {
     name: "Founder",
