@@ -175,8 +175,8 @@ function Nav() {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#" className="text-sm font-semibold tracking-wide text-primary">
-          Willay<span className="text-foreground">.Haider</span>
+        <a href="#" className="text-sm font-semibold tracking-wide text-foreground">
+          Willay<span className="text-primary">.Haider</span>
         </a>
         <nav className="hidden gap-8 md:flex">
           {NAV.map((n) => (
@@ -225,7 +225,16 @@ function Hero() {
             >
               Business Development
             </p>
-            <p className="text-3xl font-bold md:text-4xl">Representative</p>
+            <p
+              className="text-3xl font-bold md:text-4xl"
+              style={{
+                background: "var(--gradient-primary)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Representative
+            </p>
           </div>
           <p className="mt-6 max-w-md text-base text-muted-foreground">
             Professional cold caller and SDR with 1.5+ years of experience
