@@ -443,9 +443,7 @@ function Projects() {
     <section id="projects" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-6">
         <h2 className="max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
-          Projects I've
-          <br />
-          <span className="text-primary">Delivered</span>
+          What <span className="text-primary">I Do?</span>
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-2">
