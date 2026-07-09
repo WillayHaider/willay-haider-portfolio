@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
 });
 
 const NAV = [
-  { label: "About Me", href: "#about" },
+  { label: "About Me", href: "#about-me" },
   { label: "Experience", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
@@ -160,6 +160,7 @@ function Portfolio() {
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/40">
       <Nav />
       <Hero />
+      <About />
       <Projects />
       <Experience />
       <Certifications />
@@ -502,6 +503,39 @@ function OfferInner() {
               <h3 className="mt-6 text-xl font-semibold">{o.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{o.desc}</p>
             </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section id="about-me" className="relative py-24">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="mb-10 flex flex-col items-start gap-3">
+          <span className="rounded-full border border-primary/40 px-3 py-1 text-xs font-medium text-primary">
+            About Me
+          </span>
+          <h2 className="text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+            Who is <span className="text-primary">Willay Haider</span>?
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {[
+            "Experienced Business Development Manager with a strong focus on B2B, B2C, and Appointment Setting. I've successfully managed numerous projects, consistently delivering exceptional results. My expertise lies in building meaningful client relationships and driving growth through effective strategies via Cold Calling, Email Marketing, and Social Outreach.",
+            "My core strengths lie in crafting effective strategies, nurturing client relationships, and driving business growth. I thrive on connecting with clients, understanding their unique needs, and creating tailored solutions that foster long-term success.",
+            "Passionate about innovation and collaboration, I'm dedicated to helping businesses reach new heights through strategic partnerships and meaningful engagements.",
+            "Ecommerce expert helping brands grow their online presence, optimize conversions, and scale sales through data-driven marketing strategies and customer focused solutions. Passionate about driving performance, improving ROI, and building long-term digital success.",
+          ].map((p, i) => (
+            <p
+              key={i}
+              className="rounded-2xl border border-border p-6 text-sm leading-relaxed text-muted-foreground"
+              style={{ background: "var(--gradient-card)" }}
+            >
+              {p}
+            </p>
           ))}
         </div>
       </div>
