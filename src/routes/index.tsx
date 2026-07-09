@@ -13,7 +13,8 @@ import {
   Briefcase,
   GraduationCap,
 } from "lucide-react";
-import heroPortrait from "@/assets/hero-portrait.png";
+import heroPortraitAsset from "@/assets/willay-portrait.jpeg.asset.json";
+const heroPortrait = heroPortraitAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -70,6 +71,34 @@ const EXPERIENCE = [
     desc: "Led online and offline sales campaigns via WhatsApp, TikTok, Meta, and Facebook Marketplace plus in-person outreach. Managed the full sales cycle — needs discovery, demos, pricing, negotiation, invoicing and payments — with accurate daily logs.",
   },
 ];
+// Full experience roster including B2B BDR and Truck Dispatching roles
+EXPERIENCE.length = 0;
+EXPERIENCE.push(
+  {
+    role: "Business Development Representative — B2B Industry",
+    org: "International B2B Clients (US / UK / EU)",
+    date: "2024 – Present",
+    desc: "Driving outbound B2B pipeline for SaaS and service companies across US, UK, and EU markets. Cold calling C-level and department heads, running discovery, qualifying with BANT, delivering MQLs & SQLs, and booking demos for senior AEs. Consistent CRM hygiene across HubSpot and Salesforce.",
+  },
+  {
+    role: "Business Development Representative — Truck Dispatching",
+    org: "US Trucking & Logistics Carriers",
+    date: "2024 – Present",
+    desc: "Dispatching for US-based owner-operators and small fleets — sourcing high-paying loads from DAT and Truckstop, negotiating rates with brokers, handling rate confirmations, BOLs, and check calls. Built long-term carrier–broker relationships and maximized weekly gross per truck.",
+  },
+  {
+    role: "Sales Development Representative",
+    org: "International B2B Clients",
+    date: "2023 – 2024",
+    desc: "Full outbound SDR motion — lead generation via LinkedIn Sales Navigator, Apollo, and email databases; cold calls and cold email sequences; qualifying decision maker, need, and budget; delivering MQLs & SQLs; scheduling demos; and keeping the CRM updated with live call notes.",
+  },
+  {
+    role: "Sales — Online / Offline Marketing",
+    org: "Independent",
+    date: "2022 – 2023",
+    desc: "Led online and offline sales campaigns via WhatsApp, TikTok, Meta, and Facebook Marketplace plus in-person outreach. Owned the full cycle — discovery, demos, pricing, negotiation, invoicing, and payments — with accurate daily logs.",
+  },
+);
 
 const EDUCATION = [
   {
