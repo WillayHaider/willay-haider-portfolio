@@ -434,12 +434,11 @@ function Projects() {
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-2">
-          {PROJECTS.map((p) => (
-            <article
-              key={p.no}
-              className="group relative overflow-hidden rounded-3xl border border-border p-6 transition-all hover:border-primary/50 sm:p-8"
-              style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
+          {PROJECTS.map((p, i) => (
+            <Reveal key={p.no} delay={i * 100} as="article"
+              className="group relative overflow-hidden rounded-3xl border border-border p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_var(--primary)] sm:p-8"
             >
+            <div style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }} className="rounded-3xl -m-6 sm:-m-8 p-6 sm:p-8">
               <div className="flex items-start justify-between">
                 <span className="text-4xl font-bold text-muted-foreground/60 sm:text-5xl">{p.no}</span>
                 <span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
@@ -452,11 +451,12 @@ function Projects() {
               <p className="mt-4 text-sm text-muted-foreground/80">{p.desc}</p>
               <a
                 href="#"
-                className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100"
+                className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
               >
                 View project <ArrowUpRight className="h-4 w-4" />
               </a>
-            </article>
+            </div>
+            </Reveal>
           ))}
         </div>
       </div>
