@@ -160,6 +160,7 @@ function Portfolio() {
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/40">
       <Nav />
       <Hero />
+      <About />
       <Projects />
       <Experience />
       <Certifications />
