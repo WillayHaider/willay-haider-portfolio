@@ -71,6 +71,54 @@ function CountUp({
   );
 }
 
+function Reveal({
+  children,
+  delay = 0,
+  as: Tag = "div",
+  className = "",
+  style,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  as?: any;
+  className?: string;
+  style?: React.CSSProperties;
+}) {
+  const ref = useRef<HTMLElement | null>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            setVisible(true);
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <Tag
+      ref={ref as any}
+      style={{
+        ...style,
+        transitionDelay: `${delay}ms`,
+      }}
+      className={`transition-all duration-700 ease-out will-change-transform ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      } ${className}`}
+    >
+      {children}
+    </Tag>
+  );
+}
+
 const NAV = [
   { label: "About Me", href: "/about" },
   { label: "Experience", href: "/#projects" },
@@ -264,7 +312,7 @@ function Hero() {
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 sm:gap-12 sm:px-6 md:grid-cols-[1fr_auto_1fr]">
         {/* Left: text */}
-        <div className="relative z-10">
+        <div className="relative z-10 animate-fade-in">
           <p className="text-xs font-medium text-primary sm:text-sm">Hello, I'm</p>
           <h1 className="mt-2 text-4xl font-bold leading-[1.05] tracking-tight sm:mt-3 sm:text-5xl md:text-6xl lg:text-7xl">
             Willay <br /> Haider
@@ -333,9 +381,9 @@ function Hero() {
         </div>
 
         {/* Center: portrait */}
-        <div className="relative mx-auto flex items-center justify-center order-first md:order-none">
+        <div className="relative mx-auto flex items-center justify-center order-first md:order-none animate-scale-in">
           <div
-            className="absolute inset-0 -z-0 rounded-full blur-3xl"
+            className="absolute inset-0 -z-0 rounded-full blur-3xl animate-pulse"
             style={{ background: "var(--gradient-primary)", opacity: 0.35 }}
           />
           <img
@@ -343,18 +391,19 @@ function Hero() {
             alt="Willay Haider — Business Development Representative"
             width={800}
             height={1000}
-            className="relative z-10 h-auto w-[220px] object-contain sm:w-[280px] md:w-[360px] lg:w-[440px]"
+            className="relative z-10 h-auto w-[220px] object-contain transition-transform duration-500 hover:scale-[1.03] sm:w-[280px] md:w-[360px] lg:w-[440px]"
           />
         </div>
 
         {/* Right: socials rail */}
         <div className="hidden flex-col items-end gap-4 md:flex">
-          {SOCIALS.map((s) => (
+          {SOCIALS.map((s, i) => (
             <a
               key={s.label}
               href={s.href}
               aria-label={s.label}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/40 text-muted-foreground transition-all hover:border-primary hover:text-primary"
+              style={{ animationDelay: `${i * 80}ms` }}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/40 text-muted-foreground transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary hover:shadow-[0_0_20px_var(--primary)] animate-fade-in"
             >
               <s.icon className="h-4 w-4" />
             </a>
@@ -388,11 +437,13 @@ function Projects() {
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-2">
-          {PROJECTS.map((p) => (
-            <article
+          {PROJECTS.map((p, i) => (
+            <Reveal
               key={p.no}
-              className="group relative overflow-hidden rounded-3xl border border-border p-6 transition-all hover:border-primary/50 sm:p-8"
+              delay={i * 100}
+              as="article"
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
+              className="group relative overflow-hidden rounded-3xl border border-border p-6 hover:-translate-y-1 hover:border-primary/50 sm:p-8"
             >
               <div className="flex items-start justify-between">
                 <span className="text-4xl font-bold text-muted-foreground/60 sm:text-5xl">{p.no}</span>
@@ -406,11 +457,11 @@ function Projects() {
               <p className="mt-4 text-sm text-muted-foreground/80">{p.desc}</p>
               <a
                 href="#"
-                className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100"
+                className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
               >
                 View project <ArrowUpRight className="h-4 w-4" />
               </a>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -457,8 +508,8 @@ function Experience() {
 
         <div className="relative mt-10 space-y-8 border-l border-border/60 pl-6 sm:mt-12 sm:space-y-10 sm:pl-8">
           {items.map((it, i) => (
-            <div key={i} className="relative">
-              <span className="absolute -left-[30px] top-2 h-3 w-3 rounded-full bg-primary shadow-[0_0_0_4px_oklch(0.09_0.02_250)] sm:-left-[38px]" />
+            <Reveal key={i} delay={i * 80} className="relative">
+              <span className="absolute -left-[30px] top-2 h-3 w-3 rounded-full bg-primary shadow-[0_0_0_4px_oklch(0.09_0.02_250)] animate-pulse sm:-left-[38px]" />
               <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-4">
                 <div className="min-w-0">
                   <h3 className="text-base font-semibold sm:text-xl">{it.role}</h3>
@@ -467,7 +518,7 @@ function Experience() {
                 <p className="text-xs font-medium text-muted-foreground sm:text-sm">{it.date}</p>
               </div>
               <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:mt-3">{it.desc}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -508,14 +559,15 @@ function Certifications() {
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {CERTIFICATIONS.map((c, i) => (
-            <div
+            <Reveal
               key={c.title}
-              className="group relative overflow-hidden rounded-2xl border border-border p-5 transition-all hover:-translate-y-1 hover:border-primary/60 sm:p-6"
+              delay={i * 80}
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
+              className="group relative overflow-hidden rounded-2xl border border-border p-5 hover:-translate-y-1 hover:border-primary/60 sm:p-6"
             >
               <div className="flex items-start gap-4">
                 <div
-                  className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl text-primary-foreground"
+                  className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl text-primary-foreground transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110"
                   style={{ background: "var(--gradient-primary)" }}
                 >
                   <Award className="h-5 w-5" />
@@ -530,7 +582,7 @@ function Certifications() {
                   <p className="mt-1 text-sm text-primary">{c.org}</p>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -547,21 +599,22 @@ function OfferInner() {
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-3">
-          {OFFER.map((o) => (
-            <div
+          {OFFER.map((o, i) => (
+            <Reveal
               key={o.title}
-              className="relative overflow-hidden rounded-3xl border border-border p-6 transition-all hover:border-primary/50 sm:p-8"
+              delay={i * 120}
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
+              className="group relative overflow-hidden rounded-3xl border border-border p-6 hover:-translate-y-1 hover:border-primary/50 sm:p-8"
             >
               <div
-                className="flex h-12 w-12 items-center justify-center rounded-2xl text-primary-foreground"
+                className="flex h-12 w-12 items-center justify-center rounded-2xl text-primary-foreground transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110"
                 style={{ background: "var(--gradient-primary)" }}
               >
                 <o.icon className="h-5 w-5" />
               </div>
               <h3 className="mt-5 text-lg font-semibold sm:mt-6 sm:text-xl">{o.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{o.desc}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -612,11 +665,13 @@ function Testimonials() {
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-3">
-          {TESTIMONIALS.map((t) => (
-            <figure
+          {TESTIMONIALS.map((t, i) => (
+            <Reveal
               key={t.name}
-              className="rounded-3xl border border-border p-6 sm:p-8"
+              delay={i * 120}
+              as="figure"
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
+              className="rounded-3xl border border-border p-6 transition-transform duration-300 hover:-translate-y-1 sm:p-8"
             >
               <div className="flex items-center gap-4">
                 <div
@@ -631,15 +686,19 @@ function Testimonials() {
                 </div>
               </div>
               <div className="mt-4 flex items-center gap-1">
-                {Array.from({ length: t.stars }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                {Array.from({ length: t.stars }).map((_, si) => (
+                  <Star
+                    key={si}
+                    style={{ animationDelay: `${si * 100}ms` }}
+                    className="h-4 w-4 fill-primary text-primary animate-scale-in"
+                  />
                 ))}
                 <span className="ml-2 text-sm font-semibold">5.0</span>
               </div>
               <blockquote className="mt-4 text-sm text-muted-foreground">
                 "{t.quote}"
               </blockquote>
-            </figure>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -661,7 +720,7 @@ function Contact() {
         <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-10 sm:gap-4 md:grid-cols-2">
           <a
             href="mailto:Connects.haider@gmail.com"
-            className="flex items-center gap-3 rounded-2xl border border-border p-5 text-left transition-all hover:border-primary"
+            className="flex items-center gap-3 rounded-2xl border border-border p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_10px_30px_-10px_var(--primary)]"
             style={{ background: "var(--gradient-card)" }}
           >
             <Mail className="h-5 w-5 shrink-0 text-primary" />
@@ -672,10 +731,10 @@ function Contact() {
           </a>
           <a
             href="https://wa.me/923206990099"
-            className="flex items-center gap-3 rounded-2xl border border-border p-5 text-left"
+            className="flex items-center gap-3 rounded-2xl border border-border p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_10px_30px_-10px_var(--primary)]"
             style={{ background: "var(--gradient-card)" }}
           >
-            <Phone className="h-5 w-5 shrink-0 text-primary" />
+            <Phone className="h-5 w-5 shrink-0 text-primary animate-pulse" />
             <div className="min-w-0">
               <p className="text-xs uppercase tracking-wider text-muted-foreground">Phone / WhatsApp</p>
               <p className="text-sm font-medium">+92 320 699 00 99</p>
@@ -686,11 +745,12 @@ function Contact() {
         <div className="mt-10">
           <p className="text-sm font-medium text-primary">Social Media</p>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
-            {SOCIALS.map((s) => (
+            {SOCIALS.map((s, i) => (
               <a
                 key={s.label}
                 href={s.href}
-                className="flex items-center gap-2 rounded-full border border-border bg-card/40 px-4 py-2 text-sm transition-all hover:border-primary hover:text-primary"
+                style={{ animationDelay: `${i * 80}ms` }}
+                className="flex items-center gap-2 rounded-full border border-border bg-card/40 px-4 py-2 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary animate-fade-in"
               >
                 <s.icon className="h-4 w-4" />
                 {s.label}
