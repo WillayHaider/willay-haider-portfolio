@@ -23,9 +23,9 @@ export const Route = createFileRoute("/")({
 });
 
 const NAV = [
-  { label: "About Me", href: "#about-me" },
-  { label: "Experience", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "About Me", href: "/about" },
+  { label: "Experience", href: "/#projects" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const PROJECTS = [
@@ -166,7 +166,6 @@ function Portfolio() {
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/40">
       <Nav />
       <Hero />
-      <About />
       <Projects />
       <Experience />
       <Certifications />
@@ -178,7 +177,7 @@ function Portfolio() {
   );
 }
 
-function Nav() {
+export function Nav() {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -517,7 +516,7 @@ function OfferInner() {
   );
 }
 
-function About() {
+export function About() {
   return (
     <section id="about-me" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-5xl px-5 sm:px-6">
@@ -652,7 +651,7 @@ function Contact() {
   );
 }
 
-function Footer() {
+export function Footer() {
   return (
     <footer className="border-t border-border/40 py-8">
       <div className="mx-auto max-w-7xl px-6 text-center text-sm text-muted-foreground">
