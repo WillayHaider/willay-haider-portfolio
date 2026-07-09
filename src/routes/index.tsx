@@ -76,11 +76,13 @@ function Reveal({
   delay = 0,
   as: Tag = "div",
   className = "",
+  style,
 }: {
   children: React.ReactNode;
   delay?: number;
   as?: any;
   className?: string;
+  style?: React.CSSProperties;
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -105,6 +107,7 @@ function Reveal({
     <Tag
       ref={ref as any}
       style={{
+        ...style,
         transitionDelay: `${delay}ms`,
       }}
       className={`transition-all duration-700 ease-out will-change-transform ${
