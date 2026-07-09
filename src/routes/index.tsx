@@ -238,9 +238,10 @@ function Hero() {
             </p>
           </div>
           <p className="mt-6 max-w-md text-base text-muted-foreground">
-            Professional cold caller and SDR with 1.5+ years of experience
-            delivering outbound sales projects for companies around the world —
-            from lead generation and qualification to booking qualified demos.
+            Professional cold caller and BDR with 1.5+ years of experience
+            delivering outbound sales projects for companies around the world,
+            from lead generation and qualification to booking qualified meetings
+            with founders, CEOs and decision makers for closing high ticket deals.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
