@@ -192,7 +192,7 @@ function Nav() {
         </nav>
         <a
           href="#contact"
-          className="rounded-full border border-primary/40 px-4 py-2 text-xs font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground"
+          className="rounded-full border border-primary/40 px-3 py-1.5 text-[11px] font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground sm:px-4 sm:py-2 sm:text-xs"
         >
           Hire Me
         </a>
@@ -205,19 +205,19 @@ function Hero() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden pt-32 pb-20"
+      className="relative overflow-hidden pt-24 pb-14 sm:pt-32 sm:pb-20"
       style={{ background: "var(--gradient-hero)" }}
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 md:grid-cols-[1fr_auto_1fr]">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 sm:gap-12 sm:px-6 md:grid-cols-[1fr_auto_1fr]">
         {/* Left: text */}
         <div className="relative z-10">
-          <p className="text-sm font-medium text-primary">Hello, I'm</p>
-          <h1 className="mt-3 text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
+          <p className="text-xs font-medium text-primary sm:text-sm">Hello, I'm</p>
+          <h1 className="mt-2 text-4xl font-bold leading-[1.05] tracking-tight sm:mt-3 sm:text-5xl md:text-6xl lg:text-7xl">
             Willay <br /> Haider
           </h1>
-          <div className="mt-6 space-y-1">
+          <div className="mt-4 space-y-1 sm:mt-6">
             <p
-              className="text-3xl font-semibold md:text-4xl"
+              className="text-2xl font-semibold sm:text-3xl md:text-4xl"
               style={{
                 background: "var(--gradient-primary)",
                 WebkitBackgroundClip: "text",
@@ -227,7 +227,7 @@ function Hero() {
               Business Development
             </p>
             <p
-              className="text-3xl font-bold md:text-4xl"
+              className="text-2xl font-bold sm:text-3xl md:text-4xl"
               style={{
                 background: "var(--gradient-primary)",
                 WebkitBackgroundClip: "text",
@@ -237,45 +237,45 @@ function Hero() {
               Representative
             </p>
           </div>
-          <p className="mt-6 max-w-md text-base text-muted-foreground">
+          <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground sm:mt-6 sm:text-base">
             Professional cold caller and BDR with 1.5+ years of experience
             delivering outbound sales projects for companies around the world,
             from lead generation and qualification to booking qualified meetings
             with founders, CEOs and decision makers for closing high ticket deals.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
             <a
               href="#contact"
-              className="rounded-full px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
+              className="rounded-full px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform hover:scale-105 sm:px-6 sm:py-3"
               style={{ background: "var(--gradient-primary)", boxShadow: "var(--shadow-glow)" }}
             >
               Book a Call
             </a>
             <a
               href="mailto:Connects.haider@gmail.com"
-              className="rounded-full border border-border bg-card/50 px-6 py-3 text-sm font-medium transition-colors hover:border-primary"
+              className="rounded-full border border-border bg-card/50 px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary sm:px-6 sm:py-3"
             >
               Get in Touch
             </a>
           </div>
-          <div className="mt-10 flex flex-wrap gap-8">
+          <div className="mt-8 grid grid-cols-3 gap-4 sm:mt-10 sm:flex sm:flex-wrap sm:gap-8">
             <div>
-              <p className="text-3xl font-bold text-primary">1.5+</p>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">Years Experience</p>
+              <p className="text-2xl font-bold text-primary sm:text-3xl">1.5+</p>
+              <p className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">Years Experience</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary">50+</p>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">Projects Delivered</p>
+              <p className="text-2xl font-bold text-primary sm:text-3xl">50+</p>
+              <p className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">Projects Delivered</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary">Global</p>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">Client Base</p>
+              <p className="text-2xl font-bold text-primary sm:text-3xl">Global</p>
+              <p className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">Client Base</p>
             </div>
           </div>
         </div>
 
         {/* Center: portrait */}
-        <div className="relative mx-auto flex items-center justify-center">
+        <div className="relative mx-auto flex items-center justify-center order-first md:order-none">
           <div
             className="absolute inset-0 -z-0 rounded-full blur-3xl"
             style={{ background: "var(--gradient-primary)", opacity: 0.35 }}
@@ -285,7 +285,7 @@ function Hero() {
             alt="Willay Haider — Business Development Representative"
             width={800}
             height={1000}
-            className="relative z-10 h-auto w-[280px] object-contain md:w-[360px] lg:w-[440px]"
+            className="relative z-10 h-auto w-[220px] object-contain sm:w-[280px] md:w-[360px] lg:w-[440px]"
           />
         </div>
 
@@ -308,8 +308,8 @@ function Hero() {
       </div>
 
       {/* Sub headline */}
-      <div className="mx-auto mt-16 max-w-7xl px-6">
-        <h2 className="text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+      <div className="mx-auto mt-12 max-w-7xl px-5 sm:mt-16 sm:px-6">
+        <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
           <span className="text-primary">Conversations</span>
           <br />
           That Close Deals
@@ -321,28 +321,28 @@ function Hero() {
 
 function Projects() {
   return (
-    <section id="projects" className="relative py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <h2 className="max-w-2xl text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+    <section id="projects" className="relative py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+        <h2 className="max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
           Projects I've
           <br />
           <span className="text-primary">Delivered</span>
         </h2>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-2">
           {PROJECTS.map((p) => (
             <article
               key={p.no}
-              className="group relative overflow-hidden rounded-3xl border border-border p-8 transition-all hover:border-primary/50"
+              className="group relative overflow-hidden rounded-3xl border border-border p-6 transition-all hover:border-primary/50 sm:p-8"
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
             >
               <div className="flex items-start justify-between">
-                <span className="text-5xl font-bold text-muted-foreground/60">{p.no}</span>
+                <span className="text-4xl font-bold text-muted-foreground/60 sm:text-5xl">{p.no}</span>
                 <span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
                   {p.tag}
                 </span>
               </div>
-              <h3 className="mt-6 text-2xl font-semibold">{p.title}</h3>
+              <h3 className="mt-5 text-xl font-semibold sm:mt-6 sm:text-2xl">{p.title}</h3>
               <p className="mt-4 text-xs uppercase tracking-wider text-primary">Techstack used</p>
               <p className="mt-2 text-sm text-muted-foreground">{p.stack}</p>
               <p className="mt-4 text-sm text-muted-foreground/80">{p.desc}</p>
@@ -364,18 +364,18 @@ function Experience() {
   const [tab, setTab] = useState<"exp" | "edu">("exp");
   const items = tab === "exp" ? EXPERIENCE : EDUCATION;
   return (
-    <section className="relative py-24">
-      <div className="mx-auto max-w-4xl px-6">
-        <h2 className="text-center text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+    <section className="relative py-16 sm:py-24">
+      <div className="mx-auto max-w-4xl px-5 sm:px-6">
+        <h2 className="text-center text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
           <span className="text-primary">My Work</span>
           <br />
           Experience
         </h2>
 
-        <div className="mx-auto mt-12 flex w-full max-w-md items-center justify-between rounded-full border border-border bg-card/40 p-1.5">
+        <div className="mx-auto mt-8 flex w-full max-w-md items-center justify-between rounded-full border border-border bg-card/40 p-1.5 sm:mt-12">
           <button
             onClick={() => setTab("exp")}
-            className={`flex flex-1 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
+            className={`flex flex-1 items-center justify-center gap-2 rounded-full px-3 py-2 text-xs font-medium transition-all sm:px-5 sm:py-2.5 sm:text-sm ${
               tab === "exp"
                 ? "text-primary-foreground"
                 : "text-muted-foreground hover:text-foreground"
@@ -386,7 +386,7 @@ function Experience() {
           </button>
           <button
             onClick={() => setTab("edu")}
-            className={`flex flex-1 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
+            className={`flex flex-1 items-center justify-center gap-2 rounded-full px-3 py-2 text-xs font-medium transition-all sm:px-5 sm:py-2.5 sm:text-sm ${
               tab === "edu"
                 ? "text-primary-foreground"
                 : "text-muted-foreground hover:text-foreground"
@@ -397,18 +397,18 @@ function Experience() {
           </button>
         </div>
 
-        <div className="relative mt-12 space-y-10 border-l border-border/60 pl-8">
+        <div className="relative mt-10 space-y-8 border-l border-border/60 pl-6 sm:mt-12 sm:space-y-10 sm:pl-8">
           {items.map((it, i) => (
             <div key={i} className="relative">
-          <span className="absolute -left-[38px] top-2 h-3 w-3 rounded-full bg-primary shadow-[0_0_0_4px_oklch(0.09_0.02_250)]" />
-              <div className="flex flex-wrap items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-xl font-semibold">{it.role}</h3>
+              <span className="absolute -left-[30px] top-2 h-3 w-3 rounded-full bg-primary shadow-[0_0_0_4px_oklch(0.09_0.02_250)] sm:-left-[38px]" />
+              <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-4">
+                <div className="min-w-0">
+                  <h3 className="text-base font-semibold sm:text-xl">{it.role}</h3>
                   <p className="text-sm text-primary">{it.org}</p>
                 </div>
-                <p className="text-sm font-medium text-muted-foreground">{it.date}</p>
+                <p className="text-xs font-medium text-muted-foreground sm:text-sm">{it.date}</p>
               </div>
-              <p className="mt-3 max-w-2xl text-sm text-muted-foreground">{it.desc}</p>
+              <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:mt-3">{it.desc}</p>
             </div>
           ))}
         </div>
@@ -431,8 +431,8 @@ const CERTIFICATIONS = [
 
 function Certifications() {
   return (
-    <section id="certifications" className="relative py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="certifications" className="relative py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
         <div className="flex flex-col items-center text-center">
           <span
             className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.25em] text-primary"
@@ -440,7 +440,7 @@ function Certifications() {
           >
             <Award className="h-3.5 w-3.5" /> Credentials
           </span>
-          <h2 className="mt-5 text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+          <h2 className="mt-5 text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
             My <span className="text-primary">Certifications</span>
           </h2>
           <p className="mt-4 max-w-xl text-sm text-muted-foreground">
@@ -448,11 +448,11 @@ function Certifications() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {CERTIFICATIONS.map((c, i) => (
             <div
               key={c.title}
-              className="group relative overflow-hidden rounded-2xl border border-border p-6 transition-all hover:-translate-y-1 hover:border-primary/60"
+              className="group relative overflow-hidden rounded-2xl border border-border p-5 transition-all hover:-translate-y-1 hover:border-primary/60 sm:p-6"
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
             >
               <div className="flex items-start gap-4">
@@ -462,7 +462,7 @@ function Certifications() {
                 >
                   <Award className="h-5 w-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
                     Certificate 0{i + 1}
                   </p>
@@ -482,17 +482,17 @@ function Certifications() {
 
 function OfferInner() {
   return (
-    <section className="relative py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <h2 className="text-center text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+    <section className="relative py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+        <h2 className="text-center text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
           What I <span className="text-primary">Offer</span>
         </h2>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-3">
           {OFFER.map((o) => (
             <div
               key={o.title}
-              className="relative overflow-hidden rounded-3xl border border-border p-8 transition-all hover:border-primary/50"
+              className="relative overflow-hidden rounded-3xl border border-border p-6 transition-all hover:border-primary/50 sm:p-8"
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
             >
               <div
@@ -501,7 +501,7 @@ function OfferInner() {
               >
                 <o.icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-6 text-xl font-semibold">{o.title}</h3>
+              <h3 className="mt-5 text-lg font-semibold sm:mt-6 sm:text-xl">{o.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{o.desc}</p>
             </div>
           ))}
@@ -513,17 +513,17 @@ function OfferInner() {
 
 function About() {
   return (
-    <section id="about-me" className="relative py-24">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="mb-10 flex flex-col items-start gap-3">
+    <section id="about-me" className="relative py-16 sm:py-24">
+      <div className="mx-auto max-w-5xl px-5 sm:px-6">
+        <div className="mb-8 flex flex-col items-start gap-3 sm:mb-10">
           <span className="rounded-full border border-primary/40 px-3 py-1 text-xs font-medium text-primary">
             About Me
           </span>
-          <h2 className="text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+          <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
             Who is <span className="text-primary">Willay Haider</span>?
           </h2>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
           {[
             "Experienced Business Development Manager with a strong focus on B2B, B2C, and Appointment Setting. I've successfully managed numerous projects, consistently delivering exceptional results. My expertise lies in building meaningful client relationships and driving growth through effective strategies via Cold Calling, Email Marketing, and Social Outreach.",
             "My core strengths lie in crafting effective strategies, nurturing client relationships, and driving business growth. I thrive on connecting with clients, understanding their unique needs, and creating tailored solutions that foster long-term success.",
@@ -532,7 +532,7 @@ function About() {
           ].map((p, i) => (
             <p
               key={i}
-              className="rounded-2xl border border-border p-6 text-sm leading-relaxed text-muted-foreground"
+              className="rounded-2xl border border-border p-5 text-sm leading-relaxed text-muted-foreground sm:p-6"
               style={{ background: "var(--gradient-card)" }}
             >
               {p}
@@ -546,19 +546,19 @@ function About() {
 
 function Testimonials() {
   return (
-    <section className="relative py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <h2 className="text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+    <section className="relative py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+        <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
           <span className="text-primary">What They Say</span>
           <br />
           About Me
         </h2>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((t) => (
             <figure
               key={t.name}
-              className="rounded-3xl border border-border p-8"
+              className="rounded-3xl border border-border p-6 sm:p-8"
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
             >
               <div className="flex items-center gap-4">
@@ -592,25 +592,25 @@ function Testimonials() {
 
 function Contact() {
   return (
-    <section id="contact" className="relative py-24">
-      <div className="mx-auto max-w-3xl px-6 text-center">
-        <h2 className="text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+    <section id="contact" className="relative py-16 sm:py-24">
+      <div className="mx-auto max-w-3xl px-5 text-center sm:px-6">
+        <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
           Let's <span className="text-primary">Work Together</span>
         </h2>
-        <p className="mt-4 text-muted-foreground">
+        <p className="mt-4 text-sm text-muted-foreground sm:text-base">
           Need qualified meetings on your calendar? Let's talk about your outbound goals.
         </p>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-10 sm:gap-4 md:grid-cols-2">
           <a
             href="mailto:Connects.haider@gmail.com"
             className="flex items-center gap-3 rounded-2xl border border-border p-5 text-left transition-all hover:border-primary"
             style={{ background: "var(--gradient-card)" }}
           >
-            <Mail className="h-5 w-5 text-primary" />
-            <div>
+            <Mail className="h-5 w-5 shrink-0 text-primary" />
+            <div className="min-w-0">
               <p className="text-xs uppercase tracking-wider text-muted-foreground">Email</p>
-              <p className="text-sm font-medium">Connects.haider@gmail.com</p>
+              <p className="truncate text-sm font-medium">Connects.haider@gmail.com</p>
             </div>
           </a>
           <a
@@ -618,8 +618,8 @@ function Contact() {
             className="flex items-center gap-3 rounded-2xl border border-border p-5 text-left"
             style={{ background: "var(--gradient-card)" }}
           >
-            <Phone className="h-5 w-5 text-primary" />
-            <div>
+            <Phone className="h-5 w-5 shrink-0 text-primary" />
+            <div className="min-w-0">
               <p className="text-xs uppercase tracking-wider text-muted-foreground">Phone / WhatsApp</p>
               <p className="text-sm font-medium">+92 320 699 00 99</p>
             </div>
