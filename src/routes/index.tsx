@@ -508,8 +508,8 @@ function Experience() {
 
         <div className="relative mt-10 space-y-8 border-l border-border/60 pl-6 sm:mt-12 sm:space-y-10 sm:pl-8">
           {items.map((it, i) => (
-            <div key={i} className="relative">
-              <span className="absolute -left-[30px] top-2 h-3 w-3 rounded-full bg-primary shadow-[0_0_0_4px_oklch(0.09_0.02_250)] sm:-left-[38px]" />
+            <Reveal key={i} delay={i * 80} className="relative">
+              <span className="absolute -left-[30px] top-2 h-3 w-3 rounded-full bg-primary shadow-[0_0_0_4px_oklch(0.09_0.02_250)] animate-pulse sm:-left-[38px]" />
               <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-4">
                 <div className="min-w-0">
                   <h3 className="text-base font-semibold sm:text-xl">{it.role}</h3>
@@ -518,7 +518,7 @@ function Experience() {
                 <p className="text-xs font-medium text-muted-foreground sm:text-sm">{it.date}</p>
               </div>
               <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:mt-3">{it.desc}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -559,14 +559,15 @@ function Certifications() {
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {CERTIFICATIONS.map((c, i) => (
-            <div
+            <Reveal
               key={c.title}
-              className="group relative overflow-hidden rounded-2xl border border-border p-5 transition-all hover:-translate-y-1 hover:border-primary/60 sm:p-6"
+              delay={i * 80}
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
+              className="group relative overflow-hidden rounded-2xl border border-border p-5 hover:-translate-y-1 hover:border-primary/60 sm:p-6"
             >
               <div className="flex items-start gap-4">
                 <div
-                  className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl text-primary-foreground"
+                  className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl text-primary-foreground transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110"
                   style={{ background: "var(--gradient-primary)" }}
                 >
                   <Award className="h-5 w-5" />
@@ -581,7 +582,7 @@ function Certifications() {
                   <p className="mt-1 text-sm text-primary">{c.org}</p>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -598,21 +599,22 @@ function OfferInner() {
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-3">
-          {OFFER.map((o) => (
-            <div
+          {OFFER.map((o, i) => (
+            <Reveal
               key={o.title}
-              className="relative overflow-hidden rounded-3xl border border-border p-6 transition-all hover:border-primary/50 sm:p-8"
+              delay={i * 120}
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
+              className="group relative overflow-hidden rounded-3xl border border-border p-6 hover:-translate-y-1 hover:border-primary/50 sm:p-8"
             >
               <div
-                className="flex h-12 w-12 items-center justify-center rounded-2xl text-primary-foreground"
+                className="flex h-12 w-12 items-center justify-center rounded-2xl text-primary-foreground transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110"
                 style={{ background: "var(--gradient-primary)" }}
               >
                 <o.icon className="h-5 w-5" />
               </div>
               <h3 className="mt-5 text-lg font-semibold sm:mt-6 sm:text-xl">{o.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{o.desc}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -663,11 +665,13 @@ function Testimonials() {
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-3">
-          {TESTIMONIALS.map((t) => (
-            <figure
+          {TESTIMONIALS.map((t, i) => (
+            <Reveal
               key={t.name}
-              className="rounded-3xl border border-border p-6 sm:p-8"
+              delay={i * 120}
+              as="figure"
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
+              className="rounded-3xl border border-border p-6 transition-transform duration-300 hover:-translate-y-1 sm:p-8"
             >
               <div className="flex items-center gap-4">
                 <div
@@ -682,15 +686,19 @@ function Testimonials() {
                 </div>
               </div>
               <div className="mt-4 flex items-center gap-1">
-                {Array.from({ length: t.stars }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                {Array.from({ length: t.stars }).map((_, si) => (
+                  <Star
+                    key={si}
+                    style={{ animationDelay: `${si * 100}ms` }}
+                    className="h-4 w-4 fill-primary text-primary animate-scale-in"
+                  />
                 ))}
                 <span className="ml-2 text-sm font-semibold">5.0</span>
               </div>
               <blockquote className="mt-4 text-sm text-muted-foreground">
                 "{t.quote}"
               </blockquote>
-            </figure>
+            </Reveal>
           ))}
         </div>
       </div>
