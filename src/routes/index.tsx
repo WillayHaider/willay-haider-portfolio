@@ -59,28 +59,34 @@ const PROJECTS = [
 
 const EXPERIENCE = [
   {
-    role: "Business Development Representative — B2B Industry",
-    org: "International B2B Clients (US / UK / EU)",
-    date: "2024 – Present",
-    desc: "Driving outbound B2B pipeline for SaaS and service companies across US, UK, and EU markets. Cold calling C-level and department heads, running discovery, qualifying with BANT, delivering MQLs & SQLs, and booking demos for senior AEs. Consistent CRM hygiene across HubSpot and Salesforce.",
+    role: "Senior Business Development Representative",
+    org: "Million Dials · Full-time",
+    date: "Jun 2025 – Present · 1 yr 2 mos",
+    desc: "Punjab, Pakistan · On-site. Leading outbound sales motions and mentoring junior BDRs — cold calling, discovery, and pipeline development across B2B accounts.",
+  },
+  {
+    role: "Business Development Representative",
+    org: "Focal Software · Full-time",
+    date: "Sep 2024 – Sep 2025 · 1 yr 1 mo",
+    desc: "As a committed B2B Appointment Specialist, connecting eCommerce business owners with advanced solutions from Focal Software. Multi-channel outreach across cold calling and email — CRM, B2B, and appointment setting.",
+  },
+  {
+    role: "Business Development Representative",
+    org: "FontanaShowers · Full-time",
+    date: "Jul 2023 – Dec 2024 · 1 yr 6 mos",
+    desc: "Part of the Commercial Marketing team at Fontana Showers — cold calling architects and designers, understanding their interests and project plans, and driving business development support.",
+  },
+  {
+    role: "Sales Development Representative",
+    org: "Shibli Global Network · Full-time",
+    date: "May 2024 – Oct 2024 · 6 mos",
+    desc: "Business Development professional specializing in B2B, B2C, and appointment setting. Handled multiple projects while consistently delivering strong results — CRM and B2C marketing focus.",
   },
   {
     role: "Business Development Representative — Truck Dispatching",
     org: "US Trucking & Logistics Carriers",
-    date: "2024 – Present",
-    desc: "Dispatching for US-based owner-operators and small fleets — sourcing high-paying loads from DAT and Truckstop, negotiating rates with brokers, handling rate confirmations, BOLs, and check calls. Built long-term carrier–broker relationships and maximized weekly gross per truck.",
-  },
-  {
-    role: "Sales Development Representative",
-    org: "International B2B Clients",
     date: "2023 – 2024",
-    desc: "Full outbound SDR motion — lead generation via LinkedIn Sales Navigator, Apollo, and email databases; cold calls and cold email sequences; qualifying decision maker, need, and budget; delivering MQLs & SQLs; scheduling demos; and keeping the CRM updated with live call notes.",
-  },
-  {
-    role: "Sales — Online / Offline Marketing",
-    org: "Independent",
-    date: "2022 – 2023",
-    desc: "Led online and offline sales campaigns via WhatsApp, TikTok, Meta, and Facebook Marketplace plus in-person outreach. Owned the full cycle — discovery, demos, pricing, negotiation, invoicing, and payments — with accurate daily logs.",
+    desc: "Dispatched for US-based owner-operators and small fleets — sourced high-paying loads from DAT and Truckstop, negotiated rates with brokers, and handled rate confirmations, BOLs, and check calls.",
   },
 ];
 
