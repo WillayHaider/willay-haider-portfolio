@@ -462,15 +462,7 @@ function Projects() {
                 </span>
               </div>
               <h3 className="mt-5 text-xl font-semibold sm:mt-6 sm:text-2xl">{p.title}</h3>
-              <p className="mt-4 text-xs uppercase tracking-wider text-primary">Techstack used</p>
-              <p className="mt-2 text-sm text-muted-foreground">{p.stack}</p>
               <p className="mt-4 text-sm text-muted-foreground/80">{p.desc}</p>
-              <a
-                href="#"
-                className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
-              >
-                View project <ArrowUpRight className="h-4 w-4" />
-              </a>
             </Reveal>
           ))}
         </div>
