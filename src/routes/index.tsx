@@ -59,22 +59,6 @@ const PROJECTS = [
 
 const EXPERIENCE = [
   {
-    role: "Sales Development Representative",
-    org: "International B2B Clients",
-    date: "2024 – 2025",
-    desc: "Lead generation via LinkedIn, email, and databases. Cold calling and cold emailing outbound prospects, qualifying leads (decision maker, need, budget), delivering MQLs & SQLs, scheduling demos, and keeping the CRM updated with live call notes.",
-  },
-  {
-    role: "Sales — Online / Offline Marketing",
-    org: "Independent",
-    date: "2023 – 2024",
-    desc: "Led online and offline sales campaigns via WhatsApp, TikTok, Meta, and Facebook Marketplace plus in-person outreach. Managed the full sales cycle — needs discovery, demos, pricing, negotiation, invoicing and payments — with accurate daily logs.",
-  },
-];
-// Full experience roster including B2B BDR and Truck Dispatching roles
-EXPERIENCE.length = 0;
-EXPERIENCE.push(
-  {
     role: "Business Development Representative — B2B Industry",
     org: "International B2B Clients (US / UK / EU)",
     date: "2024 – Present",
@@ -98,7 +82,7 @@ EXPERIENCE.push(
     date: "2022 – 2023",
     desc: "Led online and offline sales campaigns via WhatsApp, TikTok, Meta, and Facebook Marketplace plus in-person outreach. Owned the full cycle — discovery, demos, pricing, negotiation, invoicing, and payments — with accurate daily logs.",
   },
-);
+];
 
 const EDUCATION = [
   {
