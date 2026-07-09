@@ -23,9 +23,9 @@ export const Route = createFileRoute("/")({
 });
 
 const NAV = [
-  { label: "About Me", href: "#about-me" },
-  { label: "Experience", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "About Me", href: "/about" },
+  { label: "Experience", href: "/#projects" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const PROJECTS = [
@@ -166,7 +166,6 @@ function Portfolio() {
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/40">
       <Nav />
       <Hero />
-      <About />
       <Projects />
       <Experience />
       <Certifications />
