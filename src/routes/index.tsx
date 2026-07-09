@@ -263,10 +263,11 @@ function Hero() {
           />
           <img
             src={heroPortrait}
-            alt="Portfolio hero portrait"
+            alt="Willay Haider — Business Development Representative"
             width={800}
-            height={1200}
-            className="relative z-10 h-auto w-[280px] object-contain md:w-[360px] lg:w-[420px]"
+            height={1000}
+            className="relative z-10 aspect-[4/5] w-[280px] rounded-[2rem] border border-primary/30 object-cover shadow-2xl md:w-[360px] lg:w-[420px]"
+            style={{ boxShadow: "var(--shadow-glow)" }}
           />
         </div>
 
