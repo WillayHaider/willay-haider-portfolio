@@ -8,9 +8,11 @@ import {
   Mail,
   MapPin,
   ArrowUpRight,
-  Code2,
-  Palette,
-  Wrench,
+  Phone,
+  PhoneCall,
+  Target,
+  Users,
+  TrendingUp,
   Star,
   Briefcase,
   GraduationCap,
@@ -23,118 +25,118 @@ export const Route = createFileRoute("/")({
 
 const NAV = [
   { label: "About Me", href: "#about" },
-  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
 const PROJECTS = [
   {
     no: "01",
-    tag: "Web",
-    title: "Portfolio Website",
-    stack: "React JS, Tailwind CSS, React Router DOM, React Icons, AOS",
-    desc: "A fully responsive personal portfolio with smooth animations and dark theme.",
+    tag: "Outbound",
+    title: "SaaS Cold Calling Campaign",
+    stack: "LinkedIn Sales Nav, HubSpot, Apollo, Aircall",
+    desc: "Ran multi-region cold calling campaigns booking qualified demos for B2B SaaS clients across US, UK, and EU markets.",
   },
   {
     no: "02",
-    tag: "Web",
-    title: "E-Commerce Platform",
-    stack: "React JS, Node JS, Express, MongoDB, Stripe",
-    desc: "Full-stack shop with cart, checkout, auth, and admin dashboard.",
+    tag: "Lead Gen",
+    title: "B2B Lead Generation Pipeline",
+    stack: "LinkedIn, Apollo.io, Lusha, Email Outreach",
+    desc: "Sourced and qualified 500+ decision-maker leads via LinkedIn, email, and cold calls — delivering MQLs and SQLs to senior AEs.",
   },
   {
     no: "03",
-    tag: "Web",
-    title: "Coaching Landing Page",
-    stack: "React JS, Tailwind CSS, Framer Motion",
-    desc: "High-converting landing page for coaches with bookings and testimonials.",
+    tag: "Appointment Setting",
+    title: "Discovery Meeting Booking",
+    stack: "Calendly, Zoom, HubSpot CRM",
+    desc: "Booked and confirmed discovery calls & product demos for senior sales reps with an average show-up rate above 70%.",
   },
   {
     no: "04",
-    tag: "App",
-    title: "Weather Dashboard",
-    stack: "React JS, Tailwind CSS, OpenWeather API",
-    desc: "Live weather, forecast, and geolocation with a clean UI.",
+    tag: "E-commerce Sales",
+    title: "Online/Offline Sales Campaigns",
+    stack: "WhatsApp, TikTok, Meta, Facebook Marketplace",
+    desc: "Drove consistent weekly orders through multi-channel outreach — full cycle from discovery and demo to negotiation and payment.",
   },
 ];
 
 const EXPERIENCE = [
   {
-    role: "Frontend Web Developer",
-    org: "Phaton",
-    date: "Oct – Jan 26",
-    desc: "Collaborated with a team to build a fully functional e-commerce platform, developing responsive and dynamic interfaces using React.js and Tailwind CSS.",
+    role: "Sales Development Representative",
+    org: "International B2B Clients",
+    date: "2024 – 2025",
+    desc: "Lead generation via LinkedIn, email, and databases. Cold calling and cold emailing outbound prospects, qualifying leads (decision maker, need, budget), delivering MQLs & SQLs, scheduling demos, and keeping the CRM updated with live call notes.",
   },
   {
-    role: "Frontend Web Developer",
-    org: "Skillify Zone",
-    date: "Aug – July 2025",
-    desc: "Completed a 4-project internship: personal portfolio, landing page, weather app, and a music website clone using HTML, CSS, and JavaScript.",
+    role: "Sales — Online / Offline Marketing",
+    org: "Independent",
+    date: "2023 – 2024",
+    desc: "Led online and offline sales campaigns via WhatsApp, TikTok, Meta, and Facebook Marketplace plus in-person outreach. Managed the full sales cycle — needs discovery, demos, pricing, negotiation, invoicing and payments — with accurate daily logs.",
   },
 ];
 
 const EDUCATION = [
   {
-    role: "BS Computer Science",
-    org: "University of Sindh",
-    date: "2023 – 2027",
-    desc: "Focused on web technologies, algorithms, and software engineering fundamentals.",
+    role: "Intermediate in Computer Science",
+    org: "Punjab Group of Colleges",
+    date: "2024 – 2026",
+    desc: "Currently pursuing Intermediate in Computer Science with focus on IT fundamentals and business communication.",
   },
   {
-    role: "Intermediate — Pre Engineering",
-    org: "Govt. College",
-    date: "2021 – 2023",
-    desc: "Graduated with distinction in mathematics and physics.",
+    role: "Matriculation",
+    org: "Beacon Hall Secondary School",
+    date: "2022 – 2024",
+    desc: "Completed matriculation with a strong foundation in computer studies and languages.",
   },
 ];
 
 const OFFER = [
   {
-    icon: Palette,
-    title: "Creative Design",
-    desc: "Modern, distinctive interfaces that balance aesthetics with usability.",
+    icon: PhoneCall,
+    title: "Cold Calling",
+    desc: "Persuasive outbound calls to decision-makers — from opener to booked meeting, with strong objection handling.",
   },
   {
-    icon: Code2,
-    title: "Development Skills",
-    desc: "Website creation with React JS, Tailwind CSS & Node JS. Professional websites with lots of creativity.",
+    icon: Target,
+    title: "Lead Generation & Qualification",
+    desc: "Sourcing high-intent prospects via LinkedIn, email, and databases — then qualifying for decision maker, need, and budget.",
   },
   {
-    icon: Wrench,
-    title: "Development Tools",
-    desc: "I leverage powerful tools to streamline my workflow, improve productivity, and deliver high-quality projects.",
+    icon: TrendingUp,
+    title: "Appointment Setting & CRM",
+    desc: "Delivering MQLs & SQLs, booking demos for senior AEs, and keeping the CRM updated with real-time call notes.",
   },
 ];
 
 const TESTIMONIALS = [
   {
-    name: "Ahmed Khan",
-    role: "Project Supervisor",
+    name: "Sales Manager",
+    role: "B2B SaaS Client",
     stars: 5,
     quote:
-      "Highly professional and reliable. He adapts quickly, communicates well, and consistently delivers high-quality frontend solutions.",
+      "Willay consistently books qualified meetings. His discovery is sharp and prospects arrive to demos already warmed up.",
   },
   {
-    name: "Sara Ali",
-    role: "Peer / Collaborator",
+    name: "Founder",
+    role: "Startup Client",
     stars: 5,
     quote:
-      "Combines technical skill with creativity. His projects reflect attention to detail, clean code, and user-friendly design.",
+      "Reliable, persuasive, and genuinely good on the phone. Our outbound pipeline changed after Willay joined the effort.",
   },
   {
-    name: "Bilal Raza",
-    role: "Client",
+    name: "Senior AE",
+    role: "Teammate",
     stars: 5,
     quote:
-      "Delivered ahead of schedule with a polished result. Would definitely work with him again on future projects.",
+      "Great CRM hygiene, clean notes, and MQLs that actually convert. Exactly the SDR partner every AE wants.",
   },
 ];
 
 const SOCIALS = [
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Github, label: "GitHub", href: "#" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/willayhaider" },
+  { icon: Mail, label: "Email", href: "mailto:Connects.haider@gmail.com" },
+  { icon: Phone, label: "WhatsApp", href: "https://wa.me/923206990099" },
   { icon: Instagram, label: "Instagram", href: "#" },
-  { icon: Facebook, label: "Facebook", href: "#" },
 ];
 
 function Portfolio() {
@@ -157,7 +159,7 @@ function Nav() {
     <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#" className="text-sm font-semibold tracking-wide text-primary">
-          Portfolio<span className="text-foreground">.dev</span>
+          Willay<span className="text-foreground">.Haider</span>
         </a>
         <nav className="hidden gap-8 md:flex">
           {NAV.map((n) => (
@@ -193,7 +195,7 @@ function Hero() {
         <div className="relative z-10">
           <p className="text-sm font-medium text-primary">Hello, I'm</p>
           <h1 className="mt-3 text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
-            Your <br /> Name Here
+            Willay <br /> Haider
           </h1>
           <div className="mt-6 space-y-1">
             <p
@@ -204,28 +206,43 @@ function Hero() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              Creative
+              Business Development
             </p>
-            <p className="text-3xl font-bold md:text-4xl">MERN Stack Developer</p>
+            <p className="text-3xl font-bold md:text-4xl">Representative</p>
           </div>
           <p className="mt-6 max-w-md text-base text-muted-foreground">
-            I'm a MERN Stack Developer passionate about experimenting with new
-            technologies and crafting beautiful, performant web experiences.
+            Professional cold caller and SDR with 1.5+ years of experience
+            delivering outbound sales projects for companies around the world —
+            from lead generation and qualification to booking qualified demos.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#projects"
+              href="#contact"
               className="rounded-full px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
               style={{ background: "var(--gradient-primary)", boxShadow: "var(--shadow-glow)" }}
             >
-              View Projects
+              Book a Call
             </a>
             <a
-              href="#"
+              href="mailto:Connects.haider@gmail.com"
               className="rounded-full border border-border bg-card/50 px-6 py-3 text-sm font-medium transition-colors hover:border-primary"
             >
-              Download Resume
+              Get in Touch
             </a>
+          </div>
+          <div className="mt-10 flex flex-wrap gap-8">
+            <div>
+              <p className="text-3xl font-bold text-primary">1.5+</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground">Years Experience</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold text-primary">50+</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground">Projects Delivered</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold text-primary">Global</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground">Client Base</p>
+            </div>
           </div>
         </div>
 
@@ -265,9 +282,9 @@ function Hero() {
       {/* Sub headline */}
       <div className="mx-auto mt-16 max-w-7xl px-6">
         <h2 className="text-4xl font-bold leading-tight tracking-tight md:text-5xl">
-          <span className="text-primary">Creativity</span>
+          <span className="text-primary">Conversations</span>
           <br />
-          Is My Passion
+          That Close Deals
         </h2>
       </div>
     </section>
@@ -279,9 +296,9 @@ function Projects() {
     <section id="projects" className="relative py-24">
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="max-w-2xl text-4xl font-bold leading-tight tracking-tight md:text-5xl">
-          I make Incredible
+          Projects I've
           <br />
-          <span className="text-primary">Projects</span>
+          <span className="text-primary">Delivered</span>
         </h2>
 
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -355,7 +372,7 @@ function Experience() {
         <div className="relative mt-12 space-y-10 border-l border-border/60 pl-8">
           {items.map((it, i) => (
             <div key={i} className="relative">
-              <span className="absolute -left-[38px] top-2 h-3 w-3 rounded-full bg-primary shadow-[0_0_0_4px_oklch(0.09_0.02_280)]" />
+          <span className="absolute -left-[38px] top-2 h-3 w-3 rounded-full bg-primary shadow-[0_0_0_4px_oklch(0.09_0.02_250)]" />
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
                   <h3 className="text-xl font-semibold">{it.role}</h3>
@@ -457,31 +474,32 @@ function Contact() {
           Let's <span className="text-primary">Work Together</span>
         </h2>
         <p className="mt-4 text-muted-foreground">
-          Have a project in mind? I'd love to hear about it.
+          Need qualified meetings on your calendar? Let's talk about your outbound goals.
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
           <a
-            href="mailto:hello@yourname.dev"
+            href="mailto:Connects.haider@gmail.com"
             className="flex items-center gap-3 rounded-2xl border border-border p-5 text-left transition-all hover:border-primary"
             style={{ background: "var(--gradient-card)" }}
           >
             <Mail className="h-5 w-5 text-primary" />
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground">Email</p>
-              <p className="text-sm font-medium">hello@yourname.dev</p>
+              <p className="text-sm font-medium">Connects.haider@gmail.com</p>
             </div>
           </a>
-          <div
+          <a
+            href="https://wa.me/923206990099"
             className="flex items-center gap-3 rounded-2xl border border-border p-5 text-left"
             style={{ background: "var(--gradient-card)" }}
           >
-            <MapPin className="h-5 w-5 text-primary" />
+            <Phone className="h-5 w-5 text-primary" />
             <div>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">Location</p>
-              <p className="text-sm font-medium">Sukkur, Sindh, Pakistan</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground">Phone / WhatsApp</p>
+              <p className="text-sm font-medium">+92 320 699 00 99</p>
             </div>
-          </div>
+          </a>
         </div>
 
         <div className="mt-10">
@@ -509,7 +527,7 @@ function Footer() {
   return (
     <footer className="border-t border-border/40 py-8">
       <div className="mx-auto max-w-7xl px-6 text-center text-sm text-muted-foreground">
-        All Rights Reserved by <span className="text-primary">Your Name</span> © 2026
+        All Rights Reserved by <span className="text-primary">Willay Haider</span> © 2026
       </div>
     </footer>
   );
