@@ -185,7 +185,7 @@ const EXPERIENCE = [
     role: "Dispatching Agent",
     org: "Nexus Innovations & Autolift Transport LLC",
     date: "Jun 2024 – Aug 2024 · 3 mos",
-    desc: "Dispatched for US-based owner-operators and small fleets — sourced high-paying loads from DAT and Truckstop, negotiated rates with brokers, and handled rate confirmations, BOLs, and check calls.",
+    desc: "Dispatched for US-based owners & operators and small fleets. Sourced high-paying loads from DAT, Central Dispatch, and Showrooms, negotiated rates with brokers and managers, and handled rate confirmations, BOLs, and check calls.",
   },
 ];
 
