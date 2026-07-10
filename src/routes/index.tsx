@@ -438,7 +438,7 @@ function Hero() {
           <br />
           That Close Deals
         </h2>
-        <div className="mt-6 sm:mt-8">
+        <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
           <a
             href={cvUrl}
             target="_blank"
@@ -448,6 +448,22 @@ function Hero() {
           >
             <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
             Resume
+          </a>
+          <a
+            href="https://www.linkedin.com/in/willayhaider"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 rounded-full border border-border bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:text-base"
+          >
+            <Linkedin className="h-4 w-4" />
+            LinkedIn
+          </a>
+          <a
+            href="mailto:Connects.haider@gmail.com"
+            className="group inline-flex items-center gap-2 rounded-full border border-border bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:text-base"
+          >
+            <Mail className="h-4 w-4" />
+            Email
           </a>
         </div>
       </div>
