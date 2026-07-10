@@ -160,31 +160,31 @@ const EXPERIENCE = [
   {
     role: "Senior Business Development Representative",
     org: "Million Dials · Full-time",
-    date: "Feb 2026 – Present · 6 mos",
+    date: "Jan 2026 – Present · 7 mos",
     desc: "Punjab, Pakistan · On-site. Leading outbound sales motions and mentoring junior BDRs — cold calling, discovery, and pipeline development across B2B accounts.",
   },
   {
     role: "Business Development Representative",
     org: "Focal Software · Full-time",
-    date: "Aug 2025 – Jan 2026 · 6 mos",
+    date: "Jun 2025 – Dec 2025 · 7 mos",
     desc: "As a committed B2B Appointment Specialist, connecting eCommerce business owners with advanced solutions from Focal Software. Multi-channel outreach across cold calling and email — CRM, B2B, and appointment setting.",
   },
   {
     role: "Sales Development Representative",
     org: "FontanaShowers · Full-time",
-    date: "Apr 2025 – Jul 2025 · 4 mos",
+    date: "Jan 2025 – May 2025 · 5 mos",
     desc: "Part of the Commercial Marketing team at Fontana Showers — cold calling architects and designers, understanding their interests and project plans, and driving business development support.",
   },
   {
     role: "Sales Representative",
     org: "Shibli Global Network · Full-time",
-    date: "Jan 2025 – Mar 2025 · 3 mos",
+    date: "Sep 2024 – Dec 2024 · 4 mos",
     desc: "Business Development professional specializing in B2B, B2C, and appointment setting. Handled multiple projects while consistently delivering strong results — CRM and B2C marketing focus.",
   },
   {
     role: "Dispatching Agent",
     org: "Nexus Innovations & Autolift Transport LLC",
-    date: "2024 – 2025",
+    date: "Jun 2024 – Aug 2024 · 3 mos",
     desc: "Dispatched for US-based owner-operators and small fleets — sourced high-paying loads from DAT and Truckstop, negotiated rates with brokers, and handled rate confirmations, BOLs, and check calls.",
   },
 ];
