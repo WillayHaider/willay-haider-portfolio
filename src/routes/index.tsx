@@ -269,8 +269,7 @@ function Portfolio() {
       <Nav />
       <Hero />
       <Projects />
-      <Experience />
-      <Certifications />
+      <ExperienceAndCerts />
       <Offer />
       <Testimonials />
       <Contact />
@@ -488,19 +487,29 @@ function Projects() {
   );
 }
 
-function Experience() {
+function ExperienceAndCerts() {
+  return (
+    <section className="relative py-16 sm:py-24">
+      <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-6 lg:grid-cols-2 lg:gap-12">
+        <ExperienceInner />
+        <CertificationsInner />
+      </div>
+    </section>
+  );
+}
+
+function ExperienceInner() {
   const [tab, setTab] = useState<"exp" | "edu">("exp");
   const items = tab === "exp" ? EXPERIENCE : EDUCATION;
   return (
-    <section className="relative py-16 sm:py-24">
-      <div className="mx-auto max-w-4xl px-5 sm:px-6">
-        <h2 className="text-center text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
+    <div>
+      <h2 className="text-center text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-left">
           <span className="text-primary">Professional Experience</span>
           <br />
           & Projects
         </h2>
 
-        <div className="mx-auto mt-8 flex w-full max-w-md items-center justify-between rounded-full border border-border bg-card/40 p-1.5 sm:mt-12">
+        <div className="mx-auto mt-8 flex w-full max-w-md items-center justify-between rounded-full border border-border bg-card/40 p-1.5 sm:mt-12 lg:mx-0">
           <button
             onClick={() => setTab("exp")}
             className={`flex flex-1 items-center justify-center gap-2 rounded-full px-3 py-2 text-xs font-medium transition-all sm:px-5 sm:py-2.5 sm:text-sm ${
@@ -540,8 +549,7 @@ function Experience() {
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
+    </div>
   );
 }
 
@@ -557,11 +565,10 @@ const CERTIFICATIONS = [
   { title: "Exploring AI Use Cases and Applications", org: "AWS" },
 ];
 
-function Certifications() {
+function CertificationsInner() {
   return (
-    <section id="certifications" className="relative py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6">
-        <div className="flex flex-col items-center text-center">
+    <div id="certifications">
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <span
             className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.25em] text-primary"
             style={{ background: "var(--gradient-card)" }}
@@ -576,7 +583,7 @@ function Certifications() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5">
           {CERTIFICATIONS.map((c, i) => (
             <Reveal
               key={c.title}
@@ -604,8 +611,7 @@ function Certifications() {
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
+    </div>
   );
 }
 
