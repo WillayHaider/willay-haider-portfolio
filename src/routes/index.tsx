@@ -235,6 +235,8 @@ const TESTIMONIALS = [
     name: "Sales Manager",
     role: "B2B SaaS Client",
     stars: 5,
+    filled: 4,
+    rating: 4.8,
     quote:
       "Mr Haider consistently books qualified meetings. His discovery is sharp and prospects arrive to demos already warmed up.",
   },
