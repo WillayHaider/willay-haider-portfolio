@@ -352,6 +352,12 @@ function Hero() {
               Get in Touch
             </a>
           </div>
+          <a
+            href="mailto:Connects.haider@gmail.com"
+            className="mt-3 inline-block text-sm font-medium text-primary underline-offset-4 hover:underline sm:mt-4"
+          >
+            Connects.haider@gmail.com
+          </a>
           <div className="mt-8 grid grid-cols-3 gap-4 sm:mt-10 sm:flex sm:flex-wrap sm:gap-8">
             <div>
               <p className="text-2xl font-bold text-primary sm:text-3xl">
