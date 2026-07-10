@@ -262,7 +262,7 @@ const SOCIALS = [
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/willayhaider" },
   { icon: Mail, label: "Email", href: "mailto:Connects.haider@gmail.com" },
   { icon: Phone, label: "WhatsApp", href: "https://wa.me/923206990099" },
-  { icon: Instagram, label: "Instagram", href: "#" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/damn_haiderrr?igsh=MW81Ymw3MzdkeGNrYg%3D%3D&utm_source=qr" },
 ];
 
 function Portfolio() {
@@ -799,8 +799,24 @@ function Contact() {
 export function Footer() {
   return (
     <footer className="border-t border-border/40 py-8">
-      <div className="mx-auto max-w-7xl px-6 text-center text-sm text-muted-foreground">
-        All Rights Reserved by <span className="text-primary">Willay Haider</span> © 2026
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 text-center text-sm text-muted-foreground">
+        <div className="flex gap-3">
+          {SOCIALS.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border/60 text-foreground/80 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+            >
+              <s.icon className="h-4 w-4" />
+            </a>
+          ))}
+        </div>
+        <div>
+          All Rights Reserved by <span className="text-primary">Willay Haider</span> © 2026
+        </div>
       </div>
     </footer>
   );
