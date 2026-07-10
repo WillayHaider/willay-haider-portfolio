@@ -160,31 +160,31 @@ const EXPERIENCE = [
   {
     role: "Senior Business Development Representative",
     org: "Million Dials · Full-time",
-    date: "Jun 2025 – Present · 1 yr 2 mos",
+    date: "Feb 2026 – Present · 6 mos",
     desc: "Punjab, Pakistan · On-site. Leading outbound sales motions and mentoring junior BDRs — cold calling, discovery, and pipeline development across B2B accounts.",
   },
   {
     role: "Business Development Representative",
     org: "Focal Software · Full-time",
-    date: "Sep 2024 – Sep 2025 · 1 yr 1 mo",
+    date: "Aug 2025 – Jan 2026 · 6 mos",
     desc: "As a committed B2B Appointment Specialist, connecting eCommerce business owners with advanced solutions from Focal Software. Multi-channel outreach across cold calling and email — CRM, B2B, and appointment setting.",
   },
   {
     role: "Business Development Representative",
     org: "FontanaShowers · Full-time",
-    date: "Jul 2023 – Dec 2024 · 1 yr 6 mos",
+    date: "Apr 2025 – Jul 2025 · 4 mos",
     desc: "Part of the Commercial Marketing team at Fontana Showers — cold calling architects and designers, understanding their interests and project plans, and driving business development support.",
   },
   {
     role: "Sales Development Representative",
     org: "Shibli Global Network · Full-time",
-    date: "May 2024 – Oct 2024 · 6 mos",
+    date: "Jan 2025 – Mar 2025 · 3 mos",
     desc: "Business Development professional specializing in B2B, B2C, and appointment setting. Handled multiple projects while consistently delivering strong results — CRM and B2C marketing focus.",
   },
   {
     role: "Business Development Representative — Truck Dispatching",
     org: "US Trucking & Logistics Carriers",
-    date: "2023 – 2024",
+    date: "2024 – 2025",
     desc: "Dispatched for US-based owner-operators and small fleets — sourced high-paying loads from DAT and Truckstop, negotiated rates with brokers, and handled rate confirmations, BOLs, and check calls.",
   },
 ];
