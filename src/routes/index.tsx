@@ -269,8 +269,7 @@ function Portfolio() {
       <Nav />
       <Hero />
       <Projects />
-      <Experience />
-      <Certifications />
+      <ExperienceAndCerts />
       <Offer />
       <Testimonials />
       <Contact />
