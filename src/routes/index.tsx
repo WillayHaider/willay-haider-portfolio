@@ -311,7 +311,7 @@ function Hero() {
           </div>
           <div className="mt-4 space-y-1 sm:mt-6">
             <p
-              className="text-2xl font-normal sm:text-3xl md:text-4xl"
+              className="text-2xl font-semibold sm:text-3xl md:text-4xl"
               style={{
                 background: "var(--gradient-primary)",
                 WebkitBackgroundClip: "text",
@@ -321,7 +321,7 @@ function Hero() {
               Business Development
             </p>
             <p
-              className="text-2xl font-normal sm:text-3xl md:text-4xl"
+              className="text-2xl font-semibold sm:text-3xl md:text-4xl"
               style={{
                 background: "var(--gradient-primary)",
                 WebkitBackgroundClip: "text",
