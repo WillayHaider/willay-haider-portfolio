@@ -720,7 +720,7 @@ function Contact() {
             <Mail className="h-5 w-5 shrink-0 text-primary transition-colors group-hover:text-primary" />
             <div className="min-w-0">
               <p className="text-xs uppercase tracking-wider text-muted-foreground">Email</p>
-              <p className="truncate text-sm font-medium text-foreground transition-colors group-hover:text-primary">Connects.haider@gmail.com</p>
+              <p className="truncate text-sm font-medium text-foreground underline-offset-4 transition-colors group-hover:text-primary group-hover:underline">Connects.haider@gmail.com</p>
             </div>
           </a>
           <a
