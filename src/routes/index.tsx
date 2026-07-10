@@ -173,7 +173,7 @@ const EXPERIENCE = [
     role: "Business Development Representative",
     org: "OMC Group · Full-time",
     date: "Mar 2025 – Apr 2025 · 2 mos",
-    desc: "SEO agency outbound targeting legal professionals — Counsels, Attorneys, Lawyers, and Agents. Cold calling law firms and solo practitioners, pitching SEO and digital growth services, and booking discovery calls with decision makers.",
+    desc: "SEO agency outbound targeting legal professionals: Counsel, Attorneys, Lawyers, and Agents. Cold calling law firms and solo practitioners, pitching SEO and digital growth services, and booking discovery calls with decision makers.",
   },
   {
     role: "Sales Representative",
