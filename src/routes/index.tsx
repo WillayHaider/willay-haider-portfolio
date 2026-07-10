@@ -145,7 +145,7 @@ const PROJECTS = [
     tag: "Appointment Setting",
     title: "Discovery Meeting Booking",
     stack: "Calendly, Zoom, HubSpot CRM",
-    desc: "Booked and confirmed discovery calls & product demos for senior sales reps with an average show-up rate above 70%.",
+    desc: "Booked and confirmed discovery calls & product or service demos with an average show-up rate above 65%.",
   },
   {
     no: "04",
