@@ -352,6 +352,12 @@ function Hero() {
               Get in Touch
             </a>
           </div>
+          <a
+            href="mailto:Connects.haider@gmail.com"
+            className="mt-3 inline-block text-sm font-medium text-primary underline-offset-4 hover:underline sm:mt-4"
+          >
+            Connects.haider@gmail.com
+          </a>
           <div className="mt-8 grid grid-cols-3 gap-4 sm:mt-10 sm:flex sm:flex-wrap sm:gap-8">
             <div>
               <p className="text-2xl font-bold text-primary sm:text-3xl">
@@ -714,7 +720,7 @@ function Contact() {
             <Mail className="h-5 w-5 shrink-0 text-primary transition-colors group-hover:text-primary" />
             <div className="min-w-0">
               <p className="text-xs uppercase tracking-wider text-muted-foreground">Email</p>
-              <p className="truncate text-sm font-medium text-foreground transition-colors group-hover:text-primary">Connects.haider@gmail.com</p>
+              <p className="truncate text-sm font-medium text-foreground underline-offset-4 transition-colors group-hover:text-primary group-hover:underline">Connects.haider@gmail.com</p>
             </div>
           </a>
           <a
