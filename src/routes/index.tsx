@@ -170,10 +170,10 @@ const EXPERIENCE = [
     desc: "As a committed B2B Appointment Specialist, connecting eCommerce business owners with advanced solutions from Focal Software. Multi-channel outreach across cold calling and email. CRM management, B2B deals, and appointment setting.",
   },
   {
-    role: "Sales Development Representative",
-    org: "FontanaShowers · Full-time",
-    date: "Jan 2025 – May 2025 · 5 mos",
-    desc: "Part of the Commercial Marketing team at Fontana Showers. Cold calling architects and designers, understanding their interests and project plans, and driving business development support.",
+    role: "Business Development Representative",
+    org: "OMC Group · Full-time",
+    date: "Mar 2025 – Apr 2025 · 2 mos",
+    desc: "SEO agency outbound targeting legal professionals — Counsels, Attorneys, Lawyers, and Agents. Cold calling law firms and solo practitioners, pitching SEO and digital growth services, and booking discovery calls with decision makers.",
   },
   {
     role: "Sales Representative",
