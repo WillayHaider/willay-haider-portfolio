@@ -176,7 +176,7 @@ const EXPERIENCE = [
     desc: "Part of the Commercial Marketing team at Fontana Showers — cold calling architects and designers, understanding their interests and project plans, and driving business development support.",
   },
   {
-    role: "Sales Development Representative",
+    role: "Sales Representative",
     org: "Shibli Global Network · Full-time",
     date: "Jan 2025 – Mar 2025 · 3 mos",
     desc: "Business Development professional specializing in B2B, B2C, and appointment setting. Handled multiple projects while consistently delivering strong results — CRM and B2C marketing focus.",
