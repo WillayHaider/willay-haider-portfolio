@@ -16,8 +16,7 @@ import {
   Search,
   Download,
 } from "lucide-react";
-import heroPortraitAsset from "@/assets/willay-portrait-nobg-new-nomic.png.asset.json";
-const heroPortrait = heroPortraitAsset.url;
+import heroPortrait from "@/assets/willay-portrait-nobg-new-nomic.png";
 import cvAsset from "@/assets/willay-cv.pdf.asset.json";
 const cvUrl = cvAsset.url;
 
