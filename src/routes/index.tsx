@@ -152,7 +152,7 @@ const PROJECTS = [
     tag: "E-commerce Sales",
     title: "Online/Offline Sales Campaigns",
     stack: "WhatsApp, TikTok, Meta, Facebook Marketplace",
-    desc: "Drove consistent weekly orders through multi-channel outreach — full cycle from discovery and demo to negotiation and payment.",
+    desc: "Drove consistent weekly orders through multi-channel outreach. Full cycle from discovery and demo to negotiation and payment in online & offline campaigns.",
   },
 ];
 
