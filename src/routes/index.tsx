@@ -708,13 +708,13 @@ function Contact() {
         <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-10 sm:gap-4 md:grid-cols-2">
           <a
             href="mailto:Connects.haider@gmail.com"
-            className="flex items-center gap-3 rounded-2xl border border-border p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_10px_30px_-10px_var(--primary)]"
+            className="group flex items-center gap-3 rounded-2xl border border-border p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_10px_30px_-10px_var(--primary)]"
             style={{ background: "var(--gradient-card)" }}
           >
-            <Mail className="h-5 w-5 shrink-0 text-primary" />
+            <Mail className="h-5 w-5 shrink-0 text-primary transition-colors group-hover:text-primary" />
             <div className="min-w-0">
               <p className="text-xs uppercase tracking-wider text-muted-foreground">Email</p>
-              <p className="truncate text-sm font-medium">Connects.haider@gmail.com</p>
+              <p className="truncate text-sm font-medium text-foreground transition-colors group-hover:text-primary">Connects.haider@gmail.com</p>
             </div>
           </a>
           <a
