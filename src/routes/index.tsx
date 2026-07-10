@@ -14,9 +14,12 @@ import {
   GraduationCap,
   Award,
   Search,
+  Download,
 } from "lucide-react";
 import heroPortraitAsset from "@/assets/willay-portrait-nobg.png.asset.json";
 const heroPortrait = heroPortraitAsset.url;
+import cvAsset from "@/assets/willay-cv.pdf.asset.json";
+const cvUrl = cvAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -435,6 +438,18 @@ function Hero() {
           <br />
           That Close Deals
         </h2>
+        <div className="mt-6 sm:mt-8">
+          <a
+            href={cvUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            download="Willay-Haider-CV.pdf"
+            className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_0_30px_var(--primary)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_45px_var(--primary)] sm:text-base"
+          >
+            <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+            Download Resume
+          </a>
+        </div>
       </div>
     </section>
   );
