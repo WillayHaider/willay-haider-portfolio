@@ -507,6 +507,44 @@ function Experience() {
             </Reveal>
           ))}
         </div>
+
+        {tab === "exp" && (
+          <div className="mt-14 sm:mt-20">
+            <Reveal className="flex flex-col items-center text-center">
+              <span
+                className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.25em] text-primary sm:text-xs"
+                style={{ background: "var(--gradient-card)" }}
+              >
+                <Target className="h-3.5 w-3.5" /> Projects
+              </span>
+              <h3 className="mt-4 text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
+                Projects Delivered <span className="text-primary">Alongside</span>
+              </h3>
+              <p className="mt-3 max-w-xl text-sm text-muted-foreground">
+                Key outbound and sales projects delivered across the roles above.
+              </p>
+            </Reveal>
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5">
+              {PROJECTS.map((p, i) => (
+                <Reveal
+                  key={p.no}
+                  delay={i * 80}
+                  style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
+                  className="group relative overflow-hidden rounded-2xl border border-border p-5 transition-all duration-500 hover:-translate-y-1 hover:border-primary/60 sm:p-6"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-primary">
+                      {p.tag}
+                    </span>
+                    <span className="text-xs font-semibold text-muted-foreground">{p.no}</span>
+                  </div>
+                  <h4 className="mt-3 text-lg font-semibold leading-snug">{p.title}</h4>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
