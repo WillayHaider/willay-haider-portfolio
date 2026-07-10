@@ -179,7 +179,7 @@ const EXPERIENCE = [
     role: "Sales Representative",
     org: "Shibli Global Network · Full-time",
     date: "Sep 2024 – Dec 2024 · 4 mos",
-    desc: "Business Development professional specializing in B2B, B2C, and appointment setting. Handled multiple projects while consistently delivering strong results — CRM and B2C marketing focus.",
+    desc: "Sales Rep specializing in B2B, B2C, and appointment setting. Handled multiple projects while consistently delivering strong results. CRM and B2C marketing focus.",
   },
   {
     role: "Dispatching Agent",
