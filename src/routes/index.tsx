@@ -182,8 +182,8 @@ const EXPERIENCE = [
     desc: "Business Development professional specializing in B2B, B2C, and appointment setting. Handled multiple projects while consistently delivering strong results — CRM and B2C marketing focus.",
   },
   {
-    role: "Business Development Representative — Truck Dispatching",
-    org: "US Trucking & Logistics Carriers",
+    role: "Dispatching Agent — Truck Dispatching",
+    org: "Nexus Innovations & Autolift Transport LLC",
     date: "2024 – 2025",
     desc: "Dispatched for US-based owner-operators and small fleets — sourced high-paying loads from DAT and Truckstop, negotiated rates with brokers, and handled rate confirmations, BOLs, and check calls.",
   },
