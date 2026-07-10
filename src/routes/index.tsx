@@ -173,7 +173,7 @@ const EXPERIENCE = [
     role: "Sales Development Representative",
     org: "FontanaShowers · Full-time",
     date: "Jan 2025 – May 2025 · 5 mos",
-    desc: "Part of the Commercial Marketing team at Fontana Showers — cold calling architects and designers, understanding their interests and project plans, and driving business development support.",
+    desc: "Part of the Commercial Marketing team at Fontana Showers. Cold calling architects and designers, understanding their interests and project plans, and driving business development support.",
   },
   {
     role: "Sales Representative",
