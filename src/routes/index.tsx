@@ -223,7 +223,7 @@ const OFFER = [
   {
     icon: TrendingUp,
     title: "Appointment Setting & CRM",
-    desc: "Delivering MQLs & SQLs, booking demos for senior AEs, and keeping the CRM updated with real-time call notes.",
+    desc: "Delivering MQLs & SQLs, booking demos, and keeping the CRM updated with real-time call notes.",
   },
 ];
 
