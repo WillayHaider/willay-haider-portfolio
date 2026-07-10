@@ -444,10 +444,10 @@ function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             download="Willay-Haider-CV.pdf"
-            className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_0_30px_var(--primary)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_45px_var(--primary)] sm:text-base"
+            className="group inline-flex items-center gap-2 rounded-full border border-border bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:text-base"
           >
             <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
-            Download Resume
+            Resume
           </a>
         </div>
       </div>
