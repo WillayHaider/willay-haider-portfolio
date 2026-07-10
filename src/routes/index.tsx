@@ -167,7 +167,7 @@ const EXPERIENCE = [
     role: "Business Development Representative",
     org: "Focal Software · Full-time",
     date: "Jun 2025 – Dec 2025 · 7 mos",
-    desc: "As a committed B2B Appointment Specialist, connecting eCommerce business owners with advanced solutions from Focal Software. Multi-channel outreach across cold calling and email — CRM, B2B, and appointment setting.",
+    desc: "As a committed B2B Appointment Specialist, connecting eCommerce business owners with advanced solutions from Focal Software. Multi-channel outreach across cold calling and email. CRM management, B2B deals, and appointment setting.",
   },
   {
     role: "Sales Development Representative",
