@@ -238,9 +238,9 @@ const TESTIMONIALS = [
   {
     name: "Founder",
     role: "Startup Client",
-    stars: 5,
+    stars: 4.7,
     quote:
-      "Reliable, persuasive, and genuinely good on the phone. Our outbound pipeline changed after Willay joined the effort.",
+      "Reliable, persuasive, and genuinely good on the phone. Our outbound pipeline changed after Mr Haider joined the effort.",
   },
   {
     name: "Senior AE",
@@ -688,14 +688,27 @@ function Testimonials() {
                 </div>
               </div>
               <div className="mt-4 flex items-center gap-1">
-                {Array.from({ length: t.stars }).map((_, si) => (
-                  <Star
-                    key={si}
-                    style={{ animationDelay: `${si * 100}ms` }}
-                    className="h-4 w-4 fill-primary text-primary animate-scale-in"
-                  />
-                ))}
-                <span className="ml-2 text-sm font-semibold">5.0</span>
+                {Array.from({ length: 5 }).map((_, si) => {
+                  const fill = Math.max(0, Math.min(1, t.stars - si));
+                  return (
+                    <div
+                      key={si}
+                      className="relative h-4 w-4 animate-scale-in"
+                      style={{ animationDelay: `${si * 100}ms` }}
+                    >
+                      <Star className="absolute inset-0 h-4 w-4 text-primary/30" />
+                      <div
+                        className="absolute inset-0 overflow-hidden"
+                        style={{ width: `${fill * 100}%` }}
+                      >
+                        <Star className="h-4 w-4 fill-primary text-primary" />
+                      </div>
+                    </div>
+                  );
+                })}
+                <span className="ml-2 text-sm font-semibold">
+                  {t.stars.toFixed(1)}
+                </span>
               </div>
               <blockquote className="mt-4 text-sm text-muted-foreground">
                 "{t.quote}"
