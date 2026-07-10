@@ -138,7 +138,7 @@ const PROJECTS = [
     tag: "Lead Gen",
     title: "B2B Lead Generation Pipeline",
     stack: "LinkedIn, Apollo.io, Lusha, Email Outreach",
-    desc: "Sourced and qualified 500+ decision-maker leads via LinkedIn, email, and cold calls delivering MQLs and SQLs.",
+    desc: "Sourced and qualified 500+ decision-maker leads via LinkedIn, email, and cold calls, delivering MQLs and SQLs.",
   },
   {
     no: "03",
