@@ -611,8 +611,7 @@ function CertificationsInner() {
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
+    </div>
   );
 }
 
