@@ -161,7 +161,7 @@ const EXPERIENCE = [
     role: "Senior Business Development Representative",
     org: "Million Dials · Full-time",
     date: "Jan 2026 – Present · 7 mos",
-    desc: "Punjab, Pakistan · On-site. Leading outbound sales motions and mentoring junior BDRs — cold calling, discovery, and pipeline development across B2B accounts.",
+    desc: "Punjab, Pakistan · On-site. Leading outbound sales motions and mentoring junior BDRs in cold calling, discovery, and pipeline development across B2B accounts.",
   },
   {
     role: "Business Development Representative",
