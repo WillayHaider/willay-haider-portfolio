@@ -815,7 +815,7 @@ export function Footer() {
           ))}
         </div>
         <div>
-          All Rights Reserved by <span className="text-primary">Willay Haider</span> © 2026
+          All Rights Reserved by <span className="text-primary">Mr Haider</span> © 2026
         </div>
       </div>
     </footer>
