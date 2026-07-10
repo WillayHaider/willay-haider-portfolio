@@ -478,9 +478,9 @@ function Experience() {
     <section className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-4xl px-5 sm:px-6">
         <h2 className="text-center text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
-          <span className="text-primary">My Work</span>
+          <span className="text-primary">Professional Experience</span>
           <br />
-          Experience
+          & Projects
         </h2>
 
         <div className="mx-auto mt-8 flex w-full max-w-md items-center justify-between rounded-full border border-border bg-card/40 p-1.5 sm:mt-12">
