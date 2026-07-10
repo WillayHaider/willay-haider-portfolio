@@ -6,14 +6,10 @@ import {
   Mail,
   ArrowUpRight,
   Phone,
-  PhoneCall,
-  Target,
-  TrendingUp,
   Star,
   Briefcase,
   GraduationCap,
   Award,
-  Search,
   Download,
   Globe,
 } from "lucide-react";
@@ -208,28 +204,6 @@ const EDUCATION = [
   },
 ];
 
-const OFFER = [
-  {
-    icon: Search,
-    title: "Deep Project Research",
-    desc: "Before a single dial, I deeply research the project, product, ICP, and market to understand every possibility, angle, and objection.",
-  },
-  {
-    icon: PhoneCall,
-    title: "Cold Calling",
-    desc: "Persuasive outbound calls to decision-makers, from opener to booked meeting, with strong objection handling.",
-  },
-  {
-    icon: Target,
-    title: "Lead Generation & Qualification",
-    desc: "Sourcing high-intent prospects via LinkedIn, email, tools and databases, then qualifying for decision maker, need, and budget.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Appointment Setting & CRM",
-    desc: "Delivering MQLs & SQLs, booking demos, and keeping the CRM updated with real-time call notes.",
-  },
-];
 
 const TESTIMONIALS = [
   {
@@ -273,7 +247,6 @@ function Portfolio() {
       <Hero />
       <Projects />
       <ExperienceAndCerts />
-      <Offer />
       <Testimonials />
       <Contact />
       <Footer />
@@ -572,9 +545,6 @@ function ExperienceInner() {
   );
 }
 
-function Offer() {
-  return OfferInner();
-}
 
 const CERTIFICATIONS = [
   { title: "Google Analytics Certification", org: "Google" },
@@ -634,37 +604,6 @@ function CertificationsInner() {
   );
 }
 
-function OfferInner() {
-  return (
-    <section className="relative py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6">
-        <h2 className="text-center text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
-          What I <span className="text-primary">Offer</span>
-        </h2>
-
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-3">
-          {OFFER.map((o, i) => (
-            <Reveal
-              key={o.title}
-              delay={i * 120}
-              style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
-              className="group relative overflow-hidden rounded-3xl border border-border p-6 hover:-translate-y-1 hover:border-primary/50 sm:p-8"
-            >
-              <div
-                className="flex h-12 w-12 items-center justify-center rounded-2xl text-primary-foreground transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110"
-                style={{ background: "var(--gradient-primary)" }}
-              >
-                <o.icon className="h-5 w-5" />
-              </div>
-              <h3 className="mt-5 text-lg font-semibold sm:mt-6 sm:text-xl">{o.title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground">{o.desc}</p>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export function About() {
   return (
