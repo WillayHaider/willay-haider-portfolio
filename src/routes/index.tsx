@@ -565,11 +565,10 @@ const CERTIFICATIONS = [
   { title: "Exploring AI Use Cases and Applications", org: "AWS" },
 ];
 
-function Certifications() {
+function CertificationsInner() {
   return (
-    <section id="certifications" className="relative py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6">
-        <div className="flex flex-col items-center text-center">
+    <div id="certifications">
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <span
             className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.25em] text-primary"
             style={{ background: "var(--gradient-card)" }}
@@ -584,7 +583,7 @@ function Certifications() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5">
           {CERTIFICATIONS.map((c, i) => (
             <Reveal
               key={c.title}
