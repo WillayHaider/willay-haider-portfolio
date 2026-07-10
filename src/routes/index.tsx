@@ -128,24 +128,24 @@ const NAV = [
 const PROJECTS = [
   {
     no: "01",
-    tag: "B2B Appointment Setting",
-    title: "Focal Software — eCommerce Outreach",
-    stack: "Cold Calling, Email, CRM, HubSpot",
-    desc: "As a committed B2B Appointment Specialist, connecting eCommerce business owners with advanced solutions from Focal Software. Multi-channel outreach across cold calling and email. CRM management, B2B deals, and appointment setting.",
+    tag: "Outbound",
+    title: "SaaS Cold Calling Campaign",
+    stack: "LinkedIn Sales Nav, HubSpot, Apollo, Aircall",
+    desc: "Ran multi-region cold calling campaigns booking qualified demos for B2B SaaS clients across US, UK, and EU markets.",
   },
   {
     no: "02",
-    tag: "SEO Agency Outbound",
-    title: "OMC Group — Legal Vertical Campaign",
-    stack: "Cold Calling, LinkedIn, Email Outreach",
-    desc: "SEO agency outbound targeting legal professionals: Counsel, Attorneys, Lawyers, and Agents. Cold calling law firms and solo practitioners, pitching SEO and digital growth services, and booking discovery calls with decision makers.",
+    tag: "Lead Gen",
+    title: "B2B Lead Generation Pipeline",
+    stack: "LinkedIn, Apollo.io, Lusha, Email Outreach",
+    desc: "Sourced and qualified 550+ decision-maker leads via LinkedIn, email, and cold calls, delivering MQLs and SQLs.",
   },
   {
     no: "03",
-    tag: "B2B / B2C Sales",
-    title: "Shibli Global Network — Multi-Project Sales",
-    stack: "Cold Calling, CRM, Appointment Setting",
-    desc: "Sales Rep specializing in B2B, B2C, and appointment setting. Handled multiple projects while consistently delivering strong results. CRM and B2C marketing focus.",
+    tag: "Appointment Setting",
+    title: "Discovery Meeting Booking",
+    stack: "Calendly, Zoom, HubSpot CRM",
+    desc: "Booked and confirmed discovery calls & product or service demos with an average show-up rate above 65%.",
   },
   {
     no: "04",
@@ -160,8 +160,26 @@ const EXPERIENCE = [
   {
     role: "Senior Business Development Representative",
     org: "Million Dials · Full-time",
-    date: "Jan 2025 – Present · 1 yr 6 mos",
+    date: "Jan 2026 – Present · 7 mos",
     desc: "Punjab, Pakistan · On-site. Leading outbound sales motions and guiding junior SDRs in cold calling, discovery, and pipeline development across B2B accounts.",
+  },
+  {
+    role: "Business Development Representative",
+    org: "Focal Software · Full-time",
+    date: "Jun 2025 – Dec 2025 · 7 mos",
+    desc: "As a committed B2B Appointment Specialist, connecting eCommerce business owners with advanced solutions from Focal Software. Multi-channel outreach across cold calling and email. CRM management, B2B deals, and appointment setting.",
+  },
+  {
+    role: "Business Development Representative",
+    org: "OMC Group · Full-time",
+    date: "Mar 2025 – Apr 2025 · 2 mos",
+    desc: "SEO agency outbound targeting legal professionals: Counsel, Attorneys, Lawyers, and Agents. Cold calling law firms and solo practitioners, pitching SEO and digital growth services, and booking discovery calls with decision makers.",
+  },
+  {
+    role: "Sales Representative",
+    org: "Shibli Global Network · Full-time",
+    date: "Sep 2024 – Dec 2024 · 4 mos",
+    desc: "Sales Rep specializing in B2B, B2C, and appointment setting. Handled multiple projects while consistently delivering strong results. CRM and B2C marketing focus.",
   },
   {
     role: "Dispatching Agent",
@@ -507,44 +525,6 @@ function Experience() {
             </Reveal>
           ))}
         </div>
-
-        {tab === "exp" && (
-          <div className="mt-14 sm:mt-20">
-            <Reveal className="flex flex-col items-center text-center">
-              <span
-                className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.25em] text-primary sm:text-xs"
-                style={{ background: "var(--gradient-card)" }}
-              >
-                <Target className="h-3.5 w-3.5" /> Projects
-              </span>
-              <h3 className="mt-4 text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
-                Projects Delivered <span className="text-primary">Alongside</span>
-              </h3>
-              <p className="mt-3 max-w-xl text-sm text-muted-foreground">
-                Key outbound and sales projects delivered across the roles above.
-              </p>
-            </Reveal>
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5">
-              {PROJECTS.map((p, i) => (
-                <Reveal
-                  key={p.no}
-                  delay={i * 80}
-                  style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
-                  className="group relative overflow-hidden rounded-2xl border border-border p-5 transition-all duration-500 hover:-translate-y-1 hover:border-primary/60 sm:p-6"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-primary">
-                      {p.tag}
-                    </span>
-                    <span className="text-xs font-semibold text-muted-foreground">{p.no}</span>
-                  </div>
-                  <h4 className="mt-3 text-lg font-semibold leading-snug">{p.title}</h4>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );
