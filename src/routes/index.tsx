@@ -239,8 +239,10 @@ const TESTIMONIALS = [
     name: "Founder",
     role: "Startup Client",
     stars: 5,
+    filled: 4,
+    rating: 4.7,
     quote:
-      "Reliable, persuasive, and genuinely good on the phone. Our outbound pipeline changed after Willay joined the effort.",
+      "Reliable, persuasive, and genuinely good on the phone. Our outbound pipeline changed after Mr Haider joined the effort.",
   },
   {
     name: "Senior AE",
@@ -688,14 +690,19 @@ function Testimonials() {
                 </div>
               </div>
               <div className="mt-4 flex items-center gap-1">
-                {Array.from({ length: t.stars }).map((_, si) => (
-                  <Star
-                    key={si}
-                    style={{ animationDelay: `${si * 100}ms` }}
-                    className="h-4 w-4 fill-primary text-primary animate-scale-in"
-                  />
-                ))}
-                <span className="ml-2 text-sm font-semibold">5.0</span>
+                {Array.from({ length: t.stars }).map((_, si) => {
+                  const filled = si < ((t as any).filled ?? t.stars);
+                  return (
+                    <Star
+                      key={si}
+                      style={{ animationDelay: `${si * 100}ms` }}
+                      className={`h-4 w-4 animate-scale-in ${filled ? "fill-primary text-primary" : "text-primary/40"}`}
+                    />
+                  );
+                })}
+                <span className="ml-2 text-sm font-semibold">
+                  {((t as any).rating ?? 5).toFixed(1)}
+                </span>
               </div>
               <blockquote className="mt-4 text-sm text-muted-foreground">
                 "{t.quote}"
