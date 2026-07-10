@@ -310,30 +310,155 @@ function Hero() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden pt-24 pb-14 sm:pt-32 sm:pb-20"
+      className="relative overflow-hidden pt-20 pb-12 sm:pt-32 sm:pb-20"
       style={{ background: "var(--gradient-hero)" }}
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 sm:gap-12 sm:px-6 md:grid-cols-[1fr_auto_1fr]">
-        {/* Left: text */}
-        <div className="relative z-10 animate-fade-in">
-          <p className="text-xs font-medium text-primary sm:text-sm">Hello, I'm</p>
-          <h1 className="mt-2 text-4xl font-bold leading-[1.05] tracking-tight sm:mt-3 sm:text-5xl md:text-6xl lg:text-7xl">
-            Willay <br /> Haider
-          </h1>
-          {/* Mobile portrait: sits directly under the name */}
-          <div className="relative mx-auto mt-6 flex w-full items-center justify-center md:hidden animate-scale-in">
+      {/* ================= MOBILE LAYOUT (reference-matched) ================= */}
+      <div className="md:hidden">
+        <div className="relative mx-auto flex max-w-md items-stretch gap-2 px-4">
+          {/* Left rail: socials */}
+          <div className="flex flex-col items-center justify-center gap-3 pt-6">
+            {SOCIALS.map((s, i) => (
+              <a
+                key={s.label}
+                href={s.href}
+                aria-label={s.label}
+                style={{ animationDelay: `${i * 80}ms` }}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/40 text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary animate-fade-in"
+              >
+                <s.icon className="h-3.5 w-3.5" />
+              </a>
+            ))}
+          </div>
+
+          {/* Center: portrait with glow */}
+          <div className="relative flex flex-1 items-end justify-center animate-scale-in">
             <div
-              className="absolute inset-0 -z-0 rounded-full blur-3xl animate-pulse"
-              style={{ background: "var(--gradient-primary)", opacity: 0.35 }}
+              className="absolute inset-x-4 bottom-0 top-6 -z-0 rounded-[50%] blur-3xl animate-pulse"
+              style={{ background: "var(--gradient-primary)", opacity: 0.4 }}
             />
             <img
               src={heroPortrait}
               alt="Willay Haider — Business Development Representative"
               width={800}
               height={1000}
-              className="relative z-10 h-auto w-[240px] object-contain"
+              className="relative z-10 h-auto w-full max-w-[260px] object-contain"
             />
           </div>
+
+          {/* Right rail: vertical Resume label */}
+          <div className="flex flex-col items-center justify-center">
+            <a
+              href={cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Willay-Haider-CV.pdf"
+              className="flex items-center gap-2 rotate-90 whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.35em] text-muted-foreground transition-colors hover:text-primary"
+            >
+              Resume <Download className="h-3 w-3" />
+            </a>
+          </div>
+        </div>
+
+        {/* Name + title block */}
+        <div className="mx-auto mt-6 max-w-md px-5 text-center animate-fade-in">
+          <p className="text-xs font-medium text-primary">Hello, I'm</p>
+          <h1 className="mt-1 text-4xl font-bold leading-[1.05] tracking-tight">
+            Willay Haider
+          </h1>
+          <div className="mt-3 space-y-0.5">
+            <p
+              className="text-2xl font-semibold"
+              style={{
+                background: "var(--gradient-primary)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Business Development
+            </p>
+            <p
+              className="text-2xl font-bold"
+              style={{
+                background: "var(--gradient-primary)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Representative
+            </p>
+          </div>
+          <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+            Professional cold caller and BDR with 1.5+ years of experience
+            delivering outbound sales projects for companies around the world,
+            from lead generation and qualification to booking qualified meetings
+            with founders, CEOs and decision makers for closing high ticket deals.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="#contact"
+              className="rounded-full px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
+              style={{ background: "var(--gradient-primary)", boxShadow: "var(--shadow-glow)" }}
+            >
+              Book a Call
+            </a>
+            <a
+              href="mailto:Connects.haider@gmail.com"
+              className="rounded-full border border-border bg-card/50 px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary"
+            >
+              Get in Touch
+            </a>
+          </div>
+          <div className="mt-8 grid grid-cols-3 gap-3">
+            <div>
+              <p className="text-2xl font-bold text-primary">
+                <CountUp end={1.5} decimals={1} suffix="+" />
+              </p>
+              <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Years Exp</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-primary">
+                <CountUp end={50} suffix="+" />
+              </p>
+              <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Projects</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-primary">Global</p>
+              <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Clients</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile sub headline */}
+        <div className="mx-auto mt-10 max-w-md px-5 text-center">
+          <h2 className="text-3xl font-bold leading-tight tracking-tight">
+            <span className="text-primary">Conversations</span>
+            <br />
+            That Close Deals
+          </h2>
+          <div className="mt-5 flex justify-center">
+            <a
+              href={cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Willay-Haider-CV.pdf"
+              className="group inline-flex items-center gap-2 rounded-full border border-border bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+            >
+              <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+              Resume
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* ================= DESKTOP LAYOUT ================= */}
+      <div className="mx-auto hidden max-w-7xl grid-cols-1 items-center gap-8 px-5 sm:gap-12 sm:px-6 md:grid md:grid-cols-[1fr_auto_1fr]">
+        {/* Left: text */}
+        <div className="relative z-10 animate-fade-in">
+          <p className="text-xs font-medium text-primary sm:text-sm">Hello, I'm</p>
+          <h1 className="mt-2 text-4xl font-bold leading-[1.05] tracking-tight sm:mt-3 sm:text-5xl md:text-6xl lg:text-7xl">
+            Willay <br /> Haider
+          </h1>
           <div className="mt-4 space-y-1 sm:mt-6">
             <p
               className="text-2xl font-semibold sm:text-3xl md:text-4xl"
@@ -397,8 +522,8 @@ function Hero() {
           </div>
         </div>
 
-        {/* Center: portrait (desktop only; mobile version sits under the name) */}
-        <div className="relative mx-auto hidden items-center justify-center md:flex animate-scale-in">
+        {/* Center: portrait */}
+        <div className="relative mx-auto flex items-center justify-center animate-scale-in">
           <div
             className="absolute inset-0 -z-0 rounded-full blur-3xl animate-pulse"
             style={{ background: "var(--gradient-primary)", opacity: 0.35 }}
@@ -413,7 +538,7 @@ function Hero() {
         </div>
 
         {/* Right: socials rail */}
-        <div className="hidden flex-col items-end gap-4 md:flex">
+        <div className="flex flex-col items-end gap-4">
           {SOCIALS.map((s, i) => (
             <a
               key={s.label}
@@ -431,8 +556,8 @@ function Hero() {
         </div>
       </div>
 
-      {/* Sub headline */}
-      <div className="mx-auto mt-12 max-w-7xl px-5 sm:mt-16 sm:px-6">
+      {/* Desktop sub headline */}
+      <div className="mx-auto mt-12 hidden max-w-7xl px-5 sm:mt-16 sm:px-6 md:block">
         <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
           <span className="text-primary">Conversations</span>
           <br />
