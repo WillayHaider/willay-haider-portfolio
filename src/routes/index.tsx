@@ -584,7 +584,7 @@ function Projects() {
   return (
     <section id="projects" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-6">
-        <h2 className="max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
+        <h2 className="max-w-2xl text-center text-3xl font-bold leading-tight tracking-tight sm:text-left sm:text-4xl md:text-5xl">
           What <span className="text-primary">I Offer?</span>
         </h2>
 
