@@ -9,6 +9,9 @@ import {
   Award,
   Download,
   Globe,
+  Linkedin,
+  Instagram,
+  ArrowUpRight,
 } from "lucide-react";
 import heroPortraitAsset from "@/assets/willay-portrait-final-nobg.png.asset.json";
 const heroPortrait = heroPortraitAsset.url;
