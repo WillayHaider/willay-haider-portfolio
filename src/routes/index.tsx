@@ -1,10 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
 import {
-  Linkedin,
-  Instagram,
   Mail,
-  ArrowUpRight,
   Phone,
   Star,
   Briefcase,
