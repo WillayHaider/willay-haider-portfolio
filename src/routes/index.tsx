@@ -125,6 +125,13 @@ const NAV = [
   { label: "Contact", href: "/#contact" },
 ];
 
+const SOCIALS = [
+  { icon: Linkedin, href: "https://www.linkedin.com/in/willayhaider?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "LinkedIn" },
+  { icon: Mail, href: "mailto:Connects.haider@gmail.com", label: "Email" },
+  { icon: Phone, href: "https://wa.me/923206990099", label: "WhatsApp" },
+  { icon: Instagram, href: "https://www.instagram.com/damn_haiderrr?igsh=MW81Ymw3MzdkeGNrYg%3D%3D&utm_source=qr", label: "Instagram" },
+];
+
 const PROJECTS = [
   {
     no: "01",
