@@ -371,21 +371,6 @@ function Hero() {
             </div>
           </div>
 
-          {/* Languages */}
-          <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10">
-            <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-              <Globe className="h-4 w-4 text-primary" />
-              Languages
-            </div>
-            {["English", "Urdu", "Punjabi", "Saraiki"].map((lang) => (
-              <span
-                key={lang}
-                className="rounded-full border border-border bg-card/50 px-3 py-1 text-xs font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
-              >
-                {lang}
-              </span>
-            ))}
-          </div>
         </div>
 
         {/* Center: portrait (desktop only; mobile version sits under the name) */}
