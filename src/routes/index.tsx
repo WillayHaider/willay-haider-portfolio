@@ -755,7 +755,7 @@ function Contact() {
         </div>
 
         <div className="mt-8 sm:mt-10">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
             Social Media
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
@@ -765,7 +765,7 @@ function Contact() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-4 py-2 text-sm font-medium text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+                className="group inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_20px_-5px_var(--primary)]"
               >
                 <s.icon className="h-4 w-4" />
                 {s.label}
