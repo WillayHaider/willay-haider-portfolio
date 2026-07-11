@@ -400,7 +400,7 @@ function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="group flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/50 text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+                className="group flex h-10 w-10 items-center justify-center rounded-full border border-primary/40 bg-primary/10 text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_20px_-5px_var(--primary)]"
               >
                 <s.icon className="h-4 w-4" />
               </a>
