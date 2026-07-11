@@ -724,20 +724,6 @@ export function Footer() {
   return (
     <footer className="border-t border-border/40 py-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 text-center text-sm text-muted-foreground">
-        <div className="flex gap-3">
-          {SOCIALS.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={s.label}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border/60 text-foreground/80 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"
-            >
-              <s.icon className="h-4 w-4" />
-            </a>
-          ))}
-        </div>
         <div>
           All Rights Reserved by <span className="text-primary">Mr Haider</span> © 2026
         </div>
