@@ -9,6 +9,9 @@ import {
   Award,
   Download,
   Globe,
+  Linkedin,
+  Instagram,
+  ArrowUpRight,
 } from "lucide-react";
 import heroPortraitAsset from "@/assets/willay-portrait-final-nobg.png.asset.json";
 const heroPortrait = heroPortraitAsset.url;
@@ -120,6 +123,13 @@ const NAV = [
   { label: "About Me", href: "/about" },
   { label: "Experience", href: "/#projects" },
   { label: "Contact", href: "/#contact" },
+];
+
+const SOCIALS = [
+  { icon: Linkedin, href: "https://www.linkedin.com/in/willayhaider?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "LinkedIn" },
+  { icon: Mail, href: "mailto:Connects.haider@gmail.com", label: "Email" },
+  { icon: Phone, href: "https://wa.me/923206990099", label: "WhatsApp" },
+  { icon: Instagram, href: "https://www.instagram.com/damn_haiderrr?igsh=MW81Ymw3MzdkeGNrYg%3D%3D&utm_source=qr", label: "Instagram" },
 ];
 
 const PROJECTS = [
@@ -378,6 +388,35 @@ function Hero() {
             height={1000}
             className="relative z-10 h-auto w-[360px] object-contain transition-transform duration-500 hover:scale-[1.03] lg:w-[440px]"
           />
+        </div>
+
+        {/* Right: social rail */}
+        <div className="hidden flex-col items-end gap-6 md:flex">
+          <div className="flex flex-col items-center gap-4">
+            {SOCIALS.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="group flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/50 text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+              >
+                <s.icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
+          <div className="relative mt-4 h-24 w-px bg-border" />
+          <a
+            href={cvUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            download="Willay-Haider-CV.pdf"
+            className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-primary"
+            style={{ writingMode: "vertical-rl" }}
+          >
+            Resume
+          </a>
         </div>
 
       </div>
@@ -715,6 +754,27 @@ function Contact() {
           </a>
         </div>
 
+        <div className="mt-8 sm:mt-10">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            Social Media
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {SOCIALS.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-4 py-2 text-sm font-medium text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+              >
+                <s.icon className="h-4 w-4" />
+                {s.label}
+                <ArrowUpRight className="h-3 w-3 opacity-0 transition-all group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );
@@ -724,6 +784,20 @@ export function Footer() {
   return (
     <footer className="border-t border-border/40 py-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 text-center text-sm text-muted-foreground">
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          {SOCIALS.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/50 text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+            >
+              <s.icon className="h-4 w-4" />
+            </a>
+          ))}
+        </div>
         <div>
           All Rights Reserved by <span className="text-primary">Mr Haider</span> © 2026
         </div>
