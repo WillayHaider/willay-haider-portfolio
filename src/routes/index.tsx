@@ -390,6 +390,35 @@ function Hero() {
           />
         </div>
 
+        {/* Right: social rail */}
+        <div className="hidden flex-col items-end gap-6 md:flex">
+          <div className="flex flex-col items-center gap-4">
+            {SOCIALS.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="group flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/50 text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+              >
+                <s.icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
+          <div className="relative mt-4 h-24 w-px bg-border" />
+          <a
+            href={cvUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            download="Willay-Haider-CV.pdf"
+            className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-primary"
+            style={{ writingMode: "vertical-rl" }}
+          >
+            Resume
+          </a>
+        </div>
+
       </div>
 
       {/* Sub headline */}
