@@ -1,10 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
 import {
-  Linkedin,
-  Instagram,
   Mail,
-  ArrowUpRight,
   Phone,
   Star,
   Briefcase,
@@ -233,12 +230,6 @@ const TESTIMONIALS = [
   },
 ];
 
-const SOCIALS = [
-  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/willayhaider" },
-  { icon: Mail, label: "Email", href: "mailto:Connects.haider@gmail.com" },
-  { icon: Phone, label: "WhatsApp", href: "https://wa.me/923206990099" },
-  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/damn_haiderrr?igsh=MW81Ymw3MzdkeGNrYg%3D%3D&utm_source=qr" },
-];
 
 function Portfolio() {
   return (
@@ -389,23 +380,6 @@ function Hero() {
           />
         </div>
 
-        {/* Right: socials rail */}
-        <div className="hidden flex-col items-end gap-4 md:flex">
-          {SOCIALS.map((s, i) => (
-            <a
-              key={s.label}
-              href={s.href}
-              aria-label={s.label}
-              style={{ animationDelay: `${i * 80}ms` }}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/40 text-muted-foreground transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary hover:shadow-[0_0_20px_var(--primary)] animate-fade-in"
-            >
-              <s.icon className="h-4 w-4" />
-            </a>
-          ))}
-          <div className="mt-4 rotate-90 pt-8 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Resume
-          </div>
-        </div>
       </div>
 
       {/* Sub headline */}
@@ -741,23 +715,6 @@ function Contact() {
           </a>
         </div>
 
-        <div className="mt-10">
-          <p className="text-sm font-medium text-primary">Social Media</p>
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
-            {SOCIALS.map((s, i) => (
-              <a
-                key={s.label}
-                href={s.href}
-                style={{ animationDelay: `${i * 80}ms` }}
-                className="flex items-center gap-2 rounded-full border border-border bg-card/40 px-4 py-2 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary animate-fade-in"
-              >
-                <s.icon className="h-4 w-4" />
-                {s.label}
-                <ArrowUpRight className="h-3 w-3" />
-              </a>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -767,20 +724,6 @@ export function Footer() {
   return (
     <footer className="border-t border-border/40 py-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 text-center text-sm text-muted-foreground">
-        <div className="flex gap-3">
-          {SOCIALS.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={s.label}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border/60 text-foreground/80 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"
-            >
-              <s.icon className="h-4 w-4" />
-            </a>
-          ))}
-        </div>
         <div>
           All Rights Reserved by <span className="text-primary">Mr Haider</span> © 2026
         </div>
