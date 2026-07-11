@@ -380,23 +380,6 @@ function Hero() {
           />
         </div>
 
-        {/* Right: socials rail */}
-        <div className="hidden flex-col items-end gap-4 md:flex">
-          {SOCIALS.map((s, i) => (
-            <a
-              key={s.label}
-              href={s.href}
-              aria-label={s.label}
-              style={{ animationDelay: `${i * 80}ms` }}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/40 text-muted-foreground transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary hover:shadow-[0_0_20px_var(--primary)] animate-fade-in"
-            >
-              <s.icon className="h-4 w-4" />
-            </a>
-          ))}
-          <div className="mt-4 rotate-90 pt-8 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Resume
-          </div>
-        </div>
       </div>
 
       {/* Sub headline */}
