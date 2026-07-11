@@ -247,6 +247,7 @@ function Portfolio() {
       <Hero />
       <Projects />
       <ExperienceAndCerts />
+      <Languages />
       <Testimonials />
       <Contact />
       <Footer />
@@ -616,6 +617,32 @@ export function About() {
             </p>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function Languages() {
+  const languages = ["English", "Urdu", "Punjabi", "Saraiki"];
+  return (
+    <section className="relative py-8 sm:py-12">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+        <Reveal>
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              <Globe className="h-4 w-4" />
+              Languages
+            </div>
+            {languages.map((lang) => (
+              <span
+                key={lang}
+                className="rounded-full border border-border bg-card/50 px-3 py-1 text-xs font-medium text-foreground transition-colors hover:border-primary hover:text-primary sm:px-4 sm:py-1.5"
+              >
+                {lang}
+              </span>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
