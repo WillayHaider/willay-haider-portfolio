@@ -247,6 +247,7 @@ function Portfolio() {
       <Hero />
       <Projects />
       <ExperienceAndCerts />
+      <Languages />
       <Testimonials />
       <Contact />
       <Footer />
