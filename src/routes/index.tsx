@@ -783,21 +783,7 @@ function Contact() {
 export function Footer() {
   return (
     <footer className="border-t border-border/40 py-8">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 text-center text-sm text-muted-foreground">
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          {SOCIALS.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={s.label}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/50 text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary"
-            >
-              <s.icon className="h-4 w-4" />
-            </a>
-          ))}
-        </div>
+      <div className="mx-auto flex max-w-7xl flex-col items-center px-6 text-center text-sm text-muted-foreground">
         <div>
           All Rights Reserved by <span className="text-primary">Mr Haider</span> © 2026
         </div>
