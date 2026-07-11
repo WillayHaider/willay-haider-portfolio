@@ -230,12 +230,6 @@ const TESTIMONIALS = [
   },
 ];
 
-const SOCIALS = [
-  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/willayhaider" },
-  { icon: Mail, label: "Email", href: "mailto:Connects.haider@gmail.com" },
-  { icon: Phone, label: "WhatsApp", href: "https://wa.me/923206990099" },
-  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/damn_haiderrr?igsh=MW81Ymw3MzdkeGNrYg%3D%3D&utm_source=qr" },
-];
 
 function Portfolio() {
   return (
