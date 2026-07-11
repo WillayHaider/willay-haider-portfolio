@@ -247,6 +247,7 @@ function Portfolio() {
       <Hero />
       <Projects />
       <ExperienceAndCerts />
+      <Languages />
       <Testimonials />
       <Contact />
       <Footer />
@@ -604,6 +605,54 @@ function CertificationsInner() {
   );
 }
 
+function Languages() {
+  const langs = [
+    { name: "English", level: "Fluent" },
+    { name: "Urdu", level: "Native" },
+    { name: "Punjabi", level: "Native" },
+    { name: "Saraiki", level: "Native" },
+  ];
+  return (
+    <section className="relative py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+        <div className="flex flex-col items-center text-center">
+          <span
+            className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.25em] text-primary"
+            style={{ background: "var(--gradient-card)" }}
+          >
+            <Globe className="h-3.5 w-3.5" /> Communication
+          </span>
+          <h2 className="mt-5 text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
+            Languages I <span className="text-primary">Speak</span>
+          </h2>
+          <p className="mt-4 max-w-xl text-sm text-muted-foreground">
+            Multilingual outreach helps me connect naturally with diverse prospects across regions.
+          </p>
+        </div>
+
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:mt-14 sm:grid-cols-4 sm:gap-5">
+          {langs.map((l, i) => (
+            <Reveal
+              key={l.name}
+              delay={i * 100}
+              style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
+              className="group rounded-2xl border border-border p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 sm:p-8"
+            >
+              <div
+                className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl text-primary-foreground transition-transform duration-500 group-hover:scale-110"
+                style={{ background: "var(--gradient-primary)" }}
+              >
+                <Globe className="h-5 w-5" />
+              </div>
+              <h3 className="mt-4 text-lg font-semibold sm:text-xl">{l.name}</h3>
+              <p className="mt-1 text-sm text-primary">{l.level}</p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function About() {
   return (
