@@ -449,7 +449,7 @@ function Hero() {
           <br />
           That Close Deals
         </h2>
-        <div className="mt-6 sm:mt-8">
+        <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
           <a
             href={cvUrl}
             target="_blank"
@@ -460,6 +460,18 @@ function Hero() {
             <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
             Resume
           </a>
+          <button
+            onClick={toggleAudio}
+            className="group inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-6 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_20px_-5px_var(--primary)] sm:text-base"
+            aria-label={isPlaying ? "Pause introduction" : "Play introduction"}
+          >
+            {isPlaying ? (
+              <Pause className="h-4 w-4" />
+            ) : (
+              <Play className="h-4 w-4" />
+            )}
+            {isPlaying ? "Pause" : "Play Intro"}
+          </button>
         </div>
       </div>
     </section>
