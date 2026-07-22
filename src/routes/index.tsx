@@ -288,6 +288,23 @@ export function Nav() {
 }
 
 function Hero() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const toggleAudio = () => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio(introAudioUrl);
+      audioRef.current.addEventListener("ended", () => setIsPlaying(false));
+    }
+    if (audioRef.current.paused) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    } else {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
   return (
     <section
       id="about"
