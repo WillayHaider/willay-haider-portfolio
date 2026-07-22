@@ -12,11 +12,15 @@ import {
   Linkedin,
   Instagram,
   ArrowUpRight,
+  Play,
+  Pause,
 } from "lucide-react";
 import heroPortraitAsset from "@/assets/willay-portrait-final-nobg.png.asset.json";
 const heroPortrait = heroPortraitAsset.url;
 import cvAsset from "@/assets/willay-cv.pdf.asset.json";
 const cvUrl = cvAsset.url;
+import introAudioAsset from "@/assets/willay-intro.ogg.asset.json";
+const introAudioUrl = introAudioAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -284,6 +288,23 @@ export function Nav() {
 }
 
 function Hero() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const toggleAudio = () => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio(introAudioUrl);
+      audioRef.current.addEventListener("ended", () => setIsPlaying(false));
+    }
+    if (audioRef.current.paused) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    } else {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
   return (
     <section
       id="about"
@@ -428,7 +449,7 @@ function Hero() {
           <br />
           That Close Deals
         </h2>
-        <div className="mt-6 sm:mt-8">
+        <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
           <a
             href={cvUrl}
             target="_blank"
@@ -439,6 +460,18 @@ function Hero() {
             <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
             Resume
           </a>
+          <button
+            onClick={toggleAudio}
+            className="group inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-6 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_20px_-5px_var(--primary)] sm:text-base"
+            aria-label={isPlaying ? "Pause introduction" : "Play introduction"}
+          >
+            {isPlaying ? (
+              <Pause className="h-4 w-4" />
+            ) : (
+              <Play className="h-4 w-4" />
+            )}
+            {isPlaying ? "Pause" : "Play Intro"}
+          </button>
         </div>
       </div>
     </section>
