@@ -462,7 +462,7 @@ function Hero() {
           </a>
           <button
             onClick={toggleAudio}
-            className="group inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-6 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_20px_-5px_var(--primary)] sm:text-base"
+            className="group inline-flex items-center gap-2 rounded-full border border-border bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:text-base"
             aria-label={isPlaying ? "Pause introduction" : "Play introduction"}
           >
             {isPlaying ? (
