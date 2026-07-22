@@ -366,7 +366,7 @@ function Hero() {
               className="rounded-full px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform hover:scale-105 sm:px-6 sm:py-3"
               style={{ background: "var(--gradient-primary)", boxShadow: "var(--shadow-glow)" }}
             >
-              Book Call
+              Schedule Call
             </a>
             <a
               href="mailto:Connects.haider@gmail.com"
