@@ -12,11 +12,15 @@ import {
   Linkedin,
   Instagram,
   ArrowUpRight,
+  Play,
+  Pause,
 } from "lucide-react";
 import heroPortraitAsset from "@/assets/willay-portrait-final-nobg.png.asset.json";
 const heroPortrait = heroPortraitAsset.url;
 import cvAsset from "@/assets/willay-cv.pdf.asset.json";
 const cvUrl = cvAsset.url;
+import introAudioAsset from "@/assets/willay-intro.ogg.asset.json";
+const introAudioUrl = introAudioAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
