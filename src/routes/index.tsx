@@ -12,10 +12,15 @@ import {
   Linkedin,
   Instagram,
   ArrowUpRight,
+  Play,
+  Pause,
 } from "lucide-react";
-import heroPortrait from "@/assets/willay-portrait-nobg.png";
+import heroPortraitAsset from "@/assets/willay-portrait-final-nobg.png.asset.json";
+const heroPortrait = heroPortraitAsset.url;
 import cvAsset from "@/assets/willay-cv.pdf.asset.json";
 const cvUrl = cvAsset.url;
+import introAudioAsset from "@/assets/willay-intro.ogg.asset.json";
+const introAudioUrl = introAudioAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -283,6 +288,23 @@ export function Nav() {
 }
 
 function Hero() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const toggleAudio = () => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio(introAudioUrl);
+      audioRef.current.addEventListener("ended", () => setIsPlaying(false));
+    }
+    if (audioRef.current.paused) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    } else {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
   return (
     <section
       id="about"
@@ -344,7 +366,7 @@ function Hero() {
               className="rounded-full px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform hover:scale-105 sm:px-6 sm:py-3"
               style={{ background: "var(--gradient-primary)", boxShadow: "var(--shadow-glow)" }}
             >
-              Schedule Interview{"\u00a0"}
+              Schedule Call
             </a>
             <a
               href="mailto:Connects.haider@gmail.com"
@@ -427,7 +449,7 @@ function Hero() {
           <br />
           That Close Deals
         </h2>
-        <div className="mt-6 sm:mt-8">
+        <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
           <a
             href={cvUrl}
             target="_blank"
@@ -438,6 +460,22 @@ function Hero() {
             <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
             Resume
           </a>
+          <button
+            onClick={toggleAudio}
+            className={`group inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 sm:text-base ${
+              isPlaying
+                ? "border-primary bg-primary text-primary-foreground shadow-[0_0_24px_-6px_var(--primary)]"
+                : "border-border bg-transparent text-foreground hover:border-primary hover:text-primary"
+            }`}
+            aria-label={isPlaying ? "Pause introduction" : "Play introduction"}
+          >
+            {isPlaying ? (
+              <Pause className="h-4 w-4" />
+            ) : (
+              <Play className="h-4 w-4" />
+            )}
+            {isPlaying ? "Pause" : "Play Intro"}
+          </button>
         </div>
       </div>
     </section>
