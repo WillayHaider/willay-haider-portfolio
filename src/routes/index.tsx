@@ -202,7 +202,7 @@ const EDUCATION = [
     role: "Intermediate in Computer Science",
     org: "Punjab Group of Colleges",
     date: "2024 – 2026",
-    desc: "Currently pursuing Intermediate in Computer Science with focus on IT fundamentals and business communication.",
+    desc: "Completed Intermediate in Computer Science with focus on IT fundamentals and business communication.",
   },
   {
     role: "Matriculation",
@@ -276,7 +276,7 @@ export function Nav() {
   }, []);
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/70 backdrop-blur-xl">
+    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${showLinks ? "border-b border-border/40 bg-background/70 backdrop-blur-xl" : "border-transparent bg-transparent"}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <span />
         <nav className={`hidden gap-8 md:flex transition-all duration-300 ${showLinks ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}`}>
@@ -842,6 +842,8 @@ export function Footer() {
     </footer>
   );
 }
+
+
 
 
 
