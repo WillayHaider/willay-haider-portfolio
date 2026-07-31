@@ -258,11 +258,28 @@ function Portfolio() {
 }
 
 export function Nav() {
+  const [showLinks, setShowLinks] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY > lastScrollY.current && currentY > 80) {
+        setShowLinks(false);
+      } else {
+        setShowLinks(true);
+      }
+      lastScrollY.current = currentY;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <span />
-        <nav className="hidden gap-8 md:flex">
+        <nav className={`hidden gap-8 md:flex transition-all duration-300 ${showLinks ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}`}>
           {NAV.map((n) => (
             <a
               key={n.href}
@@ -825,6 +842,9 @@ export function Footer() {
     </footer>
   );
 }
+
+
+
 
 
 
