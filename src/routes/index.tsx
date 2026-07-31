@@ -16,10 +16,8 @@ import {
   Pause,
 } from "lucide-react";
 import heroPortrait from "@/assets/willay-portrait-final-nobg.png";
-import cvAsset from "@/assets/willay-cv.pdf.asset.json";
-const cvUrl = cvAsset.url;
-import introAudioAsset from "@/assets/willay-intro.ogg.asset.json";
-const introAudioUrl = introAudioAsset.url;
+import cvUrl from "@/assets/willay-cv.pdf";
+import introAudioUrl from "@/assets/willay-intro.ogg";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -827,4 +825,6 @@ export function Footer() {
     </footer>
   );
 }
+
+
 
