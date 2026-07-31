@@ -598,7 +598,7 @@ function ExperienceInner() {
 
 const CERTIFICATIONS = [
   { title: "Google Analytics Certification", org: "Google" },
-  { title: "Data Analytics Job Simulation", org: "Deloitte" },
+  { title: "Data Analytics Job Simulation", org: "Deloitte." },
   { title: "Matriculation", org: "BHSS" },
   { title: "Cybersecurity", org: "ADBI Institute" },
   { title: "Exploring AI Use Cases and Applications", org: "AWS" },
@@ -842,6 +842,7 @@ export function Footer() {
     </footer>
   );
 }
+
 
 
 
