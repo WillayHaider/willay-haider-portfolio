@@ -131,7 +131,7 @@ const NAV = [
 
 const SOCIALS = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/willayhaider?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:Connects.haider@gmail.com", label: "Email" },
+  { icon: Mail, href: "mailto:Contact.whaider@gmail.com", label: "Email" },
   { icon: Phone, href: "https://wa.me/923206990099", label: "WhatsApp" },
   { icon: Instagram, href: "https://www.instagram.com/damn_haiderrr?igsh=MW81Ymw3MzdkeGNrYg%3D%3D&utm_source=qr", label: "Instagram" },
 ];
@@ -369,7 +369,7 @@ function Hero() {
               Schedule Call
             </a>
             <a
-              href="mailto:Connects.haider@gmail.com"
+              href="mailto:Contact.whaider@gmail.com"
               className="rounded-full border border-border bg-card/50 px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary sm:px-6 sm:py-3"
             >
               Get in Touch
@@ -768,14 +768,14 @@ function Contact() {
 
         <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-10 sm:gap-4 md:grid-cols-2">
           <a
-            href="mailto:Connects.haider@gmail.com"
+            href="mailto:Contact.whaider@gmail.com"
             className="group flex items-center gap-3 rounded-2xl border border-border p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_10px_30px_-10px_var(--primary)]"
             style={{ background: "var(--gradient-card)" }}
           >
             <Mail className="h-5 w-5 shrink-0 text-primary transition-colors group-hover:text-primary" />
             <div className="min-w-0">
               <p className="text-xs uppercase tracking-wider text-muted-foreground">Email</p>
-              <p className="truncate text-sm font-medium text-foreground transition-colors group-hover:text-primary">Connects.haider@gmail.com</p>
+              <p className="truncate text-sm font-medium text-foreground transition-colors group-hover:text-primary">Contact.whaider@gmail.com</p>
             </div>
           </a>
           <a
