@@ -398,7 +398,7 @@ function Hero() {
             </div>
             <div>
               <p className="text-2xl font-bold text-primary sm:text-3xl">
-                <CountUp end={50} suffix="+" />
+                <CountUp end={48} suffix="+" />
               </p>
               <p className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">Projects Delivered</p>
             </div>
