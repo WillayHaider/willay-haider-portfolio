@@ -446,7 +446,7 @@ function Hero() {
             href="/Willay-Haider-CV.pdf?v=2"
             target="_blank"
             rel="noopener noreferrer"
-            download="Willay-Haider-CV.pdf"
+            download="Mr Haider-BDR-Resume.pdf"
             className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-primary"
             style={{ writingMode: "vertical-rl" }}
           >
@@ -468,7 +468,7 @@ function Hero() {
             href="/Willay-Haider-CV.pdf?v=2"
             target="_blank"
             rel="noopener noreferrer"
-            download="Willay-Haider-CV.pdf"
+            download="Mr Haider-BDR-Resume.pdf"
             className="group inline-flex items-center gap-2 rounded-full border border-border bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:text-base"
           >
             <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
