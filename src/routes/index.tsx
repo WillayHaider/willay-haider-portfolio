@@ -449,7 +449,7 @@ function Hero() {
           </div>
           <div className="relative mt-4 h-24 w-px bg-border" />
           <a
-            href="/Willay-Haider-CV.pdf?v=2"
+            href="/Mr%20Haider-BDR-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             download="Mr Haider-BDR-Resume.pdf"
@@ -471,7 +471,7 @@ function Hero() {
         </h2>
         <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
           <a
-            href="/Willay-Haider-CV.pdf?v=2"
+            href="/Mr%20Haider-BDR-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             download="Mr Haider-BDR-Resume.pdf"
