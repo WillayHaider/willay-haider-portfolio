@@ -216,7 +216,7 @@ const EDUCATION = [
 const TESTIMONIALS = [
   {
     name: "Rana Ammad Ali",
-    role: "B2B SaaS Client",
+    role: "Sales Manager",
     stars: 5,
     filled: 4,
     rating: 4.8,
