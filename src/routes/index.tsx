@@ -181,8 +181,6 @@ const EXPERIENCE = [
     location: "United States",
     bullets: [
       "Ran outbound cold-calling campaigns for Vizocom and its subsidiary Vizocare, generating 320+ qualified MQLs across battery/life-support and hospital supply verticals.",
-      "Identified and engaged decision-makers at hospitals and healthcare facilities to introduce Vizocare's medical-grade gloves and hospitality product line.",
-      "Supported pipeline growth for Vizocom's broader battery and life-support services by prospecting and qualifying new B2B accounts.",
     ],
   },
   {
