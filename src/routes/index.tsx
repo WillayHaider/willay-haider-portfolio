@@ -176,9 +176,14 @@ const EXPERIENCE = [
   },
   {
     role: "Business Development Representative",
-    org: "Focal Software · Full-time",
+    org: "Vizocom · Full-time",
     date: "Jun 2025 – Dec 2025 · 7 mos",
-    desc: "As a committed B2B Appointment Specialist, connecting eCommerce business owners with advanced solutions from Focal Software. Multi-channel outreach across cold calling and email. CRM management, B2B deals, and appointment setting.",
+    location: "United States",
+    bullets: [
+      "Ran outbound cold-calling campaigns for Vizocom and its subsidiary Vizocare, generating 320+ qualified MQLs across battery/life-support and hospital supply verticals.",
+      "Identified and engaged decision-makers at hospitals and healthcare facilities to introduce Vizocare's medical-grade gloves and hospitality product line.",
+      "Supported pipeline growth for Vizocom's broader battery and life-support services by prospecting and qualifying new B2B accounts.",
+    ],
   },
   {
     role: "Business Development Representative",
@@ -591,9 +596,25 @@ function ExperienceInner() {
                   <h3 className="text-base font-semibold sm:text-xl">{it.role}</h3>
                   <p className="text-sm text-primary">{it.org}</p>
                 </div>
-                <p className="text-xs font-medium text-muted-foreground sm:text-sm">{it.date}</p>
+                <div className="text-left sm:text-right">
+                  <p className="text-xs font-medium text-muted-foreground sm:text-sm">{it.date}</p>
+                  {(it as any).location && (
+                    <p className="text-xs text-muted-foreground">{(it as any).location}</p>
+                  )}
+                </div>
               </div>
-              <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:mt-3">{it.desc}</p>
+              {(it as any).bullets ? (
+                <ul className="mt-2 max-w-2xl space-y-1.5 text-sm text-muted-foreground sm:mt-3">
+                  {((it as any).bullets as string[]).map((b, bi) => (
+                    <li key={bi} className="flex items-start gap-2.5">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:mt-3">{it.desc}</p>
+              )}
             </Reveal>
           ))}
         </div>
