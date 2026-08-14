@@ -18,6 +18,9 @@ import {
 import heroPortrait from "@/assets/willay-portrait-final-nobg.png";
 import cvUrl from "@/assets/willay-cv.pdf";
 import introAudioUrl from "@/assets/willay-intro.ogg";
+import ranaAvatar from "@/assets/rana-ammad-ali.jpg";
+import maazAvatar from "@/assets/ahmad-maaz.jpg";
+import arsalanAvatar from "@/assets/arsalan.jpg";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -217,6 +220,7 @@ const TESTIMONIALS = [
   {
     name: "Rana Ammad Ali",
     role: "Sales Manager",
+    avatar: ranaAvatar,
     stars: 5,
     filled: 4,
     rating: 4.8,
@@ -226,6 +230,7 @@ const TESTIMONIALS = [
   {
     name: "Ahmad Maaz",
     role: "Founder",
+    avatar: maazAvatar,
     stars: 5,
     filled: 4,
     rating: 4.7,
@@ -235,6 +240,7 @@ const TESTIMONIALS = [
   {
     name: "M.Arsalan",
     role: "Senior AE",
+    avatar: arsalanAvatar,
     stars: 5,
     quote:
       "Great CRM hygiene, clean notes, and MQLs that actually convert. Exactly the SDR partner every AE wants.",
@@ -732,11 +738,13 @@ function Testimonials() {
               className="rounded-3xl border border-border p-6 transition-transform duration-300 hover:-translate-y-1 sm:p-8"
             >
               <div className="flex items-center gap-4">
-                <div
-                  className="flex h-12 w-12 items-center justify-center rounded-full text-lg font-semibold text-primary-foreground"
-                  style={{ background: "var(--gradient-primary)" }}
-                >
-                  {t.name.charAt(0)}
+                <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-primary/30 shadow-sm">
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    className="h-full w-full object-cover object-center"
+                    loading="lazy"
+                  />
                 </div>
                 <div>
                   <p className="font-semibold">{t.name}</p>
