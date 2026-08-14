@@ -807,7 +807,7 @@ function Contact() {
 
         <div className="mt-8 sm:mt-10">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Social Media
+            Social Links
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             {SOCIALS.map((s) => (
