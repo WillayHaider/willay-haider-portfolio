@@ -294,7 +294,7 @@ export function Nav() {
           href="#contact"
           className="rounded-full border border-primary/40 px-3 py-1.5 text-[11px] font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground sm:px-4 sm:py-2 sm:text-xs"
         >
-          Hire Me
+          Let's Connect
         </a>
       </div>
     </header>
