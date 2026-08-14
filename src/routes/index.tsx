@@ -813,22 +813,22 @@ function Contact() {
           </a>
         </div>
 
-        <div className="mt-8 sm:mt-10">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+        <div className="mt-8 flex flex-col items-center justify-center sm:mt-10">
+          <p className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.2em] text-primary">
             Social Links
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex w-full max-w-full flex-wrap items-center justify-center gap-2.5 sm:gap-3">
             {SOCIALS.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_20px_-5px_var(--primary)]"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3.5 py-2 text-xs font-medium text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_20px_-5px_var(--primary)] sm:px-4 sm:text-sm"
               >
-                <s.icon className="h-4 w-4" />
-                {s.label}
-                <ArrowUpRight className="h-3 w-3 opacity-0 transition-all group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <s.icon className="h-4 w-4 shrink-0" />
+                <span>{s.label}</span>
+                <ArrowUpRight className="h-3 w-3 shrink-0 opacity-0 transition-all group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             ))}
           </div>
