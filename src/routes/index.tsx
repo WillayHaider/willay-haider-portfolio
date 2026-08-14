@@ -178,10 +178,7 @@ const EXPERIENCE = [
     role: "Business Development Representative",
     org: "Vizocom · Full-time",
     date: "Jun 2025 – Dec 2025 · 7 mos",
-    location: "United States",
-    bullets: [
-      "Ran outbound cold-calling campaigns for Vizocom and its subsidiary Vizocare, generating 320+ qualified MQLs across battery/life-support and hospital supply verticals.",
-    ],
+    desc: "Ran outbound cold-calling campaigns for Vizocom and its subsidiary Vizocare, generating 320+ qualified MQLs across battery/life-support and hospital supply verticals.",
   },
   {
     role: "Business Development Representative",
@@ -594,25 +591,9 @@ function ExperienceInner() {
                   <h3 className="text-base font-semibold sm:text-xl">{it.role}</h3>
                   <p className="text-sm text-primary">{it.org}</p>
                 </div>
-                <div className="text-left sm:text-right">
-                  <p className="text-xs font-medium text-muted-foreground sm:text-sm">{it.date}</p>
-                  {(it as any).location && (
-                    <p className="text-xs text-muted-foreground">{(it as any).location}</p>
-                  )}
-                </div>
+                <p className="text-xs font-medium text-muted-foreground sm:text-sm">{it.date}</p>
               </div>
-              {(it as any).bullets ? (
-                <ul className="mt-2 max-w-2xl space-y-1.5 text-sm text-muted-foreground sm:mt-3">
-                  {((it as any).bullets as string[]).map((b, bi) => (
-                    <li key={bi} className="flex items-start gap-2.5">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:mt-3">{it.desc}</p>
-              )}
+              <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:mt-3">{it.desc}</p>
             </Reveal>
           ))}
         </div>
