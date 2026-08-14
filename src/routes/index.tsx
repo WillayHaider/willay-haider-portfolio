@@ -758,7 +758,7 @@ function Testimonials() {
                     <Star
                       key={si}
                       style={{ animationDelay: `${si * 100}ms` }}
-                      className={`h-4 w-4 animate-scale-in ${filled ? "fill-primary text-primary" : "text-primary/40"}`}
+                      className={`h-4 w-4 animate-scale-in ${filled ? "fill-amber-400 text-amber-400" : "text-amber-400/40"}`}
                     />
                   );
                 })}
