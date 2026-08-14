@@ -215,7 +215,7 @@ const EDUCATION = [
 
 const TESTIMONIALS = [
   {
-    name: "Sales Manager",
+    name: "Rana Ammad Ali",
     role: "B2B SaaS Client",
     stars: 5,
     filled: 4,
@@ -224,8 +224,8 @@ const TESTIMONIALS = [
       "Mr Haider consistently books qualified meetings. His discovery is sharp and prospects arrive to demos already warmed up.",
   },
   {
-    name: "Founder",
-    role: "Startup Client",
+    name: "Ahmad Maaz",
+    role: "Founder",
     stars: 5,
     filled: 4,
     rating: 4.7,
@@ -233,8 +233,8 @@ const TESTIMONIALS = [
       "Reliable, persuasive, and genuinely good on the phone. Our outbound pipeline changed after Mr Haider joined the effort.",
   },
   {
-    name: "Senior AE",
-    role: "Teammate",
+    name: "M.Arsalan",
+    role: "Senior AE",
     stars: 5,
     quote:
       "Great CRM hygiene, clean notes, and MQLs that actually convert. Exactly the SDR partner every AE wants.",
