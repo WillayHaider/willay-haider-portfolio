@@ -20,6 +20,8 @@ function PrivacyPolicyPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-2">
           Privacy <span className="text-blue-400">Policy</span>
         </h1>
+
+        
         
 
         <p className="text-gray-300 mb-8">
