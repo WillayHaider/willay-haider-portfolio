@@ -7,6 +7,8 @@ import {
   Briefcase,
   GraduationCap,
   Award,
+  Menu,
+  X,
   Download,
   Globe,
   Linkedin,
@@ -267,6 +269,7 @@ function Portfolio() {
 
 export function Nav() {
   const [showLinks, setShowLinks] = useState(true);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -287,6 +290,13 @@ export function Nav() {
     <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${showLinks ? "border-b border-border/40 bg-background/70 backdrop-blur-xl" : "border-transparent bg-transparent"}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <span />
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="md:hidden text-foreground"
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
         <nav className={`hidden gap-8 md:flex transition-all duration-300 ${showLinks ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}`}>
           {NAV.map((n) => (
            <Link
@@ -303,8 +313,22 @@ export function Nav() {
           className="rounded-full border border-primary/40 px-3 py-1.5 text-[11px] font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground sm:px-4 sm:py-2 sm:text-xs"
         >
           Let's Connect
-        </a>
+     </a>
       </div>
+      {mobileOpen && (
+        <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl px-6 py-4 flex flex-col gap-4">
+          {NAV.map((n) => (
+            <Link
+              key={n.href}
+              to={n.href}
+              onClick={() => setMobileOpen(false)}
+              className="text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              {n.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 }
