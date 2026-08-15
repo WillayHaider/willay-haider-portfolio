@@ -126,8 +126,7 @@ function PrivacyPolicyPage() {
 
         <Section title="Changes to This Policy">
           <p>
-            This Privacy Policy may be updated periodically. Changes will be
-            posted on this page with an updated revision date.
+            This Privacy Policy may be updated periodically.
           </p>
         </Section>
 
