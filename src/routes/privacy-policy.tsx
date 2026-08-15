@@ -33,7 +33,7 @@ function PrivacyPolicyPage() {
         <Section title="Information We Collect">
           <ul className="list-disc list-inside space-y-1">
             <li>
-              <span className="text-white">Contact information you provide</span>
+              <span className="text-white">Contact information you provide, </span>
               such as your name and email address, if you reach out via the
               contact form or email.
             </li>
