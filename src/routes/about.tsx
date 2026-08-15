@@ -18,7 +18,7 @@ function AboutPage() {
             Punjab, Pakistan, with hands-on experience running outbound sales
             for B2B and SaaS companies across the US, UK, and EU. My
             background spans cold calling, lead qualification, and booking
-            discovery meetings with founders, CEOs, and decision-makers —
+            discovery meetings with founders, CEOs, and decision-makers 
             with a track record of high show-up rates and clean CRM pipeline
             management.
           </p>
@@ -33,7 +33,7 @@ function AboutPage() {
           <p>
             Whether you're a fellow BDR/SDR looking to sharpen your outreach,
             a founder trying to understand what makes a cold-calling process
-            work, or just someone who found their way here — thanks for
+            work, or just someone who found their way here, thanks for
             stopping by.
           </p>
         </div>
