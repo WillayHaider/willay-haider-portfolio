@@ -20,7 +20,7 @@ function PrivacyPolicyPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-2">
           Privacy <span className="text-blue-400">Policy</span>
         </h1>
-        <p className="text-sm text-gray-500 mb-10">Last updated: [insert date]</p>
+        
 
         <p className="text-gray-300 mb-8">
           This Privacy Policy explains how willayhaider.pro ("this site,"
