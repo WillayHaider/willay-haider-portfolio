@@ -33,18 +33,18 @@ function PrivacyPolicyPage() {
         <Section title="Information We Collect">
           <ul className="list-disc list-inside space-y-1">
             <li>
-              <span className="text-white">Contact information you provide, </span>
+              <span className="text-white">Contact information you provide: </span>
               such as your name and email address, if you reach out via the
               contact form or email.
             </li>
             <li>
-              <span className="text-white">Automatically collected data</span>
+              <span className="text-white">Automatically collected data: </span>
               including your IP address, browser type, device type, pages
               visited, and time spent on the site, collected through
               standard analytics tools (such as Google Analytics).
             </li>
             <li>
-              <span className="text-white">Cookies</span> — this site may
+              <span className="text-white">Cookies: </span>this site may
               use cookies to improve user experience, analyze traffic, and
               (where applicable) serve relevant advertising.
             </li>
