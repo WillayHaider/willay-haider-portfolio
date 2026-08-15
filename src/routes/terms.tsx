@@ -29,8 +29,8 @@ function TermsPage() {
 
         <Section title="Use of Content">
           <p>
-            All content on this site — including blog posts, text, and
-            graphics — is the intellectual property of Willay Haider unless
+            All content on this site, including blog posts, text, and
+            graphics is the intellectual property of Willay Haider unless
             otherwise stated. You may share links to this content, but
             reproduction, republishing, or distribution of substantial
             portions without permission is not permitted.
