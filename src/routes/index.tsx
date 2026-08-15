@@ -872,7 +872,7 @@ return (
         <div className="flex flex-wrap justify-center gap-4 text-sm">
           <Link to="/about" className="hover:text-primary transition-colors">About</Link>
           <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
-          <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+          <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy policy</Link>
           <Link to="/terms" className="hover:text-primary transition-colors">Terms</Link>
         </div>
         <div>
