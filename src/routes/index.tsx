@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
 import {
   Mail,
@@ -840,9 +840,15 @@ function Contact() {
 }
 
 export function Footer() {
-  return (
+return (
     <footer className="border-t border-border/40 py-8">
-      <div className="mx-auto flex max-w-7xl flex-col items-center px-6 text-center text-sm text-muted-foreground">
+      <div className="mx-auto flex max-w-7xl flex-col items-center px-6 text-center text-sm text-muted-foreground gap-3">
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <Link to="/about" className="hover:text-primary transition-colors">About</Link>
+          <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
+          <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+          <Link to="/terms" className="hover:text-primary transition-colors">Terms</Link>
+        </div>
         <div>
           All Rights Reserved by <span className="text-primary">Mr Haider</span> © 2026
         </div>
