@@ -130,7 +130,7 @@ const NAV = [
   { label: "Experience", href: "/#projects" },
   { label: "Contact", href: "/contact" },
   { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms", href: "/terms" },
+  { label: "Terms & Conditions", href: "/terms" },
 ];
 
 const SOCIALS = [
