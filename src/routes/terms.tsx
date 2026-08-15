@@ -20,7 +20,7 @@ function TermsPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-2">
           Terms & <span className="text-blue-400">Conditions</span>
         </h1>
-        <p className="text-sm text-gray-500 mb-10">Last updated: [insert date]</p>
+        <p className="text-sm text-gray-500 mb-10"></p>
 
         <p className="text-gray-300 mb-8">
           Welcome to willayhaider.pro. By accessing or using this site, you
