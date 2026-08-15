@@ -124,9 +124,11 @@ function Reveal({
 }
 
 const NAV = [
-  { label: "About Me", href: "/about" },
+  { label: "About", href: "/about" },
   { label: "Experience", href: "/#projects" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms", href: "/terms" },
 ];
 
 const SOCIALS = [
@@ -287,13 +289,13 @@ export function Nav() {
         <span />
         <nav className={`hidden gap-8 md:flex transition-all duration-300 ${showLinks ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}`}>
           {NAV.map((n) => (
-            <a
-              key={n.href}
-              href={n.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-primary"
-            >
-              {n.label}
-            </a>
+           <Link
+                key={n.href}
+                to={n.href}
+                className="text-sm text-muted-foreground transition-colors hover:text-primary"
+              >
+                {n.label}
+              </Link>
           ))}
         </nav>
         <a
