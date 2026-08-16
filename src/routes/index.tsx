@@ -644,11 +644,11 @@ function ExperienceInner() {
 
 
 const CERTIFICATIONS = [
-  { title: "Google Analytics Certification", org: "Google", logo: googleLogo },
-  { title: "Data Analytics Job Simulation", org: "Deloitte.", logo: deloitteLogo },
-  { title: "Matriculation", org: "BHSS", logo: bhssLogo },
-  { title: "Cybersecurity", org: "ADBI Institute", logo: adbiLogo },
-  { title: "Exploring AI Use Cases and Applications", org: "AWS", logo: awsLogo },
+  { title: "Google Analytics Certification", org: "Google", logo: googleLogo, link: "https://www.google.com/" },
+  { title: "Data Analytics Job Simulation", org: "Deloitte.", logo: deloitteLogo, link: "https://www.deloitte.com/us/en.html" },
+  { title: "Matriculation", org: "BHSS", logo: bhssLogo, link: "https://www.beaconhouse.net/" },
+  { title: "Cybersecurity", org: "ADBI Institute", logo: adbiLogo, link: "https://elearning-adbi.org/" },
+  { title: "Exploring AI Use Cases and Applications", org: "AWS", logo: awsLogo, link: "https://aws.amazon.com/" },
 ];
 function CertificationsInner() {
   return (
@@ -687,7 +687,13 @@ function CertificationsInner() {
                   <h3 className="mt-1 text-base font-semibold leading-snug">
                     {c.title}
                   </h3>
-                  <p className="mt-1 text-sm text-primary">{c.org}</p>
+                 href={c.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 inline-block text-sm text-primary hover:underline"
+                >
+                  {c.org}
+                </a>
                 </div>
               </div>
             </Reveal>
