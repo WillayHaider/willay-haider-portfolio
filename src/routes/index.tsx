@@ -425,12 +425,12 @@ function Hero() {
             >
               Schedule Call
             </a>
-            <a
-              href="mailto:Contact.whaider@gmail.com"
+           <Link
+              to="/contact"
               className="rounded-full border border-border bg-card/50 px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary sm:px-6 sm:py-3"
             >
               Get in Touch
-            </a>
+            </Link>
           </div>
           <div className="mt-8 grid grid-cols-3 gap-4 sm:mt-10 sm:flex sm:flex-wrap sm:gap-8">
             <div>
