@@ -218,6 +218,7 @@ const EDUCATION = [
     role: "Intermediate in Computer Science",
     org: "Punjab Group of Colleges",
     date: "2024 – 2026",
+    link: "https://pgc.edu/",
     desc: "Completed Intermediate in Computer Science with focus on IT fundamentals and business communication.",
   },
   {
