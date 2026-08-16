@@ -624,16 +624,17 @@ function ExperienceInner() {
 
         <div className="relative mt-10 space-y-8 border-l border-border/60 pl-6 sm:mt-12 sm:space-y-10 sm:pl-8">
           {items.map((it, i) => (
-            <Reveal key={i} delay={i * 80} className="relative">
-              <span className="absolute -left-[30px] top-2 h-3 w-3 rounded-full bg-primary shadow-[0_0_0_4px_oklch(0.09_0.02_250)] animate-pulse sm:-left-[38px]" />
-              <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-4">
-                <div className="min-w-0">
-                  <h3 className="text-base font-semibold sm:text-xl">{it.role}</h3>
+           <Reveal key={i} delay={i * 80} className="relative">
+              <span className="absolute -left-[30px] top-1.5 h-3 w-3 rounded-full bg-primary shadow-[0_0_0_4px_oklch(0.09_0.02_250)] sm:-left-[38px]" />
+              <div className="rounded-xl border border-border/50 bg-card/30 p-4 transition-colors hover:border-primary/40 sm:border-0 sm:bg-transparent sm:p-0 sm:hover:border-0">
+                <h3 className="text-base font-semibold sm:text-xl">{it.role}</h3>
+                <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
                   <p className="text-sm text-primary">{it.org}</p>
+                  <span className="text-xs text-muted-foreground/50">•</span>
+                  <p className="text-xs font-medium text-muted-foreground">{it.date}</p>
                 </div>
-                <p className="text-xs font-medium text-muted-foreground sm:text-sm">{it.date}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{it.desc}</p>
               </div>
-              <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:mt-3">{it.desc}</p>
             </Reveal>
           ))}
         </div>
