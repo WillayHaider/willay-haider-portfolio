@@ -673,8 +673,8 @@ function CertificationsInner() {
               className="group relative overflow-hidden rounded-2xl border border-border p-5 hover:-translate-y-1 hover:border-primary/60 sm:p-6"
             >
               <div className="flex items-start gap-4">
-               <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white p-2 shadow-sm transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
-                  <img src={c.logo} alt={c.org} className="h-full w-full object-contain" />
+<div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-sm transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">                  
+  <img src={c.logo} alt={c.org} className="h-full w-full object-contain" />
                 </div>
                 <div className="min-w-0">
                   <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
