@@ -180,30 +180,35 @@ const EXPERIENCE = [
     role: "Senior Business Development Representative",
     org: "Million Dials",
     date: "Jan 2026 · 7 mos",
+    link: "https://milliondials.com/",
     desc: "Punjab, Pakistan · On-site. Leading outbound sales motions and guiding junior SDRs in cold calling, discovery, and pipeline development across B2B accounts.",
   },
   {
     role: "Business Development Representative",
     org: "Vizocom",
     date: "Jun 2025 – Dec 2025 · 7 mos",
+    link: "https://www.vizocom.com/",
     desc: "Ran outbound cold-calling campaigns for Vizocom and its subsidiary Vizocare, generating 320+ qualified MQLs across battery/life-support and hospital supply verticals.",
   },
   {
     role: "Business Development Representative",
     org: "OMC Group",
     date: "Mar 2025 – Apr 2025 · 2 mos",
+    link: "https://omcgroup.com/",
     desc: "SEO agency outbound targeting legal professionals: Counsel, Attorneys, Lawyers, and Agents. Cold calling law firms and solo practitioners, pitching SEO and digital growth services, and booking discovery calls with decision makers.",
   },
   {
     role: "Sales Representative",
     org: "Shibli Global Network",
     date: "Sep 2024 – Dec 2024 · 4 mos",
+    link: "https://shibli113.enic.pk/",
     desc: "Sales Rep specializing in B2B, B2C, and appointment setting. Handled multiple projects while consistently delivering strong results. CRM and B2C marketing focus.",
   },
   {
     role: "Dispatching Agent",
     org: "Nexus Innovations & Autolift Transport LLC",
     date: "Jun 2024 – Aug 2024 · 3 mos",
+    link: "https://autolifttransport.com/",
     desc: "Dispatched for US-based owners & operators and managers. Sourced high-paying loads from DAT, Central Dispatch, and Showrooms, negotiated rates with brokers and managers, and handled rate confirmations, BOLs, and check calls.",
   },
 ];
@@ -629,7 +634,13 @@ function ExperienceInner() {
               <div className="rounded-xl border border-border/50 bg-card/30 p-4 transition-colors hover:border-primary/40 sm:border-0 sm:bg-transparent sm:p-0 sm:hover:border-0">
                 <h3 className="text-base font-semibold sm:text-xl">{it.role}</h3>
                 <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
-                  <p className="text-sm text-primary">{it.org}</p>
+              href={it.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-primary hover:underline"
+                >
+                  {it.org}
+                </a>
                   <span className="text-xs text-muted-foreground/50">•</span>
                   <p className="text-xs font-medium text-muted-foreground">{it.date}</p>
                 </div>
