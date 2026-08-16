@@ -23,7 +23,11 @@ import introAudioUrl from "@/assets/willay-intro.ogg";
 import ranaAvatar from "@/assets/rana-ammad-ali.jpg";
 import maazAvatar from "@/assets/ahmad-maaz.jpg";
 import arsalanAvatar from "@/assets/arsalan.jpg";
-
+import googleLogo from "@/assets/google-logo.png";
+import deloitteLogo from "@/assets/deloitte-logo.png";
+import bhssLogo from "@/assets/bhss-logo.png";
+import adbiLogo from "@/assets/adbi-logo.png";
+import awsLogo from "@/assets/aws-logo.png";
 export const Route = createFileRoute("/")({
   component: Portfolio,
 });
@@ -636,13 +640,12 @@ function ExperienceInner() {
 
 
 const CERTIFICATIONS = [
-  { title: "Google Analytics Certification", org: "Google" },
-  { title: "Data Analytics Job Simulation", org: "Deloitte." },
-  { title: "Matriculation", org: "BHSS" },
-  { title: "Cybersecurity", org: "ADBI Institute" },
-  { title: "Exploring AI Use Cases and Applications", org: "AWS" },
+  { title: "Google Analytics Certification", org: "Google", logo: googleLogo },
+  { title: "Data Analytics Job Simulation", org: "Deloitte.", logo: deloitteLogo },
+  { title: "Matriculation", org: "BHSS", logo: bhssLogo },
+  { title: "Cybersecurity", org: "ADBI Institute", logo: adbiLogo },
+  { title: "Exploring AI Use Cases and Applications", org: "AWS", logo: awsLogo },
 ];
-
 function CertificationsInner() {
   return (
     <div id="certifications">
@@ -670,11 +673,8 @@ function CertificationsInner() {
               className="group relative overflow-hidden rounded-2xl border border-border p-5 hover:-translate-y-1 hover:border-primary/60 sm:p-6"
             >
               <div className="flex items-start gap-4">
-                <div
-                  className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl text-primary-foreground transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110"
-                  style={{ background: "var(--gradient-primary)" }}
-                >
-                  <Award className="h-5 w-5" />
+               <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white p-2 shadow-sm transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+                  <img src={c.logo} alt={c.org} className="h-full w-full object-contain" />
                 </div>
                 <div className="min-w-0">
                   <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
