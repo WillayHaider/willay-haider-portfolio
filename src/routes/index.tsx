@@ -419,7 +419,9 @@ function Hero() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
             <a
-              href="#contact"
+           href="https://calendly.com/contact-whaider"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform hover:scale-105 sm:px-6 sm:py-3"
               style={{ background: "var(--gradient-primary)", boxShadow: "var(--shadow-glow)" }}
             >
