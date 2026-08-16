@@ -289,17 +289,23 @@ export function Nav() {
   return (
     <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${showLinks ? "border-b border-border/40 bg-background/70 backdrop-blur-xl" : "border-transparent bg-transparent"}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-    <button
+ <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-primary transition-all duration-300 hover:scale-110 active:scale-90"
+          className="md:hidden relative h-6 w-6 text-primary transition-transform duration-300 active:scale-90"
           aria-label="Toggle menu"
         >
-          {mobileOpen ? (
-            <X className="h-6 w-6 transition-transform duration-300 rotate-90" />
-          ) : (
-            <Menu className="h-6 w-6 transition-transform duration-300" />
-          )}
+          <Menu
+            className={`absolute inset-0 h-6 w-6 transition-all duration-300 ease-in-out ${
+              mobileOpen ? "opacity-0 rotate-90 scale-75" : "opacity-100 rotate-0 scale-100"
+            }`}
+          />
+          <X
+            className={`absolute inset-0 h-6 w-6 transition-all duration-300 ease-in-out ${
+              mobileOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-75"
+            }`}
+          />
         </button>
+        <span className="hidden md:block" />
         <span className="hidden md:block" />
         <nav className={`hidden gap-8 md:flex transition-all duration-300 ${showLinks ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}`}>
           {NAV.map((n) => (
