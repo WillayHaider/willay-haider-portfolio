@@ -225,6 +225,7 @@ const EDUCATION = [
     role: "Matriculation",
     org: "Beacon Hall Secondary School",
     date: "2022 – 2024",
+    link: "https://www.beaconhouse.net/",
     desc: "Completed matriculation with a strong foundation in computer studies and languages.",
   },
 ];
