@@ -684,16 +684,17 @@ function CertificationsInner() {
                   <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
                     Certificate 0{i + 1}
                   </p>
-                  <h3 className="mt-1 text-base font-semibold leading-snug">
-                    {c.title}
-                  </h3>
-                 href={c.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-1 inline-block text-sm text-primary hover:underline"
-                >
-                  {c.org}
-                </a>
+<h3 className="mt-1 text-base font-semibold leading-snug">
+                {c.title}
+              </h3>
+              <a
+                href={c.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-block text-sm text-primary hover:underline"
+              >
+                {c.org}
+              </a>
                 </div>
               </div>
             </Reveal>
