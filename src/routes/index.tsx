@@ -178,25 +178,25 @@ const PROJECTS = [
 const EXPERIENCE = [
   {
     role: "Senior Business Development Representative",
-    org: "Million Dials · Full-time",
+    org: "Million Dials",
     date: "Jan 2026 · 7 mos",
     desc: "Punjab, Pakistan · On-site. Leading outbound sales motions and guiding junior SDRs in cold calling, discovery, and pipeline development across B2B accounts.",
   },
   {
     role: "Business Development Representative",
-    org: "Vizocom · Full-time",
+    org: "Vizocom",
     date: "Jun 2025 – Dec 2025 · 7 mos",
     desc: "Ran outbound cold-calling campaigns for Vizocom and its subsidiary Vizocare, generating 320+ qualified MQLs across battery/life-support and hospital supply verticals.",
   },
   {
     role: "Business Development Representative",
-    org: "OMC Group · Full-time",
+    org: "OMC Group",
     date: "Mar 2025 – Apr 2025 · 2 mos",
     desc: "SEO agency outbound targeting legal professionals: Counsel, Attorneys, Lawyers, and Agents. Cold calling law firms and solo practitioners, pitching SEO and digital growth services, and booking discovery calls with decision makers.",
   },
   {
     role: "Sales Representative",
-    org: "Shibli Global Network · Full-time",
+    org: "Shibli Global Network",
     date: "Sep 2024 – Dec 2024 · 4 mos",
     desc: "Sales Rep specializing in B2B, B2C, and appointment setting. Handled multiple projects while consistently delivering strong results. CRM and B2C marketing focus.",
   },
