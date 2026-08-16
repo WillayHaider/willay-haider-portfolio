@@ -634,6 +634,7 @@ function ExperienceInner() {
               <div className="rounded-xl border border-border/50 bg-card/30 p-4 transition-colors hover:border-primary/40 sm:border-0 sm:bg-transparent sm:p-0 sm:hover:border-0">
                 <h3 className="text-base font-semibold sm:text-xl">{it.role}</h3>
                 <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
+            <a
               href={it.link}
                   target="_blank"
                   rel="noopener noreferrer"
