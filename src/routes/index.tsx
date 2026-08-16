@@ -551,21 +551,22 @@ function Projects() {
 
         <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-2">
           {PROJECTS.map((p, i) => (
-            <Reveal
+           <Reveal
               key={p.no}
               delay={i * 100}
               as="article"
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
-              className="group relative overflow-hidden rounded-3xl border border-border p-6 hover:-translate-y-1 hover:border-primary/50 sm:p-8"
+              className="group relative overflow-hidden rounded-2xl border border-border p-5 hover:-translate-y-1 hover:border-primary/50 sm:rounded-3xl sm:p-8"
             >
-              <div className="flex items-start justify-between">
-                <span className="text-4xl font-bold text-muted-foreground/60 sm:text-5xl">{p.no}</span>
-                <span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-primary/70">{p.no}</span>
+                <span className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-[10px] font-medium uppercase tracking-wide text-primary">
                   {p.tag}
                 </span>
               </div>
-              <h3 className="mt-5 text-xl font-semibold sm:mt-6 sm:text-2xl">{p.title}</h3>
-              <p className="mt-4 text-sm text-muted-foreground/80">{p.desc}</p>
+              <h3 className="mt-3 text-lg font-semibold sm:mt-6 sm:text-2xl">{p.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground/80 sm:mt-4">{p.desc}</p>
+              <p className="mt-3 text-xs text-muted-foreground/60 sm:mt-4">{p.stack}</p>
             </Reveal>
           ))}
         </div>
