@@ -1,5 +1,6 @@
 import { useState, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
+import { Send } from "lucide-react";
 
 const EMAILJS_SERVICE_ID = "service_41mm3bo";
 const EMAILJS_TEMPLATE_ID = "template_67r462c";
@@ -80,17 +81,18 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="w-full max-w-3xl mx-auto">
-      <div className="bg-slate-900 text-white rounded-t-2xl px-8 py-6">
-        <h2 className="text-2xl font-bold">Send Me a Message</h2>
-        <p className="text-slate-300 text-sm mt-1">I respond within one business day</p>
+    <section className="w-full max-w-3xl mx-auto rounded-2xl border border-blue-500/20 bg-[#0a1428] overflow-hidden">
+      <div className="flex items-start gap-4 px-8 py-6 border-b border-blue-500/20">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-400 to-blue-600">
+          <Send className="h-5 w-5 text-white" />
+        </div>
+        <div>
+          <h2 className="text-2xl font-bold text-white">Send Me a Message</h2>
+          <p className="text-slate-400 text-sm mt-1">I respond within one business day</p>
+        </div>
       </div>
 
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white rounded-b-2xl shadow-lg px-8 py-8 space-y-5 border border-t-0 border-slate-200"
-        noValidate
-      >
+      <form onSubmit={handleSubmit} className="px-8 py-8 space-y-5" noValidate>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <Field
             label="First Name"
@@ -141,8 +143,8 @@ export default function ContactForm() {
         />
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-1">
-            Message
+          <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wide text-blue-300 mb-2">
+            Message <span className="text-blue-400">*</span>
           </label>
           <textarea
             id="message"
@@ -151,30 +153,31 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="Tell us about your pipeline goals, target market, or what you are trying to solve…"
-            className={`w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900/40 ${
-              errors.message ? "border-red-400" : "border-slate-300"
+            className={`w-full rounded-lg border bg-[#0d1730] px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 ${
+              errors.message ? "border-red-400" : "border-blue-500/20"
             }`}
           />
           {errors.message && (
-            <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+            <p className="text-red-400 text-xs mt-1">{errors.message}</p>
           )}
         </div>
 
         <button
           type="submit"
           disabled={status === "sending"}
-          className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium px-6 py-3 rounded-lg transition-colors"
+          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-400 hover:from-blue-400 hover:to-blue-300 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold px-7 py-3 transition-all"
         >
+          <Send className="h-4 w-4" />
           {status === "sending" ? "Sending..." : "Send Message"}
         </button>
 
         {status === "success" && (
-          <p className="text-green-600 text-sm font-medium">
+          <p className="text-green-400 text-sm font-medium">
             Thanks — your message has been sent. I'll get back to you soon!
           </p>
         )}
         {status === "error" && (
-          <p className="text-red-500 text-sm font-medium">
+          <p className="text-red-400 text-sm font-medium">
             Something went wrong sending your message. Please try again or email me directly.
           </p>
         )}
@@ -196,8 +199,8 @@ interface FieldProps {
 function Field({ label, name, value, onChange, error, type = "text", placeholder }: FieldProps) {
   return (
     <div>
-      <label htmlFor={name} className="block text-sm font-medium text-slate-700 mb-1">
-        {label}
+      <label htmlFor={name} className="block text-xs font-bold uppercase tracking-wide text-blue-300 mb-2">
+        {label} <span className="text-blue-400">*</span>
       </label>
       <input
         id={name}
@@ -206,11 +209,11 @@ function Field({ label, name, value, onChange, error, type = "text", placeholder
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900/40 ${
-          error ? "border-red-400" : "border-slate-300"
+        className={`w-full rounded-lg border bg-[#0d1730] px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 ${
+          error ? "border-red-400" : "border-blue-500/20"
         }`}
       />
-      {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+      {error && <p className="text-red-400 text-xs mt-1">{error}</p>}
     </div>
   );
 }
