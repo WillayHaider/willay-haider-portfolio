@@ -398,7 +398,7 @@ function Hero() {
           </div>
           <div className="mt-4 space-y-1 sm:mt-6">
             <p
-      className="whitespace-nowrap text-base font-semibold sm:text-3xl md:text-4xl"
+      className="whitespace-nowrap text-[21px] font-semibold sm:text-3xl md:text-4xl"
       style={{
         background: "var(--gradient-primary)",
         WebkitBackgroundClip: "text",
