@@ -298,7 +298,7 @@ export function Nav() {
   }, []);
 
   return (
-<header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/70 backdrop-blur-xl transition-all duration-300">      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+<header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/40 backdrop-blur-xl transition-all duration-300">      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
  <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="md:hidden relative h-6 w-6 text-primary transition-transform duration-300 active:scale-90"
@@ -334,7 +334,7 @@ export function Nav() {
      </a>
       </div>
       {mobileOpen && (
-        <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden border-t border-border/40 bg-background/85 backdrop-blur-xl px-6 py-4 flex flex-col gap-4">
           {NAV.map((n) => (
             <Link
               key={n.href}
