@@ -82,18 +82,18 @@ export default function ContactForm() {
 
   return (
     <section className="w-full max-w-3xl mx-auto rounded-2xl border border-border bg-card overflow-hidden shadow-[var(--shadow-card)]">
-      <div className="flex items-start gap-4 px-8 py-6 border-b border-border">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] shadow-[var(--shadow-glow)]">
-          <Send className="h-5 w-5 text-primary-foreground" />
+      <div className="flex items-start gap-3 sm:gap-4 px-5 sm:px-8 py-5 sm:py-6 border-b border-border">
+        <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] shadow-[var(--shadow-glow)]">
+          <Send className="h-4 w-4 sm:h-5 sm:w-5 text-primary-foreground" />
         </div>
-        <div>
-          <h2 className="text-2xl font-bold text-foreground">Send Me a Message</h2>
-          <p className="text-muted-foreground text-sm mt-1">I respond within one business day</p>
+        <div className="min-w-0">
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground leading-tight">Let's Connect</h2>
+          <p className="text-muted-foreground text-xs sm:text-sm mt-1">I read every message personally — reply within 1–2 business days</p>
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="px-8 py-8 space-y-5" noValidate>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <form onSubmit={handleSubmit} className="px-5 sm:px-8 py-6 sm:py-8 space-y-4 sm:space-y-5" noValidate>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           <Field
             label="First Name"
             name="first_name"
@@ -112,7 +112,7 @@ export default function ContactForm() {
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           <Field
             label="Email"
             name="email"
@@ -153,7 +153,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="Tell us about your pipeline goals, target market, or what you are trying to solve…"
-            className={`w-full rounded-lg border bg-input px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring ${
+            className={`w-full rounded-lg border bg-input px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring ${
               errors.message ? "border-destructive" : "border-border"
             }`}
           />
@@ -165,7 +165,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex items-center gap-2 rounded-full bg-[image:var(--gradient-primary)] text-primary-foreground font-bold px-7 py-3 shadow-[var(--shadow-glow)] transition-transform duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+          className="w-full sm:w-auto flex sm:inline-flex items-center justify-center gap-2 rounded-full bg-[image:var(--gradient-primary)] text-primary-foreground font-bold px-7 py-3 shadow-[var(--shadow-glow)] transition-transform duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
           <Send className="h-4 w-4" />
           {status === "sending" ? "Sending..." : "Send Message"}
@@ -209,7 +209,7 @@ function Field({ label, name, value, onChange, error, type = "text", placeholder
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full rounded-lg border bg-input px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring ${
+        className={`w-full rounded-lg border bg-input px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring ${
           error ? "border-destructive" : "border-border"
         }`}
       />
