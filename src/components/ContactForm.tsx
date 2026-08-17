@@ -120,7 +120,7 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             error={errors.email}
-            placeholder="you@company.com"
+            placeholder="your@email.com"
           />
           <Field
             label="Phone"
@@ -173,7 +173,7 @@ export default function ContactForm() {
 
         {status === "success" && (
           <p className="text-sm font-medium" style={{ color: "oklch(0.7 0.18 145)" }}>
-            Thanks — your message has been sent. I'll get back to you soon!
+            Thank you, your message has been received. I'll get back to you soon.
           </p>
         )}
         {status === "error" && (
