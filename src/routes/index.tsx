@@ -544,14 +544,14 @@ function Projects() {
           What <span className="text-primary">I Offer?</span>
         </h2>
 
- <div className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 -mx-5 px-5 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:mt-14">
+<div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-2">
           {PROJECTS.map((p, i) => (
            <Reveal
               key={p.no}
               delay={i * 100}
               as="article"
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
-              className="group relative w-[82%] shrink-0 snap-center overflow-hidden rounded-2xl border border-border p-5 hover:-translate-y-1 hover:border-primary/50 sm:w-auto sm:rounded-3xl sm:p-8"
+              className="group relative overflow-hidden rounded-2xl border border-border p-5 hover:-translate-y-1 hover:border-primary/50 sm:rounded-3xl sm:p-8"
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-primary/70">{p.no}</span>
