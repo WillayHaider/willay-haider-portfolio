@@ -88,7 +88,7 @@ export default function ContactForm() {
         </div>
         <div className="min-w-0">
           <h2 className="text-xl sm:text-2xl font-bold text-foreground leading-tight">Let's Connect</h2>
-          <p className="text-muted-foreground text-xs sm:text-sm mt-1">I read every message personally — reply within 1–2 business days</p>
+          <p className="text-muted-foreground text-xs sm:text-sm mt-1">I reply within 1–2 business days</p>
         </div>
       </div>
 
