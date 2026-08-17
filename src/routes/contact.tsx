@@ -12,7 +12,7 @@ function ContactPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Get In <span className="text-blue-400">Touch</span>
         </h1>
-        <p className="text-[11px] md:text-base text-gray-300 mb-6 md:mb-10">
+        <p className="text-xs md:text-base text-gray-300 mb-6 md:mb-10">
           I'd love to hear from you, whether it's about a job opportunity, a
           collaboration, feedback on the blog, or ready to maximize revenue through consistent, qualified sales. Reach out below, your next closed deal is one click away.
         </p>
