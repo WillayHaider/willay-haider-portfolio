@@ -40,6 +40,8 @@ function ContactPage() {
     <p className="text-[10px] sm:text-xs uppercase tracking-wide text-gray-400 mb-1">Website</p>
     <p className="text-[11px] sm:text-base text-white font-semibold truncate">willayhaider.pro</p>
   </div>
-</div>
+    </div>
+    </div>
+  </div>
   )
 }
