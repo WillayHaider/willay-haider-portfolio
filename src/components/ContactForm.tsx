@@ -81,14 +81,14 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="w-full max-w-3xl mx-auto rounded-2xl border border-blue-500/20 bg-[#0a1428] overflow-hidden">
-      <div className="flex items-start gap-4 px-8 py-6 border-b border-blue-500/20">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-400 to-blue-600">
-          <Send className="h-5 w-5 text-white" />
+    <section className="w-full max-w-3xl mx-auto rounded-2xl border border-border bg-card overflow-hidden shadow-[var(--shadow-card)]">
+      <div className="flex items-start gap-4 px-8 py-6 border-b border-border">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] shadow-[var(--shadow-glow)]">
+          <Send className="h-5 w-5 text-primary-foreground" />
         </div>
         <div>
-          <h2 className="text-2xl font-bold text-white">Send Me a Message</h2>
-          <p className="text-slate-400 text-sm mt-1">I respond within one business day</p>
+          <h2 className="text-2xl font-bold text-foreground">Send Me a Message</h2>
+          <p className="text-muted-foreground text-sm mt-1">I respond within one business day</p>
         </div>
       </div>
 
@@ -143,8 +143,8 @@ export default function ContactForm() {
         />
 
         <div>
-          <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wide text-blue-300 mb-2">
-            Message <span className="text-blue-400">*</span>
+          <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wide text-muted-foreground mb-2">
+            Message <span className="text-primary">*</span>
           </label>
           <textarea
             id="message"
@@ -153,31 +153,31 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="Tell us about your pipeline goals, target market, or what you are trying to solve…"
-            className={`w-full rounded-lg border bg-[#0d1730] px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 ${
-              errors.message ? "border-red-400" : "border-blue-500/20"
+            className={`w-full rounded-lg border bg-input px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring ${
+              errors.message ? "border-destructive" : "border-border"
             }`}
           />
           {errors.message && (
-            <p className="text-red-400 text-xs mt-1">{errors.message}</p>
+            <p className="text-destructive text-xs mt-1">{errors.message}</p>
           )}
         </div>
 
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-400 hover:from-blue-400 hover:to-blue-300 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold px-7 py-3 transition-all"
+          className="inline-flex items-center gap-2 rounded-full bg-[image:var(--gradient-primary)] text-primary-foreground font-bold px-7 py-3 shadow-[var(--shadow-glow)] transition-transform duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
           <Send className="h-4 w-4" />
           {status === "sending" ? "Sending..." : "Send Message"}
         </button>
 
         {status === "success" && (
-          <p className="text-green-400 text-sm font-medium">
+          <p className="text-sm font-medium" style={{ color: "oklch(0.7 0.18 145)" }}>
             Thanks — your message has been sent. I'll get back to you soon!
           </p>
         )}
         {status === "error" && (
-          <p className="text-red-400 text-sm font-medium">
+          <p className="text-destructive text-sm font-medium">
             Something went wrong sending your message. Please try again or email me directly.
           </p>
         )}
@@ -199,8 +199,8 @@ interface FieldProps {
 function Field({ label, name, value, onChange, error, type = "text", placeholder }: FieldProps) {
   return (
     <div>
-      <label htmlFor={name} className="block text-xs font-bold uppercase tracking-wide text-blue-300 mb-2">
-        {label} <span className="text-blue-400">*</span>
+      <label htmlFor={name} className="block text-xs font-bold uppercase tracking-wide text-muted-foreground mb-2">
+        {label} <span className="text-primary">*</span>
       </label>
       <input
         id={name}
@@ -209,11 +209,11 @@ function Field({ label, name, value, onChange, error, type = "text", placeholder
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full rounded-lg border bg-[#0d1730] px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 ${
-          error ? "border-red-400" : "border-blue-500/20"
+        className={`w-full rounded-lg border bg-input px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring ${
+          error ? "border-destructive" : "border-border"
         }`}
       />
-      {error && <p className="text-red-400 text-xs mt-1">{error}</p>}
+      {error && <p className="text-destructive text-xs mt-1">{error}</p>}
     </div>
   );
 }
