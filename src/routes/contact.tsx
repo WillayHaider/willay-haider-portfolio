@@ -18,7 +18,7 @@ function ContactPage() {
       <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-16">
   <div className="rounded-2xl border border-blue-500/20 bg-[#0a1428] p-3 sm:p-6 min-w-0">
     <p className="text-xs sm:text-sm uppercase tracking-wide text-gray-400 mb-1">Email</p>
-    <a href="mailto:Contact.whaider@gmail.com" className="block text-sm sm:text-lg text-blue-400 font-semibold hover:underline truncate">
+   <a href="mailto:Contact.whaider@gmail.com" className="block text-xs sm:text-sm text-blue-400 font-semibold hover:underline truncate">
       Contact.whaider@gmail.com
     </a>
   </div>
