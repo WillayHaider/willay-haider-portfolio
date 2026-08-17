@@ -562,7 +562,7 @@ function Projects() {
 <h3 className="mt-1 text-base font-semibold leading-snug">
                 {c.title}
               </h3>
-              
+              <a
                 href={c.link}
                 target="_blank"
                 rel="noopener noreferrer"
