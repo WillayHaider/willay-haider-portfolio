@@ -334,7 +334,7 @@ export function Nav() {
      </a>
       </div>
       {mobileOpen && (
-        <div className="md:hidden border-t border-border/40 bg-background/85 backdrop-blur-xl px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden border-t border-border/40 bg-background/75 backdrop-blur-xl px-6 py-4 flex flex-col gap-4">
           {NAV.map((n) => (
             <Link
               key={n.href}
