@@ -689,7 +689,7 @@ function CertificationsInner() {
 <h3 className="mt-1 text-xs font-semibold leading-snug sm:text-base">
                 {c.title}
               </h3>
-              
+              <a
                 href={c.link}
                 target="_blank"
                 rel="noopener noreferrer"
