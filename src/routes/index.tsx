@@ -672,28 +672,28 @@ function CertificationsInner() {
 
         <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-5">
           {CERTIFICATIONS.map((c, i) => (
-            <Reveal
+<Reveal
               key={c.title}
               delay={i * 80}
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
-              className="group relative overflow-hidden rounded-2xl border border-border p-5 hover:-translate-y-1 hover:border-primary/60 sm:p-6"
+              className="group relative overflow-hidden rounded-xl border border-border p-3 hover:-translate-y-1 hover:border-primary/60 sm:rounded-2xl sm:p-6"
             >
-              <div className="flex items-start gap-4">
-<div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-sm transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">                  
+              <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-start sm:gap-4">
+<div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white p-1 shadow-sm transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110 sm:h-16 sm:w-16 sm:rounded-xl sm:p-1.5">                  
   <img src={c.logo} alt={c.org} className="h-full w-full object-contain" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                  <p className="text-[8px] font-medium uppercase tracking-[0.15em] text-muted-foreground sm:text-[10px] sm:tracking-[0.2em]">
                     Certificate 0{i + 1}
                   </p>
-<h3 className="mt-1 text-base font-semibold leading-snug">
+<h3 className="mt-1 text-xs font-semibold leading-snug sm:text-base">
                 {c.title}
               </h3>
-              <a
+              
                 href={c.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 inline-block text-sm text-primary hover:underline"
+                className="mt-1 inline-block text-[11px] text-primary hover:underline sm:text-sm"
               >
                 {c.org}
               </a>
