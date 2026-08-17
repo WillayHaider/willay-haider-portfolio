@@ -328,7 +328,7 @@ export function Nav() {
         </nav>
       <Link
   to="/contact"
-className="rounded-full border border-primary/40 px-3 py-1.5 text-[11px] font-medium text-primary transition-all duration-300 hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground active:scale-95 sm:px-4 sm:py-2 sm:text-xs">
+className="rounded-full border border-primary/40 px-3 py-1.5 text-[11px] font-medium text-primary transition-all duration-500 ease-out hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground active:scale-95 sm:px-4 sm:py-2 sm:text-xs">
   Let's Connect
 </Link>
       </div>
@@ -425,8 +425,7 @@ function Hero() {
             </a>
            <Link
               to="/contact"
-              className="rounded-full border border-border bg-card/50 px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary sm:px-6 sm:py-3"
-            >
+className="rounded-full border border-border bg-card/50 px-5 py-2.5 text-sm font-medium text-foreground transition-all duration-500 ease-out hover:border-primary hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground active:scale-95 sm:px-6 sm:py-3"            >
               Get in Touch
             </Link>
           </div>
