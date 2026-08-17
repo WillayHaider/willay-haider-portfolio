@@ -398,25 +398,15 @@ function Hero() {
           </div>
           <div className="mt-4 space-y-1 sm:mt-6">
             <p
-              className="text-2xl font-semibold sm:text-3xl md:text-4xl"
-              style={{
-                background: "var(--gradient-primary)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Business Development
-            </p>
-            <p
-              className="text-2xl font-semibold sm:text-3xl md:text-4xl"
-              style={{
-                background: "var(--gradient-primary)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Representative
-            </p>
+      className="whitespace-nowrap text-base font-semibold sm:text-3xl md:text-4xl"
+      style={{
+        background: "var(--gradient-primary)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+      }}
+    >
+      Business Development Representative
+    </p>
           </div>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground sm:mt-6 sm:text-base">
             Professional cold caller and BDR with 1.5+ years of experience
