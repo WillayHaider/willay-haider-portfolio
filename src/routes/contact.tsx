@@ -17,7 +17,10 @@ function ContactPage() {
           collaboration, feedback on the blog, or just to connect. I try to
           respond to every message within 1–2 business days.
         </p>
-        <div className="grid sm:grid-cols-2 gap-4">
+
+        <ContactForm />
+
+        <div className="grid sm:grid-cols-2 gap-4 mt-16">
           <div className="rounded-2xl border border-blue-500/20 bg-[#0a1428] p-6">
             <p className="text-xs uppercase tracking-wide text-gray-400 mb-1">Email</p>
             <a href="mailto:Contact.whaider@gmail.com" className="text-blue-400 font-semibold hover:underline">
@@ -38,9 +41,6 @@ function ContactPage() {
             <p className="text-xs uppercase tracking-wide text-gray-400 mb-1">Website</p>
             <p className="text-white font-semibold">willayhaider.pro</p>
           </div>
-        </div>
-        <div className="mt-16">
-          <ContactForm />
         </div>
       </div>
     </div>
