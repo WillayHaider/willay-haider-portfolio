@@ -162,14 +162,14 @@ export default function ContactForm() {
           )}
         </div>
 
-        <button
-          type="submit"
-          disabled={status === "sending"}
-          className="w-full sm:w-auto flex sm:inline-flex items-center justify-center gap-2 rounded-full bg-[image:var(--gradient-primary)] text-primary-foreground font-bold px-7 py-3 shadow-[var(--shadow-glow)] transition-transform duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
-        >
-          <Send className="h-4 w-4" />
-          {status === "sending" ? "Sending..." : "Send Message"}
-        </button>
+      <button
+  type="submit"
+  disabled={status === "sending"}
+  className="w-full sm:w-auto flex sm:inline-flex items-center justify-center gap-2 rounded-full bg-[image:var(--gradient-primary)] text-primary-foreground font-bold px-7 py-3 shadow-[var(--shadow-glow)] transition-transform duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+>
+  <Send className="h-4 w-4" />
+  {status === "sending" ? "Sending..." : status === "success" ? "Message Sent!" : "Send Message"}
+</button>
 
         {status === "success" && (
           <p className="text-sm font-medium" style={{ color: "oklch(0.7 0.18 145)" }}>
