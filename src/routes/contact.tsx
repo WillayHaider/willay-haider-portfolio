@@ -14,7 +14,7 @@ function ContactPage() {
         </h1>
         <p className="text-gray-300 mb-10">
           I'd love to hear from you, whether it's about a job opportunity, a
-          collaboration, feedback on the blog, or just to connect. I try to
+          collaboration, feedback on the blog, or or ready to maximize revenue through consistent, qualified sales. I try to
           respond to every message within 1–2 business days.
         </p>
 
