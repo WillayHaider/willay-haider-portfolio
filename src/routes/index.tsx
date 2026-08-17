@@ -670,7 +670,7 @@ function CertificationsInner() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-5">
           {CERTIFICATIONS.map((c, i) => (
             <Reveal
               key={c.title}
