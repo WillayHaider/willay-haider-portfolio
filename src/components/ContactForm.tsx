@@ -149,7 +149,7 @@ export default function ContactForm() {
           <textarea
             id="message"
             name="message"
-            rows={5}
+            rows={4}
             value={formData.message}
             onChange={handleChange}
             placeholder="Tell us about your pipeline goals, target market, or what you are trying to solve…"
