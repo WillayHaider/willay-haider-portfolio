@@ -543,35 +543,25 @@ function Projects() {
         <h2 className="max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
           What <span className="text-primary">I Offer?</span>
         </h2>
-<div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5">
-          {CERTIFICATIONS.map((c, i) => (
-            <Reveal
-              key={c.title}
-              delay={i * 80}
+
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 md:grid-cols-2">
+          {PROJECTS.map((p, i) => (
+           <Reveal
+              key={p.no}
+              delay={i * 100}
+              as="article"
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
-              className="group relative overflow-hidden rounded-2xl border border-border p-5 hover:-translate-y-1 hover:border-primary/60 sm:p-6"
+              className="group relative overflow-hidden rounded-2xl border border-border p-5 hover:-translate-y-1 hover:border-primary/50 sm:rounded-3xl sm:p-8"
             >
-              <div className="flex items-start gap-4">
-<div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-sm transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">                  
-  <img src={c.logo} alt={c.org} className="h-full w-full object-contain" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-                    Certificate 0{i + 1}
-                  </p>
-<h3 className="mt-1 text-base font-semibold leading-snug">
-                {c.title}
-              </h3>
-              <a
-                href={c.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-1 inline-block text-sm text-primary hover:underline"
-              >
-                {c.org}
-              </a>
-                </div>
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-primary/70">{p.no}</span>
+                <span className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-[10px] font-medium uppercase tracking-wide text-primary">
+                  {p.tag}
+                </span>
               </div>
+              <h3 className="mt-3 text-lg font-semibold sm:mt-6 sm:text-2xl">{p.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground/80 sm:mt-4">{p.desc}</p>
+              <p className="mt-3 text-xs text-muted-foreground/60 sm:mt-4">{p.stack}</p>
             </Reveal>
           ))}
         </div>
@@ -680,30 +670,30 @@ function CertificationsInner() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-5">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5">
           {CERTIFICATIONS.map((c, i) => (
-<Reveal
+            <Reveal
               key={c.title}
               delay={i * 80}
               style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
-              className="group relative overflow-hidden rounded-xl border border-border p-3 hover:-translate-y-1 hover:border-primary/60 sm:rounded-2xl sm:p-6"
+              className="group relative overflow-hidden rounded-2xl border border-border p-5 hover:-translate-y-1 hover:border-primary/60 sm:p-6"
             >
-              <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-start sm:gap-4">
-<div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white p-1 shadow-sm transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110 sm:h-16 sm:w-16 sm:rounded-xl sm:p-1.5">                  
+              <div className="flex items-start gap-4">
+<div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-sm transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">                  
   <img src={c.logo} alt={c.org} className="h-full w-full object-contain" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[8px] font-medium uppercase tracking-[0.15em] text-muted-foreground sm:text-[10px] sm:tracking-[0.2em]">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
                     Certificate 0{i + 1}
                   </p>
-<h3 className="mt-1 text-xs font-semibold leading-snug sm:text-base">
+<h3 className="mt-1 text-base font-semibold leading-snug">
                 {c.title}
               </h3>
-              <a
+              
                 href={c.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 inline-block text-[11px] text-primary hover:underline sm:text-sm"
+                className="mt-1 inline-block text-sm text-primary hover:underline"
               >
                 {c.org}
               </a>
