@@ -29,6 +29,24 @@ import bhssLogo from "@/assets/bhss-logo.png";
 import adbiLogo from "@/assets/adbi-logo.png";
 import awsLogo from "@/assets/aws-logo.png";
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Willay Haider — Business Development Representative & Cold Calling Specialist" },
+      {
+        name: "description",
+        content:
+          "Willay Haider is a Business Development Representative and cold-calling specialist with 1.5+ years booking qualified meetings and driving B2B outbound pipeline for clients across the US, UK, and EU.",
+      },
+      { property: "og:title", content: "Willay Haider — Business Development Representative" },
+      {
+        property: "og:description",
+        content:
+          "1.5+ years of experience in cold calling, lead generation, and appointment setting for B2B clients worldwide.",
+      },
+      { property: "og:url", content: "https://www.willayhaider.pro/" },
+    ],
+    links: [{ rel: "canonical", href: "https://www.willayhaider.pro/" }],
+  }),
   component: Portfolio,
 });
 
@@ -43,11 +61,17 @@ function CountUp({
   suffix?: string;
   duration?: number;
 }) {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(end); // real number on first render — no "0+" for crawlers
+  const [mounted, setMounted] = useState(false);
   const ref = useRef<HTMLSpanElement | null>(null);
   const started = useRef(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
@@ -55,6 +79,7 @@ function CountUp({
         entries.forEach((entry) => {
           if (entry.isIntersecting && !started.current) {
             started.current = true;
+            setValue(0);
             const start = performance.now();
             const tick = (now: number) => {
               const p = Math.min((now - start) / duration, 1);
@@ -71,7 +96,7 @@ function CountUp({
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [end, duration]);
+  }, [mounted, end, duration]);
 
   return (
     <span ref={ref}>
@@ -80,7 +105,6 @@ function CountUp({
     </span>
   );
 }
-
 function Reveal({
   children,
   delay = 0,
