@@ -130,9 +130,10 @@ function Reveal({
 }
 
 const NAV = [
-  { label: "About", href: "/about" },
+  { label: "About Me", href: "/about" },
   { label: "Experience", href: "/#projects" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact Us", href: "/contact" },
+  { label: "Blog", href: "/privacy-policy" },
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms & Conditions", href: "/terms" },
 ];
