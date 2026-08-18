@@ -8,13 +8,13 @@ export interface BlogPost {
   content: string
 }
 
-// Add new articles here — each one automatically gets a page at /blog/{slug}
 export const BLOG_POSTS: BlogPost[] = [
-  //   slug: "how-b2b-cold-calling-actually-works",
-  //   title: "How B2B Cold Calling Actually Works (No, It's Not Just Reading a Script",
-  //   excerpt: "People assume it's dialing a number and reading a pitch until someone says yes. Here's what actually happens on a call that goes somewhere.",
-  //   date: "2026-08-19",
-  //   content: `People assume cold calling is just dialing a number and reading a pitch off a screen until someone says yes. I wish it were that simple. It would've saved me a lot of awkward first months.
+  {
+    slug: "how-b2b-cold-calling-actually-works",
+    title: "How B2B Cold Calling Actually Works (No, It's Not Just Reading a Script)",
+    excerpt: "People assume it's dialing a number and reading a pitch until someone says yes. Here's what actually happens on a call that goes somewhere.",
+    date: "2026-08-19",
+    content: `People assume cold calling is just dialing a number and reading a pitch off a screen until someone says yes. I wish it were that simple. It would've saved me a lot of awkward first months.
 
 Here's what actually happens on a call that goes somewhere.
 
@@ -42,8 +42,8 @@ On a first call, I'm almost never trying to close anything. I'm trying to earn a
 
 Why this matters if you're hiring for it
 
-If you're a founder or sales manager evaluating outbound talent, the thing to watch for isn't confidence on the phone, plenty of people have that. It's whether the person is actually listening to what the prospect says, or just waiting for their turn to talk. That's the difference between someone who books meetings and someone who books meetings that don't show up.
-
+If you're a founder or sales manager evaluating outbound talent, the thing to watch for isn't confidence on the phone, plenty of people have that. It's whether the person is actually listening to what the prospect says, or just waiting for their turn to talk. That's the difference between someone who books meetings and someone who books meetings that don't show up.`,
+  },
 ]
 
 export const Route = createFileRoute('/blog')({
