@@ -42,4 +42,31 @@ Why this matters if you're hiring for it
 
 If you're a founder or sales manager evaluating outbound talent, the thing to watch for isn't confidence on the phone, plenty of people have that. It's whether the person is actually listening to what the prospect says, or just waiting for their turn to talk. That's the difference between someone who books meetings and someone who books meetings that don't show up.`,
   },
+    {
+    slug: "cold-calling-vs-email-outreach",
+    title: "Cold Calling vs Email Outreach for B2B",
+    excerpt: "Most teams treat this as either/or. Here's when each channel actually wins, and how to combine them.",
+    date: "2026-08-19",
+    content: `Most B2B teams treat this as an either/or decision. It shouldn't be. After running both channels across SaaS, medical supply, and legal verticals, the honest answer is: they solve different problems, and the companies getting the best pipeline results use both, deliberately.
+
+When email wins
+
+Email is cheap to scale and easy to personalize at volume. It works well when you're targeting a long list of similar accounts, when the buyer is lower in the org and comfortable self-educating, or when you're building awareness before a company is ready to talk. It also leaves a paper trail the prospect can forward internally, which matters for multi-stakeholder deals.
+
+The tradeoff is response rate. Even well-written sequences to a cold list typically land under 3 percent replies, and most of those replies are not a yes.
+
+When the phone wins
+
+Cold calling wins when you need to reach a decision-maker directly, qualify fast, and get a real answer in the same conversation instead of waiting days for a reply that might never come. It's also the better channel when the account is high-value enough that a personalized, researched call actually justifies the time investment.
+
+The tradeoff is volume. You can call maybe 60 to 100 dials a day well. You can email thousands. Calling doesn't scale the same way, but it converts faster per contact when done right.
+
+What actually works
+
+In practice, the highest-performing motion I've run pairs the two: a short, relevant email lands first so the name isn't cold when the call comes, then the call does the real qualifying work. Prospects who've seen an email pick up more often, and callers who've already been introduced by name get further into the conversation before the prospect's guard goes up.
+
+Neither channel replaces good targeting. A well-timed call to the wrong contact still fails. A perfectly written email to the right decision-maker at the wrong moment still gets ignored. The channel matters less than knowing who you're calling and why they should care.
+
+If you're building or fixing an outbound motion and want a second opinion on channel mix for your specific market, that's exactly the kind of conversation worth having.`,
+  },
 ]
