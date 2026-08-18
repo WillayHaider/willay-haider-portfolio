@@ -108,6 +108,33 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Willay Haider",
+              jobTitle: "Business Development Representative",
+              url: "https://www.willayhaider.pro/",
+              image: "https://www.willayhaider.pro/assets/willay-portrait-final-nobg-DnpT6m1F.png",
+              sameAs: [
+                "https://www.linkedin.com/in/willayhaider",
+                "https://www.instagram.com/damn_haiderrr",
+              ],
+              address: {
+                "@type": "PostalAddress",
+                addressRegion: "Punjab",
+                addressCountry: "PK",
+              },
+              worksFor: {
+                "@type": "Organization",
+                name: "Million Dials",
+                url: "https://milliondials.com/",
+              },
+            }),
+          }}
+        />
       </head>
       <body>
         {children}
