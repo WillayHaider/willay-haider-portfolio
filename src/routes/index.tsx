@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:title", content: "Willay Haider — Business Development Representative" },
       {
-        property: "og:description",
+        property: "og: description",
         content:
           "1.5+ years of experience in cold calling, lead generation, and appointment setting for B2B clients worldwide.",
       },
@@ -156,7 +156,7 @@ function Reveal({
 const NAV = [
   { label: "About Me", href: "/about" },
   { label: "Contact Us", href: "/contact" },
-  { label: "Blog", href: "/privacy-policy" },
+  { label: "Blog", href: "/blog" },
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms & Conditions", href: "/terms" },
 ];
