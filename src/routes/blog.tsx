@@ -11,10 +11,11 @@ function BlogPage() {
    <h1 className="text-3xl md:text-4xl font-bold mb-4">
   My <span className="text-primary">Blog</span>
 </h1>
-      <p className="text-muted-foreground mb-12 max-w-2xl">
-        Practical breakdowns on B2B cold calling, lead generation, and
-        appointment setting — from real outbound campaigns, not theory.
-      </p>
+    <p className="text-muted-foreground mb-12 max-w-2xl">
+  Cold calling tips, B2B lead generation strategies, and outbound
+  sales advice from real campaigns. Practical guides for SDRs, BDRs, 
+  founders, and anyone doing outreach.
+</p>
 
       {BLOG_POSTS.length === 0 ? (
         <div className="border border-border rounded-lg p-8 text-center text-muted-foreground">
