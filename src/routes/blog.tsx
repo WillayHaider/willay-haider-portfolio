@@ -8,9 +8,9 @@ export const Route = createFileRoute('/blog')({
 function BlogPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-16">
-      <h1 className="text-3xl md:text-4xl font-bold mb-4">
-        Resources & Insights
-      </h1>
+   <h1 className="text-3xl md:text-4xl font-bold mb-4">
+  My <span className="text-primary">Blog</span>
+</h1>
       <p className="text-muted-foreground mb-12 max-w-2xl">
         Practical breakdowns on B2B cold calling, lead generation, and
         appointment setting — from real outbound campaigns, not theory.
