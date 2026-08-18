@@ -60,7 +60,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           >
             Try again
           </button>
-          <a
+          
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
@@ -77,16 +77,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Portfolio — Business Development Representative" },
-      { name: "description", content: "Portfolio of a BDR and Cold Calling Specialist showcasing experience, achievements, skills, and contact information." },
-      { name: "author", content: "Portfolio" },
-      { property: "og:title", content: "Portfolio — Business Development Representative" },
-      { property: "og:description", content: "Portfolio of a BDR and Cold Calling Specialist showcasing experience, achievements, skills, and contact information." },
+      { title: "Willay Haider — Business Development Representative & Cold Calling Specialist" },
+      { name: "description", content: "Willay Haider is a Business Development Representative and cold-calling specialist with 1.5+ years booking qualified meetings and driving B2B outbound pipeline for clients across the US, UK, and EU." },
+      { name: "author", content: "Willay Haider" },
+      { property: "og:title", content: "Willay Haider — Business Development Representative" },
+      { property: "og:description", content: "1.5+ years of experience in cold calling, lead generation, and appointment setting for B2B clients worldwide." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.willayhaider.pro/" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Portfolio — Business Development Representative" },
-      { name: "twitter:description", content: "Portfolio of a BDR and Cold Calling Specialist showcasing experience, achievements, skills, and contact information." },
+      { name: "twitter:title", content: "Willay Haider — Business Development Representative" },
+      { name: "twitter:description", content: "1.5+ years of experience in cold calling, lead generation, and appointment setting for B2B clients worldwide." },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
     ],
@@ -94,6 +94,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "canonical",
+        href: "https://www.willayhaider.pro/",
       },
     ],
   }),
