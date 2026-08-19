@@ -104,6 +104,6 @@ Handle objections like a person, not a rebuttal machine
 
 The takeaway
 
-None of this means throwing out call structure, discovery frameworks, or preparation. It means using them as scaffolding for a real conversation rather than a substitute for one. Prospects don't remember polished scripts. They remember whether the call felt like talking to a person who understood their situation, or like being read to.
+None of this means throwing out call structure, discovery frameworks, or preparation. It means using them as scaffolding for a real conversation rather than a substitute for one. Prospects don't remember polished scripts. They remember whether the call felt like talking to a person who understood their situation, or like being read to.`,
  }, 
 ]
