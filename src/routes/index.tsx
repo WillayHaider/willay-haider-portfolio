@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:title", content: "Willay Haider — Business Development Representative" },
       {
-        property: "og: description",
+        property: "og:description",
         content:
           "1.5+ years of experience in cold calling, lead generation, and appointment setting for B2B clients worldwide.",
       },
@@ -431,12 +431,13 @@ function Hero() {
       Business Development Representative
     </p>
           </div>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground sm:mt-6 sm:text-base">
-            Professional cold caller and BDR with 1.5+ years of experience
-            delivering outbound sales projects for companies around the world,
-            from lead generation and qualification to booking qualified meetings
-            with founders, CEOs and decision makers for closing high ticket deals.
-          </p>
+        <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground sm:mt-6 sm:text-base">
+  Professional cold caller and BDR with 1.5+ years of experience
+  delivering outbound sales projects for companies around the world.
+  I handle everything from lead generation and qualification to booking
+  qualified meetings with founders, CEOs, and decision-makers for closing
+  high-ticket deals.
+</p>
           <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
             <a
            href="https://calendly.com/contact-whaider"
