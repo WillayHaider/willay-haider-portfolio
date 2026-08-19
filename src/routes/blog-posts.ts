@@ -69,4 +69,41 @@ Neither channel replaces good targeting. A well-timed call to the wrong contact 
 
 If you're building or fixing an outbound motion and want a second opinion on channel mix for your specific market, that's exactly the kind of conversation worth having.`,
   },
+    {
+    slug: "cold-calling-techniques",
+    title: "Cold Calling Techniques That Actually Work",
+    excerpt: "Scripts don't book meetings, conversations do. Practical techniques for cold calls that feel real instead of rehearsed.",
+    date: "2026-08-19",
+    content: `Most cold calls fail in the first ten seconds, and it's rarely because of the offer. It's because the person on the other end can tell they're being "handled." The pacing is off, the tone is rehearsed, and the prospect checks out before you've said anything wrong.
+
+Good cold calling technique isn't about abandoning structure. It's about using structure as a foundation, not a script to read word for word.
+
+Open like you mean it
+
+Most reps open with a rushed, robotic intro because they're bracing for a hang-up. Prospects can hear that bracing. Slow down. Say your name and company clearly, then pause. A real pause, not a scripted one. It signals you're actually talking to them, not reciting at them.
+
+Lead with a reason, not a pitch
+
+"Hi, do you have a minute to talk about our solution?" invites an automatic no. A better opener names a specific, relevant reason for the call: something tied to their role, their company, or a trigger event. It doesn't need to be clever. It needs to be true and specific enough that a script couldn't have written it for anyone else.
+
+Ask questions you actually want answered
+
+Discovery questions fail when they sound like a checklist. If a prospect can tell you're just working through a list to get to your pitch, they'll give short, guarded answers. Ask because you're curious what they'll say, and let their answer actually change what you say next. That's the difference between discovery and interrogation.
+
+Let silence do some of the work
+
+New reps fill every pause because silence feels like failure. In reality, a short pause after a real question gives the prospect room to think and respond honestly, rather than reflexively deflecting. Reading a script doesn't leave room for that. A conversation does.
+
+Match their energy, not your script's tone
+
+A script has one tone. People don't. If a prospect is direct and brief, mirror that, don't launch into a long pitch. If they're chatty and open, don't cut them off to get back on track. Reading the room in real time is what makes a call feel like a conversation instead of a transaction.
+
+Handle objections like a person, not a rebuttal machine
+
+"I don't have time" doesn't always mean "never call me again." It often means "you haven't given me a reason to make time yet." Responding with a canned rebuttal makes that worse. Acknowledging it, then briefly re-anchoring on why the call is worth thirty seconds, works better than pushing past it.
+
+The takeaway
+
+None of this means throwing out call structure, discovery frameworks, or preparation. It means using them as scaffolding for a real conversation rather than a substitute for one. Prospects don't remember polished scripts. They remember whether the call felt like talking to a person who understood their situation, or like being read to.
+ }, 
 ]
