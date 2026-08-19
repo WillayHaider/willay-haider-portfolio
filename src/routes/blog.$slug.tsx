@@ -1,11 +1,27 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
-import { BLOG_POSTS } from "./blog-posts";
+import { BLOG_POSTS } from './blog-posts'
 
 export const Route = createFileRoute('/blog/$slug')({
   loader: ({ params }) => {
     const post = BLOG_POSTS.find((p) => p.slug === params.slug)
     if (!post) throw notFound()
     return post
+  },
+  head: ({ loaderData }) => {
+    if (!loaderData) return {}
+    return {
+      meta: [
+        { title: `${loaderData.title} | Willay Haider` },
+        { name: "description", content: loaderData.excerpt },
+        { property: "og:title", content: loaderData.title },
+        { property: "og:description", content: loaderData.excerpt },
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: `https://www.willayhaider.pro/blog/${loaderData.slug}` },
+      ],
+      links: [
+        { rel: "canonical", href: `https://www.willayhaider.pro/blog/${loaderData.slug}` },
+      ],
+    }
   },
   component: BlogPostPage,
 })
