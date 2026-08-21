@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import photo1 from '../assets/willay-haider-portrait-green-jacket.jpg'
 import photo2 from '../assets/willay-haider-casual-outdoor.jpg'
-import photo3 from '../assets/willay-haider-closeups-shoot.jpg'
 import photo4 from '../assets/willay-haider-mountains-travel.jpg'
 import photo5 from '../assets/willay-haider-personal-car.jpg'
 import photo6 from '../assets/willay-haider-modern-image.jpg'
@@ -16,7 +15,6 @@ export const Route = createFileRoute('/gallery')({
 const photos = [
   { src: photo1, alt: 'Willay Haider portrait in a green jacket' },
   { src: photo2, alt: 'Willay Haider in a casual outdoor setting' },
-  { src: photo3, alt: 'Willay Haider close-up portrait shoot' },
   { src: photo4, alt: 'Willay Haider on a mountain travel trip' },
   { src: photo5, alt: 'Willay Haider standing next to his personal car' },
   { src: photo6, alt: 'Willay Haider in a modern casual look' },
