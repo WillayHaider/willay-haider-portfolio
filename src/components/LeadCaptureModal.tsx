@@ -4,9 +4,7 @@ import emailjs from "@emailjs/browser";
 
 export const EMAILJS_SERVICE_ID = "service_41mm3bo";
 export const EMAILJS_NOTIFICATION_TEMPLATE_ID = "template_67r462c"; // "Contact Us" notification to contact.whaider@gmail.com
-export const EMAILJS_CONFIRMATION_TEMPLATE_ID =
-  (typeof import.meta !== "undefined" && import.meta.env?.VITE_EMAILJS_CONFIRMATION_TEMPLATE_ID) ||
-  "template_confirmation";
+export const EMAILJS_CONFIRMATION_TEMPLATE_ID = "template_qy9ybyi"; // "Auto-Reply" confirmation to client
 export const EMAILJS_PUBLIC_KEY = "me568Yyf0eXCGD3sF";
 
 interface LeadCaptureModalProps {
