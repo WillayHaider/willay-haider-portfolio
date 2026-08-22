@@ -234,9 +234,7 @@ function AboutPage() {
                 years, I have dialed over 57,000+ cold calls and directly generated $3.5M+ in verified closed revenue.
               </p>
               <p className="mt-3 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
-                My approach is rooted in sharp discovery, psychological rapport, customized objection handling, and
-                flawless CRM RevOps discipline. I believe cold calling is not about reading robotic scripts: it is
-                about facilitating high-trust executive conversations that uncover real business pain points.
+                I lead with sharp discovery, real rapport, and tight CRM discipline. Cold calling isn't scripts, it's high-trust conversations that surface real business pain points.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -296,18 +294,19 @@ function AboutPage() {
             </h2>
 
             <p className="mt-2.5 max-w-3xl text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">
-              Submit a proposal by selecting the <strong className="text-foreground">"In-house Hiring"</strong> option on the discovery form, then grab an interview slot directly on the calendar or reach out on WhatsApp after submitting your request.
+              Select the "In-house Hiring" option on the discovery form, then schedule an interview directly on the calendar or reach out on WhatsApp after submitting your request.
             </p>
 
-            <div className="mt-3.5">
+            <div className="mt-4">
               <button
                 onClick={() => {
                   setModalService("In-house Hiring / Consulting (Pakistan-based agencies)");
                   setIsModalOpen(true);
                 }}
-                className="btn-click-effect inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-primary hover:underline"
+                className="btn-click-effect inline-flex min-h-[40px] items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs transition-transform hover:opacity-90 active:scale-95"
+                style={{ background: "var(--gradient-primary)" }}
               >
-                <span>Submit Proposal</span>
+                <span>Schedule Interview</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </div>
