@@ -548,14 +548,14 @@ function Navbar({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
 
       {/* Expanded Full-Width Panel (Clean grid of links, no bottom site link or CTA button) */}
       {menuOpen && (
-        <div className="fixed inset-x-0 top-0 z-40 h-[36vh] min-h-[260px] border-b border-border bg-background/98 p-6 pt-14 backdrop-blur-2xl shadow-xl animate-fade-in flex flex-col justify-center">
-          <div className="grid grid-cols-3 gap-3 text-center sm:grid-cols-4 max-w-2xl mx-auto w-full">
+        <div className="fixed inset-x-0 top-0 z-40 border-b border-border bg-background/98 p-4 pt-10 pb-5 backdrop-blur-2xl shadow-xl animate-fade-in flex flex-col justify-center">
+          <div className="grid grid-cols-3 gap-2.5 sm:gap-3 text-center sm:grid-cols-4 max-w-2xl mx-auto w-full">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-lg p-2.5 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors"
+                className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors"
               >
                 {link.label}
               </a>
@@ -1020,7 +1020,7 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
 }
 
 /* =========================================================================
-   8. PRICING SECTION (TOUCH SWIPE GESTURES + SOFTENED BADGES)
+   8. PRICING SECTION (NATURAL CONTENT HEIGHT ON FIRST 3 CARDS, STRETCHING 4TH)
    ========================================================================= */
 
 function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
@@ -1103,12 +1103,12 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
 
         {/* Continuous Smooth Sliding Carousel Container */}
         <div className="relative mt-6 max-w-lg mx-auto overflow-hidden py-3">
-          {/* Sliding Track containing all cards */}
+          {/* Sliding Track: items-start allows first 3 cards to size to natural content without bottom gap */}
           <div
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
-            className={`flex ${
+            className={`flex items-start ${
               isDragging ? "transition-none" : "transition-transform duration-500 ease-out"
             } will-change-transform cursor-grab active:cursor-grabbing`}
             style={{
@@ -1127,7 +1127,7 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
                   )}
 
                   <h3 className="text-xl font-bold text-foreground">{tier.name}</h3>
-                  <p className="mt-1 text-xs text-foreground/80 font-medium min-h-[30px]">{tier.bestFor}</p>
+                  <p className="mt-1 text-xs text-foreground/80 font-medium">{tier.bestFor}</p>
 
                   <div className="mt-4 border-y border-border py-3">
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">Starting at</p>

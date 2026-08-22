@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, CheckCircle2, ArrowRight, ArrowLeft, Calendar, MessageCircle, Send } from "lucide-react";
+import { X, CheckCircle2, ArrowRight, Calendar, MessageCircle, Send } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
 const EMAILJS_SERVICE_ID = "service_41mm3bo";
@@ -22,7 +22,6 @@ const SERVICES = [
 ];
 
 export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptureModalProps) {
-  const [step, setStep] = useState<1 | 2>(1);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -56,7 +55,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptur
 
   if (!isOpen) return null;
 
-  const validateStep1 = () => {
+  const validate = () => {
     const newErrors: { name?: string; email?: string; company?: string } = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -72,19 +71,9 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptur
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleNext = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateStep1()) {
-      setStep(2);
-    }
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateStep1()) {
-      setStep(1);
-      return;
-    }
+    if (!validate()) return;
 
     setIsSubmitting(true);
     const firstName = formData.name.trim().split(" ")[0] || formData.name;
@@ -119,7 +108,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptur
         { publicKey: EMAILJS_PUBLIC_KEY }
       );
     } catch (err) {
-      console.warn("EmailJS notification dispatch note:", err);
+      console.warn("EmailJS notification note:", err);
     } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -128,7 +117,6 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptur
 
   const resetAndClose = () => {
     setIsSubmitted(false);
-    setStep(1);
     setErrors({});
     onClose();
   };
@@ -136,7 +124,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptur
   const firstName = formData.name.trim().split(" ")[0] || "there";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3.5 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-slate-900/50 backdrop-blur-xs transition-opacity animate-fade-in"
@@ -144,7 +132,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptur
       />
 
       {/* Modal Container */}
-      <div className="relative z-10 w-full max-w-lg overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-2xl transition-all sm:p-7 animate-scale-in max-h-[94vh] overflow-y-auto">
+      <div className="relative z-10 w-full max-w-lg rounded-2xl border border-border bg-card p-5 shadow-2xl transition-all sm:p-7 animate-scale-in max-h-[90vh] overflow-y-auto">
         {/* Plain Close Icon */}
         <button
           onClick={resetAndClose}
@@ -156,52 +144,37 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptur
 
         {!isSubmitted ? (
           <div>
-            {/* Header & Step Tracker */}
             <div className="pr-8">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-primary">
-                  Step {step} of 2
-                </span>
-                <div className="flex h-1.5 w-16 overflow-hidden rounded-full bg-secondary">
-                  <div
-                    className="h-full bg-primary transition-all duration-300 rounded-full"
-                    style={{ width: step === 1 ? "50%" : "100%" }}
-                  />
-                </div>
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground">
-                {step === 1 ? "Your Contact Info" : "Project Scope & Goals"}
+              <h3 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">
+                Request Your <span className="text-primary">Outbound Plan</span>
               </h3>
-              <p className="mt-1 text-xs text-muted-foreground">
-                {step === 1
-                  ? "Let me know who you are and where to send your customized plan."
-                  : "Tell me what outbound motion you are looking to scale."}
+              <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
+                Fill in your details below. I will personally review your request and get back to you within 24 hours.
               </p>
             </div>
 
-            {/* Step 1: Contact Details */}
-            {step === 1 && (
-              <form onSubmit={handleNext} className="mt-5 space-y-3.5">
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-foreground">
-                    Your Full Name <span className="text-primary">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Mike Ross"
-                    value={formData.name}
-                    onChange={(e) => {
-                      setFormData({ ...formData, name: e.target.value });
-                      if (errors.name) setErrors({ ...errors, name: undefined });
-                    }}
-                    className={`mt-1 w-full min-h-[46px] rounded-xl border bg-secondary/30 px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary ${
-                      errors.name ? "border-destructive" : "border-border"
-                    }`}
-                  />
-                  {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
-                </div>
+            <form onSubmit={handleSubmit} className="mt-5 space-y-3.5 sm:space-y-4">
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-foreground">
+                  Your Full Name <span className="text-primary">*</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Mike Ross"
+                  value={formData.name}
+                  onChange={(e) => {
+                    setFormData({ ...formData, name: e.target.value });
+                    if (errors.name) setErrors({ ...errors, name: undefined });
+                  }}
+                  className={`mt-1 w-full min-h-[46px] rounded-xl border bg-secondary/30 px-3.5 py-2.5 text-base sm:text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary ${
+                    errors.name ? "border-destructive" : "border-border"
+                  }`}
+                />
+                {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
+              </div>
 
+              <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-4">
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-foreground">
                     Work Email <span className="text-primary">*</span>
@@ -215,7 +188,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptur
                       setFormData({ ...formData, email: e.target.value });
                       if (errors.email) setErrors({ ...errors, email: undefined });
                     }}
-                    className={`mt-1 w-full min-h-[46px] rounded-xl border bg-secondary/30 px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary ${
+                    className={`mt-1 w-full min-h-[46px] rounded-xl border bg-secondary/30 px-3.5 py-2.5 text-base sm:text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary ${
                       errors.email ? "border-destructive" : "border-border"
                     }`}
                   />
@@ -224,107 +197,80 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptur
 
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-foreground">
-                    Company Name / Website <span className="text-primary">*</span>
+                    Company / Website <span className="text-primary">*</span>
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Acme Corp (or acme.com)"
+                    placeholder="e.g. Acme Corp"
                     value={formData.company}
                     onChange={(e) => {
                       setFormData({ ...formData, company: e.target.value });
                       if (errors.company) setErrors({ ...errors, company: undefined });
                     }}
-                    className={`mt-1 w-full min-h-[46px] rounded-xl border bg-secondary/30 px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary ${
+                    className={`mt-1 w-full min-h-[46px] rounded-xl border bg-secondary/30 px-3.5 py-2.5 text-base sm:text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary ${
                       errors.company ? "border-destructive" : "border-border"
                     }`}
                   />
                   {errors.company && <p className="text-destructive text-xs mt-1">{errors.company}</p>}
                 </div>
+              </div>
 
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    className="btn-click-effect group flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl py-3 text-xs sm:text-sm font-semibold text-primary-foreground transition-all hover:opacity-95 active:scale-95"
-                    style={{
-                      background: "var(--gradient-primary)",
-                      boxShadow: "var(--shadow-glow)",
-                    }}
-                  >
-                    <span>Next: Select Scope</span>
-                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-                  </button>
-                </div>
-              </form>
-            )}
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-foreground">
+                  Primary Need / Service <span className="text-primary">*</span>
+                </label>
+                <select
+                  value={formData.service}
+                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                  className="mt-1 w-full min-h-[46px] rounded-xl border border-border bg-secondary/40 px-3.5 py-2.5 text-xs sm:text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
+                >
+                  {SERVICES.map((s) => (
+                    <option key={s} value={s} className="bg-card text-foreground py-1">
+                      {s}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-            {/* Step 2: Project Scope & Goals */}
-            {step === 2 && (
-              <form onSubmit={handleSubmit} className="mt-5 space-y-3.5">
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-foreground">
-                    Primary Need / Service <span className="text-primary">*</span>
-                  </label>
-                  <select
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="mt-1 w-full min-h-[46px] rounded-xl border border-border bg-secondary/40 px-3.5 py-2.5 text-xs sm:text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
-                  >
-                    {SERVICES.map((s) => (
-                      <option key={s} value={s} className="bg-card text-foreground py-1">
-                        {s}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-foreground">
+                  Target or Monthly Meeting Goal (Optional)
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. 15-20 qualified B2B SaaS demos per month"
+                  value={formData.goal}
+                  onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
+                  className="mt-1 w-full min-h-[46px] rounded-xl border border-border bg-secondary/30 px-3.5 py-2.5 text-base sm:text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                />
+              </div>
 
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-foreground">
-                    Monthly Meeting Goal / Target (Optional)
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. 15-20 qualified B2B SaaS demos per month"
-                    value={formData.goal}
-                    onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
-                    className="mt-1 w-full min-h-[46px] rounded-xl border border-border bg-secondary/30 px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                  />
-                </div>
-
-                <div className="flex items-center gap-2.5 pt-2">
-                  <button
-                    type="button"
-                    onClick={() => setStep(1)}
-                    className="btn-click-effect flex min-h-[46px] items-center justify-center gap-1.5 rounded-xl border border-border bg-card px-4 py-3 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary active:scale-95"
-                  >
-                    <ArrowLeft className="h-4 w-4" />
-                    <span>Back</span>
-                  </button>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="btn-click-effect group flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-xl py-3 text-xs sm:text-sm font-semibold text-primary-foreground transition-all hover:opacity-95 active:scale-95 disabled:opacity-70"
-                    style={{
-                      background: "var(--gradient-primary)",
-                      boxShadow: "var(--shadow-glow)",
-                    }}
-                  >
-                    {isSubmitting ? (
-                      <span className="inline-flex items-center gap-2">
-                        <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                        Submitting...
-                      </span>
-                    ) : (
-                      <>
-                        <Send className="h-4 w-4" />
-                        <span>Send Proposal Request</span>
-                      </>
-                    )}
-                  </button>
-                </div>
-              </form>
-            )}
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-click-effect group flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl py-3 text-xs sm:text-sm font-semibold text-primary-foreground transition-all hover:opacity-95 active:scale-95 disabled:opacity-70"
+                  style={{
+                    background: "var(--gradient-primary)",
+                    boxShadow: "var(--shadow-glow)",
+                  }}
+                >
+                  {isSubmitting ? (
+                    <span className="inline-flex items-center gap-2">
+                      <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                      Submitting request...
+                    </span>
+                  ) : (
+                    <>
+                      <Send className="h-4 w-4" />
+                      <span>Send Proposal Request</span>
+                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
           </div>
         ) : (
           /* Low-Friction Post-Submission View */
