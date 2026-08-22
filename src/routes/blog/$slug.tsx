@@ -37,7 +37,15 @@ function BlogPostPage() {
       {/* Top Sticky Header with Back button and menu */}
       <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/50 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-          <div className="relative z-50">
+          <div className="relative z-50 flex items-center gap-2">
+            <a
+              href="/"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-card/80 text-foreground transition-all hover:border-primary hover:text-primary active:scale-95 shadow-xs"
+              aria-label="Back to Home"
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </a>
+
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 p-1 text-foreground transition-opacity hover:opacity-75 focus:outline-none"
