@@ -845,7 +845,7 @@ function ToolsGridSection() {
             Modern Sales & Dialing Tech Stack
           </p>
           <h3 className="text-base sm:text-lg font-bold text-foreground mt-1">
-            Integrated With Industry-Standard CRMs, Dialers & Lead Platforms
+            Integrated With CRMs, Dialers & Lead Platforms
           </h3>
         </div>
 
@@ -1031,7 +1031,7 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
                   onClick={() => onOpenModal(`Case Study: ${cs.client}`)}
                   className="btn-click-effect inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline"
                 >
-                  <span>Build a similar pipeline</span>
+                  <span>Get Similar Results</span>
                   <ArrowRight className="h-3 w-3" />
                 </button>
               </div>
