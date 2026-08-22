@@ -28,7 +28,6 @@ import {
   Bot,
   Flame,
   Clock,
-  MessageSquare,
   X,
 } from "lucide-react";
 import heroPortrait from "@/assets/willay-portrait-final-nobg.png";
@@ -39,6 +38,29 @@ import arsalanAvatar from "@/assets/arsalan.jpg";
 import { LeadCaptureModal } from "@/components/LeadCaptureModal";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Willay Haider — Outbound Sales Systems, BDR & Growth Partner" },
+      {
+        name: "description",
+        content:
+          "Willay Haider is a senior Business Development Representative (BDR) and outbound sales specialist delivering qualified meetings, cold calling campaigns, lead generation, and CRM systems for US, UK & global B2B companies.",
+      },
+      {
+        name: "keywords",
+        content:
+          "Willay Haider, Willay Haider BDR, Business Development Representative, Cold Calling Specialist, B2B Appointment Setting, Lead Generation, Outbound Sales Systems, HubSpot CRM, willayhaider.pro",
+      },
+      { property: "og:title", content: "Willay Haider — Outbound Sales Systems & Growth Partner" },
+      {
+        property: "og:description",
+        content:
+          "Done-for-you outbound sales systems, cold calling, qualified demo booking, and CRM revops for US and global B2B companies.",
+      },
+      { property: "og:url", content: "https://willayhaider.pro" },
+    ],
+    links: [{ rel: "canonical", href: "https://willayhaider.pro" }],
+  }),
   component: ServiceBusinessPage,
 });
 
@@ -1617,6 +1639,15 @@ function FooterSection() {
             <a href="/about" className="transition-colors hover:text-primary">
               About
             </a>
+            <a href="/gallery" className="transition-colors hover:text-primary">
+              Gallery
+            </a>
+            <a href="/blog" className="transition-colors hover:text-primary">
+              Blog
+            </a>
+            <a href="/contact" className="transition-colors hover:text-primary">
+              Contact
+            </a>
           </div>
 
           {/* Socials & Resume */}
@@ -1646,9 +1677,18 @@ function FooterSection() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-border/40 pt-5 text-center text-[11px] text-muted-foreground sm:text-xs">
-          © 2026 Willay Haider (<span className="text-primary">willayhaider.pro</span>). All rights reserved. Built for
-          high-performance B2B growth.
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border/40 pt-5 text-[11px] text-muted-foreground sm:flex-row sm:text-xs">
+          <div>
+            © 2026 Willay Haider (<span className="text-primary">willayhaider.pro</span>). All rights reserved.
+          </div>
+          <div className="flex gap-4">
+            <a href="/privacy-policy" className="hover:text-primary transition-colors">
+              Privacy Policy
+            </a>
+            <a href="/terms" className="hover:text-primary transition-colors">
+              Terms & Conditions
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -2,13 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Award,
-  GraduationCap,
   Briefcase,
   Globe,
   Sparkles,
   ArrowRight,
-  ShieldCheck,
-  CheckCircle2,
   Calendar,
 } from "lucide-react";
 import heroPortrait from "@/assets/willay-portrait-final-nobg.png";
