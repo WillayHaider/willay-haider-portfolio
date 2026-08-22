@@ -1404,123 +1404,108 @@ function ReviewsSection() {
     return arr;
   });
 
-  // Tripled list for seamless infinite wrap on both manual swipe & auto-scroll
-  const marqueeList = [...shuffledReviews, ...shuffledReviews, ...shuffledReviews];
+  // Exactly 2 sets for perfect seamless infinite wrap
+  const marqueeList = [...shuffledReviews, ...shuffledReviews];
 
-  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const offsetRef = useRef(0);
+  const segmentWidthRef = useRef(0);
   const isDraggingRef = useRef(false);
-  const startXRef = useRef(0);
-  const startScrollLeftRef = useRef(0);
   const isHoveredRef = useRef(false);
-  const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const startXRef = useRef(0);
+  const startOffsetRef = useRef(0);
+  const resumeTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Measure single segment width
+  const updateSegmentWidth = () => {
+    if (trackRef.current) {
+      segmentWidthRef.current = trackRef.current.scrollWidth / 2;
+    }
+  };
 
   useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    // Start in the middle segment
-    const segmentWidth = el.scrollWidth / 3;
-    el.scrollLeft = segmentWidth;
+    updateSegmentWidth();
+    window.addEventListener("resize", updateSegmentWidth);
 
     let animId: number;
     let lastTime = performance.now();
 
-    const step = (time: number) => {
-      const delta = time - lastTime;
-      lastTime = time;
+    const loop = (now: number) => {
+      const delta = now - lastTime;
+      lastTime = now;
 
-      if (!isDraggingRef.current && !isHoveredRef.current && el) {
-        // Continuous smooth auto-scroll (~42px/sec)
-        const pixelsToMove = (42 * delta) / 1000;
-        el.scrollLeft += pixelsToMove;
+      // When not dragging and not hovered, advance offset via GPU transform
+      if (!isDraggingRef.current && !isHoveredRef.current && trackRef.current && segmentWidthRef.current > 0) {
+        const speed = 40; // 40px per second
+        offsetRef.current += (speed * delta) / 1000;
 
-        // Infinite wrap
-        const singleSegment = el.scrollWidth / 3;
-        if (el.scrollLeft >= singleSegment * 2) {
-          el.scrollLeft -= singleSegment;
-        } else if (el.scrollLeft <= 0) {
-          el.scrollLeft += singleSegment;
+        // Wrap seamlessly
+        if (offsetRef.current >= segmentWidthRef.current) {
+          offsetRef.current -= segmentWidthRef.current;
+        } else if (offsetRef.current < 0) {
+          offsetRef.current += segmentWidthRef.current;
         }
+
+        trackRef.current.style.transform = `translate3d(-${offsetRef.current}px, 0, 0)`;
       }
 
-      animId = requestAnimationFrame(step);
+      animId = requestAnimationFrame(loop);
     };
 
-    animId = requestAnimationFrame(step);
+    animId = requestAnimationFrame(loop);
+
     return () => {
       cancelAnimationFrame(animId);
-      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+      window.removeEventListener("resize", updateSegmentWidth);
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     };
   }, []);
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    const el = scrollRef.current;
-    if (!el) return;
+  const onPointerDown = (e: React.PointerEvent) => {
     isDraggingRef.current = true;
-    startXRef.current = e.pageX - el.offsetLeft;
-    startScrollLeftRef.current = el.scrollLeft;
+    startXRef.current = e.clientX;
+    startOffsetRef.current = offsetRef.current;
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    if (trackRef.current) {
+      try {
+        (trackRef.current as HTMLElement).setPointerCapture?.(e.pointerId);
+      } catch (_) {}
+    }
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!isDraggingRef.current || !trackRef.current) return;
+    const diff = e.clientX - startXRef.current;
+    let newOffset = startOffsetRef.current - diff;
+
+    if (segmentWidthRef.current > 0) {
+      while (newOffset >= segmentWidthRef.current) {
+        newOffset -= segmentWidthRef.current;
+        startOffsetRef.current -= segmentWidthRef.current;
+      }
+      while (newOffset < 0) {
+        newOffset += segmentWidthRef.current;
+        startOffsetRef.current += segmentWidthRef.current;
+      }
+    }
+
+    offsetRef.current = newOffset;
+    trackRef.current.style.transform = `translate3d(-${newOffset}px, 0, 0)`;
+  };
+
+  const onPointerUp = (e: React.PointerEvent) => {
     if (!isDraggingRef.current) return;
-    const el = scrollRef.current;
-    if (!el) return;
-    e.preventDefault();
-    const x = e.pageX - el.offsetLeft;
-    const walk = (x - startXRef.current) * 1.5;
-    el.scrollLeft = startScrollLeftRef.current - walk;
-
-    const singleSegment = el.scrollWidth / 3;
-    if (el.scrollLeft >= singleSegment * 2) {
-      el.scrollLeft -= singleSegment;
-      startScrollLeftRef.current -= singleSegment;
-    } else if (el.scrollLeft <= 0) {
-      el.scrollLeft += singleSegment;
-      startScrollLeftRef.current += singleSegment;
-    }
-  };
-
-  const handleMouseUpOrLeave = () => {
-    if (isDraggingRef.current) {
-      isDraggingRef.current = false;
-      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
-      resumeTimeoutRef.current = setTimeout(() => {
-        isHoveredRef.current = false;
-      }, 1000);
-    }
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    isDraggingRef.current = true;
-    startXRef.current = e.touches[0].pageX - el.offsetLeft;
-    startScrollLeftRef.current = el.scrollLeft;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDraggingRef.current) return;
-    const el = scrollRef.current;
-    if (!el) return;
-    const x = e.touches[0].pageX - el.offsetLeft;
-    const walk = (x - startXRef.current) * 1.5;
-    el.scrollLeft = startScrollLeftRef.current - walk;
-
-    const singleSegment = el.scrollWidth / 3;
-    if (el.scrollLeft >= singleSegment * 2) {
-      el.scrollLeft -= singleSegment;
-      startScrollLeftRef.current -= singleSegment;
-    } else if (el.scrollLeft <= 0) {
-      el.scrollLeft += singleSegment;
-      startScrollLeftRef.current += singleSegment;
-    }
-  };
-
-  const handleTouchEnd = () => {
     isDraggingRef.current = false;
-    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
-    resumeTimeoutRef.current = setTimeout(() => {
-      isDraggingRef.current = false;
+    if (trackRef.current) {
+      try {
+        (trackRef.current as HTMLElement).releasePointerCapture?.(e.pointerId);
+      } catch (_) {}
+    }
+    // Resume auto-scroll smoothly after 1.2s
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
+      isHoveredRef.current = false;
     }, 1200);
   };
 
@@ -1541,36 +1526,40 @@ function ReviewsSection() {
         </div>
       </div>
 
-      {/* Full-width user-swipeable & auto-scrolling marquee with fade masks */}
-      <div className="relative w-full overflow-hidden py-3">
+      {/* Full-width GPU-accelerated user-swipeable & auto-scrolling marquee with fade masks */}
+      <div
+        ref={containerRef}
+        onMouseEnter={() => {
+          isHoveredRef.current = true;
+        }}
+        onMouseLeave={() => {
+          isHoveredRef.current = false;
+          if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+        }}
+        className="relative w-full overflow-hidden py-3 touch-pan-y"
+      >
         {/* Left fade gradient */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-background/90 to-transparent z-20" />
         {/* Right fade gradient */}
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-background/90 to-transparent z-20" />
 
-        {/* Swipeable & Auto-scrolling continuous track */}
+        {/* 100% GPU-accelerated direct transform track */}
         <div
-          ref={scrollRef}
-          onMouseEnter={() => {
-            isHoveredRef.current = true;
+          ref={trackRef}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerUp}
+          className="flex gap-4 sm:gap-6 cursor-grab active:cursor-grabbing select-none py-2 px-4 will-change-transform transform-gpu"
+          style={{
+            transform: "translate3d(0px, 0, 0)",
+            touchAction: "pan-y",
           }}
-          onMouseLeave={() => {
-            isHoveredRef.current = false;
-            handleMouseUpOrLeave();
-          }}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUpOrLeave}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          className="flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing select-none py-2 px-4 will-change-transform"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {marqueeList.map((t, idx) => (
             <div
               key={`${t.id}-${idx}`}
-              className="glass-card flex w-[310px] sm:w-[380px] shrink-0 flex-col justify-between rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs hover:border-primary/40 hover:shadow-md transition-all select-none"
+              className="flex w-[310px] sm:w-[380px] shrink-0 flex-col justify-between rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs hover:border-primary/40 hover:shadow-md transition-colors select-none"
             >
               <div>
                 <div className="flex items-center gap-3">
