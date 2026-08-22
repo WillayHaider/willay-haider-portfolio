@@ -2,9 +2,12 @@ import { useState, useEffect } from "react";
 import { X, CheckCircle2, ArrowRight, Calendar, MessageCircle, Send } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
-const EMAILJS_SERVICE_ID = "service_41mm3bo";
-const EMAILJS_TEMPLATE_ID = "template_67r462c";
-const EMAILJS_PUBLIC_KEY = "me568Yyf0eXCGD3sF";
+export const EMAILJS_SERVICE_ID = "service_41mm3bo";
+export const EMAILJS_NOTIFICATION_TEMPLATE_ID = "template_67r462c"; // "Contact Us" notification to contact.whaider@gmail.com
+export const EMAILJS_CONFIRMATION_TEMPLATE_ID =
+  (typeof import.meta !== "undefined" && import.meta.env?.VITE_EMAILJS_CONFIRMATION_TEMPLATE_ID) ||
+  "template_confirmation";
+export const EMAILJS_PUBLIC_KEY = "me568Yyf0eXCGD3sF";
 
 interface LeadCaptureModalProps {
   isOpen: boolean;
@@ -82,7 +85,8 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptur
       timeStyle: "short",
     });
 
-    const templateParams = {
+    // 1. Admin Notification Parameters (sent using "Contact Us" template to contact.whaider@gmail.com)
+    const adminNotificationParams = {
       to_email: "contact.whaider@gmail.com",
       from_name: formData.name,
       first_name: firstName,
@@ -100,15 +104,39 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptur
       timestamp: submissionTime,
     };
 
+    // 2. Client Auto-Reply Confirmation Parameters (sent using Confirmation template directly to client)
+    const clientConfirmationParams = {
+      to_email: formData.email,
+      email: formData.email,
+      user_email: formData.email,
+      client_email: formData.email,
+      recipient_email: formData.email,
+      to_name: formData.name,
+      first_name: firstName,
+      name: formData.name,
+      from_name: "Willay Haider",
+      reply_to: "contact.whaider@gmail.com",
+      subject: "Got your details, thanks!",
+      message: `Hi ${firstName},\n\nThanks for reaching out through my site. I've received your details and will personally review them shortly.\n\nI'll get back to you within 24 hours with next steps tailored to what you're looking for. If you'd like to get in touch more quickly, feel free to message me on WhatsApp or grab a slot directly on my calendar.\n\nTalk soon,\nWillay Haider`,
+    };
+
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        { publicKey: EMAILJS_PUBLIC_KEY }
-      );
+      await Promise.allSettled([
+        emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_NOTIFICATION_TEMPLATE_ID,
+          adminNotificationParams,
+          { publicKey: EMAILJS_PUBLIC_KEY }
+        ),
+        emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_CONFIRMATION_TEMPLATE_ID,
+          clientConfirmationParams,
+          { publicKey: EMAILJS_PUBLIC_KEY }
+        ),
+      ]);
     } catch (err) {
-      console.warn("EmailJS notification note:", err);
+      console.warn("EmailJS notification dispatch note:", err);
     } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);

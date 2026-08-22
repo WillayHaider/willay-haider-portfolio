@@ -2,9 +2,12 @@ import { useState, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
 import { Send } from "lucide-react";
 
-const EMAILJS_SERVICE_ID = "service_41mm3bo";
-const EMAILJS_TEMPLATE_ID = "template_67r462c";
-const EMAILJS_PUBLIC_KEY = "me568Yyf0eXCGD3sF";
+export const EMAILJS_SERVICE_ID = "service_41mm3bo";
+export const EMAILJS_NOTIFICATION_TEMPLATE_ID = "template_67r462c"; // "Contact Us" template sent to contact.whaider@gmail.com
+export const EMAILJS_CONFIRMATION_TEMPLATE_ID =
+  (typeof import.meta !== "undefined" && import.meta.env?.VITE_EMAILJS_CONFIRMATION_TEMPLATE_ID) ||
+  "template_confirmation";
+export const EMAILJS_PUBLIC_KEY = "me568Yyf0eXCGD3sF";
 
 interface FormData {
   first_name: string;
@@ -65,13 +68,60 @@ export default function ContactForm() {
     if (!validate()) return;
 
     setStatus("sending");
+    const firstName = formData.first_name.trim();
+    const fullName = `${formData.first_name} ${formData.last_name}`.trim();
+    const submissionTime = new Date().toLocaleString("en-US", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
+
+    const adminNotificationParams = {
+      to_email: "contact.whaider@gmail.com",
+      from_name: fullName,
+      first_name: firstName,
+      name: fullName,
+      from_email: formData.email,
+      reply_to: formData.email,
+      email: formData.email,
+      user_email: formData.email,
+      client_email: formData.email,
+      phone: formData.phone,
+      website: formData.website,
+      message: formData.message,
+      subject: `New Contact Form Submission: ${fullName}`,
+      timestamp: submissionTime,
+    };
+
+    const clientConfirmationParams = {
+      to_email: formData.email,
+      email: formData.email,
+      user_email: formData.email,
+      client_email: formData.email,
+      recipient_email: formData.email,
+      to_name: fullName,
+      first_name: firstName,
+      name: fullName,
+      from_name: "Willay Haider",
+      reply_to: "contact.whaider@gmail.com",
+      subject: "Got your details, thanks!",
+      message: `Hi ${firstName},\n\nThanks for reaching out through my site. I've received your details and will personally review them shortly.\n\nI'll get back to you within 24 hours with next steps tailored to what you're looking for. If you'd like to get in touch more quickly, feel free to message me on WhatsApp or grab a slot directly on my calendar.\n\nTalk soon,\nWillay Haider`,
+    };
+
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        { ...formData },
-        { publicKey: EMAILJS_PUBLIC_KEY }
-      );
+      await Promise.allSettled([
+        emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_NOTIFICATION_TEMPLATE_ID,
+          adminNotificationParams,
+          { publicKey: EMAILJS_PUBLIC_KEY }
+        ),
+        emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_CONFIRMATION_TEMPLATE_ID,
+          clientConfirmationParams,
+          { publicKey: EMAILJS_PUBLIC_KEY }
+        ),
+      ]);
       setStatus("success");
       setFormData(initialFormData);
     } catch (err) {
