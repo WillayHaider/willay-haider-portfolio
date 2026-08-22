@@ -6,12 +6,10 @@ import {
   Globe,
   Sparkles,
   ArrowRight,
-  ArrowLeft,
   Building2,
   Play,
   Pause,
 } from "lucide-react";
-import heroPortrait from "@/assets/willay-portrait-final-nobg.webp";
 import introAudioUrl from "@/assets/willay-intro.ogg";
 import googleLogo from "@/assets/google-logo.png";
 import deloitteLogo from "@/assets/deloitte-logo.png";
@@ -105,6 +103,7 @@ const CAREER_HIGHLIGHTS = [
 
 function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDirectConnect, setIsDirectConnect] = useState(false);
   const [modalService, setModalService] = useState<string | undefined>("In-house Hiring / Consulting (Pakistan-based agencies)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -126,20 +125,10 @@ function AboutPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
-      {/* Top Sticky Header with Back button and menu */}
+      {/* Top Header with 50% transparency */}
       <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/50 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-          <div className="relative z-50 flex items-center gap-2">
-            {/* Back Arrow button */}
-            <a
-              href="/"
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-card/80 text-foreground transition-all hover:border-primary hover:text-primary active:scale-95 shadow-xs"
-              aria-label="Back to Home"
-            >
-              <ArrowLeft className="h-4 w-4" />
-            </a>
-
-            {/* Hamburger Navigation */}
+          <div className="relative z-50">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 p-1 text-foreground transition-opacity hover:opacity-75 focus:outline-none"
@@ -165,6 +154,7 @@ function AboutPage() {
 
           <button
             onClick={() => {
+              setIsDirectConnect(false);
               setModalService(undefined);
               setIsModalOpen(true);
             }}
@@ -216,69 +206,49 @@ function AboutPage() {
 
       {/* Main Content */}
       <main className="pt-24 pb-16 sm:pt-32 sm:pb-24">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          {/* Hero Bio Grid */}
-          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
-            <div>
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
-                <Sparkles className="h-3 w-3" />
-                <span>About Willay Haider</span>
-              </div>
-              <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                Turning Cold Prospects Into <br />
-                <span className="text-primary">High-Ticket Closed Revenue</span>
-              </h1>
-              <p className="mt-4 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
-                I am a senior Business Development Representative and outbound sales strategist who specializes in
-                orchestrating end-to-end outbound systems for US, UK, and European B2B companies. Over the past 1.5+
-                years, I have dialed over 57,000+ cold calls and directly generated $3.5M+ in verified closed revenue.
-              </p>
-              <p className="mt-3 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
-                I lead with sharp discovery, real rapport, and tight CRM discipline. Cold calling isn't scripts, it's high-trust conversations that surface real business pain points.
-              </p>
-
-              <div className="mt-6 flex flex-wrap items-center gap-3">
-                <button
-                  onClick={toggleAudio}
-                  className={`btn-click-effect inline-flex min-h-[38px] items-center justify-center gap-1.5 rounded-full border px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all active:scale-95 ${
-                    isPlaying
-                      ? "border-primary bg-primary text-primary-foreground shadow-xs"
-                      : "border-border bg-card text-foreground hover:border-primary/50 hover:text-primary shadow-xs"
-                  }`}
-                  aria-label="Listen to voice intro"
-                >
-                  {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5 text-primary" />}
-                  <span>{isPlaying ? "Pause Intro" : "Play Voice Intro"}</span>
-                </button>
-
-                <a
-                  href="/Mr%20Haider-BDR-Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download="Mr Haider-BDR-Resume.pdf"
-                  className="btn-click-effect inline-flex min-h-[38px] items-center justify-center gap-1.5 rounded-full border border-border bg-card px-4 py-2.5 text-xs sm:text-sm font-semibold text-foreground transition-colors hover:border-primary shadow-xs"
-                >
-                  Download Full CV (PDF)
-                </a>
-              </div>
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          {/* Hero Bio - Clean Plain Text */}
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+              <Sparkles className="h-3 w-3" />
+              <span>About Willay Haider</span>
             </div>
+            <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+              Turning Cold Prospects Into <br />
+              <span className="text-primary">High-Ticket Closed Revenue</span>
+            </h1>
+            <p className="mt-4 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
+              I am a senior Business Development Representative and outbound sales strategist who specializes in
+              orchestrating end-to-end outbound systems for US, UK, and European B2B companies. Over the past 1.5+
+              years, I have dialed over 57,000+ cold calls and directly generated $3.5M+ in verified closed revenue.
+            </p>
+            <p className="mt-3 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
+              I lead with sharp discovery, real rapport, and tight CRM discipline. Cold calling isn't scripts, it's high-trust conversations that surface real business pain points.
+            </p>
 
-            {/* Visual Portrait */}
-            <div className="relative mx-auto flex w-full max-w-xs sm:max-w-sm items-center justify-center">
-              <div
-                className="absolute inset-0 rounded-full blur-2xl -z-0"
-                style={{ background: "var(--gradient-primary)", opacity: 0.15 }}
-              />
-              <div className="relative z-10 overflow-hidden rounded-2xl border border-border bg-card p-1.5 shadow-md">
-                <img
-                  src={heroPortrait}
-                  alt="Willay Haider: Senior Business Development Representative"
-                  width={600}
-                  height={800}
-                  className="h-auto w-full rounded-xl object-contain"
-                  loading="eager"
-                />
-              </div>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <button
+                onClick={toggleAudio}
+                className={`btn-click-effect inline-flex min-h-[38px] items-center justify-center gap-1.5 rounded-full border px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all active:scale-95 ${
+                  isPlaying
+                    ? "border-primary bg-primary text-primary-foreground shadow-xs"
+                    : "border-border bg-card text-foreground hover:border-primary/50 hover:text-primary shadow-xs"
+                }`}
+                aria-label="Listen to voice intro"
+              >
+                {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5 text-primary" />}
+                <span>{isPlaying ? "Pause Intro" : "Play Voice Intro"}</span>
+              </button>
+
+              <a
+                href="/Mr%20Haider-BDR-Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download="Mr Haider-BDR-Resume.pdf"
+                className="btn-click-effect inline-flex min-h-[38px] items-center justify-center gap-1.5 rounded-full border border-border bg-card px-4 py-2.5 text-xs sm:text-sm font-semibold text-foreground transition-colors hover:border-primary shadow-xs"
+              >
+                Download Full CV (PDF)
+              </a>
             </div>
           </div>
 
@@ -300,7 +270,7 @@ function AboutPage() {
             <div className="mt-4">
               <button
                 onClick={() => {
-                  setModalService("In-house Hiring / Consulting (Pakistan-based agencies)");
+                  setIsDirectConnect(true);
                   setIsModalOpen(true);
                 }}
                 className="btn-click-effect inline-flex min-h-[40px] items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs transition-transform hover:opacity-90 active:scale-95"
@@ -407,6 +377,7 @@ function AboutPage() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         defaultService={modalService}
+        directConnect={isDirectConnect}
       />
     </div>
   );

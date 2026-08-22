@@ -11,6 +11,7 @@ interface LeadCaptureModalProps {
   isOpen: boolean;
   onClose: () => void;
   defaultService?: string;
+  directConnect?: boolean;
 }
 
 const SERVICES = [
@@ -22,7 +23,7 @@ const SERVICES = [
   "In-house Hiring / Consulting (Pakistan-based agencies)",
 ];
 
-export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptureModalProps) {
+export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnect }: LeadCaptureModalProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -168,7 +169,58 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService }: LeadCaptur
           <X className="h-5 w-5" />
         </button>
 
-        {!isSubmitted ? (
+        {directConnect ? (
+          /* Direct Connect View for In-House Interview / Fast Scheduling */
+          <div className="py-2 text-center">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[var(--badge-emerald-bg)] text-[var(--emerald-accent)] border border-[var(--badge-emerald-border)] animate-scale-in">
+              <Calendar className="h-6 w-6 text-primary" />
+            </div>
+            <h3 className="mt-3 text-lg sm:text-xl font-bold tracking-tight text-foreground">
+              Schedule Interview / Connect
+            </h3>
+            <p className="mt-1.5 text-xs sm:text-sm text-foreground/85 font-medium max-w-sm mx-auto">
+              Choose your preferred way to connect: book a slot directly on my calendar or reach out via WhatsApp.
+            </p>
+
+            {/* Direct Connect Options */}
+            <div className="mt-5 rounded-xl border border-border bg-secondary/30 p-3.5 text-left">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {/* WhatsApp Option */}
+                <a
+                  href="https://wa.me/923206990099?text=Hi%20Willay,%20I'm%20a%20Pakistan-based%20agency%20owner%20interested%20in%20in-house%20hiring."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-click-effect flex items-center justify-center gap-2 rounded-lg border border-border bg-card py-2.5 px-3 text-xs font-semibold text-foreground transition-all hover:border-[var(--badge-emerald-border)] hover:bg-[var(--badge-emerald-bg)]"
+                >
+                  <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                  <span>WhatsApp Chat</span>
+                </a>
+
+                {/* Calendly Option */}
+                <a
+                  href="https://calendly.com/contact-whaider"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-click-effect flex items-center justify-center gap-2 rounded-lg border border-border bg-card py-2.5 px-3 text-xs font-semibold text-foreground transition-all hover:border-primary hover:bg-primary/5"
+                >
+                  <Calendar className="h-4 w-4 text-primary" />
+                  <span>Calendar Slot</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Primary Return Action */}
+            <div className="mt-4">
+              <button
+                onClick={resetAndClose}
+                className="btn-click-effect w-full min-h-[42px] rounded-xl py-2.5 text-xs font-semibold text-primary-foreground transition-transform hover:opacity-90 active:scale-95"
+                style={{ background: "var(--gradient-primary)" }}
+              >
+                Back to Website
+              </button>
+            </div>
+          </div>
+        ) : !isSubmitted ? (
           <div>
             <div className="pr-8">
               <h3 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">
