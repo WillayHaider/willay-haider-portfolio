@@ -142,7 +142,7 @@ function Reveal({
   delay?: number;
   as?: any;
   className?: string;
-  style?: React.CSSProperties;
+  style?: React.Properties;
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -502,27 +502,16 @@ function ServiceBusinessPage() {
 }
 
 /* =========================================================================
-   1. NAVBAR (50% TRANSPARENT, PLAIN ANIMATING 3-LINE ICON, TOP 35% MOBILE PANEL)
+   1. NAVBAR (NO SCROLL LOCK, CLEAN DROPDOWN PANEL)
    ========================================================================= */
 
 function Navbar({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [menuOpen]);
-
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/50 backdrop-blur-md transition-colors">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
-        {/* Plain Morphing 3-Line Hamburger Icon without any circle or outline */}
+        {/* Plain Morphing 3-Line Hamburger Icon */}
         <div className="relative z-50">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -547,7 +536,7 @@ function Navbar({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
           </button>
         </div>
 
-        {/* Small Header CTA Button with Tap Animation */}
+        {/* Small Header CTA Button */}
         <button
           onClick={() => onOpenModal()}
           className="btn-click-effect rounded-full px-3.5 py-1.5 text-xs font-semibold text-primary-foreground shadow-xs transition-transform hover:opacity-90 active:scale-95 sm:px-4 sm:py-2"
@@ -557,33 +546,20 @@ function Navbar({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
         </button>
       </div>
 
-      {/* Expanded Full-Width Panel covering top 35% of mobile screen */}
+      {/* Expanded Full-Width Panel (Clean grid of links, no bottom site link or CTA button) */}
       {menuOpen && (
-        <div className="fixed inset-x-0 top-0 z-40 h-[38vh] min-h-[290px] border-b border-border bg-background/98 p-6 pt-14 backdrop-blur-2xl shadow-xl animate-fade-in flex flex-col justify-between">
-          <div className="grid grid-cols-3 gap-2 text-center sm:grid-cols-4">
+        <div className="fixed inset-x-0 top-0 z-40 h-[36vh] min-h-[260px] border-b border-border bg-background/98 p-6 pt-14 backdrop-blur-2xl shadow-xl animate-fade-in flex flex-col justify-center">
+          <div className="grid grid-cols-3 gap-3 text-center sm:grid-cols-4 max-w-2xl mx-auto w-full">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors"
+                className="rounded-lg p-2.5 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors"
               >
                 {link.label}
               </a>
             ))}
-          </div>
-
-          <div className="flex items-center justify-between border-t border-border/60 pt-3 text-xs text-muted-foreground">
-            <span>willayhaider.pro</span>
-            <button
-              onClick={() => {
-                setMenuOpen(false);
-                onOpenModal();
-              }}
-              className="font-semibold text-primary underline"
-            >
-              Book Discovery Call →
-            </button>
           </div>
         </div>
       )}
@@ -592,7 +568,7 @@ function Navbar({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
 }
 
 /* =========================================================================
-   2. HERO SECTION (HEADLINE SIZING, HIGH CONTRAST BODY, 72% STAT, PLAY INTRO)
+   2. HERO SECTION (EQUAL HEADLINE SIZING & BALANCED BUTTON SIZES)
    ========================================================================= */
 
 function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
@@ -623,12 +599,12 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
           {/* Left: Value Proposition */}
           <div className="relative z-10 animate-fade-in text-left">
-            {/* Sized Headline: Line 1 slightly smaller, Line 2 full size on its own line */}
-            <h1>
-              <span className="block text-2xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
+            {/* Equal Font Sizing for Both Headline Lines */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
+              <span className="block text-foreground">
                 You Show Up to Close.
               </span>
-              <span className="block mt-1.5 sm:mt-2.5 text-3xl sm:text-5xl lg:text-6xl font-black text-primary tracking-tight">
+              <span className="block mt-1 sm:mt-2 text-primary">
                 I Handle Everything Else.
               </span>
             </h1>
@@ -656,32 +632,32 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
               calendar so you can close more high-ticket deals.
             </p>
 
-            {/* CTAs: Hero Request Proposal Button slightly larger */}
-            <div className="mt-6 flex flex-wrap items-center gap-3.5 sm:mt-8">
+            {/* CTAs: Both buttons sized 20% smaller and visually matching */}
+            <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
               <button
                 onClick={() => onOpenModal()}
-                className="btn-click-effect inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 sm:px-8 sm:py-4 text-sm sm:text-base font-bold text-primary-foreground shadow-md hover:opacity-95 active:scale-95"
+                className="btn-click-effect inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs hover:opacity-95 active:scale-95"
                 style={{ background: "var(--gradient-primary)" }}
               >
                 <span>Request Proposal</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-3.5 w-3.5" />
               </button>
 
               <button
                 onClick={toggleAudio}
-                className={`btn-click-effect inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-xs sm:text-sm font-semibold transition-all active:scale-95 ${
+                className={`btn-click-effect inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full border px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold transition-all active:scale-95 ${
                   isPlaying
-                    ? "border-primary bg-primary text-primary-foreground shadow-sm"
+                    ? "border-primary bg-primary text-primary-foreground shadow-xs"
                     : "border-border bg-card text-foreground hover:border-primary/50 hover:text-primary"
                 }`}
                 aria-label="Listen to voice intro"
               >
-                {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4 text-primary" />}
+                {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5 text-primary" />}
                 <span>{isPlaying ? "Pause Intro" : "Play Intro"}</span>
               </button>
             </div>
 
-            {/* KPI Metrics: Updated to 72% Avg Show-up Rate */}
+            {/* KPI Metrics: 72% Avg Show-up Rate */}
             <div className="mt-8 grid grid-cols-3 gap-3 border-t border-border/80 pt-5 sm:mt-10 sm:flex sm:flex-wrap sm:gap-10 sm:pt-7">
               <div>
                 <p className="text-xl font-extrabold text-[var(--emerald-accent)] sm:text-3xl">
@@ -748,25 +724,26 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
 }
 
 /* =========================================================================
-   3. TRUST BAR (INCREASED CARD SIZES & UPDATED CLIENT NAMES)
+   3. TRUST BAR (2x2 GRID, RESIZED TO FIT CLEANLY)
    ========================================================================= */
 
 function TrustBarSection() {
   return (
-    <section className="relative border-y border-border/70 bg-secondary/40 py-8 sm:py-10">
+    <section className="relative border-y border-border/70 bg-secondary/40 py-7 sm:py-9">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-5">
+        {/* 2x2 Grid Layout */}
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-3xl mx-auto">
           {CLIENT_TRUST_SIGNALS.map((client) => (
             <div
               key={client.name}
-              className="flex flex-col items-center justify-center rounded-2xl border border-border bg-card p-5 sm:p-6 text-center shadow-xs transition-colors hover:border-primary/40"
+              className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3.5 sm:p-4 text-center shadow-xs transition-colors hover:border-primary/40"
             >
-              <span className="text-sm sm:text-base font-extrabold tracking-tight text-foreground">
+              <span className="text-xs sm:text-sm font-extrabold tracking-tight text-foreground">
                 {client.name}
               </span>
-              <span className="mt-1 text-xs text-muted-foreground font-medium">{client.category}</span>
-              <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-[var(--badge-emerald-bg)] border border-[var(--badge-emerald-border)] px-3 py-1 text-xs font-bold text-[var(--emerald-accent)]">
-                <CheckCircle2 className="h-3.5 w-3.5" />
+              <span className="mt-0.5 text-[11px] text-muted-foreground font-medium">{client.category}</span>
+              <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-[var(--badge-emerald-bg)] border border-[var(--badge-emerald-border)] px-2.5 py-0.5 text-[10px] sm:text-xs font-bold text-[var(--emerald-accent)]">
+                <CheckCircle2 className="h-3 w-3" />
                 {client.metric}
               </span>
             </div>
@@ -868,7 +845,7 @@ function ToolsGridSection() {
 }
 
 /* =========================================================================
-   6. NEW SECTION: CERTIFICATIONS (FOLLOWING TECH STACK TILE DESIGN)
+   6. CERTIFICATIONS SECTION (FIXED DELOITTE LOGO VISIBILITY)
    ========================================================================= */
 
 function CertificationsSection() {
@@ -894,11 +871,12 @@ function CertificationsSection() {
               key={cert.name}
               className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-4 text-center shadow-xs transition-all hover:border-primary/50 hover:shadow-sm"
             >
-              <div className="h-8 w-8 flex items-center justify-center mb-2">
+              {/* Scaled logo container with generous width for Deloitte and all issuers */}
+              <div className="h-9 w-full max-w-[120px] flex items-center justify-center mb-2">
                 <img
                   src={cert.logo}
                   alt={cert.issuer}
-                  className="max-h-7 max-w-7 object-contain"
+                  className="h-7 w-auto max-w-[110px] object-contain"
                   loading="lazy"
                 />
               </div>
@@ -914,7 +892,7 @@ function CertificationsSection() {
 }
 
 /* =========================================================================
-   7. CASE STUDIES (2x2 GRID, UPDATED CLIENT NAMES, COUNTUP)
+   7. CASE STUDIES (2x2 GRID, SOFTENED REFINED GREEN)
    ========================================================================= */
 
 function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
@@ -956,7 +934,7 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
 
                 <p className="mt-0.5 text-[11px] text-muted-foreground font-medium">{cs.engagement}</p>
 
-                {/* Revenue Impact Box */}
+                {/* Softened Revenue Impact Box */}
                 <div className="mt-3.5 rounded-lg border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] p-3 text-left">
                   <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
                     Verified Revenue Impact
@@ -1042,7 +1020,7 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
 }
 
 /* =========================================================================
-   8. PRICING SECTION (TOUCH SWIPE GESTURES ON MOBILE + DOT PAGINATION)
+   8. PRICING SECTION (TOUCH SWIPE GESTURES + SOFTENED BADGES)
    ========================================================================= */
 
 function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
@@ -1131,7 +1109,7 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
                   className="glass-card relative overflow-hidden rounded-2xl border-primary/40 bg-card p-6 shadow-md transition-all duration-300 animate-scale-in"
                 >
                   {tier.badge && (
-                    <div className="absolute top-0 right-0 rounded-bl-xl bg-[var(--badge-emerald-bg)] border-b border-l border-[var(--badge-emerald-border)] px-3 py-1 text-[10px] font-extrabold text-[var(--emerald-accent)]">
+                    <div className="absolute top-0 right-0 rounded-bl-xl bg-[var(--badge-emerald-bg)] border-b border-l border-[var(--badge-emerald-border)] px-3 py-1 text-[10px] font-bold text-[var(--emerald-accent)]">
                       {tier.badge}
                     </div>
                   )}
@@ -1218,7 +1196,7 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
 }
 
 /* =========================================================================
-   9. REVIEWS SECTION (PROMINENT VIVID GREEN BADGE & UPDATED CLIENT NAMES)
+   9. REVIEWS SECTION (PLAIN VERIFIED CLIENT REVIEW TEXT, NO CIRCLE/OUTLINE)
    ========================================================================= */
 
 function ReviewsSection() {
@@ -1273,9 +1251,9 @@ function ReviewsSection() {
                 </blockquote>
               </div>
 
-              {/* Prominent Vivid Verified Green Badge */}
-              <div className="mt-4 flex items-center gap-1.5 rounded-lg bg-emerald-50 border border-emerald-400/80 px-2.5 py-1 text-[11px] font-bold text-emerald-800 shadow-2xs">
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+              {/* Plain Verified Client Review Text Badge (No circle or outline container) */}
+              <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-[var(--emerald-accent)]">
+                <CheckCircle2 className="h-3.5 w-3.5 text-[var(--emerald-accent)] shrink-0" />
                 <span>Verified Client Review</span>
               </div>
             </Reveal>
@@ -1405,7 +1383,7 @@ function FAQSection() {
 }
 
 /* =========================================================================
-   12. FOOTER (ACTUAL ORIGINAL BRAND LOGOS FOR SOCIALS)
+   12. FOOTER (PLAIN BRAND LOGOS WITHOUT OUTLINES + COPYRIGHT UPDATE)
    ========================================================================= */
 
 function FooterSection() {
@@ -1422,63 +1400,64 @@ function FooterSection() {
             ))}
           </div>
 
-          {/* Original Brand Social Logos */}
-          <div className="flex items-center gap-3">
-            {/* LinkedIn Original Brand SVG */}
+          {/* Original Brand Social Logos (No added outline, circle, or border) */}
+          <div className="flex items-center gap-4">
+            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/willayhaider?utm_source=share_via&utm_content=profile&utm_medium=member_android"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
-              className="btn-click-effect flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-[#0077b5] transition-all hover:border-[#0077b5] hover:scale-105 active:scale-95 shadow-2xs"
+              className="btn-click-effect text-[#0077b5] hover:opacity-80 hover:scale-110 active:scale-95 transition-all p-1"
             >
-              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
                 <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c.97 0 1.75-.79 1.75-1.76s-.78-1.75-1.75-1.75a1.75 1.75 0 0 0 0 3.5m1.39 9.74v-8.37H5.07v8.37z" />
               </svg>
             </a>
 
-            {/* Instagram Original Brand SVG */}
+            {/* Instagram */}
             <a
               href="https://www.instagram.com/damn_haiderrr?igsh=MW81Ymw3MzdkeGNrYg%3D%3D&utm_source=qr"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram Profile"
-              className="btn-click-effect flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-[#E1306C] transition-all hover:border-[#E1306C] hover:scale-105 active:scale-95 shadow-2xs"
+              className="btn-click-effect text-[#E1306C] hover:opacity-80 hover:scale-110 active:scale-95 transition-all p-1"
             >
-              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
               </svg>
             </a>
 
-            {/* WhatsApp Original Brand SVG */}
+            {/* WhatsApp */}
             <a
               href="https://wa.me/923206990099"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Direct WhatsApp"
-              className="btn-click-effect flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-[#25D366] transition-all hover:border-[#25D366] hover:scale-105 active:scale-95 shadow-2xs"
+              className="btn-click-effect text-[#25D366] hover:opacity-80 hover:scale-110 active:scale-95 transition-all p-1"
             >
-              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
                 <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25.7-.72 1.28-1.37 1.63-.5.27-1.15.42-1.83.42-1.14 0-2.61-.54-4.14-2.07-1.55-1.55-2.22-3.08-2.22-4.22 0-.68.16-1.34.46-1.84.34-.58.88-.99 1.54-1.19.22-.07.45-.1.68-.1.28 0 .5.06.67.4.21.43.72 1.75.78 1.88.07.13.11.29.02.47-.09.18-.13.29-.26.44-.13.15-.28.34-.4.46-.13.13-.27.28-.12.53.15.26.68 1.12 1.47 1.82 1.01.9 1.87 1.18 2.13 1.31.26.13.41.11.56-.06.16-.18.67-.78.85-1.05.18-.26.36-.22.6-.13.25.09 1.57.74 1.84.88.27.13.45.2.52.31.06.12.06.69-.19 1.39z" />
               </svg>
             </a>
 
-            {/* Email Original SVG */}
+            {/* Email */}
             <a
               href="mailto:Contact.whaider@gmail.com"
               aria-label="Direct Email"
-              className="btn-click-effect flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-[#EA4335] transition-all hover:border-[#EA4335] hover:scale-105 active:scale-95 shadow-2xs"
+              className="btn-click-effect text-[#EA4335] hover:opacity-80 hover:scale-110 active:scale-95 transition-all p-1"
             >
-              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
               </svg>
             </a>
           </div>
         </div>
 
+        {/* Updated Copyright Text */}
         <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-4 text-[11px] font-medium text-muted-foreground sm:flex-row">
           <div>
-            © 2026 Willay Haider (<span className="text-primary font-semibold">willayhaider.pro</span>). All rights reserved.
+            © 2026 All rights are reserved by Mr Haider.
           </div>
           <div className="flex gap-4">
             <a href="/privacy-policy" className="hover:text-primary transition-colors font-medium">

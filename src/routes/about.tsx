@@ -115,47 +115,35 @@ function AboutPage() {
 
         {/* Dropdown panel */}
         {menuOpen && (
-          <div className="fixed inset-x-0 top-0 z-40 h-[38vh] min-h-[290px] border-b border-border bg-background/98 p-6 pt-14 backdrop-blur-2xl shadow-xl animate-fade-in flex flex-col justify-between">
-            <div className="grid grid-cols-3 gap-2 text-center sm:grid-cols-4">
-              <a href="/" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+          <div className="fixed inset-x-0 top-0 z-40 h-[36vh] min-h-[260px] border-b border-border bg-background/98 p-6 pt-14 backdrop-blur-2xl shadow-xl animate-fade-in flex flex-col justify-center">
+            <div className="grid grid-cols-3 gap-3 text-center sm:grid-cols-4 max-w-2xl mx-auto w-full">
+              <a href="/" className="rounded-lg p-2.5 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 Home
               </a>
-              <a href="/#services" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+              <a href="/#services" className="rounded-lg p-2.5 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 Services
               </a>
-              <a href="/#results" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+              <a href="/#results" className="rounded-lg p-2.5 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 Case Studies
               </a>
-              <a href="/#pricing" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+              <a href="/#pricing" className="rounded-lg p-2.5 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 Pricing
               </a>
-              <a href="/#reviews" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+              <a href="/#reviews" className="rounded-lg p-2.5 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 Reviews
               </a>
-              <a href="/#faq" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+              <a href="/#faq" className="rounded-lg p-2.5 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 FAQs
               </a>
-              <a href="/#certifications" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+              <a href="/#certifications" className="rounded-lg p-2.5 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 Certifications
               </a>
-              <a href="/blog" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+              <a href="/blog" className="rounded-lg p-2.5 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 Blog
               </a>
-              <a href="/contact" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+              <a href="/contact" className="rounded-lg p-2.5 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 Contact
               </a>
-            </div>
-            <div className="flex items-center justify-between border-t border-border/60 pt-3 text-xs text-muted-foreground">
-              <span>willayhaider.pro</span>
-              <button
-                onClick={() => {
-                  setMenuOpen(false);
-                  setIsModalOpen(true);
-                }}
-                className="font-semibold text-primary underline"
-              >
-                Book Discovery Call →
-              </button>
             </div>
           </div>
         )}
@@ -316,7 +304,7 @@ function AboutPage() {
 
       {/* Footer */}
       <footer className="border-t border-border bg-background py-8 text-center text-xs font-medium text-muted-foreground">
-        © 2026 Willay Haider (<a href="/" className="text-primary hover:underline">willayhaider.pro</a>). All rights reserved.
+        © 2026 All rights are reserved by Mr Haider.
       </footer>
 
       {/* Modal */}

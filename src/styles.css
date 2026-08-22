@@ -69,12 +69,12 @@
   --input: oklch(0.92 0.01 250);
   --ring: oklch(0.48 0.17 260);
   
-  /* Verified Results & Revenue Accent (Vivid Prominent Forest Emerald Green) */
-  --emerald-accent: oklch(0.42 0.19 152);
-  --emerald-glow: oklch(0.48 0.18 152 / 0.20);
-  --gradient-emerald: linear-gradient(135deg, oklch(0.44 0.19 152), oklch(0.52 0.17 165));
-  --badge-emerald-bg: oklch(0.92 0.07 152);
-  --badge-emerald-border: oklch(0.58 0.18 152);
+  /* Verified Results & Revenue Accent (Soft, Refined, Trustworthy Muted Emerald) */
+  --emerald-accent: oklch(0.48 0.12 152);
+  --emerald-glow: oklch(0.48 0.12 152 / 0.12);
+  --gradient-emerald: linear-gradient(135deg, oklch(0.48 0.12 152), oklch(0.55 0.11 165));
+  --badge-emerald-bg: oklch(0.96 0.03 152);
+  --badge-emerald-border: oklch(0.80 0.06 152);
 
   --gradient-primary: linear-gradient(135deg, oklch(0.48 0.17 260), oklch(0.56 0.15 240));
   --gradient-hero: radial-gradient(ellipse at 50% 0%, oklch(0.94 0.025 260 / 0.45), transparent 70%);
@@ -82,7 +82,7 @@
   --gradient-card-hover: linear-gradient(145deg, #ffffff, oklch(0.975 0.008 250));
   --shadow-glow: 0 10px 30px -10px oklch(0.48 0.17 260 / 0.35);
   --shadow-card: 0 4px 20px -4px rgba(15, 23, 42, 0.07), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
-  --shadow-emerald: 0 10px 25px -8px oklch(0.45 0.18 152 / 0.25);
+  --shadow-emerald: 0 8px 20px -6px oklch(0.48 0.12 152 / 0.18);
 
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
