@@ -33,6 +33,9 @@ import googleLogo from "@/assets/google-logo.png";
 import deloitteLogo from "@/assets/deloitte-logo.png";
 import awsLogo from "@/assets/aws-logo.png";
 import adbiLogo from "@/assets/adbi-logo.png";
+import omcLogo from "@/assets/omc-group-logo.png";
+import vizocomLogo from "@/assets/vizocom-logo.png";
+import autoliftLogo from "@/assets/autolift-transport-logo.png";
 import { LeadCaptureModal } from "@/components/LeadCaptureModal";
 
 export const Route = createFileRoute("/")({
@@ -417,7 +420,8 @@ const TESTIMONIALS = [
     role: "Owner",
     company: "OMC Group LLC",
     type: "logo" as const,
-    rating: 5.0,
+    logo: omcLogo,
+    rating: 4.7,
     quote:
       "Haider was always respectful with our legal advisors and kept them engaged on every call. Made it easy for our closing team to follow up and get the deal signed.",
   },
@@ -438,6 +442,7 @@ const TESTIMONIALS = [
     role: "Sales Manager",
     company: "Vizocom LLC",
     type: "logo" as const,
+    logo: vizocomLogo,
     rating: 5.0,
     quote:
       "Solid MQLs and SQLs coming in consistently, and he digs into enough detail on each prospect that we can send accurate quotes without going back and forth. Makes the follow-up so much easier.",
@@ -449,7 +454,7 @@ const TESTIMONIALS = [
     company: "SaaS & Growth Agency",
     type: "image" as const,
     avatar: maazAvatar,
-    rating: 5.0,
+    rating: 4.0,
     quote:
       "Reliable, persuasive, and genuinely phenomenal on the phone. Our outbound pipeline transformed after bringing Willay in to handle our cold calling motions.",
   },
@@ -459,7 +464,8 @@ const TESTIMONIALS = [
     role: "Lead Executive",
     company: "Autolift Transport / Nexus LTD",
     type: "logo" as const,
-    rating: 5.0,
+    logo: autoliftLogo,
+    rating: 4.5,
     quote:
       "Good at negotiating, keeps our loads booked, and rates stay competitive across every route. Easy to work with.",
   },
@@ -470,7 +476,7 @@ const TESTIMONIALS = [
     company: "B2B Technology",
     type: "image" as const,
     avatar: arsalanAvatar,
-    rating: 5.0,
+    rating: 4.2,
     quote:
       "Great CRM hygiene, clean notes, and MQLs that actually convert into closed deals. Exactly the outbound SDR partner every Account Executive wishes they had.",
   },
@@ -951,7 +957,8 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
             <span>Verified Track Record</span>
           </div>
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Some Of the Proven Results & <span className="text-[var(--emerald-accent)]">Closed Pipeline</span>
+            <span className="block">Some Of the Proven Results &</span>
+            <span className="block mt-1 text-[var(--emerald-accent)]">Closed Pipeline</span>
           </h2>
           <p className="mt-2 max-w-xl text-xs sm:text-sm text-foreground/80 font-medium">
             Direct outcomes from multi-month client engagements across diverse B2B verticals.
@@ -1303,7 +1310,7 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
 function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
   if (item.type === "image" && item.avatar) {
     return (
-      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-border bg-secondary/80">
+      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-border bg-secondary/80 shadow-xs">
         <img
           src={item.avatar}
           alt={item.name}
@@ -1316,29 +1323,47 @@ function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
     );
   }
 
-  if (item.id === "henry") {
+  if (item.id === "henry" && item.logo) {
     return (
-      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-slate-700/60 bg-slate-900 flex flex-col items-center justify-center shadow-xs">
-        <span className="text-[12px] font-black text-sky-400 leading-none tracking-tight">OMC</span>
-        <span className="text-[7px] font-bold text-slate-400 uppercase tracking-widest leading-none mt-0.5">GROUP</span>
+      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-border bg-white p-1.5 flex items-center justify-center shadow-xs">
+        <img
+          src={item.logo}
+          alt="OMC Group LLC"
+          width={44}
+          height={44}
+          className="h-full w-full object-contain"
+          loading="lazy"
+        />
       </div>
     );
   }
 
-  if (item.id === "robin") {
+  if (item.id === "robin" && item.logo) {
     return (
-      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-emerald-800/40 bg-slate-950 flex flex-col items-center justify-center shadow-xs">
-        <span className="text-[9px] font-black text-emerald-400 leading-none tracking-tight">VIZOCOM</span>
-        <span className="text-[7px] font-bold text-emerald-300/80 uppercase tracking-widest leading-none mt-0.5">GLOBAL</span>
+      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-slate-700/80 bg-slate-950 p-1.5 flex items-center justify-center shadow-xs">
+        <img
+          src={item.logo}
+          alt="Vizocom LLC"
+          width={44}
+          height={44}
+          className="h-full w-full object-contain"
+          loading="lazy"
+        />
       </div>
     );
   }
 
-  if (item.id === "aima") {
+  if (item.id === "aima" && item.logo) {
     return (
-      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-indigo-800/40 bg-indigo-950 flex flex-col items-center justify-center shadow-xs">
-        <span className="text-[10px] font-black text-indigo-300 leading-none tracking-tight">NEXUS</span>
-        <span className="text-[7px] font-bold text-indigo-200/70 uppercase tracking-widest leading-none mt-0.5">LOGISTICS</span>
+      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-border bg-white p-1 flex items-center justify-center shadow-xs">
+        <img
+          src={item.logo}
+          alt="Autolift Transport / Nexus LTD"
+          width={44}
+          height={44}
+          className="h-full w-full object-contain"
+          loading="lazy"
+        />
       </div>
     );
   }
@@ -1346,6 +1371,30 @@ function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
   return (
     <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-border bg-primary/10 flex items-center justify-center font-black text-primary text-xs">
       {item.name.charAt(0)}
+    </div>
+  );
+}
+
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <div className="mt-3 flex items-center gap-1">
+      {Array.from({ length: 5 }).map((_, i) => {
+        const fill = Math.max(0, Math.min(1, rating - i));
+        return (
+          <div key={i} className="relative h-3.5 w-3.5 flex items-center justify-center">
+            <Star className="h-3.5 w-3.5 text-muted-foreground/30 fill-muted-foreground/15" />
+            {fill > 0 && (
+              <div
+                className="absolute inset-0 overflow-hidden"
+                style={{ width: `${Math.round(fill * 100)}%` }}
+              >
+                <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400 shrink-0" />
+              </div>
+            )}
+          </div>
+        );
+      })}
+      <span className="ml-1 text-xs font-bold text-foreground">{rating.toFixed(1)}</span>
     </div>
   );
 }
@@ -1403,12 +1452,7 @@ function ReviewsSection() {
                   </div>
                 </div>
 
-                <div className="mt-3 flex items-center gap-1">
-                  {Array.from({ length: 5 }).map((_, si) => (
-                    <Star key={si} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                  ))}
-                  <span className="ml-1 text-xs font-bold text-foreground">5.0</span>
-                </div>
+                <StarRating rating={t.rating} />
 
                 <blockquote className="mt-3 text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
                   "{t.quote}"
