@@ -1027,7 +1027,29 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
   const [currentIndex, setCurrentIndex] = useState(1);
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [containerHeight, setContainerHeight] = useState<number | null>(null);
   const touchStartX = useRef<number | null>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const updateHeight = () => {
+    const el = cardRefs.current[currentIndex];
+    if (el) {
+      setContainerHeight(el.offsetHeight);
+    }
+  };
+
+  useEffect(() => {
+    updateHeight();
+  }, [currentIndex]);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateHeight);
+    const timeout = setTimeout(updateHeight, 150);
+    return () => {
+      window.removeEventListener("resize", updateHeight);
+      clearTimeout(timeout);
+    };
+  }, []);
 
   const nextTier = () => {
     setCurrentIndex((prev) => (prev + 1) % PRICING_TIERS.length);
@@ -1101,9 +1123,14 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
           ))}
         </div>
 
-        {/* Continuous Smooth Sliding Carousel Container */}
-        <div className="relative mt-6 max-w-lg mx-auto overflow-hidden py-3">
-          {/* Sliding Track: items-start allows first 3 cards to size to natural content without bottom gap */}
+        {/* Continuous Smooth Sliding Carousel Container with Dynamic Auto-Height */}
+        <div
+          className="relative mt-6 max-w-lg mx-auto overflow-hidden py-2 transition-[height] duration-500 ease-out"
+          style={{
+            height: containerHeight ? `${containerHeight + 16}px` : "auto",
+          }}
+        >
+          {/* Sliding Track containing all cards */}
           <div
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -1117,8 +1144,14 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
                 : `translateX(-${currentIndex * 100}%)`,
             }}
           >
-            {PRICING_TIERS.map((tier) => (
-              <div key={tier.name} className="w-full shrink-0 px-2 sm:px-3">
+            {PRICING_TIERS.map((tier, idx) => (
+              <div
+                key={tier.name}
+                ref={(el) => {
+                  cardRefs.current[idx] = el;
+                }}
+                className="w-full shrink-0 px-2 sm:px-3"
+              >
                 <div className="glass-card relative overflow-hidden rounded-2xl border-primary/40 bg-card p-6 shadow-md transition-all">
                   {tier.badge && (
                     <div className="absolute top-0 right-0 rounded-bl-xl bg-[var(--badge-emerald-bg)] border-b border-l border-[var(--badge-emerald-border)] px-3 py-1 text-[10px] font-bold text-[var(--emerald-accent)]">
