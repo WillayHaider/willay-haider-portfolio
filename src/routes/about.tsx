@@ -7,7 +7,7 @@ import {
   Sparkles,
   ArrowRight,
   ArrowLeft,
-  Calendar,
+  Building2,
   Play,
   Pause,
 } from "lucide-react";
@@ -105,6 +105,7 @@ const CAREER_HIGHLIGHTS = [
 
 function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalService, setModalService] = useState<string | undefined>("In-house Hiring / Consulting (Pakistan-based agencies)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -163,7 +164,10 @@ function AboutPage() {
           </div>
 
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => {
+              setModalService(undefined);
+              setIsModalOpen(true);
+            }}
             className="btn-click-effect rounded-full px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-xs transition-transform hover:opacity-90 active:scale-95 sm:px-4 sm:py-2"
             style={{ background: "var(--gradient-primary)" }}
           >
@@ -237,16 +241,6 @@ function AboutPage() {
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="btn-click-effect inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-xs sm:text-sm font-bold text-primary-foreground shadow-xs hover:opacity-95 active:scale-95"
-                  style={{ background: "var(--gradient-primary)" }}
-                >
-                  <Calendar className="h-4 w-4" />
-                  <span>Book Strategy Call</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </button>
-
-                <button
                   onClick={toggleAudio}
                   className={`btn-click-effect inline-flex min-h-[38px] items-center justify-center gap-1.5 rounded-full border px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all active:scale-95 ${
                     isPlaying
@@ -286,6 +280,42 @@ function AboutPage() {
                   className="h-auto w-full rounded-xl object-contain"
                   loading="eager"
                 />
+              </div>
+            </div>
+          </div>
+
+          {/* Eye-Catching Callout for Pakistan-based In-House Hiring */}
+          <div className="mt-12 sm:mt-16 rounded-2xl border-2 border-emerald-500/30 bg-gradient-to-br from-emerald-950/20 via-card to-background p-6 sm:p-7 shadow-md relative overflow-hidden">
+            <div className="absolute top-0 right-0 -mt-8 -mr-8 h-32 w-32 rounded-full bg-emerald-500/10 blur-2xl pointer-events-none" />
+
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 relative z-10">
+              <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-2.5">
+                  <Building2 className="h-3.5 w-3.5" />
+                  <span>Local In-House Opportunities</span>
+                </div>
+
+                <h2 className="text-lg sm:text-xl font-extrabold text-foreground leading-snug">
+                  Pakistan-based agency owner looking to hire in-house?
+                </h2>
+
+                <p className="mt-2 text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">
+                  Submit a proposal by selecting the <strong className="text-foreground">"In-house Hiring"</strong> option on the discovery form, then grab an interview slot directly on the calendar or reach out on WhatsApp after submitting your request.
+                </p>
+              </div>
+
+              <div className="shrink-0 flex items-center gap-3">
+                <button
+                  onClick={() => {
+                    setModalService("In-house Hiring / Consulting (Pakistan-based agencies)");
+                    setIsModalOpen(true);
+                  }}
+                  className="btn-click-effect inline-flex min-h-[40px] items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-xs sm:text-sm font-bold text-primary-foreground shadow-sm hover:opacity-95 active:scale-95 transition-all"
+                  style={{ background: "var(--gradient-primary)" }}
+                >
+                  <span>Submit Proposal</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </button>
               </div>
             </div>
           </div>
@@ -384,7 +414,7 @@ function AboutPage() {
       <LeadCaptureModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        defaultService="Executive Strategy Session"
+        defaultService={modalService}
       />
     </div>
   );
