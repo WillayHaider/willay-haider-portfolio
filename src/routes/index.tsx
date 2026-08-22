@@ -22,6 +22,7 @@ import {
   BarChart3,
   Bot,
   Award,
+  Star,
 } from "lucide-react";
 import heroPortrait from "@/assets/willay-portrait-final-nobg.webp";
 import introAudioUrl from "@/assets/willay-intro.ogg";
