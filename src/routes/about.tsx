@@ -7,10 +7,8 @@ import {
   Sparkles,
   ArrowRight,
   Calendar,
-  Menu,
-  X,
 } from "lucide-react";
-import heroPortrait from "@/assets/willay-portrait-final-nobg.png";
+import heroPortrait from "@/assets/willay-portrait-final-nobg.webp";
 import { LeadCaptureModal } from "@/components/LeadCaptureModal";
 
 export const Route = createFileRoute("/about")({
@@ -49,19 +47,19 @@ const CERTIFICATIONS = [
 const CAREER_HIGHLIGHTS = [
   {
     role: "Senior Business Development Representative",
-    company: "Million Dials",
+    company: "Million Dials Pvt Ltd.",
     period: "Jan 2026 to Present",
     desc: "Leading outbound sales motions, developing dynamic cold call talk tracks, and training junior SDRs on discovery and qualification across B2B SaaS accounts.",
   },
   {
     role: "Business Development Representative",
-    company: "Vizocom & Vizocare",
+    company: "Vizocom LLC",
     period: "Jun 2025 to Dec 2025",
     desc: "Ran enterprise outbound cold calling targeting hospital supply procurement directors and battery systems, generating 320+ qualified MQLs and securing 77+ high-ticket purchase orders.",
   },
   {
     role: "Business Development Representative",
-    company: "OMC Group",
+    company: "OMC Group LLC",
     period: "Mar 2025 to Apr 2025",
     desc: "Targeted law firms and attorneys across North America for digital marketing and SEO services, establishing a 75% connect rate on outbound calling blocks.",
   },
@@ -79,51 +77,31 @@ function AboutPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
-      {/* Top Header */}
-      <header className="fixed top-0 z-50 w-full border-b border-border/70 bg-background/95 backdrop-blur-md">
+      {/* Top Header with 50% transparency */}
+      <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/50 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-          <div className="relative">
+          <div className="relative z-50">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="btn-click-effect flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-foreground shadow-xs hover:border-primary/50 hover:bg-secondary/60 active:scale-95"
-              aria-label="Toggle menu"
+              className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 p-1 text-foreground transition-opacity hover:opacity-75 focus:outline-none"
+              aria-label="Toggle Navigation Menu"
             >
-              {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+              <span
+                className={`h-0.5 w-6 rounded-full bg-foreground transition-all duration-300 ${
+                  menuOpen ? "translate-y-2 rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`h-0.5 w-6 rounded-full bg-foreground transition-all duration-300 ${
+                  menuOpen ? "opacity-0 scale-x-0" : ""
+                }`}
+              />
+              <span
+                className={`h-0.5 w-6 rounded-full bg-foreground transition-all duration-300 ${
+                  menuOpen ? "-translate-y-2 -rotate-45" : ""
+                }`}
+              />
             </button>
-
-            {menuOpen && (
-              <div className="absolute left-0 top-12 z-50 w-52 rounded-xl border border-border bg-card p-2 shadow-lg backdrop-blur-md animate-scale-in">
-                <div className="flex flex-col space-y-1">
-                  <a href="/" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
-                    Home
-                  </a>
-                  <a href="/#services" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
-                    Services
-                  </a>
-                  <a href="/#results" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
-                    Case Studies
-                  </a>
-                  <a href="/#pricing" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
-                    Pricing
-                  </a>
-                  <a href="/#reviews" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
-                    Reviews
-                  </a>
-                  <a href="/#faq" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
-                    FAQs
-                  </a>
-                  <a href="/gallery" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
-                    Gallery
-                  </a>
-                  <a href="/blog" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
-                    Blog
-                  </a>
-                  <a href="/contact" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
-                    Contact
-                  </a>
-                </div>
-              </div>
-            )}
           </div>
 
           <button
@@ -134,6 +112,53 @@ function AboutPage() {
             Request Proposal
           </button>
         </div>
+
+        {/* Dropdown panel */}
+        {menuOpen && (
+          <div className="fixed inset-x-0 top-0 z-40 h-[38vh] min-h-[290px] border-b border-border bg-background/98 p-6 pt-14 backdrop-blur-2xl shadow-xl animate-fade-in flex flex-col justify-between">
+            <div className="grid grid-cols-3 gap-2 text-center sm:grid-cols-4">
+              <a href="/" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+                Home
+              </a>
+              <a href="/#services" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+                Services
+              </a>
+              <a href="/#results" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+                Case Studies
+              </a>
+              <a href="/#pricing" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+                Pricing
+              </a>
+              <a href="/#reviews" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+                Reviews
+              </a>
+              <a href="/#faq" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+                FAQs
+              </a>
+              <a href="/#certifications" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+                Certifications
+              </a>
+              <a href="/blog" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+                Blog
+              </a>
+              <a href="/contact" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary">
+                Contact
+              </a>
+            </div>
+            <div className="flex items-center justify-between border-t border-border/60 pt-3 text-xs text-muted-foreground">
+              <span>willayhaider.pro</span>
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  setIsModalOpen(true);
+                }}
+                className="font-semibold text-primary underline"
+              >
+                Book Discovery Call →
+              </button>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Main Content */}
@@ -150,12 +175,12 @@ function AboutPage() {
                 Turning Cold Prospects Into <br />
                 <span className="text-primary">High-Ticket Closed Revenue</span>
               </h1>
-              <p className="mt-4 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-4 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
                 I am a senior Business Development Representative and outbound sales strategist who specializes in
                 orchestrating end-to-end outbound systems for US, UK, and European B2B companies. Over the past 1.5+
                 years, I have dialed over 57,000+ cold calls and directly generated $3.5M+ in verified closed revenue.
               </p>
-              <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-3 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
                 My approach is rooted in sharp discovery, psychological rapport, customized objection handling, and
                 flawless CRM RevOps discipline. I believe cold calling is not about reading robotic scripts: it is
                 about facilitating high-trust executive conversations that uncover real business pain points.
@@ -164,7 +189,7 @@ function AboutPage() {
               <div className="mt-6 flex flex-wrap gap-3">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="btn-click-effect inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs hover:opacity-95 active:scale-95"
+                  className="btn-click-effect inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-xs sm:text-sm font-bold text-primary-foreground shadow-xs hover:opacity-95 active:scale-95"
                   style={{ background: "var(--gradient-primary)" }}
                 >
                   <Calendar className="h-4 w-4" />
@@ -176,7 +201,7 @@ function AboutPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   download="Mr Haider-BDR-Resume.pdf"
-                  className="btn-click-effect inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2.5 text-xs sm:text-sm font-medium text-foreground transition-colors hover:border-primary"
+                  className="btn-click-effect inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2.5 text-xs sm:text-sm font-semibold text-foreground transition-colors hover:border-primary"
                 >
                   Download Full CV (PDF)
                 </a>
@@ -196,6 +221,7 @@ function AboutPage() {
                   width={600}
                   height={800}
                   className="h-auto w-full rounded-xl object-contain"
+                  loading="eager"
                 />
               </div>
             </div>
@@ -222,11 +248,11 @@ function AboutPage() {
                   <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <h3 className="text-base sm:text-lg font-bold text-foreground">{item.role}</h3>
-                      <p className="text-xs sm:text-sm font-medium text-primary">{item.company}</p>
+                      <p className="text-xs sm:text-sm font-semibold text-primary">{item.company}</p>
                     </div>
                     <span className="text-xs font-semibold text-muted-foreground">{item.period}</span>
                   </div>
-                  <p className="mt-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  <p className="mt-2.5 text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -258,9 +284,9 @@ function AboutPage() {
                       <Award className="h-4 w-4" />
                     </div>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-primary">{cert.org}</p>
+                      <p className="text-xs font-bold uppercase tracking-wider text-primary">{cert.org}</p>
                       <h3 className="mt-0.5 text-sm sm:text-base font-bold text-foreground">{cert.title}</h3>
-                      <p className="mt-0.5 text-xs text-muted-foreground">{cert.desc}</p>
+                      <p className="mt-0.5 text-xs text-foreground/80 font-medium">{cert.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -271,14 +297,14 @@ function AboutPage() {
           {/* Languages */}
           <div className="mt-12 rounded-xl border border-border bg-card p-5 text-center shadow-xs">
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+              <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary">
                 <Globe className="h-4 w-4" />
                 <span>Fluent Languages:</span>
               </div>
               {["English (US/UK Professional)", "Urdu", "Punjabi", "Saraiki"].map((lang) => (
                 <span
                   key={lang}
-                  className="rounded-full border border-border bg-secondary/60 px-3 py-0.5 text-xs font-medium text-foreground"
+                  className="rounded-full border border-border bg-secondary/60 px-3 py-0.5 text-xs font-semibold text-foreground"
                 >
                   {lang}
                 </span>
@@ -289,7 +315,7 @@ function AboutPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-background py-8 text-center text-xs text-muted-foreground">
+      <footer className="border-t border-border bg-background py-8 text-center text-xs font-medium text-muted-foreground">
         © 2026 Willay Haider (<a href="/" className="text-primary hover:underline">willayhaider.pro</a>). All rights reserved.
       </footer>
 

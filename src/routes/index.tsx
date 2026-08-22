@@ -1,12 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
 import {
-  Mail,
-  Phone,
-  Star,
-  Download,
-  Linkedin,
-  Instagram,
   ArrowRight,
   Play,
   Pause,
@@ -24,17 +18,20 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
-  Menu,
-  X,
   Sparkles,
   BarChart3,
   Bot,
+  Award,
 } from "lucide-react";
-import heroPortrait from "@/assets/willay-portrait-final-nobg.png";
+import heroPortrait from "@/assets/willay-portrait-final-nobg.webp";
 import introAudioUrl from "@/assets/willay-intro.ogg";
 import ranaAvatar from "@/assets/rana-ammad-ali.jpg";
 import maazAvatar from "@/assets/ahmad-maaz.jpg";
 import arsalanAvatar from "@/assets/arsalan.jpg";
+import googleLogo from "@/assets/google-logo.png";
+import deloitteLogo from "@/assets/deloitte-logo.png";
+import awsLogo from "@/assets/aws-logo.png";
+import adbiLogo from "@/assets/adbi-logo.png";
 import { LeadCaptureModal } from "@/components/LeadCaptureModal";
 
 export const Route = createFileRoute("/")({
@@ -65,7 +62,7 @@ export const Route = createFileRoute("/")({
 });
 
 /* =========================================================================
-   ANIMATION & COUNTUP UTILITIES (ROBUST NUMBER ANIMATION FIX)
+   ANIMATION & COUNTUP UTILITIES
    ========================================================================= */
 
 function CountUp({
@@ -100,7 +97,6 @@ function CountUp({
             const update = (now: number) => {
               const elapsed = now - startTime;
               const progress = Math.min(elapsed / duration, 1);
-              // Ease out cubic
               const ease = 1 - Math.pow(1 - progress, 3);
               const current = startVal + (end - startVal) * ease;
               setDisplayValue(current);
@@ -185,7 +181,7 @@ function Reveal({
 }
 
 /* =========================================================================
-   STATIC DATA & CONFIGURATION (FIRST-PERSON, NO EM DASHES)
+   STATIC DATA & CONFIGURATION (BRAND UPDATES & NO EM DASHES)
    ========================================================================= */
 
 const NAV_LINKS = [
@@ -195,31 +191,16 @@ const NAV_LINKS = [
   { label: "Reviews", href: "#reviews" },
   { label: "FAQs", href: "#faq" },
   { label: "About", href: "/about" },
-  { label: "Gallery", href: "/gallery" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
-const SOCIALS = [
-  {
-    icon: Linkedin,
-    href: "https://www.linkedin.com/in/willayhaider?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-    label: "LinkedIn",
-  },
-  { icon: Mail, href: "mailto:Contact.whaider@gmail.com", label: "Email" },
-  { icon: Phone, href: "https://wa.me/923206990099", label: "WhatsApp" },
-  {
-    icon: Instagram,
-    href: "https://www.instagram.com/damn_haiderrr?igsh=MW81Ymw3MzdkeGNrYg%3D%3D&utm_source=qr",
-    label: "Instagram",
-  },
-];
-
 const CLIENT_TRUST_SIGNALS = [
-  { name: "Million Dials", category: "B2B SaaS & Startups", metric: "1,800+ Demos Booked" },
-  { name: "Vizocom", category: "Industrial & Healthcare", metric: "$1.8M+ Generated" },
-  { name: "OMC Group", category: "Legal SEO Outbound", metric: "75% Connect Rate" },
-  { name: "Autolift Transport / Nexus", category: "Freight Logistics", metric: "1,700+ Loads" },
+  { name: "Million Dials Pvt Ltd.", category: "B2B SaaS & Startups", metric: "1,800+ Demos Booked" },
+  { name: "Vizocom LLC", category: "Industrial & Healthcare", metric: "$1.8M+ Generated" },
+  { name: "OMC Group LLC", category: "Legal SEO Outbound", metric: "75% Connect Rate" },
+  { name: "Autolift Transport / Nexus LTD", category: "Freight Logistics", metric: "1,700+ Loads" },
 ];
 
 const SERVICES_DATA = [
@@ -266,9 +247,36 @@ const TOOLS_STRIP = [
   { name: "AI Workflow Copilots", category: "Data Enrichment" },
 ];
 
+const CERTIFICATIONS_DATA = [
+  {
+    name: "Google Analytics Certification",
+    issuer: "Google",
+    logo: googleLogo,
+    category: "Attribution & Funnels",
+  },
+  {
+    name: "Data Analytics Job Simulation",
+    issuer: "Deloitte",
+    logo: deloitteLogo,
+    category: "Enterprise Analytics",
+  },
+  {
+    name: "Exploring AI Use Cases",
+    issuer: "Amazon Web Services (AWS)",
+    logo: awsLogo,
+    category: "Sales Automation",
+  },
+  {
+    name: "Cybersecurity Essentials",
+    issuer: "ADBI Institute",
+    logo: adbiLogo,
+    category: "Data Privacy Principles",
+  },
+];
+
 const CASE_STUDIES = [
   {
-    client: "Million Dials",
+    client: "Million Dials Pvt Ltd.",
     category: "B2B SaaS & Startup Outbound",
     engagement: "7-month engagement",
     dialsLabel: "20,000+ Calls Dialed",
@@ -278,12 +286,11 @@ const CASE_STUDIES = [
     revenueTarget: 1.2,
     revenueDecimals: 1,
     revenueSuffix: "M+ Generated",
-    revenueFullText: "$1.2M+ in revenue generated",
     summary:
       "Ran multi-region outbound campaigns targeting founders, CTOs, and VPs of Sales for B2B SaaS clients across US, UK, and EU markets.",
   },
   {
-    client: "Vizocom",
+    client: "Vizocom LLC",
     category: "Industrial & Healthcare Bulk Procurement",
     engagement: "5-month engagement",
     dialsLabel: "18,000 Calls Dialed",
@@ -293,12 +300,11 @@ const CASE_STUDIES = [
     revenueTarget: 1.8,
     revenueDecimals: 1,
     revenueSuffix: "M+ Generated",
-    revenueFullText: "$1.8M+ in revenue generated",
     summary:
       "High-stakes procurement cold outreach for life-support, battery systems, and hospital supply verticals, securing large purchase orders.",
   },
   {
-    client: "OMC Group",
+    client: "OMC Group LLC",
     category: "SEO Services for Legal Professionals",
     engagement: "2-month engagement",
     dialsLabel: "7,500+ Calls Dialed",
@@ -308,12 +314,11 @@ const CASE_STUDIES = [
     revenueTarget: 450,
     revenueDecimals: 0,
     revenueSuffix: "K+ Generated",
-    revenueFullText: "$450K+ in revenue generated",
     summary:
       "Targeted law firm partners and attorneys across North America for digital growth and SEO, converting high-trust discovery sessions.",
   },
   {
-    client: "Autolift Transport / Nexus",
+    client: "Autolift Transport / Nexus LTD",
     category: "Freight Logistics & Dispatching",
     engagement: "3-month engagement",
     dialsLabel: "12,000+ Calls Dialed",
@@ -322,7 +327,6 @@ const CASE_STUDIES = [
     revenueTarget: 150,
     revenueDecimals: 0,
     revenueSuffix: "K+ Generated",
-    revenueFullText: "$150K+ in revenue generated",
     summary:
       "Dispatched for US-based fleet operators and managers, sourcing high-paying freight loads and negotiating rate confirmations with brokers.",
   },
@@ -409,7 +413,7 @@ const TESTIMONIALS = [
   {
     name: "Rana Ammad Ali",
     role: "Sales Manager",
-    company: "Million Dials",
+    company: "Million Dials Pvt Ltd.",
     avatar: ranaAvatar,
     rating: 4.8,
     quote:
@@ -459,7 +463,7 @@ const FAQS = [
 ];
 
 /* =========================================================================
-   MAIN SERVICE BUSINESS PAGE COMPONENT
+   MAIN COMPONENT
    ========================================================================= */
 
 function ServiceBusinessPage() {
@@ -478,6 +482,7 @@ function ServiceBusinessPage() {
       <TrustBarSection />
       <ServicesSection onOpenModal={openLeadModal} />
       <ToolsGridSection />
+      <CertificationsSection />
       <CaseStudiesSection onOpenModal={openLeadModal} />
       <PricingCarouselSection onOpenModal={openLeadModal} />
       <ReviewsSection />
@@ -496,60 +501,52 @@ function ServiceBusinessPage() {
 }
 
 /* =========================================================================
-   1. NAVBAR (COLLAPSED HAMBURGER ON ALL SCREENS, NO TOP-LEFT LOGO MARK)
+   1. NAVBAR (50% TRANSPARENT, PLAIN ANIMATING 3-LINE ICON, TOP 35% MOBILE PANEL)
    ========================================================================= */
 
 function Navbar({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [menuOpen]);
 
   return (
-    <header
-      className={`fixed top-0 z-50 w-full transition-all duration-200 ${
-        scrolled
-          ? "border-b border-border/80 bg-background/95 backdrop-blur-md shadow-sm"
-          : "border-b border-transparent bg-transparent"
-      }`}
-    >
+    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/50 backdrop-blur-md transition-colors">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
-        {/* Left: Collapsed Hamburger Menu Trigger (Clean 3 lines) */}
-        <div className="relative">
+        {/* Plain Morphing 3-Line Hamburger Icon without any circle or outline */}
+        <div className="relative z-50">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="btn-click-effect flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-foreground shadow-xs hover:border-primary/50 hover:bg-secondary/60 active:scale-95"
-            aria-label="Toggle menu"
+            className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 p-1 text-foreground transition-opacity hover:opacity-75 focus:outline-none"
+            aria-label="Toggle Navigation Menu"
           >
-            {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            <span
+              className={`h-0.5 w-6 rounded-full bg-foreground transition-all duration-300 ${
+                menuOpen ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`h-0.5 w-6 rounded-full bg-foreground transition-all duration-300 ${
+                menuOpen ? "opacity-0 scale-x-0" : ""
+              }`}
+            />
+            <span
+              className={`h-0.5 w-6 rounded-full bg-foreground transition-all duration-300 ${
+                menuOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
+            />
           </button>
-
-          {/* Expanded Dropdown Menu */}
-          {menuOpen && (
-            <div className="absolute left-0 top-12 z-50 w-56 rounded-xl border border-border bg-card p-2 shadow-lg backdrop-blur-md animate-scale-in">
-              <div className="flex flex-col space-y-1">
-                {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="rounded-lg px-3 py-2 text-xs font-medium text-foreground transition-colors hover:bg-secondary hover:text-primary"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
 
-        {/* Right: Small CTA Button with Click Effect */}
+        {/* Small Header CTA Button with Tap Animation */}
         <button
           onClick={() => onOpenModal()}
           className="btn-click-effect rounded-full px-3.5 py-1.5 text-xs font-semibold text-primary-foreground shadow-xs transition-transform hover:opacity-90 active:scale-95 sm:px-4 sm:py-2"
@@ -558,12 +555,43 @@ function Navbar({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
           Request Proposal
         </button>
       </div>
+
+      {/* Expanded Full-Width Panel covering top 35% of mobile screen */}
+      {menuOpen && (
+        <div className="fixed inset-x-0 top-0 z-40 h-[38vh] min-h-[290px] border-b border-border bg-background/98 p-6 pt-14 backdrop-blur-2xl shadow-xl animate-fade-in flex flex-col justify-between">
+          <div className="grid grid-cols-3 gap-2 text-center sm:grid-cols-4">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-between border-t border-border/60 pt-3 text-xs text-muted-foreground">
+            <span>willayhaider.pro</span>
+            <button
+              onClick={() => {
+                setMenuOpen(false);
+                onOpenModal();
+              }}
+              className="font-semibold text-primary underline"
+            >
+              Book Discovery Call →
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
 
 /* =========================================================================
-   2. HERO SECTION
+   2. HERO SECTION (HEADLINE SIZING, HIGH CONTRAST BODY, 72% STAT, PLAY INTRO)
    ========================================================================= */
 
 function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
@@ -594,10 +622,14 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
           {/* Left: Value Proposition */}
           <div className="relative z-10 animate-fade-in text-left">
-            {/* New Headline */}
-            <h1 className="text-3xl font-extrabold leading-[1.15] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              You Show Up to Close. <br className="hidden sm:block" />
-              <span className="text-primary">I Handle Everything Else.</span>
+            {/* Sized Headline: Line 1 slightly smaller, Line 2 full size on its own line */}
+            <h1>
+              <span className="block text-2xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
+                You Show Up to Close.
+              </span>
+              <span className="block mt-1.5 sm:mt-2.5 text-3xl sm:text-5xl lg:text-6xl font-black text-primary tracking-tight">
+                I Handle Everything Else.
+              </span>
             </h1>
 
             {/* Mobile Portrait */}
@@ -612,66 +644,67 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
                 width={500}
                 height={650}
                 className="relative z-10 h-auto w-full object-contain drop-shadow-md rounded-2xl"
+                loading="eager"
               />
             </div>
 
-            {/* First Person Body Copy */}
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base lg:text-lg">
+            {/* High Contrast First Person Body Copy */}
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-foreground/90 font-medium sm:text-base lg:text-lg">
               I build, manage, and execute high-converting cold calling and appointment-setting campaigns.
               Serving US, UK, and EU founders: driving qualified decision-maker demos directly to your
               calendar so you can close more high-ticket deals.
             </p>
 
-            {/* CTAs with Click Animations */}
-            <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
+            {/* CTAs: Hero Request Proposal Button slightly larger */}
+            <div className="mt-6 flex flex-wrap items-center gap-3.5 sm:mt-8">
               <button
                 onClick={() => onOpenModal()}
-                className="btn-click-effect inline-flex items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold text-primary-foreground shadow-sm hover:opacity-95 active:scale-95"
+                className="btn-click-effect inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 sm:px-8 sm:py-4 text-sm sm:text-base font-bold text-primary-foreground shadow-md hover:opacity-95 active:scale-95"
                 style={{ background: "var(--gradient-primary)" }}
               >
                 <span>Request Proposal</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                <ArrowRight className="h-4 w-4" />
               </button>
 
               <button
                 onClick={toggleAudio}
-                className={`btn-click-effect inline-flex items-center justify-center gap-1.5 rounded-full border px-4 py-2.5 text-xs sm:text-sm font-medium transition-all active:scale-95 ${
+                className={`btn-click-effect inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-xs sm:text-sm font-semibold transition-all active:scale-95 ${
                   isPlaying
                     ? "border-primary bg-primary text-primary-foreground shadow-sm"
                     : "border-border bg-card text-foreground hover:border-primary/50 hover:text-primary"
                 }`}
-                aria-label="Listen to voice sample"
+                aria-label="Listen to voice intro"
               >
-                {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5 text-primary" />}
-                <span>{isPlaying ? "Pause Intro" : "Voice Sample"}</span>
+                {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4 text-primary" />}
+                <span>{isPlaying ? "Pause Intro" : "Play Intro"}</span>
               </button>
             </div>
 
-            {/* KPI Metrics */}
+            {/* KPI Metrics: Updated to 72% Avg Show-up Rate */}
             <div className="mt-8 grid grid-cols-3 gap-3 border-t border-border/80 pt-5 sm:mt-10 sm:flex sm:flex-wrap sm:gap-10 sm:pt-7">
               <div>
-                <p className="text-xl font-bold text-[var(--emerald-accent)] sm:text-2xl">
+                <p className="text-xl font-extrabold text-[var(--emerald-accent)] sm:text-3xl">
                   <CountUp end={3.5} decimals={1} prefix="$" suffix="M+" />
                 </p>
-                <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wider text-muted-foreground sm:text-[11px]">
+                <p className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-[11px]">
                   Revenue Closed
                 </p>
               </div>
 
               <div>
-                <p className="text-xl font-bold text-foreground sm:text-2xl">
+                <p className="text-xl font-extrabold text-foreground sm:text-3xl">
                   <CountUp end={57500} suffix="+" />
                 </p>
-                <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wider text-muted-foreground sm:text-[11px]">
+                <p className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-[11px]">
                   Outbound Calls
                 </p>
               </div>
 
               <div>
-                <p className="text-xl font-bold text-primary sm:text-2xl">
-                  <CountUp end={67} suffix="%" />
+                <p className="text-xl font-extrabold text-primary sm:text-3xl">
+                  <CountUp end={72} suffix="%" />
                 </p>
-                <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wider text-muted-foreground sm:text-[11px]">
+                <p className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-[11px]">
                   Avg Show-up Rate
                 </p>
               </div>
@@ -692,6 +725,7 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
                 width={800}
                 height={1000}
                 className="h-auto w-full max-w-[360px] lg:max-w-[400px] rounded-xl object-contain"
+                loading="eager"
               />
 
               {/* Floating Verified Badge */}
@@ -700,7 +734,7 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
                   <TrendingUp className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-foreground">$3.5M+ Pipeline Closed</p>
+                  <p className="text-xs font-bold text-foreground">$3.5M+ Pipeline Closed</p>
                   <p className="text-[10px] text-muted-foreground">Verified Client Outcomes</p>
                 </div>
               </div>
@@ -713,25 +747,25 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
 }
 
 /* =========================================================================
-   3. TRUST BAR (NO HEADING TEXT)
+   3. TRUST BAR (INCREASED CARD SIZES & UPDATED CLIENT NAMES)
    ========================================================================= */
 
 function TrustBarSection() {
   return (
-    <section className="relative border-y border-border/70 bg-secondary/40 py-6">
+    <section className="relative border-y border-border/70 bg-secondary/40 py-8 sm:py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-5">
           {CLIENT_TRUST_SIGNALS.map((client) => (
             <div
               key={client.name}
-              className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3 text-center transition-colors hover:border-primary/40"
+              className="flex flex-col items-center justify-center rounded-2xl border border-border bg-card p-5 sm:p-6 text-center shadow-xs transition-colors hover:border-primary/40"
             >
-              <span className="text-xs sm:text-sm font-bold tracking-tight text-foreground">
+              <span className="text-sm sm:text-base font-extrabold tracking-tight text-foreground">
                 {client.name}
               </span>
-              <span className="mt-0.5 text-[10px] text-muted-foreground">{client.category}</span>
-              <span className="mt-1.5 inline-flex items-center gap-1 rounded-full bg-[var(--badge-emerald-bg)] px-2 py-0.5 text-[10px] font-semibold text-[var(--emerald-accent)]">
-                <CheckCircle2 className="h-2.5 w-2.5" />
+              <span className="mt-1 text-xs text-muted-foreground font-medium">{client.category}</span>
+              <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-[var(--badge-emerald-bg)] border border-[var(--badge-emerald-border)] px-3 py-1 text-xs font-bold text-[var(--emerald-accent)]">
+                <CheckCircle2 className="h-3.5 w-3.5" />
                 {client.metric}
               </span>
             </div>
@@ -743,7 +777,7 @@ function TrustBarSection() {
 }
 
 /* =========================================================================
-   4. SERVICES SECTION (COMPACT SCAN-FRIENDLY CARDS)
+   4. SERVICES SECTION
    ========================================================================= */
 
 function ServicesSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
@@ -758,18 +792,17 @@ function ServicesSection({ onOpenModal }: { onOpenModal: (service?: string) => v
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Outbound Systems & <span className="text-primary">Growth Services</span>
           </h2>
-          <p className="mt-2 max-w-xl text-xs sm:text-sm text-muted-foreground">
+          <p className="mt-2 max-w-xl text-xs sm:text-sm text-foreground/80 font-medium">
             End-to-end outbound sales execution designed to scale your pipeline and book vetted decision-maker meetings.
           </p>
         </div>
 
-        {/* Small Scan-Friendly Cards Grid */}
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES_DATA.map((svc, i) => (
             <Reveal
               key={svc.title}
               delay={i * 50}
-              className="glass-card flex flex-col justify-between rounded-xl p-4 sm:p-5"
+              className="glass-card flex flex-col justify-between rounded-xl p-5"
             >
               <div>
                 <div
@@ -779,13 +812,13 @@ function ServicesSection({ onOpenModal }: { onOpenModal: (service?: string) => v
                   <svc.icon className="h-4 w-4" />
                 </div>
                 <h3 className="mt-3 text-sm sm:text-base font-bold text-foreground">{svc.title}</h3>
-                <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{svc.outcome}</p>
+                <p className="mt-1.5 text-xs text-foreground/80 leading-relaxed font-medium">{svc.outcome}</p>
               </div>
 
               <div className="mt-4 pt-2">
                 <button
                   onClick={() => onOpenModal(svc.title)}
-                  className="btn-click-effect inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+                  className="btn-click-effect inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline"
                 >
                   <span>Inquire now</span>
                   <ArrowRight className="h-3 w-3" />
@@ -800,7 +833,7 @@ function ServicesSection({ onOpenModal }: { onOpenModal: (service?: string) => v
 }
 
 /* =========================================================================
-   5. TOOLS SECTION (CLEAN 2x4 GRID OF BOXES/TILES)
+   5. TECH STACK SECTION (2x4 CLEAN GRID)
    ========================================================================= */
 
 function ToolsGridSection() {
@@ -816,16 +849,15 @@ function ToolsGridSection() {
           </h3>
         </div>
 
-        {/* Organized 2-col mobile, 4-col desktop tile grid */}
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 max-w-4xl mx-auto">
           {TOOLS_STRIP.map((tool) => (
             <div
               key={tool.name}
-              className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3 text-center shadow-xs transition-colors hover:border-primary/40"
+              className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3.5 text-center shadow-xs transition-colors hover:border-primary/40"
             >
               <Bot className="h-4 w-4 text-primary mb-1" />
               <span className="text-xs font-bold text-foreground">{tool.name}</span>
-              <span className="text-[10px] text-muted-foreground">{tool.category}</span>
+              <span className="text-[10px] text-muted-foreground font-medium">{tool.category}</span>
             </div>
           ))}
         </div>
@@ -835,7 +867,53 @@ function ToolsGridSection() {
 }
 
 /* =========================================================================
-   6. CASE STUDIES (2x2 GRID & CORRECT COUNTUP VALUES)
+   6. NEW SECTION: CERTIFICATIONS (FOLLOWING TECH STACK TILE DESIGN)
+   ========================================================================= */
+
+function CertificationsSection() {
+  return (
+    <section id="certifications" className="relative py-10 sm:py-14 border-b border-border/70 bg-background">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+            <Award className="h-3 w-3" />
+            <span>Verified Credentials</span>
+          </div>
+          <h3 className="text-xl sm:text-2xl font-bold text-foreground mt-2">
+            Certifications & Industry Accreditations
+          </h3>
+          <p className="mt-1 text-xs sm:text-sm text-foreground/80 font-medium">
+            Recognized industry certifications in analytics, cloud AI, and enterprise data workflows.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 max-w-4xl mx-auto">
+          {CERTIFICATIONS_DATA.map((cert) => (
+            <div
+              key={cert.name}
+              className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-4 text-center shadow-xs transition-all hover:border-primary/50 hover:shadow-sm"
+            >
+              <div className="h-8 w-8 flex items-center justify-center mb-2">
+                <img
+                  src={cert.logo}
+                  alt={cert.issuer}
+                  className="max-h-7 max-w-7 object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <span className="text-xs font-bold text-foreground leading-tight">{cert.name}</span>
+              <span className="text-[11px] font-semibold text-primary mt-0.5">{cert.issuer}</span>
+              <span className="text-[10px] text-muted-foreground font-medium mt-0.5">{cert.category}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================================
+   7. CASE STUDIES (2x2 GRID, UPDATED CLIENT NAMES, COUNTUP)
    ========================================================================= */
 
 function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
@@ -850,7 +928,7 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Proven Results & <span className="text-[var(--emerald-accent)]">Closed Pipeline</span>
           </h2>
-          <p className="mt-2 max-w-xl text-xs sm:text-sm text-muted-foreground">
+          <p className="mt-2 max-w-xl text-xs sm:text-sm text-foreground/80 font-medium">
             Direct outcomes from multi-month client engagements across diverse B2B verticals.
           </p>
         </div>
@@ -864,26 +942,25 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
               className="revenue-card relative flex flex-col justify-between rounded-xl p-5 sm:p-6"
             >
               <div>
-                {/* Header */}
                 <div className="flex items-center justify-between gap-2">
                   <div>
-                    <h3 className="text-lg font-bold text-foreground">{cs.client}</h3>
-                    <p className="text-xs font-medium text-primary">{cs.category}</p>
+                    <h3 className="text-base sm:text-lg font-extrabold text-foreground">{cs.client}</h3>
+                    <p className="text-xs font-semibold text-primary">{cs.category}</p>
                   </div>
-                  <span className="inline-flex items-center gap-1 rounded-full border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] px-2 py-0.5 text-[10px] font-semibold text-[var(--emerald-accent)]">
+                  <span className="inline-flex items-center gap-1 rounded-full border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] px-2 py-0.5 text-[10px] font-bold text-[var(--emerald-accent)]">
                     <ShieldCheck className="h-3 w-3" />
                     Verified
                   </span>
                 </div>
 
-                <p className="mt-0.5 text-[11px] text-muted-foreground">{cs.engagement}</p>
+                <p className="mt-0.5 text-[11px] text-muted-foreground font-medium">{cs.engagement}</p>
 
-                {/* Revenue Accent Callout (Fixed CountUp Values) */}
+                {/* Revenue Impact Box */}
                 <div className="mt-3.5 rounded-lg border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] p-3 text-left">
-                  <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
                     Verified Revenue Impact
                   </p>
-                  <p className="mt-0.5 text-2xl font-extrabold text-[var(--emerald-accent)] sm:text-3xl">
+                  <p className="mt-0.5 text-2xl font-black text-[var(--emerald-accent)] sm:text-3xl">
                     <CountUp
                       end={cs.revenueTarget}
                       decimals={cs.revenueDecimals}
@@ -893,63 +970,63 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
                   </p>
                 </div>
 
-                {/* Quick Metric Chips */}
+                {/* Metrics Chips */}
                 <div className="mt-3 grid grid-cols-2 gap-2 text-left">
                   <div className="rounded-md border border-border bg-secondary/50 p-2">
-                    <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Dials</p>
+                    <p className="text-[9px] uppercase tracking-wider text-muted-foreground font-semibold">Dials</p>
                     <p className="text-xs font-bold text-foreground">{cs.dialsLabel}</p>
                   </div>
                   {cs.meetingsLabel && (
                     <div className="rounded-md border border-border bg-secondary/50 p-2">
-                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Demos</p>
+                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground font-semibold">Demos</p>
                       <p className="text-xs font-bold text-foreground">{cs.meetingsLabel}</p>
                     </div>
                   )}
                   {cs.leads && (
                     <div className="rounded-md border border-border bg-secondary/50 p-2">
-                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Leads</p>
+                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground font-semibold">Leads</p>
                       <p className="text-xs font-bold text-foreground">{cs.leads}</p>
                     </div>
                   )}
                   {cs.showUpRate && (
                     <div className="rounded-md border border-border bg-secondary/50 p-2">
-                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Show-up</p>
+                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground font-semibold">Show-up</p>
                       <p className="text-xs font-bold text-primary">{cs.showUpRate}</p>
                     </div>
                   )}
                   {cs.connectRate && (
                     <div className="rounded-md border border-border bg-secondary/50 p-2">
-                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Connect</p>
+                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground font-semibold">Connect</p>
                       <p className="text-xs font-bold text-primary">{cs.connectRate}</p>
                     </div>
                   )}
                   {cs.dealsClosed && (
                     <div className="rounded-md border border-border bg-secondary/50 p-2">
-                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Outcomes</p>
+                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground font-semibold">Outcomes</p>
                       <p className="text-xs font-bold text-foreground">{cs.dealsClosed}</p>
                     </div>
                   )}
                   {cs.ordersSecured && (
                     <div className="rounded-md border border-border bg-secondary/50 p-2">
-                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Orders</p>
+                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground font-semibold">Orders</p>
                       <p className="text-xs font-bold text-foreground">{cs.ordersSecured}</p>
                     </div>
                   )}
                   {cs.loadsBooked && (
                     <div className="rounded-md border border-border bg-secondary/50 p-2">
-                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground">Volume</p>
+                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground font-semibold">Volume</p>
                       <p className="text-xs font-bold text-foreground">{cs.loadsBooked}</p>
                     </div>
                   )}
                 </div>
 
-                <p className="mt-3 text-xs text-muted-foreground leading-relaxed">{cs.summary}</p>
+                <p className="mt-3 text-xs text-foreground/85 leading-relaxed font-medium">{cs.summary}</p>
               </div>
 
               <div className="mt-4 pt-2 border-t border-border">
                 <button
                   onClick={() => onOpenModal(`Case Study: ${cs.client}`)}
-                  className="btn-click-effect inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+                  className="btn-click-effect inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline"
                 >
                   <span>Build a similar pipeline</span>
                   <ArrowRight className="h-3 w-3" />
@@ -964,11 +1041,12 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
 }
 
 /* =========================================================================
-   7. PRICING SECTION (SWIPEABLE / CAROUSEL INTERACTION)
+   8. PRICING SECTION (TOUCH SWIPE GESTURES ON MOBILE + DOT PAGINATION)
    ========================================================================= */
 
 function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
-  const [currentIndex, setCurrentIndex] = useState(1); // Default to Starter/Growth
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const touchStartX = useRef<number | null>(null);
 
   const nextTier = () => {
     setCurrentIndex((prev) => (prev + 1) % PRICING_TIERS.length);
@@ -976,6 +1054,22 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
 
   const prevTier = () => {
     setCurrentIndex((prev) => (prev - 1 + PRICING_TIERS.length) % PRICING_TIERS.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+    if (diff > 45) {
+      nextTier();
+    } else if (diff < -45) {
+      prevTier();
+    }
+    touchStartX.current = null;
   };
 
   return (
@@ -989,18 +1083,18 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Transparent, <span className="text-primary">ROI-Driven</span> Pricing
           </h2>
-          <p className="mt-2 max-w-xl text-xs sm:text-sm text-muted-foreground">
-            Select a tier below to view details. All packages start with a short discovery call to confirm scope.
+          <p className="mt-2 max-w-xl text-xs sm:text-sm text-foreground/80 font-medium">
+            Swipe or select a tier below to view details. All packages start with a short discovery call.
           </p>
         </div>
 
-        {/* Carousel Plan Selector Tabs / Controls */}
+        {/* Plan Pills */}
         <div className="mt-6 flex items-center justify-center gap-2">
           {PRICING_TIERS.map((tier, idx) => (
             <button
               key={tier.id}
               onClick={() => setCurrentIndex(idx)}
-              className={`btn-click-effect rounded-full px-3.5 py-1 text-xs font-semibold transition-all ${
+              className={`btn-click-effect rounded-full px-3.5 py-1 text-xs font-bold transition-all ${
                 currentIndex === idx
                   ? "bg-primary text-primary-foreground shadow-xs"
                   : "border border-border bg-card text-muted-foreground hover:text-foreground"
@@ -1011,8 +1105,12 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
           ))}
         </div>
 
-        {/* Carousel Container: Focused card centered, adjacent cards visible on sides */}
-        <div className="relative mt-6 max-w-4xl mx-auto flex items-center justify-center overflow-hidden py-4">
+        {/* Carousel Container with Touch Swipe Event */}
+        <div
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="relative mt-6 max-w-4xl mx-auto flex items-center justify-center overflow-hidden py-3"
+        >
           {/* Prev Arrow */}
           <button
             onClick={prevTier}
@@ -1022,7 +1120,7 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
             <ChevronLeft className="h-4 w-4" />
           </button>
 
-          {/* Active Carousel Card View */}
+          {/* Active Card */}
           <div className="w-full max-w-md px-2 sm:px-0">
             {(() => {
               const tier = PRICING_TIERS[currentIndex];
@@ -1031,44 +1129,43 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
                   key={tier.name}
                   className="glass-card relative overflow-hidden rounded-2xl border-primary/40 bg-card p-6 shadow-md transition-all duration-300 animate-scale-in"
                 >
-                  {/* Pinned Corner Badge for Starter and Growth only */}
                   {tier.badge && (
-                    <div className="absolute top-0 right-0 rounded-bl-xl bg-[var(--badge-emerald-bg)] border-b border-l border-[var(--badge-emerald-border)] px-3 py-1 text-[10px] font-bold text-[var(--emerald-accent)]">
+                    <div className="absolute top-0 right-0 rounded-bl-xl bg-[var(--badge-emerald-bg)] border-b border-l border-[var(--badge-emerald-border)] px-3 py-1 text-[10px] font-extrabold text-[var(--emerald-accent)]">
                       {tier.badge}
                     </div>
                   )}
 
                   <h3 className="text-xl font-bold text-foreground">{tier.name}</h3>
-                  <p className="mt-1 text-xs text-muted-foreground min-h-[30px]">{tier.bestFor}</p>
+                  <p className="mt-1 text-xs text-foreground/80 font-medium min-h-[30px]">{tier.bestFor}</p>
 
                   <div className="mt-4 border-y border-border py-3">
-                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Starting at</p>
+                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">Starting at</p>
                     <div className="flex items-baseline gap-1 mt-0.5">
-                      <span className="text-3xl sm:text-4xl font-extrabold text-foreground">
+                      <span className="text-3xl sm:text-4xl font-black text-foreground">
                         {tier.startingPrice}
                       </span>
-                      <span className="text-xs font-semibold text-muted-foreground">{tier.priceUnit}</span>
+                      <span className="text-xs font-bold text-muted-foreground">{tier.priceUnit}</span>
                     </div>
                   </div>
 
-                  <p className="mt-3 text-xs text-muted-foreground leading-relaxed">{tier.tagline}</p>
+                  <p className="mt-3 text-xs text-foreground/85 leading-relaxed font-medium">{tier.tagline}</p>
 
                   <div className="mt-4 space-y-2">
                     {tier.features.map((feat) => (
-                      <div key={feat} className="flex items-start gap-2 text-xs text-muted-foreground">
+                      <div key={feat} className="flex items-start gap-2 text-xs text-foreground/90 font-medium">
                         <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-primary mt-0.5" />
                         <span>{feat}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-4 rounded-lg border border-border bg-secondary/50 p-2.5 text-[11px] text-muted-foreground">
-                    <span className="font-semibold text-foreground">Terms:</span> {tier.contract}
+                  <div className="mt-4 rounded-lg border border-border bg-secondary/50 p-2.5 text-[11px] text-foreground/85 font-medium">
+                    <span className="font-bold text-foreground">Terms:</span> {tier.contract}
                   </div>
 
                   {tier.specialClause && (
-                    <div className="mt-2 rounded-lg border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] p-2.5 text-[11px] text-[var(--emerald-accent)]">
-                      <span className="font-semibold">30-Day Check-in:</span> {tier.specialClause}
+                    <div className="mt-2 rounded-lg border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] p-2.5 text-[11px] text-[var(--emerald-accent)] font-medium">
+                      <span className="font-bold">30-Day Check-in:</span> {tier.specialClause}
                     </div>
                   )}
 
@@ -1096,11 +1193,23 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
           </button>
         </div>
 
-        {/* Pricing Scope Note */}
-        <div className="mx-auto mt-6 max-w-2xl text-center text-xs text-muted-foreground">
+        {/* Swipe Pagination Dots Indicator */}
+        <div className="mt-4 flex items-center justify-center gap-1.5">
+          {PRICING_TIERS.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentIndex(idx)}
+              className={`h-2 rounded-full transition-all ${
+                currentIndex === idx ? "w-6 bg-primary" : "w-2 bg-border hover:bg-muted-foreground/50"
+              }`}
+              aria-label={`Go to tier ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        <div className="mx-auto mt-5 max-w-2xl text-center text-xs text-muted-foreground font-medium">
           All packages start with a short discovery call to confirm scope and target market. Final pricing depends on
-          volume, industry, and campaign complexity. The numbers above are your starting point, not the ceiling on
-          what we can build together.
+          volume, industry, and campaign complexity.
         </div>
       </div>
     </section>
@@ -1108,7 +1217,7 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
 }
 
 /* =========================================================================
-   8. REVIEWS & TESTIMONIALS SECTION
+   9. REVIEWS SECTION (PROMINENT VIVID GREEN BADGE & UPDATED CLIENT NAMES)
    ========================================================================= */
 
 function ReviewsSection() {
@@ -1146,8 +1255,8 @@ function ReviewsSection() {
                   </div>
                   <div>
                     <p className="text-sm font-bold text-foreground">{t.name}</p>
-                    <p className="text-xs text-primary font-medium">{t.role}</p>
-                    <p className="text-[10px] text-muted-foreground">{t.company}</p>
+                    <p className="text-xs text-primary font-semibold">{t.role}</p>
+                    <p className="text-[10px] text-muted-foreground font-medium">{t.company}</p>
                   </div>
                 </div>
 
@@ -1158,14 +1267,15 @@ function ReviewsSection() {
                   <span className="ml-1 text-xs font-bold text-foreground">{t.rating.toFixed(1)}</span>
                 </div>
 
-                <blockquote className="mt-2.5 text-xs text-muted-foreground leading-relaxed">
+                <blockquote className="mt-2.5 text-xs text-foreground/90 leading-relaxed font-medium">
                   "{t.quote}"
                 </blockquote>
               </div>
 
-              <div className="mt-4 flex items-center gap-1 text-[10px] text-[var(--emerald-accent)] border-t border-border pt-2.5">
-                <CheckCircle2 className="h-3 w-3" />
-                <span>Verified Client</span>
+              {/* Prominent Vivid Verified Green Badge */}
+              <div className="mt-4 flex items-center gap-1.5 rounded-lg bg-emerald-50 border border-emerald-400/80 px-2.5 py-1 text-[11px] font-bold text-emerald-800 shadow-2xs">
+                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                <span>Verified Client Review</span>
               </div>
             </Reveal>
           ))}
@@ -1176,7 +1286,7 @@ function ReviewsSection() {
 }
 
 /* =========================================================================
-   9. TEAM & CAPABILITIES SECTION (TIGHTENED & FIRST-PERSON)
+   10. TEAM & CAPABILITIES SECTION
    ========================================================================= */
 
 function TeamCapabilitiesSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
@@ -1194,7 +1304,7 @@ function TeamCapabilitiesSection({ onOpenModal }: { onOpenModal: (service?: stri
                 More Than Just Cold Callers: <br />
                 <span className="text-primary">A Complete Technical & Sales Partner</span>
               </h2>
-              <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p className="mt-2 text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">
                 While outbound calling is my core pipeline motion, I operate with an in-house engineering and design
                 team to build conversion landing pages, mobile apps, and CRM automations that back your sales engine.
               </p>
@@ -1203,17 +1313,17 @@ function TeamCapabilitiesSection({ onOpenModal }: { onOpenModal: (service?: stri
                 <div className="rounded-lg border border-border bg-card p-2.5 text-center">
                   <PhoneCall className="h-4 w-4 text-primary mx-auto" />
                   <p className="mt-1 text-xs font-bold text-foreground">SDR Team</p>
-                  <p className="text-[9px] text-muted-foreground">Cold calling</p>
+                  <p className="text-[9px] text-muted-foreground font-medium">Cold calling</p>
                 </div>
                 <div className="rounded-lg border border-border bg-card p-2.5 text-center">
                   <Code2 className="h-4 w-4 text-primary mx-auto" />
                   <p className="mt-1 text-xs font-bold text-foreground">Web Dev</p>
-                  <p className="text-[9px] text-muted-foreground">Landing pages</p>
+                  <p className="text-[9px] text-muted-foreground font-medium">Landing pages</p>
                 </div>
                 <div className="rounded-lg border border-border bg-card p-2.5 text-center">
                   <Smartphone className="h-4 w-4 text-primary mx-auto" />
                   <p className="mt-1 text-xs font-bold text-foreground">App Dev</p>
-                  <p className="text-[9px] text-muted-foreground">Web & mobile apps</p>
+                  <p className="text-[9px] text-muted-foreground font-medium">Web & mobile apps</p>
                 </div>
               </div>
             </div>
@@ -1221,12 +1331,12 @@ function TeamCapabilitiesSection({ onOpenModal }: { onOpenModal: (service?: stri
             <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-secondary/50 p-5 text-center">
               <Sparkles className="h-6 w-6 text-primary" />
               <h4 className="mt-2 text-sm font-bold text-foreground">Need a Custom Growth Setup?</h4>
-              <p className="mt-1 text-xs text-muted-foreground">
+              <p className="mt-1 text-xs text-foreground/80 font-medium">
                 Let me assemble the right mix of sales reps, list researchers, and developers for your project.
               </p>
               <button
                 onClick={() => onOpenModal("Full Growth & Tech Stack Partnership")}
-                className="btn-click-effect mt-4 w-full rounded-lg py-2 text-xs font-semibold text-primary-foreground shadow-xs hover:opacity-95 active:scale-95"
+                className="btn-click-effect mt-4 w-full rounded-lg py-2 text-xs font-bold text-primary-foreground shadow-xs hover:opacity-95 active:scale-95"
                 style={{ background: "var(--gradient-primary)" }}
               >
                 Discuss Custom Solution
@@ -1240,11 +1350,11 @@ function TeamCapabilitiesSection({ onOpenModal }: { onOpenModal: (service?: stri
 }
 
 /* =========================================================================
-   10. FAQ SECTION (ALL ITEMS START COLLAPSED BY DEFAULT)
+   11. FAQ SECTION
    ========================================================================= */
 
 function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null); // All collapsed by default
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section id="faq" className="relative py-14 sm:py-20 bg-secondary/20">
@@ -1259,7 +1369,6 @@ function FAQSection() {
           </h2>
         </div>
 
-        {/* Accordion List */}
         <div className="mt-8 space-y-3">
           {FAQS.map((faq, i) => {
             const isOpen = openIndex === i;
@@ -1270,7 +1379,7 @@ function FAQSection() {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="flex min-h-[48px] w-full items-center justify-between p-4 text-left font-semibold text-foreground text-xs sm:text-sm active:bg-secondary/40"
+                  className="flex min-h-[48px] w-full items-center justify-between p-4 text-left font-bold text-foreground text-xs sm:text-sm active:bg-secondary/40"
                 >
                   <span className="pr-3">{faq.question}</span>
                   <ChevronDown
@@ -1281,7 +1390,7 @@ function FAQSection() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-4 pt-0 text-xs sm:text-sm leading-relaxed text-muted-foreground border-t border-border/50 animate-fade-in">
+                  <div className="px-4 pb-4 pt-0 text-xs sm:text-sm leading-relaxed text-foreground/85 font-medium border-t border-border/50 animate-fade-in">
                     <p className="pt-2">{faq.answer}</p>
                   </div>
                 )}
@@ -1295,7 +1404,7 @@ function FAQSection() {
 }
 
 /* =========================================================================
-   11. FOOTER (NO LOGO LOCKUP, PRIVACY & TERMS INCLUDED)
+   12. FOOTER (ACTUAL ORIGINAL BRAND LOGOS FOR SOCIALS)
    ========================================================================= */
 
 function FooterSection() {
@@ -1304,7 +1413,7 @@ function FooterSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           {/* Quick Links */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground sm:gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-muted-foreground sm:gap-6">
             {NAV_LINKS.map((link) => (
               <a key={link.href} href={link.href} className="transition-colors hover:text-primary">
                 {link.label}
@@ -1312,42 +1421,69 @@ function FooterSection() {
             ))}
           </div>
 
-          {/* Socials and Resume */}
-          <div className="flex items-center gap-2.5">
-            {SOCIALS.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                className="btn-click-effect flex h-8 w-8 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-all hover:border-primary hover:text-primary active:scale-95"
-              >
-                <s.icon className="h-3.5 w-3.5" />
-              </a>
-            ))}
+          {/* Original Brand Social Logos */}
+          <div className="flex items-center gap-3">
+            {/* LinkedIn Original Brand SVG */}
             <a
-              href="/Mr%20Haider-BDR-Resume.pdf"
+              href="https://www.linkedin.com/in/willayhaider?utm_source=share_via&utm_content=profile&utm_medium=member_android"
               target="_blank"
               rel="noopener noreferrer"
-              download="Mr Haider-BDR-Resume.pdf"
-              className="btn-click-effect inline-flex min-h-[32px] items-center gap-1.5 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-semibold text-foreground transition-all hover:border-primary hover:text-primary active:scale-95"
+              aria-label="LinkedIn Profile"
+              className="btn-click-effect flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-[#0077b5] transition-all hover:border-[#0077b5] hover:scale-105 active:scale-95 shadow-2xs"
             >
-              <Download className="h-3 w-3" />
-              Resume
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c.97 0 1.75-.79 1.75-1.76s-.78-1.75-1.75-1.75a1.75 1.75 0 0 0 0 3.5m1.39 9.74v-8.37H5.07v8.37z" />
+              </svg>
+            </a>
+
+            {/* Instagram Original Brand SVG */}
+            <a
+              href="https://www.instagram.com/damn_haiderrr?igsh=MW81Ymw3MzdkeGNrYg%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram Profile"
+              className="btn-click-effect flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-[#E1306C] transition-all hover:border-[#E1306C] hover:scale-105 active:scale-95 shadow-2xs"
+            >
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+
+            {/* WhatsApp Original Brand SVG */}
+            <a
+              href="https://wa.me/923206990099"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Direct WhatsApp"
+              className="btn-click-effect flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-[#25D366] transition-all hover:border-[#25D366] hover:scale-105 active:scale-95 shadow-2xs"
+            >
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25.7-.72 1.28-1.37 1.63-.5.27-1.15.42-1.83.42-1.14 0-2.61-.54-4.14-2.07-1.55-1.55-2.22-3.08-2.22-4.22 0-.68.16-1.34.46-1.84.34-.58.88-.99 1.54-1.19.22-.07.45-.1.68-.1.28 0 .5.06.67.4.21.43.72 1.75.78 1.88.07.13.11.29.02.47-.09.18-.13.29-.26.44-.13.15-.28.34-.4.46-.13.13-.27.28-.12.53.15.26.68 1.12 1.47 1.82 1.01.9 1.87 1.18 2.13 1.31.26.13.41.11.56-.06.16-.18.67-.78.85-1.05.18-.26.36-.22.6-.13.25.09 1.57.74 1.84.88.27.13.45.2.52.31.06.12.06.69-.19 1.39z" />
+              </svg>
+            </a>
+
+            {/* Email Original SVG */}
+            <a
+              href="mailto:Contact.whaider@gmail.com"
+              aria-label="Direct Email"
+              className="btn-click-effect flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-[#EA4335] transition-all hover:border-[#EA4335] hover:scale-105 active:scale-95 shadow-2xs"
+            >
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>
             </a>
           </div>
         </div>
 
-        <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-4 text-[11px] text-muted-foreground sm:flex-row">
+        <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-4 text-[11px] font-medium text-muted-foreground sm:flex-row">
           <div>
-            © 2026 Willay Haider (<span className="text-primary">willayhaider.pro</span>). All rights reserved.
+            © 2026 Willay Haider (<span className="text-primary font-semibold">willayhaider.pro</span>). All rights reserved.
           </div>
           <div className="flex gap-4">
-            <a href="/privacy-policy" className="hover:text-primary transition-colors">
+            <a href="/privacy-policy" className="hover:text-primary transition-colors font-medium">
               Privacy Policy
             </a>
-            <a href="/terms" className="hover:text-primary transition-colors">
+            <a href="/terms" className="hover:text-primary transition-colors font-medium">
               Terms & Conditions
             </a>
           </div>
