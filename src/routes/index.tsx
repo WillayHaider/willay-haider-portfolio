@@ -1025,6 +1025,8 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
 
 function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
   const [currentIndex, setCurrentIndex] = useState(1);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
   const nextTier = () => {
@@ -1037,18 +1039,33 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
+    setIsDragging(true);
+    setDragOffset(0);
   };
 
-  const handleTouchEnd = (e: React.TouchEvent) => {
+  const handleTouchMove = (e: React.TouchEvent) => {
     if (touchStartX.current === null) return;
-    const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartX.current - touchEndX;
-    if (diff > 45) {
-      nextTier();
-    } else if (diff < -45) {
-      prevTier();
+    const currentX = e.touches[0].clientX;
+    const diff = currentX - touchStartX.current;
+    // Dampen drag at start and end of array
+    if ((currentIndex === 0 && diff > 0) || (currentIndex === PRICING_TIERS.length - 1 && diff < 0)) {
+      setDragOffset(diff * 0.3);
+    } else {
+      setDragOffset(diff);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current !== null) {
+      if (dragOffset < -45) {
+        nextTier();
+      } else if (dragOffset > 45) {
+        prevTier();
+      }
     }
     touchStartX.current = null;
+    setIsDragging(false);
+    setDragOffset(0);
   };
 
   return (
@@ -1084,30 +1101,25 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
           ))}
         </div>
 
-        {/* Carousel Container with Touch Swipe Event */}
-        <div
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          className="relative mt-6 max-w-4xl mx-auto flex items-center justify-center overflow-hidden py-3"
-        >
-          {/* Prev Arrow */}
-          <button
-            onClick={prevTier}
-            className="btn-click-effect absolute left-1 sm:left-4 z-30 flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/90 text-foreground shadow-md hover:border-primary active:scale-95"
-            aria-label="Previous tier"
+        {/* Continuous Smooth Sliding Carousel Container */}
+        <div className="relative mt-6 max-w-lg mx-auto overflow-hidden py-3">
+          {/* Sliding Track containing all cards */}
+          <div
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            className={`flex ${
+              isDragging ? "transition-none" : "transition-transform duration-500 ease-out"
+            } will-change-transform cursor-grab active:cursor-grabbing`}
+            style={{
+              transform: isDragging
+                ? `translateX(calc(-${currentIndex * 100}% + ${dragOffset}px))`
+                : `translateX(-${currentIndex * 100}%)`,
+            }}
           >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-
-          {/* Active Card */}
-          <div className="w-full max-w-md px-2 sm:px-0">
-            {(() => {
-              const tier = PRICING_TIERS[currentIndex];
-              return (
-                <div
-                  key={tier.name}
-                  className="glass-card relative overflow-hidden rounded-2xl border-primary/40 bg-card p-6 shadow-md transition-all duration-300 animate-scale-in"
-                >
+            {PRICING_TIERS.map((tier) => (
+              <div key={tier.name} className="w-full shrink-0 px-2 sm:px-3">
+                <div className="glass-card relative overflow-hidden rounded-2xl border-primary/40 bg-card p-6 shadow-md transition-all">
                   {tier.badge && (
                     <div className="absolute top-0 right-0 rounded-bl-xl bg-[var(--badge-emerald-bg)] border-b border-l border-[var(--badge-emerald-border)] px-3 py-1 text-[10px] font-bold text-[var(--emerald-accent)]">
                       {tier.badge}
@@ -1158,14 +1170,23 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
                     </button>
                   </div>
                 </div>
-              );
-            })()}
+              </div>
+            ))}
           </div>
+
+          {/* Prev Arrow */}
+          <button
+            onClick={prevTier}
+            className="btn-click-effect absolute left-1 top-1/2 -translate-y-1/2 z-30 flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/90 text-foreground shadow-md hover:border-primary active:scale-95"
+            aria-label="Previous tier"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
 
           {/* Next Arrow */}
           <button
             onClick={nextTier}
-            className="btn-click-effect absolute right-1 sm:right-4 z-30 flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/90 text-foreground shadow-md hover:border-primary active:scale-95"
+            className="btn-click-effect absolute right-1 top-1/2 -translate-y-1/2 z-30 flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/90 text-foreground shadow-md hover:border-primary active:scale-95"
             aria-label="Next tier"
           >
             <ChevronRight className="h-4 w-4" />
