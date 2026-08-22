@@ -7,6 +7,8 @@ import {
   Sparkles,
   ArrowRight,
   Calendar,
+  Menu,
+  X,
 } from "lucide-react";
 import heroPortrait from "@/assets/willay-portrait-final-nobg.png";
 import { LeadCaptureModal } from "@/components/LeadCaptureModal";
@@ -15,18 +17,18 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
   head: () => ({
     meta: [
-      { title: "About Willay Haider — Senior BDR & Outbound Sales Specialist" },
+      { title: "About Willay Haider: Senior BDR & Outbound Sales Specialist" },
       {
         name: "description",
         content:
-          "Learn more about Willay Haider — Senior Business Development Representative with 1.5+ years of outbound sales experience, $3.5M+ in pipeline generated, and deep expertise in cold calling and RevOps.",
+          "Learn more about Willay Haider: Senior Business Development Representative with 1.5+ years of outbound sales experience, $3.5M+ in pipeline generated, and deep expertise in cold calling and RevOps.",
       },
       {
         name: "keywords",
         content:
           "Willay Haider, About Willay Haider, Business Development Representative, BDR Bio, Cold Calling Specialist, willayhaider.pro",
       },
-      { property: "og:title", content: "About Willay Haider — Outbound Sales Leader" },
+      { property: "og:title", content: "About Willay Haider: Outbound Sales Leader" },
       {
         property: "og:description",
         content:
@@ -48,73 +50,86 @@ const CAREER_HIGHLIGHTS = [
   {
     role: "Senior Business Development Representative",
     company: "Million Dials",
-    period: "Jan 2026 – Present",
+    period: "Jan 2026 to Present",
     desc: "Leading outbound sales motions, developing dynamic cold call talk tracks, and training junior SDRs on discovery and qualification across B2B SaaS accounts.",
   },
   {
     role: "Business Development Representative",
     company: "Vizocom & Vizocare",
-    period: "Jun 2025 – Dec 2025",
+    period: "Jun 2025 to Dec 2025",
     desc: "Ran enterprise outbound cold calling targeting hospital supply procurement directors and battery systems, generating 320+ qualified MQLs and securing 77+ high-ticket purchase orders.",
   },
   {
     role: "Business Development Representative",
     company: "OMC Group",
-    period: "Mar 2025 – Apr 2025",
+    period: "Mar 2025 to Apr 2025",
     desc: "Targeted law firms and attorneys across North America for digital marketing and SEO services, establishing a 75% connect rate on outbound calling blocks.",
   },
   {
     role: "Sales Representative",
     company: "Shibli Global Network",
-    period: "Sep 2024 – Dec 2024",
-    desc: "Handled B2B & B2C outbound campaigns and multi-channel appointment setting with strict CRM pipeline hygiene.",
+    period: "Sep 2024 to Dec 2024",
+    desc: "Handled B2B and B2C outbound campaigns and multi-channel appointment setting with strict CRM pipeline hygiene.",
   },
 ];
 
 function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
       {/* Top Header */}
-      <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6">
-          <a href="/" className="flex items-center gap-2.5 group">
-            <div
-              className="flex h-9 w-9 items-center justify-center rounded-xl font-bold text-primary-foreground transition-transform group-hover:scale-105"
-              style={{ background: "var(--gradient-primary)" }}
+      <header className="fixed top-0 z-50 w-full border-b border-border/70 bg-background/95 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+          <div className="relative">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="btn-click-effect flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-foreground shadow-xs hover:border-primary/50 hover:bg-secondary/60 active:scale-95"
+              aria-label="Toggle menu"
             >
-              WH
-            </div>
-            <div>
-              <span className="text-sm font-bold tracking-tight text-foreground sm:text-base">
-                Willay Haider
-              </span>
-              <span className="hidden text-[10px] uppercase tracking-wider text-muted-foreground sm:block">
-                Outbound Growth Partner
-              </span>
-            </div>
-          </a>
+              {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </button>
 
-          <nav className="flex items-center gap-6">
-            <a href="/" className="text-xs font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm">
-              Home
-            </a>
-            <a href="/#services" className="text-xs font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm">
-              Services
-            </a>
-            <a href="/#results" className="text-xs font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm">
-              Case Studies
-            </a>
-            <a href="/#pricing" className="text-xs font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm">
-              Pricing
-            </a>
-          </nav>
+            {menuOpen && (
+              <div className="absolute left-0 top-12 z-50 w-52 rounded-xl border border-border bg-card p-2 shadow-lg backdrop-blur-md animate-scale-in">
+                <div className="flex flex-col space-y-1">
+                  <a href="/" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
+                    Home
+                  </a>
+                  <a href="/#services" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
+                    Services
+                  </a>
+                  <a href="/#results" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
+                    Case Studies
+                  </a>
+                  <a href="/#pricing" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
+                    Pricing
+                  </a>
+                  <a href="/#reviews" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
+                    Reviews
+                  </a>
+                  <a href="/#faq" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
+                    FAQs
+                  </a>
+                  <a href="/gallery" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
+                    Gallery
+                  </a>
+                  <a href="/blog" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
+                    Blog
+                  </a>
+                  <a href="/contact" className="rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-secondary hover:text-primary">
+                    Contact
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
 
           <button
             onClick={() => setIsModalOpen(true)}
-            className="rounded-full px-4 py-2 text-xs font-semibold text-primary-foreground transition-all hover:scale-105 sm:px-5 sm:py-2.5 sm:text-sm"
-            style={{ background: "var(--gradient-primary)", boxShadow: "var(--shadow-glow)" }}
+            className="btn-click-effect rounded-full px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-xs transition-transform hover:opacity-90 active:scale-95 sm:px-4 sm:py-2"
+            style={{ background: "var(--gradient-primary)" }}
           >
             Request Proposal
           </button>
@@ -122,54 +137,46 @@ function AboutPage() {
       </header>
 
       {/* Main Content */}
-      <main className="pt-28 pb-20 sm:pt-36 sm:pb-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6">
+      <main className="pt-24 pb-16 sm:pt-32 sm:pb-24">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
           {/* Hero Bio Grid */}
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                <Sparkles className="h-3.5 w-3.5" />
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+                <Sparkles className="h-3 w-3" />
                 <span>About Willay Haider</span>
               </div>
-              <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
                 Turning Cold Prospects Into <br />
-                <span
-                  style={{
-                    background: "var(--gradient-primary)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
-                  High-Ticket Closed Revenue
-                </span>
+                <span className="text-primary">High-Ticket Closed Revenue</span>
               </h1>
-              <p className="mt-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
+              <p className="mt-4 text-xs sm:text-sm leading-relaxed text-muted-foreground">
                 I am a senior Business Development Representative and outbound sales strategist who specializes in
                 orchestrating end-to-end outbound systems for US, UK, and European B2B companies. Over the past 1.5+
                 years, I have dialed over 57,000+ cold calls and directly generated $3.5M+ in verified closed revenue.
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+              <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">
                 My approach is rooted in sharp discovery, psychological rapport, customized objection handling, and
-                flawless CRM RevOps discipline. I believe cold calling is not about reading robotic scripts — it is
+                flawless CRM RevOps discipline. I believe cold calling is not about reading robotic scripts: it is
                 about facilitating high-trust executive conversations that uncover real business pain points.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-6 flex flex-wrap gap-3">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="group inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-105"
-                  style={{ background: "var(--gradient-primary)", boxShadow: "var(--shadow-glow)" }}
+                  className="btn-click-effect inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs hover:opacity-95 active:scale-95"
+                  style={{ background: "var(--gradient-primary)" }}
                 >
                   <Calendar className="h-4 w-4" />
                   <span>Book Strategy Call</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </button>
                 <a
                   href="/Mr%20Haider-BDR-Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   download="Mr Haider-BDR-Resume.pdf"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary"
+                  className="btn-click-effect inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2.5 text-xs sm:text-sm font-medium text-foreground transition-colors hover:border-primary"
                 >
                   Download Full CV (PDF)
                 </a>
@@ -177,83 +184,83 @@ function AboutPage() {
             </div>
 
             {/* Visual Portrait */}
-            <div className="relative mx-auto flex w-full max-w-sm items-center justify-center">
+            <div className="relative mx-auto flex w-full max-w-xs sm:max-w-sm items-center justify-center">
               <div
-                className="absolute inset-0 rounded-full blur-3xl"
-                style={{ background: "var(--gradient-primary)", opacity: 0.3 }}
+                className="absolute inset-0 rounded-full blur-2xl -z-0"
+                style={{ background: "var(--gradient-primary)", opacity: 0.15 }}
               />
-              <div className="relative z-10 overflow-hidden rounded-3xl border border-primary/30 bg-card/40 p-2 shadow-2xl backdrop-blur-md">
+              <div className="relative z-10 overflow-hidden rounded-2xl border border-border bg-card p-1.5 shadow-md">
                 <img
                   src={heroPortrait}
-                  alt="Willay Haider — Senior Business Development Representative"
+                  alt="Willay Haider: Senior Business Development Representative"
                   width={600}
                   height={800}
-                  className="h-auto w-full rounded-2xl object-contain"
+                  className="h-auto w-full rounded-xl object-contain"
                 />
               </div>
             </div>
           </div>
 
           {/* Career Timeline */}
-          <div className="mt-20 sm:mt-28">
+          <div className="mt-16 sm:mt-24">
             <div className="text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                <Briefcase className="h-3.5 w-3.5" />
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+                <Briefcase className="h-3 w-3" />
                 <span>Track Record</span>
               </div>
-              <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+              <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                 Experience & Leadership
               </h2>
             </div>
 
-            <div className="mt-10 space-y-6">
+            <div className="mt-8 space-y-4">
               {CAREER_HIGHLIGHTS.map((item, i) => (
                 <div
                   key={i}
-                  className="glass-card rounded-2xl border border-border/70 p-6 sm:p-7"
+                  className="glass-card rounded-xl border border-border p-5 sm:p-6"
                 >
                   <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <h3 className="text-lg font-bold text-foreground">{item.role}</h3>
-                      <p className="text-sm font-medium text-primary">{item.company}</p>
+                      <h3 className="text-base sm:text-lg font-bold text-foreground">{item.role}</h3>
+                      <p className="text-xs sm:text-sm font-medium text-primary">{item.company}</p>
                     </div>
                     <span className="text-xs font-semibold text-muted-foreground">{item.period}</span>
                   </div>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  <p className="mt-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Verified Certifications */}
-          <div className="mt-20 sm:mt-28">
+          <div className="mt-16 sm:mt-24">
             <div className="text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                <Award className="h-3.5 w-3.5" />
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+                <Award className="h-3 w-3" />
                 <span>Credentials</span>
               </div>
-              <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+              <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                 Verified Certifications
               </h2>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
               {CERTIFICATIONS.map((cert) => (
                 <div
                   key={cert.title}
-                  className="glass-card rounded-2xl border border-border/70 p-6"
+                  className="glass-card rounded-xl border border-border p-5"
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-3.5">
                     <div
-                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-primary-foreground"
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-primary-foreground"
                       style={{ background: "var(--gradient-primary)" }}
                     >
-                      <Award className="h-5 w-5" />
+                      <Award className="h-4 w-4" />
                     </div>
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-wider text-primary">{cert.org}</p>
-                      <h3 className="mt-1 text-base font-bold text-foreground">{cert.title}</h3>
-                      <p className="mt-1 text-xs text-muted-foreground">{cert.desc}</p>
+                      <h3 className="mt-0.5 text-sm sm:text-base font-bold text-foreground">{cert.title}</h3>
+                      <p className="mt-0.5 text-xs text-muted-foreground">{cert.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -262,16 +269,16 @@ function AboutPage() {
           </div>
 
           {/* Languages */}
-          <div className="mt-16 rounded-2xl border border-border/70 bg-card/40 p-6 text-center">
+          <div className="mt-12 rounded-xl border border-border bg-card p-5 text-center shadow-xs">
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
                 <Globe className="h-4 w-4" />
                 <span>Fluent Languages:</span>
               </div>
               {["English (US/UK Professional)", "Urdu", "Punjabi", "Saraiki"].map((lang) => (
                 <span
                   key={lang}
-                  className="rounded-full border border-border bg-secondary/60 px-3.5 py-1 text-xs font-medium text-foreground"
+                  className="rounded-full border border-border bg-secondary/60 px-3 py-0.5 text-xs font-medium text-foreground"
                 >
                   {lang}
                 </span>
@@ -282,7 +289,7 @@ function AboutPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border/50 bg-background py-8 text-center text-xs text-muted-foreground">
+      <footer className="border-t border-border bg-background py-8 text-center text-xs text-muted-foreground">
         © 2026 Willay Haider (<a href="/" className="text-primary hover:underline">willayhaider.pro</a>). All rights reserved.
       </footer>
 

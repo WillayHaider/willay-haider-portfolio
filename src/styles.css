@@ -2,10 +2,8 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 /*
- * Design system definition.
+ * Design system definition: Professional Light Mode.
  */
 
 @theme inline {
@@ -48,42 +46,42 @@
 
 :root {
   --radius: 0.75rem;
-  /* Premium dark portfolio palette with deep navy-purple and emerald success accent */
-  --background: oklch(0.09 0.02 250);
-  --foreground: oklch(0.98 0.005 250);
-  --card: oklch(0.125 0.035 250);
-  --card-foreground: oklch(0.98 0.005 250);
-  --popover: oklch(0.125 0.035 250);
-  --popover-foreground: oklch(0.98 0.005 250);
-  --primary: oklch(0.65 0.19 250);
-  --primary-foreground: oklch(0.98 0.005 250);
-  --primary-glow: oklch(0.75 0.18 235);
-  --secondary: oklch(0.18 0.04 250);
-  --secondary-foreground: oklch(0.98 0.005 250);
-  --muted: oklch(0.17 0.03 250);
-  --muted-foreground: oklch(0.72 0.02 250);
-  --accent: oklch(0.65 0.19 250);
-  --accent-foreground: oklch(0.98 0.005 250);
+  /* Clean, trustworthy Light Mode palette */
+  --background: oklch(0.985 0.003 250);
+  --foreground: oklch(0.18 0.03 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.03 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.03 250);
+  --primary: oklch(0.48 0.17 260);
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-glow: oklch(0.48 0.17 260 / 0.15);
+  --secondary: oklch(0.955 0.008 250);
+  --secondary-foreground: oklch(0.20 0.03 250);
+  --muted: oklch(0.96 0.005 250);
+  --muted-foreground: oklch(0.46 0.025 250);
+  --accent: oklch(0.48 0.17 260);
+  --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.24 0.035 250);
-  --input: oklch(0.2 0.035 250);
-  --ring: oklch(0.65 0.19 250);
+  --border: oklch(0.90 0.01 250);
+  --input: oklch(0.94 0.01 250);
+  --ring: oklch(0.48 0.17 260);
   
-  /* Verified Results & Revenue Accent (Harmonious Emerald Green) */
-  --emerald-accent: oklch(0.74 0.20 152);
-  --emerald-glow: oklch(0.74 0.20 152 / 0.35);
-  --gradient-emerald: linear-gradient(135deg, oklch(0.74 0.20 152), oklch(0.82 0.18 165));
-  --badge-emerald-bg: oklch(0.74 0.20 152 / 0.12);
-  --badge-emerald-border: oklch(0.74 0.20 152 / 0.3);
+  /* Verified Results & Revenue Accent (Soft Professional Emerald Green) */
+  --emerald-accent: oklch(0.52 0.17 152);
+  --emerald-glow: oklch(0.52 0.17 152 / 0.15);
+  --gradient-emerald: linear-gradient(135deg, oklch(0.52 0.17 152), oklch(0.58 0.15 165));
+  --badge-emerald-bg: oklch(0.52 0.17 152 / 0.08);
+  --badge-emerald-border: oklch(0.52 0.17 152 / 0.25);
 
-  --gradient-primary: linear-gradient(135deg, oklch(0.65 0.19 250), oklch(0.76 0.18 225));
-  --gradient-hero: radial-gradient(circle at 50% 20%, oklch(0.35 0.16 250 / 0.5), transparent 70%);
-  --gradient-card: linear-gradient(145deg, oklch(0.15 0.04 250 / 0.95), oklch(0.11 0.03 250 / 0.85));
-  --gradient-card-hover: linear-gradient(145deg, oklch(0.18 0.05 250 / 0.95), oklch(0.14 0.04 250 / 0.9));
-  --shadow-glow: 0 20px 60px -20px oklch(0.65 0.19 250 / 0.55);
-  --shadow-card: 0 14px 45px -12px oklch(0.04 0.02 250 / 0.7);
-  --shadow-emerald: 0 10px 30px -8px oklch(0.74 0.20 152 / 0.4);
+  --gradient-primary: linear-gradient(135deg, oklch(0.48 0.17 260), oklch(0.56 0.15 240));
+  --gradient-hero: radial-gradient(ellipse at 50% 0%, oklch(0.94 0.025 260 / 0.45), transparent 70%);
+  --gradient-card: linear-gradient(145deg, #ffffff, oklch(0.985 0.005 250));
+  --gradient-card-hover: linear-gradient(145deg, #ffffff, oklch(0.975 0.008 250));
+  --shadow-glow: 0 10px 30px -10px oklch(0.48 0.17 260 / 0.35);
+  --shadow-card: 0 4px 20px -4px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --shadow-emerald: 0 10px 25px -8px oklch(0.52 0.17 152 / 0.25);
 
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -108,33 +106,31 @@
   }
 }
 
-/* Custom Agency Micro-Interactions & Glassmorphic Utilities */
+/* Professional B2B SaaS Card Styles */
 .glass-card {
   background: var(--gradient-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid oklch(0.28 0.04 250 / 0.7);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-card);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  border-color: oklch(0.65 0.19 250 / 0.5);
-  transform: translateY(-3px);
-  box-shadow: 0 20px 50px -15px oklch(0.65 0.19 250 / 0.25);
+  border-color: oklch(0.48 0.17 260 / 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -8px rgba(15, 23, 42, 0.09);
 }
 
 .revenue-card {
-  background: linear-gradient(145deg, oklch(0.14 0.04 250 / 0.95), oklch(0.10 0.03 160 / 0.4));
-  border: 1px solid oklch(0.74 0.20 152 / 0.25);
+  background: #ffffff;
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-card);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .revenue-card:hover {
-  border-color: oklch(0.74 0.20 152 / 0.6);
-  transform: translateY(-4px);
-  box-shadow: 0 22px 55px -15px oklch(0.74 0.20 152 / 0.25);
+  border-color: oklch(0.52 0.17 152 / 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px -8px rgba(5, 150, 105, 0.12);
 }
 
 .glow-pill {
@@ -143,14 +139,22 @@
   color: var(--emerald-accent);
 }
 
+/* Button click animation */
+.btn-click-effect {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-click-effect:active {
+  transform: scale(0.96);
+}
+
 @keyframes pulseSubtle {
   0%, 100% {
-    opacity: 0.85;
+    opacity: 0.9;
     transform: scale(1);
   }
   50% {
     opacity: 1;
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
 }
 
@@ -163,7 +167,7 @@
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
   }
 }
 

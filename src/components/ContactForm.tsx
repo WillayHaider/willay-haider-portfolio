@@ -88,7 +88,7 @@ export default function ContactForm() {
         </div>
         <div className="min-w-0">
           <h2 className="text-xl sm:text-2xl font-bold text-foreground leading-tight">Let's Connect</h2>
-          <p className="text-muted-foreground text-xs sm:text-sm mt-1">I reply within 1–2 business days</p>
+          <p className="text-muted-foreground text-xs sm:text-sm mt-1">I reply within 1 to 2 business days</p>
         </div>
       </div>
 
@@ -152,7 +152,7 @@ export default function ContactForm() {
             rows={4}
             value={formData.message}
             onChange={handleChange}
-            placeholder="Tell us about your pipeline goals, target market, or what you are trying to solve…"
+            placeholder="Tell me about your pipeline goals, target market, or what you are looking to solve..."
             className={`w-full rounded-lg border bg-input px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring ${
               errors.message ? "border-destructive" : "border-border"
             }`}
@@ -162,18 +162,19 @@ export default function ContactForm() {
           )}
         </div>
 
-      <button
-  type="submit"
-  disabled={status === "sending"}
-  className="w-full sm:w-auto flex sm:inline-flex items-center justify-center gap-2 rounded-full bg-[image:var(--gradient-primary)] text-primary-foreground font-bold px-7 py-3 shadow-[var(--shadow-glow)] transition-transform duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
->
-  <Send className="h-4 w-4" />
-  {status === "sending" ? "Sending..." : status === "success" ? "Message Sent!" : "Send Message"}
-</button>
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className="btn-click-effect w-full sm:w-auto flex sm:inline-flex items-center justify-center gap-2 rounded-full text-primary-foreground font-bold px-7 py-3 shadow-sm hover:opacity-95 disabled:opacity-60 disabled:cursor-not-allowed"
+          style={{ background: "var(--gradient-primary)" }}
+        >
+          <Send className="h-4 w-4" />
+          {status === "sending" ? "Sending..." : status === "success" ? "Message Sent!" : "Send Message"}
+        </button>
 
         {status === "success" && (
-          <p className="text-sm font-medium" style={{ color: "oklch(0.7 0.18 145)" }}>
-            Thank you, your message has been received. I'll get back to you soon.
+          <p className="text-sm font-medium text-[var(--emerald-accent)]">
+            Thank you, your message has been received. I will get back to you soon.
           </p>
         )}
         {status === "error" && (

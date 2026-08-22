@@ -1,4 +1,5 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { ArrowLeft } from 'lucide-react'
 import photo1 from '../assets/willay-haider-portrait-green-jacket.jpg'
 import photo2 from '../assets/willay-haider-casual-outdoor.jpg'
 import photo4 from '../assets/willay-haider-mountains-travel.jpg'
@@ -9,6 +10,12 @@ import photo8 from '../assets/willay-haider-traditional-outfit-outdoor.jpg'
 import photo9 from '../assets/willay-haider-with-car.jpg'
 
 export const Route = createFileRoute('/gallery')({
+  head: () => ({
+    meta: [
+      { title: "Gallery: Willay Haider" },
+      { name: "description", content: "Personal and professional photos of Willay Haider." },
+    ],
+  }),
   component: GalleryPage,
 })
 
@@ -25,18 +32,28 @@ const photos = [
 
 function GalleryPage() {
   return (
-    <div className="min-h-screen bg-[#050b1a] text-white px-6 py-20">
+    <div className="min-h-screen bg-background text-foreground px-4 sm:px-6 py-16 sm:py-24">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-10">Gallery</h1>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary mb-6 hover:underline"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to Home
+        </Link>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-8">
+          Personal & Professional <span className="text-primary">Gallery</span>
+        </h1>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {photos.map((p, i) => (
-            <img
-              key={i}
-              src={p.src}
-              alt={p.alt}
-              loading={i === 0 ? 'eager' : 'lazy'}
-              className="rounded-lg object-cover w-full h-full"
-            />
+            <div key={i} className="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
+              <img
+                src={p.src}
+                alt={p.alt}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                className="rounded-xl object-cover w-full h-48 sm:h-64 transition-transform duration-300 hover:scale-105"
+              />
+            </div>
           ))}
         </div>
       </div>

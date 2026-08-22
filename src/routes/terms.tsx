@@ -1,92 +1,72 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { ArrowLeft } from 'lucide-react'
 
 export const Route = createFileRoute('/terms')({
+  head: () => ({
+    meta: [
+      { title: "Terms & Conditions: Willay Haider" },
+      { name: "description", content: "Terms and Conditions for willayhaider.pro" },
+    ],
+  }),
   component: TermsPage,
 })
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mb-8">
-      <h2 className="text-xl font-semibold text-blue-400 mb-2">{title}</h2>
-      <div className="text-gray-300 leading-relaxed space-y-2">{children}</div>
+      <h2 className="text-lg sm:text-xl font-bold text-primary mb-2">{title}</h2>
+      <div className="text-muted-foreground text-xs sm:text-sm leading-relaxed space-y-2">{children}</div>
     </div>
   )
 }
 
 function TermsPage() {
   return (
-    <div className="min-h-screen bg-[#050b1a] text-white px-6 py-20">
+    <div className="min-h-screen bg-background text-foreground px-4 sm:px-6 py-16 sm:py-24">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-2">
-          Terms & <span className="text-blue-400">Conditions</span>
+        <Link
+          to="/"
+          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary mb-6 hover:underline"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to Home
+        </Link>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
+          Terms & <span className="text-primary">Conditions</span>
         </h1>
-        <p className="text-sm text-gray-500 mb-10"></p>
 
-        <p className="text-gray-300 mb-8">
-          Welcome to willayhaider.pro. By accessing or using this site, you
-          agree to be bound by the following terms and conditions.
+        <p className="text-xs sm:text-sm text-muted-foreground mb-8">
+          Welcome to willayhaider.pro. By accessing or using this site, you agree to be bound by the following terms and conditions.
         </p>
 
         <Section title="Use of Content">
           <p>
-            All content on this site, including blog posts, text, and
-            graphics is the intellectual property of Willay Haider unless
-            otherwise stated. You may share links to this content, but
-            reproduction, republishing, or distribution of substantial
-            portions without permission is not permitted.
+            All content on this site, including blog posts, text, and graphics is the intellectual property of Willay Haider unless otherwise stated. You may share links to this content, but reproduction, republishing, or distribution of substantial portions without prior permission is not permitted.
           </p>
         </Section>
 
-        <Section title="No Professional Advice">
+        <Section title="No Guaranteed Financial Outcomes">
           <p>
-            Content shared on this site (including sales, career, or
-            business advice) reflects personal experience and opinion. It is
-            provided for general informational purposes only and should not
-            be treated as professional or guaranteed advice for your
-            specific situation.
-          </p>
-        </Section>
-
-        <Section title="Third-Party Links & Advertising">
-          <p>
-            This site may contain links to third-party websites and may
-            display advertisements through Google AdSense or similar
-            networks. We are not responsible for the content, accuracy, or
-            practices of any linked third-party sites or advertisers.
+            Case studies, examples, and pricing packages represent past client results and typical targets. Individual outcomes depend on client product-market fit, market conditions, and sales execution.
           </p>
         </Section>
 
         <Section title="Limitation of Liability">
           <p>
-            This site and its content are provided "as is." We make no
-            warranties, express or implied, about the completeness,
-            accuracy, or reliability of the content. We are not liable for
-            any loss or damage arising from your use of this site.
+            This site and its content are provided "as is." I make no warranties, express or implied, about completeness or accuracy.
           </p>
         </Section>
 
         <Section title="Changes to These Terms">
           <p>
-            These Terms & Conditions may be updated periodically without
-            prior notice. Continued use of the site after changes
-            constitutes acceptance of the updated terms.
+            These Terms & Conditions may be updated periodically. Continued use of the site after changes constitutes acceptance of the updated terms.
           </p>
         </Section>
 
-        <Section title="Governing Law">
+        <Section title="Contact">
           <p>
-            These terms are governed by the laws applicable in Pakistan,
-            without regard to conflict-of-law principles.
-          </p>
-        </Section>
-
-        <Section title="Contact Us">
-          <p>
-            Questions about these Terms can be sent to:{' '}
-            <a
-              href="mailto:Contact.whaider@gmail.com"
-              className="text-blue-400 hover:underline"
-            >
+            Questions about these Terms can be sent to:{" "}
+            <a href="mailto:Contact.whaider@gmail.com" className="text-primary font-semibold hover:underline">
               Contact.whaider@gmail.com
             </a>
           </p>

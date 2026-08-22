@@ -1,144 +1,81 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { ArrowLeft } from 'lucide-react'
 
 export const Route = createFileRoute('/privacy-policy')({
+  head: () => ({
+    meta: [
+      { title: "Privacy Policy: Willay Haider" },
+      { name: "description", content: "Privacy Policy for willayhaider.pro" },
+    ],
+  }),
   component: PrivacyPolicyPage,
 })
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mb-8">
-      <h2 className="text-xl font-semibold text-blue-400 mb-2">{title}</h2>
-      <div className="text-gray-300 leading-relaxed space-y-2">{children}</div>
+      <h2 className="text-lg sm:text-xl font-bold text-primary mb-2">{title}</h2>
+      <div className="text-muted-foreground text-xs sm:text-sm leading-relaxed space-y-2">{children}</div>
     </div>
   )
 }
 
 function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen bg-[#050b1a] text-white px-6 py-20">
+    <div className="min-h-screen bg-background text-foreground px-4 sm:px-6 py-16 sm:py-24">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-2">
-          Privacy <span className="text-blue-400">Policy</span>
+        <Link
+          to="/"
+          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary mb-6 hover:underline"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to Home
+        </Link>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
+          Privacy <span className="text-primary">Policy</span>
         </h1>
 
-        
-        
-
-        <p className="text-gray-300 mb-8">
-          This Privacy Policy explains how willayhaider.pro ("this site,"
-          "we," "us") collects, uses, and protects information when you
-          visit.
+        <p className="text-xs sm:text-sm text-muted-foreground mb-8">
+          This Privacy Policy explains how willayhaider.pro collects, uses, and protects information when you visit.
         </p>
 
-        <Section title="Information We Collect">
-          <ul className="list-disc list-inside space-y-1">
+        <Section title="Information I Collect">
+          <ul className="list-disc list-inside space-y-1.5">
             <li>
-              <span className="text-white">Contact information you provide: </span>
-              such as your name and email address, if you reach out via the
-              contact form or email.
+              <span className="font-semibold text-foreground">Contact information you provide: </span>
+              such as your name, email address, company name, and phone number if you reach out via the discovery form or email.
             </li>
             <li>
-              <span className="text-white">Automatically collected data: </span>
-              including your IP address, browser type, device type, pages
-              visited, and time spent on the site, collected through
-              standard analytics tools (such as Google Analytics).
+              <span className="font-semibold text-foreground">Automatically collected data: </span>
+              including IP address, browser type, device type, pages visited, and time spent on the site, collected through standard analytics tools.
             </li>
             <li>
-              <span className="text-white">Cookies: </span>this site may
-              use cookies to improve user experience, analyze traffic, and
-              (where applicable) serve relevant advertising.
+              <span className="font-semibold text-foreground">Cookies: </span>
+              this site may use cookies to improve user experience and analyze traffic.
             </li>
           </ul>
         </Section>
 
-        <Section title="How We Use Information">
-          <ul className="list-disc list-inside space-y-1">
-            <li>Respond to inquiries and messages</li>
-            <li>Understand how visitors use the site, so we can improve content and navigation</li>
-            <li>Serve relevant advertising through third-party ad networks (see below)</li>
+        <Section title="How I Use Information">
+          <ul className="list-disc list-inside space-y-1.5">
+            <li>Respond to inquiries, discovery requests, and direct messages</li>
+            <li>Understand how visitors use the site so I can improve content and user experience</li>
+            <li>Facilitate outbound sales strategy discussions and discovery sessions</li>
           </ul>
         </Section>
 
-        <Section title="Third-Party Advertising (Google AdSense)">
+        <Section title="Third-Party Services">
           <p>
-            This site may display advertisements served by Google AdSense
-            and other third-party ad networks. These providers may use
-            cookies, web beacons, or similar technologies to serve ads based
-            on your prior visits to this site or other websites.
-          </p>
-          <p>
-            Google's use of advertising cookies enables it and its partners
-            to serve ads based on your visits to this site and/or other
-            sites on the Internet. You may opt out of personalized
-            advertising by visiting{' '}
-            <a
-              href="https://adssettings.google.com"
-              className="text-blue-400 hover:underline"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Google Ads Settings
-            </a>
-            . You can also opt out of some third-party vendor use of cookies
-            by visiting the{' '}
-            <a
-              href="https://optout.aboutads.info"
-              className="text-blue-400 hover:underline"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Digital Advertising Alliance opt-out page
-            </a>
-            .
+            I may use third-party services such as Google Analytics, EmailJS, and Calendly for analytics, contact delivery, and scheduling. These services have their own privacy policies.
           </p>
         </Section>
 
-        <Section title="Cookies">
+        <Section title="Your Rights & Contact">
           <p>
-            Cookies are small text files stored on your device. You can
-            choose to disable cookies through your browser settings;
-            however, this may affect how parts of the site function.
-          </p>
-        </Section>
-
-        <Section title="Third-Party Links">
-          <p>
-            This site may contain links to external websites. We are not
-            responsible for the privacy practices or content of those
-            third-party sites.
-          </p>
-        </Section>
-
-        <Section title="Data Security">
-          <p>
-            We take reasonable measures to protect any information
-            collected, but no method of transmission over the Internet is
-            100% secure.
-          </p>
-        </Section>
-
-        <Section title="Children's Privacy">
-          <p>
-            This site is not directed at children under 13, and we do not
-            knowingly collect personal information from children under 13.
-          </p>
-        </Section>
-
-        <Section title="Changes to This Policy">
-          <p>
-            This Privacy Policy may be updated periodically.
-          </p>
-        </Section>
-
-        <Section title="Contact Us">
-          <p>
-            Questions about this Privacy Policy can be sent to:{' '}
-            <a
-              href="mailto:Contact.whaider@gmail.com"
-              className="text-blue-400 hover:underline"
-            >
+            If you have questions about this policy or wish to request data deletion, contact me at{" "}
+            <a href="mailto:Contact.whaider@gmail.com" className="text-primary font-semibold hover:underline">
               Contact.whaider@gmail.com
-            </a>
+            </a>.
           </p>
         </Section>
       </div>

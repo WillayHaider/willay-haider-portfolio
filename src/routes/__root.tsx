@@ -77,7 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Willay Haider — Outbound Sales Systems, BDR & Growth Partner" },
+      { title: "Willay Haider: Outbound Sales Systems, BDR & Growth Partner" },
       {
         name: "description",
         content:
@@ -90,8 +90,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "author", content: "Willay Haider" },
       { name: "robots", content: "index, follow" },
-      { property: "og:site_name", content: "Willay Haider — Outbound Sales Systems" },
-      { property: "og:title", content: "Willay Haider — Outbound Sales Systems, BDR & Growth Partner" },
+      { property: "og:site_name", content: "Willay Haider: Outbound Sales Systems" },
+      { property: "og:title", content: "Willay Haider: Outbound Sales Systems, BDR & Growth Partner" },
       {
         property: "og:description",
         content:
@@ -100,7 +100,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://willayhaider.pro" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Willay Haider — Outbound Sales Systems & BDR Specialist" },
+      { name: "twitter:title", content: "Willay Haider: Outbound Sales Systems & BDR Specialist" },
       {
         name: "twitter:description",
         content:
@@ -141,7 +141,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             {
               "@type": "ProfessionalService",
               "@id": "https://willayhaider.pro/#service",
-              name: "Willay Haider — Outbound Sales & Growth Systems",
+              name: "Willay Haider: Outbound Sales & Growth Systems",
               url: "https://willayhaider.pro",
               founder: {
                 "@id": "https://willayhaider.pro/#person",
@@ -172,11 +172,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
-      <body className="bg-background text-foreground antialiased selection:bg-primary/30 selection:text-foreground">
+      <body className="bg-background text-foreground antialiased selection:bg-primary/20 selection:text-foreground">
         {children}
         <Scripts />
       </body>
