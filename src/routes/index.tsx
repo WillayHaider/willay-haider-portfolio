@@ -499,11 +499,6 @@ const FAQS = [
       "No. I have generated over $3.5M+ in verified revenue across diverse verticals including B2B SaaS, enterprise technology, industrial and medical procurement, legal services, e-commerce, and logistics. Cold calling fundamentals: rapport, pattern interrupt, value proposition, and objection handling: apply powerfully across any high-ticket B2B market.",
   },
   {
-    question: "What tools and dialers do you support?",
-    answer:
-      "I operate across HubSpot, Salesforce, Apollo.io, LinkedIn Sales Navigator, VICIdial, Five9, RingCentral, Convoso, and modern AI data enrichment copilots. If your team uses a proprietary dialer or CRM, I integrate seamlessly into your workflow.",
-  },
-  {
     question: "How fast can we launch outbound calls?",
     answer:
       "Once we complete the initial onboarding discovery session and approve the target decision-maker criteria and call scripts, outbound dials typically launch within 48 to 72 hours.",
@@ -957,8 +952,8 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
             <span>Verified Track Record</span>
           </div>
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            <span className="block">Some Of the Proven Results &</span>
-            <span className="block mt-1 text-[var(--emerald-accent)]">Closed Pipeline</span>
+            <span className="block">A Few Proven Results &</span>
+            <span className="block mt-1 text-[var(--emerald-accent)]">Closed Revenue</span>
           </h2>
           <p className="mt-2 max-w-xl text-xs sm:text-sm text-foreground/80 font-medium">
             Direct outcomes from multi-month client engagements across diverse B2B verticals.
@@ -1310,12 +1305,12 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
 function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
   if (item.type === "image" && item.avatar) {
     return (
-      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-border bg-secondary/80 shadow-xs">
+      <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-border bg-secondary/80 shadow-xs">
         <img
           src={item.avatar}
           alt={item.name}
-          width={44}
-          height={44}
+          width={52}
+          height={52}
           className="h-full w-full object-cover"
           loading="lazy"
         />
@@ -1325,13 +1320,13 @@ function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
 
   if (item.id === "henry" && item.logo) {
     return (
-      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-border bg-white p-1.5 flex items-center justify-center shadow-xs">
+      <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-border bg-white p-1 flex items-center justify-center shadow-xs">
         <img
           src={item.logo}
           alt="OMC Group LLC"
-          width={44}
-          height={44}
-          className="h-full w-full object-contain"
+          width={52}
+          height={52}
+          className="h-full w-full object-contain scale-140"
           loading="lazy"
         />
       </div>
@@ -1340,13 +1335,13 @@ function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
 
   if (item.id === "robin" && item.logo) {
     return (
-      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-slate-700/80 bg-slate-950 p-1.5 flex items-center justify-center shadow-xs">
+      <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-slate-700/80 bg-slate-950 p-1 flex items-center justify-center shadow-xs">
         <img
           src={item.logo}
           alt="Vizocom LLC"
-          width={44}
-          height={44}
-          className="h-full w-full object-contain"
+          width={52}
+          height={52}
+          className="h-full w-full object-contain scale-125"
           loading="lazy"
         />
       </div>
@@ -1355,13 +1350,13 @@ function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
 
   if (item.id === "aima" && item.logo) {
     return (
-      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-border bg-white p-1 flex items-center justify-center shadow-xs">
+      <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-border bg-white p-0.5 flex items-center justify-center shadow-xs">
         <img
           src={item.logo}
           alt="Autolift Transport / Nexus LTD"
-          width={44}
-          height={44}
-          className="h-full w-full object-contain"
+          width={52}
+          height={52}
+          className="h-full w-full object-contain scale-135"
           loading="lazy"
         />
       </div>
@@ -1369,7 +1364,7 @@ function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
   }
 
   return (
-    <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-border bg-primary/10 flex items-center justify-center font-black text-primary text-xs">
+    <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-border bg-primary/10 flex items-center justify-center font-black text-primary text-sm">
       {item.name.charAt(0)}
     </div>
   );
@@ -1409,7 +1404,125 @@ function ReviewsSection() {
     return arr;
   });
 
-  const marqueeList = [...shuffledReviews, ...shuffledReviews];
+  // Tripled list for seamless infinite wrap on both manual swipe & auto-scroll
+  const marqueeList = [...shuffledReviews, ...shuffledReviews, ...shuffledReviews];
+
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const startScrollLeftRef = useRef(0);
+  const isHoveredRef = useRef(false);
+  const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    // Start in the middle segment
+    const segmentWidth = el.scrollWidth / 3;
+    el.scrollLeft = segmentWidth;
+
+    let animId: number;
+    let lastTime = performance.now();
+
+    const step = (time: number) => {
+      const delta = time - lastTime;
+      lastTime = time;
+
+      if (!isDraggingRef.current && !isHoveredRef.current && el) {
+        // Continuous smooth auto-scroll (~42px/sec)
+        const pixelsToMove = (42 * delta) / 1000;
+        el.scrollLeft += pixelsToMove;
+
+        // Infinite wrap
+        const singleSegment = el.scrollWidth / 3;
+        if (el.scrollLeft >= singleSegment * 2) {
+          el.scrollLeft -= singleSegment;
+        } else if (el.scrollLeft <= 0) {
+          el.scrollLeft += singleSegment;
+        }
+      }
+
+      animId = requestAnimationFrame(step);
+    };
+
+    animId = requestAnimationFrame(step);
+    return () => {
+      cancelAnimationFrame(animId);
+      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+    };
+  }, []);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    isDraggingRef.current = true;
+    startXRef.current = e.pageX - el.offsetLeft;
+    startScrollLeftRef.current = el.scrollLeft;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDraggingRef.current) return;
+    const el = scrollRef.current;
+    if (!el) return;
+    e.preventDefault();
+    const x = e.pageX - el.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    el.scrollLeft = startScrollLeftRef.current - walk;
+
+    const singleSegment = el.scrollWidth / 3;
+    if (el.scrollLeft >= singleSegment * 2) {
+      el.scrollLeft -= singleSegment;
+      startScrollLeftRef.current -= singleSegment;
+    } else if (el.scrollLeft <= 0) {
+      el.scrollLeft += singleSegment;
+      startScrollLeftRef.current += singleSegment;
+    }
+  };
+
+  const handleMouseUpOrLeave = () => {
+    if (isDraggingRef.current) {
+      isDraggingRef.current = false;
+      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+      resumeTimeoutRef.current = setTimeout(() => {
+        isHoveredRef.current = false;
+      }, 1000);
+    }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    isDraggingRef.current = true;
+    startXRef.current = e.touches[0].pageX - el.offsetLeft;
+    startScrollLeftRef.current = el.scrollLeft;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDraggingRef.current) return;
+    const el = scrollRef.current;
+    if (!el) return;
+    const x = e.touches[0].pageX - el.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    el.scrollLeft = startScrollLeftRef.current - walk;
+
+    const singleSegment = el.scrollWidth / 3;
+    if (el.scrollLeft >= singleSegment * 2) {
+      el.scrollLeft -= singleSegment;
+      startScrollLeftRef.current -= singleSegment;
+    } else if (el.scrollLeft <= 0) {
+      el.scrollLeft += singleSegment;
+      startScrollLeftRef.current += singleSegment;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    isDraggingRef.current = false;
+    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+    resumeTimeoutRef.current = setTimeout(() => {
+      isDraggingRef.current = false;
+    }, 1200);
+  };
 
   return (
     <section id="reviews" className="relative py-14 sm:py-20 bg-secondary/20 overflow-hidden">
@@ -1428,15 +1541,32 @@ function ReviewsSection() {
         </div>
       </div>
 
-      {/* Full-width horizontally auto-scrolling marquee with fade masks */}
+      {/* Full-width user-swipeable & auto-scrolling marquee with fade masks */}
       <div className="relative w-full overflow-hidden py-3">
         {/* Left fade gradient */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-background/90 to-transparent z-20" />
         {/* Right fade gradient */}
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-background/90 to-transparent z-20" />
 
-        {/* Marquee sliding track with pause on hover/touch */}
-        <div className="flex gap-4 sm:gap-6 animate-marquee cursor-grab active:cursor-grabbing">
+        {/* Swipeable & Auto-scrolling continuous track */}
+        <div
+          ref={scrollRef}
+          onMouseEnter={() => {
+            isHoveredRef.current = true;
+          }}
+          onMouseLeave={() => {
+            isHoveredRef.current = false;
+            handleMouseUpOrLeave();
+          }}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUpOrLeave}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className="flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing select-none py-2 px-4 will-change-transform"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
           {marqueeList.map((t, idx) => (
             <div
               key={`${t.id}-${idx}`}
