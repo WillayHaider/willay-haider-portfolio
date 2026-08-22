@@ -423,7 +423,7 @@ const TESTIMONIALS = [
     logo: omcLogo,
     rating: 4.7,
     quote:
-      "Haider was always respectful with our legal advisors and kept them engaged on every call. Made it easy for our closing team to follow up and get the deal signed.",
+      "Mr Haider was always respectful with our legal advisors and kept them engaged on every call. Made it easy for our closing team to follow up and get the deal signed.",
   },
   {
     id: "rana",
@@ -1320,13 +1320,13 @@ function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
 
   if (item.id === "henry" && item.logo) {
     return (
-      <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-border bg-white p-1 flex items-center justify-center shadow-xs">
+      <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-border bg-white p-0.5 flex items-center justify-center shadow-xs">
         <img
           src={item.logo}
           alt="OMC Group LLC"
           width={52}
           height={52}
-          className="h-full w-full object-contain scale-140"
+          className="h-full w-full object-contain scale-[2.38]"
           loading="lazy"
         />
       </div>
