@@ -172,7 +172,7 @@ function Reveal({
         ...style,
         transitionDelay: `${delay}ms`,
       }}
-      className={`transition-all duration-600 ease-out will-change-transform ${
+      className={`transition-all duration-750 ease-out will-change-transform ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
       } ${className}`}
     >
@@ -182,7 +182,7 @@ function Reveal({
 }
 
 /* =========================================================================
-   STATIC DATA & CONFIGURATION (BRAND UPDATES & NO EM DASHES)
+   STATIC DATA & CONFIGURATION
    ========================================================================= */
 
 const NAV_LINKS = [
@@ -238,14 +238,14 @@ const SERVICES_DATA = [
 ];
 
 const TOOLS_STRIP = [
-  { name: "HubSpot CRM", category: "RevOps" },
+  { name: "HubSpot CRM", category: "RevOps & Pipeline" },
   { name: "Salesforce", category: "Enterprise CRM" },
   { name: "Apollo.io", category: "Lead Intelligence" },
   { name: "LinkedIn Sales Nav", category: "Executive Sourcing" },
-  { name: "Outreach.io", category: "Sequencing" },
-  { name: "Close.com", category: "Dialing Infrastructure" },
-  { name: "Calendly", category: "Scheduling" },
-  { name: "AI Workflow Copilots", category: "Data Enrichment" },
+  { name: "VICIdial", category: "Call Center Dialer" },
+  { name: "Five9", category: "Cloud Contact Center" },
+  { name: "RingCentral", category: "Enterprise VoIP" },
+  { name: "Convoso", category: "Predictive Outbound Dialer" },
 ];
 
 const CERTIFICATIONS_DATA = [
@@ -412,27 +412,63 @@ const PRICING_TIERS = [
 
 const TESTIMONIALS = [
   {
+    id: "henry",
+    name: "Henry",
+    role: "Owner",
+    company: "OMC Group LLC",
+    type: "logo" as const,
+    rating: 5.0,
+    quote:
+      "Haider was always respectful with our legal advisors and kept them engaged on every call. Made it easy for our closing team to follow up and get the deal signed.",
+  },
+  {
+    id: "rana",
     name: "Rana Ammad Ali",
     role: "Sales Manager",
     company: "Million Dials Pvt Ltd.",
+    type: "image" as const,
     avatar: ranaAvatar,
-    rating: 4.8,
+    rating: 5.0,
     quote:
       "Willay consistently books qualified meetings with decision makers. His discovery is sharp and prospects arrive to demos already warmed up and ready to discuss solutions.",
   },
   {
+    id: "robin",
+    name: "Robin Hunter",
+    role: "Sales Manager",
+    company: "Vizocom LLC",
+    type: "logo" as const,
+    rating: 5.0,
+    quote:
+      "Solid MQLs and SQLs coming in consistently, and he digs into enough detail on each prospect that we can send accurate quotes without going back and forth. Makes the follow-up so much easier.",
+  },
+  {
+    id: "maaz",
     name: "Ahmad Maaz",
     role: "Founder",
     company: "SaaS & Growth Agency",
+    type: "image" as const,
     avatar: maazAvatar,
-    rating: 4.7,
+    rating: 5.0,
     quote:
       "Reliable, persuasive, and genuinely phenomenal on the phone. Our outbound pipeline transformed after bringing Willay in to handle our cold calling motions.",
   },
   {
+    id: "aima",
+    name: "Aima",
+    role: "Lead Executive",
+    company: "Autolift Transport / Nexus LTD",
+    type: "logo" as const,
+    rating: 5.0,
+    quote:
+      "Good at negotiating, keeps our loads booked, and rates stay competitive across every route. Easy to work with.",
+  },
+  {
+    id: "arsalan",
     name: "M. Arsalan",
     role: "Senior Account Executive",
     company: "B2B Technology",
+    type: "image" as const,
     avatar: arsalanAvatar,
     rating: 5.0,
     quote:
@@ -449,17 +485,27 @@ const FAQS = [
   {
     question: "What if it does not work out or targets are not hit?",
     answer:
-      "I operate with maximum transparency and flexibility. My Flexible, Starter, and Growth plans are strictly month-to-month or week-to-week with zero long-term lock-in. For my Enterprise 6-month tier, the first 30 days include a dedicated performance check-in: if the system is not tracking toward your targets, we adjust the strategy, script angles, and target lists together at no additional cost.",
-  },
-  {
-    question: "How quickly can we start seeing booked calls?",
-    answer:
-      "Once I complete the initial 48-hour onboarding and strategy build (ICP alignment, list curation, talk track refinement), live outbound dials launch by Day 3 to 5. Most clients see their first qualified discovery calls scheduled within the first week of active outreach.",
+      "All monthly packages are structured with zero long-term lock-in. If you choose an ongoing monthly plan, you can pause or adjust at the end of each billing cycle with complete transparency.",
   },
   {
     question: "Do you only work with one specific industry?",
     answer:
       "No. I have generated over $3.5M+ in verified revenue across diverse verticals including B2B SaaS, enterprise technology, industrial and medical procurement, legal services, e-commerce, and logistics. Cold calling fundamentals: rapport, pattern interrupt, value proposition, and objection handling: apply powerfully across any high-ticket B2B market.",
+  },
+  {
+    question: "What tools and dialers do you support?",
+    answer:
+      "I operate across HubSpot, Salesforce, Apollo.io, LinkedIn Sales Navigator, VICIdial, Five9, RingCentral, Convoso, and modern AI data enrichment copilots. If your team uses a proprietary dialer or CRM, I integrate seamlessly into your workflow.",
+  },
+  {
+    question: "How fast can we launch outbound calls?",
+    answer:
+      "Once we complete the initial onboarding discovery session and approve the target decision-maker criteria and call scripts, outbound dials typically launch within 48 to 72 hours.",
+  },
+  {
+    question: "Do you supply the lead lists or work from our database?",
+    answer:
+      "Both. I can curate verified, high-accuracy B2B prospect lists with direct dials and verified work emails, or execute high-velocity outreach directly on your existing CRM database and inbound inquiries.",
   },
 ];
 
@@ -755,7 +801,7 @@ function TrustBarSection() {
 }
 
 /* =========================================================================
-   4. SERVICES SECTION
+   4. SERVICES SECTION (TIGHTENED BOTTOM GAP)
    ========================================================================= */
 
 function ServicesSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
@@ -780,7 +826,7 @@ function ServicesSection({ onOpenModal }: { onOpenModal: (service?: string) => v
             <Reveal
               key={svc.title}
               delay={i * 50}
-              className="glass-card flex flex-col justify-between rounded-xl p-5"
+              className="glass-card flex flex-col justify-between rounded-xl p-4 sm:p-4.5"
             >
               <div>
                 <div
@@ -789,11 +835,11 @@ function ServicesSection({ onOpenModal }: { onOpenModal: (service?: string) => v
                 >
                   <svc.icon className="h-4 w-4" />
                 </div>
-                <h3 className="mt-3 text-sm sm:text-base font-bold text-foreground">{svc.title}</h3>
-                <p className="mt-1.5 text-xs text-foreground/80 leading-relaxed font-medium">{svc.outcome}</p>
+                <h3 className="mt-2.5 text-sm sm:text-base font-bold text-foreground">{svc.title}</h3>
+                <p className="mt-1 text-xs text-foreground/80 leading-relaxed font-medium">{svc.outcome}</p>
               </div>
 
-              <div className="mt-4 pt-2">
+              <div className="mt-2.5 pt-1">
                 <button
                   onClick={() => onOpenModal(svc.title)}
                   className="btn-click-effect inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline"
@@ -811,7 +857,7 @@ function ServicesSection({ onOpenModal }: { onOpenModal: (service?: string) => v
 }
 
 /* =========================================================================
-   5. TECH STACK SECTION (2x4 CLEAN GRID)
+   5. TECH STACK SECTION (UPDATED WITH 4 DIALERS)
    ========================================================================= */
 
 function ToolsGridSection() {
@@ -820,10 +866,10 @@ function ToolsGridSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="text-center mb-6">
           <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-            Modern Sales Tech Stack
+            Modern Sales & Dialing Tech Stack
           </p>
           <h3 className="text-base sm:text-lg font-bold text-foreground mt-1">
-            Integrated With Industry-Standard Platforms
+            Integrated With Industry-Standard CRMs, Dialers & Lead Platforms
           </h3>
         </div>
 
@@ -845,7 +891,7 @@ function ToolsGridSection() {
 }
 
 /* =========================================================================
-   6. CERTIFICATIONS SECTION (FIXED DELOITTE LOGO VISIBILITY)
+   6. CERTIFICATIONS SECTION (SHORTENED SUBHEADING)
    ========================================================================= */
 
 function CertificationsSection() {
@@ -861,7 +907,7 @@ function CertificationsSection() {
             Certifications & Industry Accreditations
           </h3>
           <p className="mt-1 text-xs sm:text-sm text-foreground/80 font-medium">
-            Recognized industry certifications in analytics, cloud AI, and enterprise data workflows.
+            Recognized certifications in analytics, cloud AI, and data workflows.
           </p>
         </div>
 
@@ -892,7 +938,7 @@ function CertificationsSection() {
 }
 
 /* =========================================================================
-   7. CASE STUDIES (2x2 GRID, SOFTENED REFINED GREEN)
+   7. CASE STUDIES ("SOME OF" FRAMING + SLOWER VISIBLE COUNTUP)
    ========================================================================= */
 
 function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
@@ -905,7 +951,7 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
             <span>Verified Track Record</span>
           </div>
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Proven Results & <span className="text-[var(--emerald-accent)]">Closed Pipeline</span>
+            Some Of the Proven Results & <span className="text-[var(--emerald-accent)]">Closed Pipeline</span>
           </h2>
           <p className="mt-2 max-w-xl text-xs sm:text-sm text-foreground/80 font-medium">
             Direct outcomes from multi-month client engagements across diverse B2B verticals.
@@ -934,7 +980,7 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
 
                 <p className="mt-0.5 text-[11px] text-muted-foreground font-medium">{cs.engagement}</p>
 
-                {/* Softened Revenue Impact Box */}
+                {/* Softened Revenue Impact Box with Slower Count-Up Animation (3.0s) */}
                 <div className="mt-3.5 rounded-lg border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] p-3 text-left">
                   <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
                     Verified Revenue Impact
@@ -945,6 +991,7 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
                       decimals={cs.revenueDecimals}
                       prefix="$"
                       suffix={cs.revenueSuffix}
+                      duration={3000}
                     />
                   </p>
                 </div>
@@ -1250,67 +1297,129 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
 }
 
 /* =========================================================================
-   9. REVIEWS SECTION (PLAIN VERIFIED CLIENT REVIEW TEXT, NO CIRCLE/OUTLINE)
+   9. REVIEWS SECTION (SINGLE-ROW HORIZONTALLY AUTO-SCROLLING MARQUEE)
    ========================================================================= */
 
-function ReviewsSection() {
+function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
+  if (item.type === "image" && item.avatar) {
+    return (
+      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-border bg-secondary/80">
+        <img
+          src={item.avatar}
+          alt={item.name}
+          width={44}
+          height={44}
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    );
+  }
+
+  if (item.id === "henry") {
+    return (
+      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-slate-700/60 bg-slate-900 flex flex-col items-center justify-center shadow-xs">
+        <span className="text-[12px] font-black text-sky-400 leading-none tracking-tight">OMC</span>
+        <span className="text-[7px] font-bold text-slate-400 uppercase tracking-widest leading-none mt-0.5">GROUP</span>
+      </div>
+    );
+  }
+
+  if (item.id === "robin") {
+    return (
+      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-emerald-800/40 bg-slate-950 flex flex-col items-center justify-center shadow-xs">
+        <span className="text-[9px] font-black text-emerald-400 leading-none tracking-tight">VIZOCOM</span>
+        <span className="text-[7px] font-bold text-emerald-300/80 uppercase tracking-widest leading-none mt-0.5">GLOBAL</span>
+      </div>
+    );
+  }
+
+  if (item.id === "aima") {
+    return (
+      <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-indigo-800/40 bg-indigo-950 flex flex-col items-center justify-center shadow-xs">
+        <span className="text-[10px] font-black text-indigo-300 leading-none tracking-tight">NEXUS</span>
+        <span className="text-[7px] font-bold text-indigo-200/70 uppercase tracking-widest leading-none mt-0.5">LOGISTICS</span>
+      </div>
+    );
+  }
+
   return (
-    <section id="reviews" className="relative py-14 sm:py-20 bg-secondary/20">
+    <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-border bg-primary/10 flex items-center justify-center font-black text-primary text-xs">
+      {item.name.charAt(0)}
+    </div>
+  );
+}
+
+function ReviewsSection() {
+  const [shuffledReviews] = useState(() => {
+    const arr = [...TESTIMONIALS];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  });
+
+  const marqueeList = [...shuffledReviews, ...shuffledReviews];
+
+  return (
+    <section id="reviews" className="relative py-14 sm:py-20 bg-secondary/20 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
             <Star className="h-3 w-3 fill-current" />
-            <span>Feedback</span>
+            <span>Verified Reviews</span>
           </div>
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             What Founders & <span className="text-primary">Sales Leaders</span> Say
           </h2>
+          <p className="mt-2 text-xs sm:text-sm text-foreground/80 font-medium max-w-md">
+            Direct feedback from client partners across outbound cold calling, appointment setting, and pipeline operations.
+          </p>
         </div>
+      </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 max-w-5xl mx-auto">
-          {TESTIMONIALS.map((t, i) => (
-            <Reveal
-              key={t.name}
-              delay={i * 60}
-              className="glass-card flex flex-col justify-between rounded-xl p-5"
+      {/* Full-width horizontally auto-scrolling marquee with fade masks */}
+      <div className="relative w-full overflow-hidden py-3">
+        {/* Left fade gradient */}
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-background/90 to-transparent z-20" />
+        {/* Right fade gradient */}
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-background/90 to-transparent z-20" />
+
+        {/* Marquee sliding track with pause on hover/touch */}
+        <div className="flex gap-4 sm:gap-6 animate-marquee cursor-grab active:cursor-grabbing">
+          {marqueeList.map((t, idx) => (
+            <div
+              key={`${t.id}-${idx}`}
+              className="glass-card flex w-[310px] sm:w-[380px] shrink-0 flex-col justify-between rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs hover:border-primary/40 hover:shadow-md transition-all select-none"
             >
               <div>
                 <div className="flex items-center gap-3">
-                  <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-border">
-                    <img
-                      src={t.avatar}
-                      alt={t.name}
-                      width={40}
-                      height={40}
-                      className="h-full w-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-foreground">{t.name}</p>
-                    <p className="text-xs text-primary font-semibold">{t.role}</p>
-                    <p className="text-[10px] text-muted-foreground font-medium">{t.company}</p>
+                  <ClientAvatar item={t} />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-bold text-foreground truncate">{t.name}</p>
+                    <p className="text-xs text-primary font-semibold truncate">{t.role}</p>
+                    <p className="text-[11px] text-muted-foreground font-medium truncate">{t.company}</p>
                   </div>
                 </div>
 
-                <div className="mt-2.5 flex items-center gap-1">
+                <div className="mt-3 flex items-center gap-1">
                   {Array.from({ length: 5 }).map((_, si) => (
-                    <Star key={si} className="h-3 w-3 fill-amber-400 text-amber-400" />
+                    <Star key={si} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
                   ))}
-                  <span className="ml-1 text-xs font-bold text-foreground">{t.rating.toFixed(1)}</span>
+                  <span className="ml-1 text-xs font-bold text-foreground">5.0</span>
                 </div>
 
-                <blockquote className="mt-2.5 text-xs text-foreground/90 leading-relaxed font-medium">
+                <blockquote className="mt-3 text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
                   "{t.quote}"
                 </blockquote>
               </div>
 
-              {/* Plain Verified Client Review Text Badge (No circle or outline container) */}
-              <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-[var(--emerald-accent)]">
+              <div className="mt-4 pt-3 border-t border-border/70 flex items-center gap-1.5 text-xs font-semibold text-[var(--emerald-accent)]">
                 <CheckCircle2 className="h-3.5 w-3.5 text-[var(--emerald-accent)] shrink-0" />
                 <span>Verified Client Review</span>
               </div>
-            </Reveal>
+            </div>
           ))}
         </div>
       </div>
