@@ -2,8 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
 import {
   ArrowRight,
-  Play,
-  Pause,
   PhoneCall,
   Calendar,
   Target,
@@ -25,7 +23,6 @@ import {
   Star,
 } from "lucide-react";
 import heroPortrait from "@/assets/willay-portrait-final-nobg.webp";
-import introAudioUrl from "@/assets/willay-intro.ogg";
 import ranaAvatar from "@/assets/rana-ammad-ali.jpg";
 import maazAvatar from "@/assets/ahmad-maaz.jpg";
 import arsalanAvatar from "@/assets/arsalan.jpg";
@@ -194,7 +191,7 @@ const NAV_LINKS = [
   { label: "Pricing", href: "#pricing" },
   { label: "Reviews", href: "#reviews" },
   { label: "FAQs", href: "#faq" },
-  { label: "About", href: "/about" },
+  { label: "About Me", href: "/about" },
   { label: "Certifications", href: "#certifications" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
@@ -619,23 +616,6 @@ function Navbar({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
    ========================================================================= */
 
 function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  const toggleAudio = () => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio(introAudioUrl);
-      audioRef.current.addEventListener("ended", () => setIsPlaying(false));
-    }
-    if (audioRef.current.paused) {
-      audioRef.current.play();
-      setIsPlaying(true);
-    } else {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    }
-  };
-
   return (
     <section
       id="hero"
@@ -674,12 +654,12 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
 
             {/* High Contrast First Person Body Copy */}
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-foreground/90 font-medium sm:text-base lg:text-lg">
-              I build, manage, and execute high-converting cold calling and appointment-setting campaigns.
+               I build, manage, and execute high-converting cold calling and appointment-setting campaigns.
               Serving US, UK, and EU founders: driving qualified decision-maker demos directly to your
               calendar so you can close more high-ticket deals.
             </p>
 
-            {/* CTAs: Both buttons sized 20% smaller and visually matching */}
+            {/* CTAs: Both buttons sized visually matching */}
             <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
               <button
                 onClick={() => onOpenModal()}
@@ -690,18 +670,13 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
 
-              <button
-                onClick={toggleAudio}
-                className={`btn-click-effect inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full border px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold transition-all active:scale-95 ${
-                  isPlaying
-                    ? "border-primary bg-primary text-primary-foreground shadow-xs"
-                    : "border-border bg-card text-foreground hover:border-primary/50 hover:text-primary"
-                }`}
-                aria-label="Listen to voice intro"
+              <a
+                href="#results"
+                className="btn-click-effect inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full border border-border bg-card px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-foreground transition-all hover:border-primary/50 hover:text-primary active:scale-95 shadow-xs"
               >
-                {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5 text-primary" />}
-                <span>{isPlaying ? "Pause Intro" : "Play Intro"}</span>
-              </button>
+                <TrendingUp className="h-3.5 w-3.5 text-primary" />
+                <span>View Results</span>
+              </a>
             </div>
 
             {/* KPI Metrics: 72% Avg Show-up Rate */}
