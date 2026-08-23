@@ -268,7 +268,7 @@ function AboutPage() {
             </h2>
 
             <p className="mt-2.5 max-w-3xl text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">
-              Select the "In-house Hiring" option on the discovery form, then schedule an interview directly on the calendar or reach out on WhatsApp after submitting your request.
+              Grab a slot directly on the calendar to schedule an interview, or reach out on WhatsApp, whatever suits you best.
             </p>
 
             <div className="mt-4">
