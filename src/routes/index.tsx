@@ -1406,17 +1406,8 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 function ReviewsSection() {
-  const [shuffledReviews] = useState(() => {
-    const arr = [...TESTIMONIALS];
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  });
-
-  // Exactly 2 sets for perfect seamless infinite wrap
-  const marqueeList = [...shuffledReviews, ...shuffledReviews];
+  // Exactly 2 sets for perfect seamless infinite wrap (deterministic SSR match)
+  const marqueeList = [...TESTIMONIALS, ...TESTIMONIALS];
 
   const trackRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
