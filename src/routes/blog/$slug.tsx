@@ -239,7 +239,7 @@ function RenderContent({ content }: { content: string }) {
         if (block.type === "image") {
           return (
             <div key={idx} className="my-6 flex justify-center">
-              <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm max-w-xl w-full">
+              <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm w-full">
                 <img
                   src={block.src}
                   alt={block.alt}

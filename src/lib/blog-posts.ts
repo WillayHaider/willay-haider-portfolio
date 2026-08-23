@@ -324,6 +324,8 @@ In 2026, modern buyers get dozens of automated pitches every week. If your messa
 
 Here are the 7 proven appointment setting frameworks high-performing SDRs use to turn cold accounts into high-value discovery meetings.
 
+![Top 7 Appointment Setting Frameworks to Double Your Sales Pipeline: Prospect to Close Revenue Outbound Funnel](/appointment-setting-frameworks-banner.jpg)
+
 ---
 
 ## 1. The Hook-Value-Ask (HVA) Model
