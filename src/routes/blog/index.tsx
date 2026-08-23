@@ -125,7 +125,7 @@ function BlogPage() {
       <main className="pt-24 pb-16 sm:pt-32 sm:pb-24 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">
-            Outbound Sales & Lead Gen <span className="text-primary">Articles</span>
+            Articles
           </h1>
           <p className="text-xs sm:text-sm text-muted-foreground mb-10 max-w-2xl leading-relaxed">
             Cold calling frameworks, B2B appointment setting strategies, and outbound advice derived from over 57,000+ dials and $3.5M+ in closed revenue.
