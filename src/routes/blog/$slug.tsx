@@ -283,10 +283,11 @@ function RenderContent({ content }: { content: string }) {
             >
               <div className="flex items-start gap-3">
                 <Quote className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <div className="text-xs sm:text-sm leading-relaxed text-foreground/95 italic font-medium space-y-1.5">
-                  {block.lines.map((qLine, qIdx) => (
-                    <p key={qIdx}>{formatInline(qLine)}</p>
-                  ))}
+                <div className="text-sm sm:text-base leading-relaxed text-foreground italic font-medium space-y-1.5">
+                  {block.lines.map((qLine, qIdx) => {
+                    const unquoted = qLine.replace(/^["“”']+|["“”']+$/g, "").trim();
+                    return <p key={qIdx}>{formatInline(unquoted)}</p>;
+                  })}
                 </div>
               </div>
             </div>
@@ -297,7 +298,7 @@ function RenderContent({ content }: { content: string }) {
           return (
             <ul key={idx} className="my-4 space-y-2.5">
               {block.items.map((item, itemIdx) => (
-                <li key={itemIdx} className="flex items-start gap-2.5 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
+                <li key={itemIdx} className="flex items-start gap-2.5 text-sm sm:text-base leading-relaxed text-foreground font-normal">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
                   <div className="flex-1">{formatInline(item)}</div>
                 </li>
@@ -310,7 +311,7 @@ function RenderContent({ content }: { content: string }) {
           return (
             <ol key={idx} className="my-4 space-y-3">
               {block.items.map((item, itemIdx) => (
-                <li key={itemIdx} className="flex items-start gap-3 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
+                <li key={itemIdx} className="flex items-start gap-3 text-sm sm:text-base leading-relaxed text-foreground font-normal">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[11px] font-bold text-primary border border-primary/20 mt-0.5">
                     {itemIdx + 1}
                   </span>
@@ -323,7 +324,7 @@ function RenderContent({ content }: { content: string }) {
 
         // Standard Paragraph
         return (
-          <p key={idx} className="text-xs sm:text-sm md:text-base leading-relaxed text-foreground/85 font-normal">
+          <p key={idx} className="text-sm sm:text-base leading-relaxed text-foreground font-normal">
             {formatInline(block.text)}
           </p>
         );
@@ -385,11 +386,10 @@ function BlogPostPage() {
           </div>
 
           <a
-            href="/#contact"
-            className="btn-click-effect rounded-full px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-xs transition-transform hover:opacity-90 active:scale-95 sm:px-4 sm:py-2"
-            style={{ background: "var(--gradient-primary)" }}
+            href="/blog"
+            className="text-xs font-semibold text-muted-foreground hover:text-primary transition-colors"
           >
-            Request Proposal
+            Articles
           </a>
         </div>
 

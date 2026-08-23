@@ -194,10 +194,10 @@ Amateur reps tend to speak quickly because they fear the prospect will interrupt
 
 Compare these two call openers:
 
-> **Generic Opener:** *"Hi John, I am reaching out to see if you have five minutes to discuss how our AI sales platform can revolutionize your lead pipeline and save you 40% on overhead?"*
+> **Generic Opener:** *Hi Mike, I am reaching out to see if you have five minutes to discuss how our sales platform can save you 40% on overhead?*
 > **Result:** Instant hang-up.
 
-> **Context-Driven Opener:** *"Hi John, Willay here from Million Dials. The reason for my call is I noticed your team recently expanded your mid-market sales pod, and I wanted to see how you are currently handling outbound dial volume for your SDRs?"*
+> **Context-Driven Opener:** *Hi Mike, Willay here from (Your Company). The reason for my call is I noticed your team recently expanded your mid-market sales pod, and I wanted to see how you are currently handling outbound dial volume for your SDRs?*
 > **Result:** Conversational curiosity and an open answer.
 
 The second opener proves you know who they are, references a real operational context, and asks an open diagnostic question rather than throwing a sales pitch at them.
@@ -209,8 +209,8 @@ The second opener proves you know who they are, references a real operational co
 Discovery fails when it feels like an interrogation checklist. If you rattle off demographic questions just to reach your pitch, the prospect will give terse, guarded answers.
 
 Ask questions that invite them to think:
-- *"When you look at your current outbound flow, what is the biggest headache your reps run into between dialing and actually getting qualified prospects on a demo?"*
-- *"If you could fix one thing about your lead data accuracy or connect rates this quarter, what would take priority?"*
+- *When you look at your current outbound flow, what is the biggest headache your reps run into between dialing and actually getting qualified prospects on a demo?*
+- *If you could fix one thing about your lead data accuracy or connect rates this quarter, what would take priority?*
 
 When you listen deeply to their answer, their response dictates where you take the conversation next.
 
@@ -218,11 +218,11 @@ When you listen deeply to their answer, their response dictates where you take t
 
 ## 4. Psychological Objection Handling: Acknowledge, Validate & Re-Anchor
 
-When an executive throws an objection like *"We already have a vendor for this"* or *"Send me an email,"* inexperienced reps argue or recite a canned rebuttal. That creates friction.
+When an executive throws an objection like *We already have a vendor for this* or *Send me an email,* inexperienced reps argue or recite a canned rebuttal. That creates friction.
 
 Instead, use the **Acknowledge, Validate, and Re-Anchor** model:
-1. **Acknowledge & Validate:** *"Totally understand, John. Most VP of Sales we work with already had an existing list provider or dialer in place when we first spoke."*
-2. **Re-Anchor on Value:** *"I am certainly not asking you to replace what is working today. I am simply curious: if there were a way to test a secondary outbound cadence on 500 tier-1 accounts without disrupting your main CRM, would you be open to seeing how our connect rates compare?"*
+1. **Acknowledge & Validate:** *Totally understand, Mike. Most VP of Sales we work with already had an existing list provider or dialer in place when we first spoke.*
+2. **Re-Anchor on Value:** *I am certainly not asking you to replace what is working today. I am simply curious: if there were a way to test a secondary outbound cadence on 500 tier-1 accounts without disrupting your main CRM, would you be open to seeing how our connect rates compare?*
 
 This removes the threat of a painful migration and frames the conversation as a low-risk benchmark.
 
@@ -230,7 +230,7 @@ This removes the threat of a painful migration and frames the conversation as a 
 
 ## 5. Locking in Concrete Next Steps
 
-Once interest and qualification are established, never end with a vague *"Let me follow up with an email next week."*
+Once interest and qualification are established, never end with a vague *Let me follow up with an email next week.*
 
 Lock in a specific date, confirm their work email, identify any other stakeholders who should join, and send a calendar invite while still on the call. Follow up with a personalized confirmation note to ensure show-up rates exceed 70%.
 
@@ -263,7 +263,7 @@ Treat it like an authentic conversation with a professional doing their job, and
 
 ## 1. Stop Trying to Trick the Front Desk
 
-The old manipulation tactics from 90s sales playbooks: *"I am following up on my proposal"* or *"It is personal"*: do not work in 2026. Gatekeepers have caller ID, shared CRM notes, and zero patience for bluffs. The moment they catch a trick, your number is blacklisted across the entire organization.
+The old manipulation tactics from 90s sales playbooks: *I am following up on my proposal* or *It is personal*: do not work in 2026. Gatekeepers have caller ID, shared CRM notes, and zero patience for bluffs. The moment they catch a trick, your number is blacklisted across the entire organization.
 
 What works is simple honesty: state your name, company, and purpose in one clear sentence, then ask for their guidance. Gatekeepers who feel respected become internal allies. Gatekeepers who feel manipulated become permanent walls.
 
@@ -272,11 +272,11 @@ What works is simple honesty: state your name, company, and purpose in one clear
 ## 2. Amateur Opener vs. Pro Opener
 
 > **The Amateur Approach:**  
-> *"Hi, can you put me through to whoever handles vendor decisions? It is urgent."*  
+> *Hi, can you put me through to whoever handles vendor decisions? It is urgent.*  
 > **Result:** Immediate pushback and a transfer to a voicemail black hole.
 
 > **The Pro Approach:**  
-> *"Hi, Willay here with Million Dials. I help VP of Sales teams cut down on wasted outbound dial hours. Who on your team usually looks at that workflow, and would you mind pointing me their way?"*  
+> *Hi Mike, Willay here with (Your Company). I help VP of Sales teams cut down on wasted outbound dial hours. Who on your team usually looks at that workflow, and would you mind pointing me their way?*  
 > **Result:** Clarity, respect, and actionable direction.
 
 Specificity beats aggressive pressure every single time.
@@ -287,9 +287,9 @@ Specificity beats aggressive pressure every single time.
 
 Most reps get one short window with a gatekeeper. What decides whether you get connected is asking a real question and actually pausing for the answer.
 
-Asking: *"Is this generally a good time to catch [Decision Maker], or is there a better window later this week?"* proves you respect their executive's schedule.
+Asking: *Is this generally a good time to catch [Decision Maker], or is there a better window later this week?* proves you respect their executive's schedule.
 
-If the gatekeeper says *"She is usually free after 2:00 PM on Thursdays,"* and you talk right past that golden insight because you were reading a script line, you burned the account. Active listening is the mechanism that gets you connected.
+If the gatekeeper says *She is usually free after 2:00 PM on Thursdays,* and you talk right past that golden insight because you were reading a script line, you burned the account. Active listening is the mechanism that gets you connected.
 
 This judgment is why founders who want to [outsource appointment setting](/#services) partner with dedicated specialists rather than training a rotating cast of junior dialers.
 
@@ -342,7 +342,7 @@ The HVA framework answers all three in under 15 seconds.
 - **Value (5-15s):** Share one concrete metric solving a documented pain point in their vertical.
 - **Ask (15-20s):** Ask a low-pressure permission question instead of demanding 30 minutes.
 
-> *"Hi Sarah, Willay here with Million Dials. I noticed your team just opened three senior DevOps roles in Austin. We recently helped a Series B cloud platform reduce developer onboarding delays by 34%. Open to seeing a quick 2-minute breakdown of how we did it?"*
+> *Hi Mike, Willay here with (Your Company). I noticed your team just opened three senior DevOps roles in Austin. We recently helped a Series B cloud platform reduce developer onboarding delays by 34%. Open to seeing a quick 2-minute breakdown of how we did it?*
 
 ---
 
@@ -359,7 +359,7 @@ The Problem-Agitate-Solve framework structures your message around their daily f
 
 > **Subject:** Quick question on [Company] SDR onboarding ramp
 > 
-> Hi [First Name],
+> Hi Mike,
 > 
 > Most VP of Sales scaling their outbound team find that new SDR ramp time takes over 4 months because reps spend half their day manually searching for phone numbers.
 > 
@@ -409,7 +409,7 @@ This multi-touch rhythm builds familiarity quickly without overwhelming the buye
 Traditional cold calling fails when reps open with aggressive pitches before establishing rapport. Permission-Based Cold Calling flips the interaction by openly admitting you interrupted their day and giving them total control.
 
 ### The Master Opener:
-> *"Hey Alex, Willay here with Million Dials. I know I caught you completely in the middle of your workday. Do you have 30 seconds for me to share why I called, and then you can tell me if it is worth continuing?"*
+> *Hey Mike, Willay here with (Your Company). I know I caught you completely in the middle of your workday. Do you have 30 seconds for me to share why I called, and then you can tell me if it is worth continuing?*
 
 ### Why It Works:
 - **Honesty Lowers Resistance:** Acknowledging the interruption eliminates the fake telemarketer tone.
@@ -426,7 +426,7 @@ For high-value enterprise accounts where deal sizes exceed $50,000+, standard te
 - Keep the video between 60 and 90 seconds.
 - Record your screen showing their live website, job board posting, or a public workflow gap.
 - Point out one clear area of improvement and explain how industry peers are solving it.
-- End with a low-friction ask: *"If this was helpful, I can send over the complete diagnostic sheet. Let me know if you would like to see it."*
+- End with a low-friction ask: *If this was helpful, I can send over the complete diagnostic sheet. Let me know if you would like to see it.*
 
 ---
 
@@ -439,9 +439,9 @@ One common mistake in appointment setting is asking for a 30-minute discovery ca
 - A CRM pipeline hygiene checklist.
 - A customized industry benchmark report.
 
-> *"Hi David, we put together a 1-page guide on 5 gatekeeper strategies that helped B2B teams increase connect rates from 4% to 11%. Would you like me to send over the PDF?"*
+> *Hi Mike, we put together a 1-page guide on 5 gatekeeper strategies that helped B2B teams increase connect rates from 4% to 11%. Would you like me to send over the PDF?*
 
-Once the prospect replies "Yes, please send it," they have started a warm conversation. You can follow up 24 hours later: *"Hi David, glad you received the guide. Based on how your team is set up, how are you currently handling Step 2? Open to a quick 10-minute chat to see how this fits your reps?"*
+Once the prospect replies "Yes, please send it," they have started a warm conversation. You can follow up 24 hours later: *Hi Mike, glad you received the guide. Based on how your team is set up, how are you currently handling Step 2? Open to a quick 10-minute chat to see how this fits your reps?*
 
 ---
 
