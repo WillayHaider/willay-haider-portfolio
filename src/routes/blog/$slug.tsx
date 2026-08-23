@@ -226,20 +226,16 @@ function RenderContent({ content }: { content: string }) {
   const blocks = parseMarkdown(content);
 
   return (
-    <article className="space-y-6 text-foreground/90">
+    <article className="space-y-4 text-foreground">
       {blocks.map((block, idx) => {
         if (block.type === "hr") {
-          return (
-            <div key={idx} className="my-8 flex items-center justify-center">
-              <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
-            </div>
-          );
+          return <hr key={idx} className="my-6 border-border" />;
         }
 
         if (block.type === "image") {
           return (
-            <div key={idx} className="my-8 flex justify-center">
-              <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-lg max-w-xl w-full">
+            <div key={idx} className="my-6 flex justify-center">
+              <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm max-w-xl w-full">
                 <img
                   src={block.src}
                   alt={block.alt}
@@ -254,22 +250,15 @@ function RenderContent({ content }: { content: string }) {
 
         if (block.type === "h2") {
           return (
-            <div key={idx} className="pt-8 pb-2">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="h-2 w-2 rounded-full bg-primary" />
-                <span className="text-[11px] font-bold uppercase tracking-wider text-primary">Strategic Framework</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground border-l-4 border-primary pl-4 py-1">
-                {block.text}
-              </h2>
-            </div>
+            <h2 key={idx} className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mt-8 mb-3">
+              {block.text}
+            </h2>
           );
         }
 
         if (block.type === "h3") {
           return (
-            <h3 key={idx} className="text-base sm:text-lg font-bold tracking-tight text-foreground mt-6 mb-2 flex items-center gap-2">
-              <Compass className="h-4 w-4 text-primary shrink-0" />
+            <h3 key={idx} className="text-base sm:text-lg font-bold tracking-tight text-foreground mt-5 mb-2">
               {block.text}
             </h3>
           );
@@ -277,30 +266,24 @@ function RenderContent({ content }: { content: string }) {
 
         if (block.type === "blockquote") {
           return (
-            <div
+            <blockquote
               key={idx}
-              className="relative my-5 overflow-hidden rounded-2xl border border-primary/30 bg-primary/5 p-4 sm:p-5 shadow-xs backdrop-blur-xs"
+              className="border-l-2 border-border/80 bg-secondary/30 rounded-r-lg p-3.5 sm:p-4 my-3 text-sm sm:text-base leading-relaxed text-foreground italic space-y-1"
             >
-              <div className="flex items-start gap-3">
-                <Quote className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <div className="text-sm sm:text-base leading-relaxed text-foreground italic font-medium space-y-1.5">
-                  {block.lines.map((qLine, qIdx) => {
-                    const unquoted = qLine.replace(/^["“”']+|["“”']+$/g, "").trim();
-                    return <p key={qIdx}>{formatInline(unquoted)}</p>;
-                  })}
-                </div>
-              </div>
-            </div>
+              {block.lines.map((qLine, qIdx) => {
+                const unquoted = qLine.replace(/^["“”']+|["“”']+$/g, "").trim();
+                return <p key={qIdx}>{formatInline(unquoted)}</p>;
+              })}
+            </blockquote>
           );
         }
 
         if (block.type === "ul") {
           return (
-            <ul key={idx} className="my-4 space-y-2.5">
+            <ul key={idx} className="my-3 space-y-1.5 list-disc list-inside text-sm sm:text-base leading-relaxed text-foreground">
               {block.items.map((item, itemIdx) => (
-                <li key={itemIdx} className="flex items-start gap-2.5 text-sm sm:text-base leading-relaxed text-foreground font-normal">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                  <div className="flex-1">{formatInline(item)}</div>
+                <li key={itemIdx} className="leading-relaxed">
+                  {formatInline(item)}
                 </li>
               ))}
             </ul>
@@ -309,13 +292,10 @@ function RenderContent({ content }: { content: string }) {
 
         if (block.type === "ol") {
           return (
-            <ol key={idx} className="my-4 space-y-3">
+            <ol key={idx} className="my-3 space-y-1.5 list-decimal list-inside text-sm sm:text-base leading-relaxed text-foreground">
               {block.items.map((item, itemIdx) => (
-                <li key={itemIdx} className="flex items-start gap-3 text-sm sm:text-base leading-relaxed text-foreground font-normal">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[11px] font-bold text-primary border border-primary/20 mt-0.5">
-                    {itemIdx + 1}
-                  </span>
-                  <div className="flex-1">{formatInline(item)}</div>
+                <li key={itemIdx} className="leading-relaxed">
+                  {formatInline(item)}
                 </li>
               ))}
             </ol>
