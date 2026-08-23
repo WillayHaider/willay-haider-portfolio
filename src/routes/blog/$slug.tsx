@@ -457,20 +457,9 @@ function BlogPostPage() {
           </div>
 
           {/* Article Header */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mb-6 leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mb-8 leading-tight">
             {post.title}
           </h1>
-
-          {/* Executive Playbook Blueprint Hero Card */}
-          <div className="mb-8 rounded-2xl border border-primary/30 bg-primary/5 p-5 shadow-xs backdrop-blur-xs">
-            <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider mb-2">
-              <Sparkles className="h-4 w-4" />
-              Executive Playbook Overview
-            </div>
-            <p className="text-xs sm:text-sm text-foreground/85 leading-relaxed font-medium">
-              {post.excerpt}
-            </p>
-          </div>
 
           <RenderContent content={post.content} />
 
