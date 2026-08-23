@@ -659,8 +659,8 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
               <img
                 src={heroPortrait}
                 alt="Willay Haider: Senior Business Development Representative"
-                width={500}
-                height={650}
+                width={560}
+                height={560}
                 className="relative z-10 h-auto w-full object-contain drop-shadow-md rounded-2xl"
                 loading="eager"
                 fetchPriority="high"
@@ -737,8 +737,8 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
               <img
                 src={heroPortrait}
                 alt="Willay Haider: Business Development Representative and Outbound Sales Leader"
-                width={800}
-                height={1000}
+                width={560}
+                height={560}
                 className="h-auto w-full max-w-[360px] lg:max-w-[400px] rounded-xl object-contain"
                 loading="eager"
                 fetchPriority="high"
@@ -916,6 +916,8 @@ function CertificationsSection() {
                 <img
                   src={cert.logo}
                   alt={`${cert.issuer} ${cert.name} certification logo`}
+                  width={110}
+                  height={28}
                   className="h-7 w-auto max-w-[110px] object-contain"
                   loading="lazy"
                   decoding="async"
