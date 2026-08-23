@@ -6,33 +6,33 @@ import { BLOG_POSTS } from '@/lib/blog-posts'
 export const Route = createFileRoute('/blog/')({
   head: () => ({
     meta: [
-      { title: "B2B Cold Calling & Outbound Sales Blog | Willay Haider" },
+      { title: "Sales Tactics, Psychology & Revenue Articles | Willay Haider" },
       {
         name: "description",
         content:
-          "Practical B2B sales insights, outbound cold calling strategies, appointment setting cadences, and pipeline RevOps from senior BDR Willay Haider.",
+          "Actionable sales tactics, behavioral psychology, negotiation playbooks, and modern revenue strategies for sales professionals across every industry.",
       },
       {
         name: "keywords",
         content:
-          "cold calling blog, B2B sales development, appointment setting guides, outbound lead generation, cold calling techniques, hire a cold caller",
+          "sales tactics, sales psychology, negotiation playbooks, cold calling, objection handling, B2B sales development, closing deals, sales strategy",
       },
       { name: "author", content: "Willay Haider" },
-      { property: "og:title", content: "B2B Cold Calling & Outbound Sales Blog | Willay Haider" },
+      { property: "og:title", content: "Sales Tactics, Psychology & Revenue Articles | Willay Haider" },
       {
         property: "og:description",
         content:
-          "Practical B2B sales insights, outbound cold calling strategies, appointment setting cadences, and pipeline RevOps from senior BDR Willay Haider.",
+          "Actionable sales tactics, behavioral psychology, negotiation playbooks, and modern revenue strategies for sales professionals across every industry.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://willayhaider.pro/blog" },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "B2B Cold Calling & Outbound Sales Blog | Willay Haider" },
+      { name: "twitter:title", content: "Sales Tactics, Psychology & Revenue Articles | Willay Haider" },
       {
         name: "twitter:description",
         content:
-          "Practical B2B sales insights, outbound cold calling strategies, appointment setting cadences, and pipeline RevOps from senior BDR Willay Haider.",
+          "Actionable sales tactics, behavioral psychology, negotiation playbooks, and modern revenue strategies for sales professionals across every industry.",
       },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
     ],
@@ -124,11 +124,11 @@ function BlogPage() {
       {/* Main Content */}
       <main className="pt-24 pb-16 sm:pt-32 sm:pb-24 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-primary mb-3">
             Articles
           </h1>
           <p className="text-xs sm:text-sm text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-            Cold calling frameworks, B2B appointment setting strategies, and outbound advice derived from over 57,000+ dials and $3.5M+ in closed revenue.
+            Actionable sales tactics, behavioral psychology, negotiation playbooks, and modern revenue strategies built for sales professionals across every industry worldwide.
           </p>
           {BLOG_POSTS.length === 0 ? (
             <div className="border border-border rounded-xl p-8 text-center text-muted-foreground bg-card">
