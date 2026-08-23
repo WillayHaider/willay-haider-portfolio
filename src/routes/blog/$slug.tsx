@@ -110,18 +110,125 @@ function formatInline(text: string): React.ReactNode {
   return parts.length > 0 ? parts : cleaned;
 }
 
-function RenderContent({ content }: { content: string }) {
-  // Normalize newlines and clean any em dashes
+type ParsedBlock =
+  | { type: 'hr' }
+  | { type: 'h2'; text: string }
+  | { type: 'h3'; text: string }
+  | { type: 'blockquote'; lines: string[] }
+  | { type: 'ul'; items: string[] }
+  | { type: 'ol'; items: string[] }
+  | { type: 'image'; alt: string; src: string }
+  | { type: 'p'; text: string };
+
+function parseMarkdown(content: string): ParsedBlock[] {
   const sanitized = content.replace(/[\u2014\u2013]/g, " - ").replace(/\r\n/g, "\n");
-  const rawBlocks = sanitized.split(/\n\n+/);
+  const lines = sanitized.split("\n");
+  const blocks: ParsedBlock[] = [];
+  
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    if (!trimmed) {
+      i++;
+      continue;
+    }
+
+    if (trimmed === "---") {
+      blocks.push({ type: 'hr' });
+      i++;
+      continue;
+    }
+
+    if (trimmed.startsWith("![") && trimmed.includes("](") && trimmed.endsWith(")")) {
+      const alt = trimmed.substring(2, trimmed.indexOf("]("));
+      const src = trimmed.substring(trimmed.indexOf("](") + 2, trimmed.length - 1);
+      blocks.push({ type: 'image', alt, src });
+      i++;
+      continue;
+    }
+
+    if (trimmed.startsWith("## ")) {
+      blocks.push({ type: 'h2', text: trimmed.replace(/^##\s+/, "") });
+      i++;
+      continue;
+    }
+
+    if (trimmed.startsWith("### ")) {
+      blocks.push({ type: 'h3', text: trimmed.replace(/^###\s+/, "") });
+      i++;
+      continue;
+    }
+
+    if (trimmed.startsWith(">")) {
+      const quoteLines: string[] = [];
+      while (
+        i < lines.length &&
+        lines[i].trim() !== "" &&
+        !lines[i].trim().startsWith("#") &&
+        !lines[i].trim().startsWith("- ") &&
+        !lines[i].trim().startsWith("* ") &&
+        !/^\d+\.\s+/.test(lines[i].trim()) &&
+        lines[i].trim() !== "---"
+      ) {
+        quoteLines.push(lines[i].trim().replace(/^>\s*/, ""));
+        i++;
+      }
+      blocks.push({ type: 'blockquote', lines: quoteLines });
+      continue;
+    }
+
+    if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
+      const items: string[] = [];
+      while (i < lines.length && (lines[i].trim().startsWith("- ") || lines[i].trim().startsWith("* "))) {
+        items.push(lines[i].trim().replace(/^[-*]\s+/, ""));
+        i++;
+      }
+      blocks.push({ type: 'ul', items });
+      continue;
+    }
+
+    if (/^\d+\.\s+/.test(trimmed)) {
+      const items: string[] = [];
+      while (i < lines.length && /^\d+\.\s+/.test(lines[i].trim())) {
+        items.push(lines[i].trim().replace(/^\d+\.\s+/, ""));
+        i++;
+      }
+      blocks.push({ type: 'ol', items });
+      continue;
+    }
+
+    // Paragraph
+    const pLines: string[] = [];
+    while (
+      i < lines.length &&
+      lines[i].trim() !== "" &&
+      !lines[i].trim().startsWith("#") &&
+      !lines[i].trim().startsWith(">") &&
+      !lines[i].trim().startsWith("- ") &&
+      !lines[i].trim().startsWith("* ") &&
+      !/^\d+\.\s+/.test(lines[i].trim()) &&
+      lines[i].trim() !== "---"
+    ) {
+      pLines.push(lines[i].trim());
+      i++;
+    }
+    if (pLines.length > 0) {
+      blocks.push({ type: 'p', text: pLines.join(" ") });
+    }
+  }
+
+  return blocks;
+}
+
+function RenderContent({ content }: { content: string }) {
+  const blocks = parseMarkdown(content);
 
   return (
     <article className="space-y-6 text-foreground/90">
-      {rawBlocks.map((block, idx) => {
-        const trimmed = block.trim();
-        if (!trimmed) return null;
-
-        if (trimmed === "---") {
+      {blocks.map((block, idx) => {
+        if (block.type === "hr") {
           return (
             <div key={idx} className="my-8 flex items-center justify-center">
               <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
@@ -129,16 +236,13 @@ function RenderContent({ content }: { content: string }) {
           );
         }
 
-        // Image handler
-        if (trimmed.startsWith("![") && trimmed.includes("](") && trimmed.endsWith(")")) {
-          const alt = trimmed.substring(2, trimmed.indexOf("]("));
-          const src = trimmed.substring(trimmed.indexOf("](") + 2, trimmed.length - 1);
+        if (block.type === "image") {
           return (
             <div key={idx} className="my-8 flex justify-center">
               <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-lg max-w-xl w-full">
                 <img
-                  src={src}
-                  alt={alt}
+                  src={block.src}
+                  alt={block.alt}
                   className="w-full h-auto object-contain"
                   loading="lazy"
                   decoding="async"
@@ -148,9 +252,7 @@ function RenderContent({ content }: { content: string }) {
           );
         }
 
-        // H2 Heading (Major Section)
-        if (trimmed.startsWith("## ")) {
-          const headingText = trimmed.replace("## ", "");
+        if (block.type === "h2") {
           return (
             <div key={idx} className="pt-8 pb-2">
               <div className="flex items-center gap-2 mb-2">
@@ -158,26 +260,22 @@ function RenderContent({ content }: { content: string }) {
                 <span className="text-[11px] font-bold uppercase tracking-wider text-primary">Strategic Framework</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground border-l-4 border-primary pl-4 py-1">
-                {headingText}
+                {block.text}
               </h2>
             </div>
           );
         }
 
-        // H3 Heading (Sub-section)
-        if (trimmed.startsWith("### ")) {
-          const subText = trimmed.replace("### ", "");
+        if (block.type === "h3") {
           return (
-            <h3 key={idx} className="text-lg sm:text-xl font-bold tracking-tight text-foreground mt-6 mb-2 flex items-center gap-2">
-              <Compass className="h-4 w-4 text-primary" />
-              {subText}
+            <h3 key={idx} className="text-base sm:text-lg font-bold tracking-tight text-foreground mt-6 mb-2 flex items-center gap-2">
+              <Compass className="h-4 w-4 text-primary shrink-0" />
+              {block.text}
             </h3>
           );
         }
 
-        // Script / Quotation Card (> )
-        if (trimmed.startsWith("> ")) {
-          const quoteLines = trimmed.split("\n").map((l) => l.replace(/^>\s*/, "")).join("\n");
+        if (block.type === "blockquote") {
           return (
             <div
               key={idx}
@@ -185,8 +283,8 @@ function RenderContent({ content }: { content: string }) {
             >
               <div className="flex items-start gap-3">
                 <Quote className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <div className="text-xs sm:text-sm leading-relaxed text-foreground/95 italic font-medium space-y-1">
-                  {quoteLines.split("\n").map((qLine, qIdx) => (
+                <div className="text-xs sm:text-sm leading-relaxed text-foreground/95 italic font-medium space-y-1.5">
+                  {block.lines.map((qLine, qIdx) => (
                     <p key={qIdx}>{formatInline(qLine)}</p>
                   ))}
                 </div>
@@ -195,42 +293,30 @@ function RenderContent({ content }: { content: string }) {
           );
         }
 
-        // Bulleted Lists (- or *)
-        if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
-          const items = trimmed.split("\n").filter((l) => l.trim().startsWith("- ") || l.trim().startsWith("* "));
+        if (block.type === "ul") {
           return (
             <ul key={idx} className="my-4 space-y-2.5">
-              {items.map((item, itemIdx) => {
-                const itemContent = item.replace(/^[-*]\s+/, "");
-                return (
-                  <li key={itemIdx} className="flex items-start gap-2.5 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                    <div className="flex-1">{formatInline(itemContent)}</div>
-                  </li>
-                );
-              })}
+              {block.items.map((item, itemIdx) => (
+                <li key={itemIdx} className="flex items-start gap-2.5 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                  <div className="flex-1">{formatInline(item)}</div>
+                </li>
+              ))}
             </ul>
           );
         }
 
-        // Numbered Lists (1. 2. 3.)
-        if (/^\d+\.\s+/.test(trimmed)) {
-          const items = trimmed.split("\n").filter((l) => /^\d+\.\s+/.test(l.trim()));
+        if (block.type === "ol") {
           return (
             <ol key={idx} className="my-4 space-y-3">
-              {items.map((item, itemIdx) => {
-                const numMatch = item.match(/^(\d+)\.\s+(.*)/);
-                const num = numMatch ? numMatch[1] : itemIdx + 1;
-                const text = numMatch ? numMatch[2] : item;
-                return (
-                  <li key={itemIdx} className="flex items-start gap-3 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[11px] font-bold text-primary border border-primary/20 mt-0.5">
-                      {num}
-                    </span>
-                    <div className="flex-1">{formatInline(text)}</div>
-                  </li>
-                );
-              })}
+              {block.items.map((item, itemIdx) => (
+                <li key={itemIdx} className="flex items-start gap-3 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[11px] font-bold text-primary border border-primary/20 mt-0.5">
+                    {itemIdx + 1}
+                  </span>
+                  <div className="flex-1">{formatInline(item)}</div>
+                </li>
+              ))}
             </ol>
           );
         }
@@ -238,7 +324,7 @@ function RenderContent({ content }: { content: string }) {
         // Standard Paragraph
         return (
           <p key={idx} className="text-xs sm:text-sm md:text-base leading-relaxed text-foreground/85 font-normal">
-            {formatInline(trimmed)}
+            {formatInline(block.text)}
           </p>
         );
       })}
