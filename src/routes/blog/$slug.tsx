@@ -108,6 +108,23 @@ function RenderContent({ content }: { content: string }) {
         if (trimmed === "---") {
           return <hr key={idx} className="my-8 border-border" />;
         }
+        if (trimmed.startsWith("![") && trimmed.includes("](") && trimmed.endsWith(")")) {
+          const alt = trimmed.substring(2, trimmed.indexOf("]("));
+          const src = trimmed.substring(trimmed.indexOf("](") + 2, trimmed.length - 1);
+          return (
+            <div key={idx} className="my-8 flex justify-center">
+              <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-lg max-w-xl w-full">
+                <img
+                  src={src}
+                  alt={alt}
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          );
+        }
         if (trimmed.startsWith("## ")) {
           return (
             <h2 key={idx} className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mt-8 mb-3">
