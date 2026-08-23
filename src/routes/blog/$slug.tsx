@@ -475,16 +475,16 @@ function BlogPostPage() {
             )}
           </div>
 
-          {/* Sleek Author Bio Box (E-E-A-T) */}
-          <div className="mt-8 rounded-xl border border-border bg-card p-4 sm:p-5 shadow-xs">
+          {/* Ultra-Sleek Author Strip (E-E-A-T) */}
+          <div className="mt-8 rounded-xl border border-border bg-card p-3.5 sm:p-4 shadow-xs">
             <div className="flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
               <div className="flex items-center gap-3">
                 <img
                   src={heroPortrait}
                   alt="Willay Haider - Senior BDR"
-                  width={48}
-                  height={48}
-                  className="h-12 w-12 rounded-xl object-cover border border-border bg-secondary/40 shrink-0"
+                  width={44}
+                  height={44}
+                  className="h-11 w-11 rounded-xl object-cover border border-border bg-secondary/40 shrink-0"
                   loading="lazy"
                 />
                 <div>
@@ -509,17 +509,6 @@ function BlogPostPage() {
                   Hire Willay
                 </button>
               </div>
-            </div>
-
-            <p className="mt-3 text-xs leading-relaxed text-foreground/80 font-normal">
-              Outbound specialist with 57,000+ live cold dials and $3.5M+ pipeline generated across SaaS, healthcare, and enterprise tech.
-            </p>
-
-            {/* Verified Credentials Badges */}
-            <div className="mt-2.5 flex flex-wrap items-center gap-1.5 text-[10px] font-medium text-muted-foreground">
-              <span className="rounded-md bg-secondary/80 px-2 py-0.5 border border-border/50">57k+ Dials</span>
-              <span className="rounded-md bg-secondary/80 px-2 py-0.5 border border-border/50">$3.5M+ Pipeline</span>
-              <span className="rounded-md bg-secondary/80 px-2 py-0.5 border border-border/50">Google Analytics Certified</span>
             </div>
           </div>
 
