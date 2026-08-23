@@ -475,54 +475,52 @@ function BlogPostPage() {
             )}
           </div>
 
-          {/* Rich Author Bio Box (E-E-A-T) */}
-          <div className="mt-8 rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs">
-            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
-              <img
-                src={heroPortrait}
-                alt="Willay Haider - Senior BDR"
-                width={72}
-                height={72}
-                className="h-16 w-16 sm:h-20 sm:w-20 rounded-2xl object-cover border border-border bg-secondary/40 shrink-0"
-                loading="lazy"
-              />
-              <div className="flex-1">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-primary">Article Author &amp; Outbound Specialist</span>
-                    <h3 className="text-base sm:text-lg font-bold text-foreground">Willay Haider</h3>
-                    <p className="text-xs text-muted-foreground font-medium">Senior Business Development Representative</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <a
-                      href="/"
-                      className="btn-click-effect rounded-full border border-border bg-secondary/80 px-3.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-all"
-                    >
-                      View Profile
-                    </a>
-                    <button
-                      type="button"
-                      onClick={() => setIsModalOpen(true)}
-                      className="btn-click-effect rounded-full px-3.5 py-1.5 text-xs font-bold text-primary-foreground shadow-xs hover:opacity-90 transition-all cursor-pointer"
-                      style={{ background: "var(--gradient-primary)" }}
-                    >
-                      Hire Willay
-                    </button>
-                  </div>
-                </div>
-
-                <p className="mt-3 text-xs leading-relaxed text-foreground/80 font-medium">
-                  Outbound practitioner with over 57,000+ live cold dials and $3.5M+ in pipeline closed for US, UK, and European B2B companies across SaaS, enterprise healthcare, and tech services.
-                </p>
-
-                {/* Verified Credentials Badges */}
-                <div className="mt-3.5 flex flex-wrap items-center gap-1.5 text-[11px] font-semibold text-muted-foreground">
-                  <span className="rounded-md bg-secondary px-2 py-0.5 border border-border/60">57k+ Verified Dials</span>
-                  <span className="rounded-md bg-secondary px-2 py-0.5 border border-border/60">$3.5M+ Pipeline</span>
-                  <span className="rounded-md bg-secondary px-2 py-0.5 border border-border/60">Google Analytics Certified</span>
-                  <span className="rounded-md bg-secondary px-2 py-0.5 border border-border/60">AWS Cloud Practitioner</span>
+          {/* Sleek Author Bio Box (E-E-A-T) */}
+          <div className="mt-8 rounded-xl border border-border bg-card p-4 sm:p-5 shadow-xs">
+            <div className="flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
+              <div className="flex items-center gap-3">
+                <img
+                  src={heroPortrait}
+                  alt="Willay Haider - Senior BDR"
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 rounded-xl object-cover border border-border bg-secondary/40 shrink-0"
+                  loading="lazy"
+                />
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-primary">Article Author</span>
+                  <h3 className="text-sm sm:text-base font-bold text-foreground leading-tight">Willay Haider</h3>
+                  <p className="text-[11px] sm:text-xs text-muted-foreground font-medium">Senior BDR &amp; Outbound Specialist</p>
                 </div>
               </div>
+              <div className="flex items-center gap-2 w-full sm:w-auto justify-end mt-1 sm:mt-0">
+                <a
+                  href="/"
+                  className="btn-click-effect flex-1 sm:flex-initial text-center rounded-full border border-border bg-secondary/80 px-3 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-all"
+                >
+                  View Profile
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
+                  className="btn-click-effect flex-1 sm:flex-initial text-center rounded-full px-3.5 py-1.5 text-xs font-bold text-primary-foreground shadow-xs hover:opacity-90 transition-all cursor-pointer"
+                  style={{ background: "var(--gradient-primary)" }}
+                >
+                  Hire Willay
+                </button>
+              </div>
+            </div>
+
+            <p className="mt-3 text-xs leading-relaxed text-foreground/80 font-normal">
+              Outbound specialist with 57,000+ live cold dials and $3.5M+ pipeline generated across SaaS, healthcare, and enterprise tech.
+            </p>
+
+            {/* Verified Credentials Badges */}
+            <div className="mt-2.5 flex flex-wrap items-center gap-1.5 text-[10px] font-medium text-muted-foreground">
+              <span className="rounded-md bg-secondary/80 px-2 py-0.5 border border-border/50">57k+ Dials</span>
+              <span className="rounded-md bg-secondary/80 px-2 py-0.5 border border-border/50">$3.5M+ Pipeline</span>
+              <span className="rounded-md bg-secondary/80 px-2 py-0.5 border border-border/50">Google Analytics Certified</span>
+              <span className="rounded-md bg-secondary/80 px-2 py-0.5 border border-border/50">AWS Cloud Practitioner</span>
             </div>
           </div>
 
