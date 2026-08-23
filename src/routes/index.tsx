@@ -199,7 +199,7 @@ const NAV_LINKS = [
 
 const CLIENT_TRUST_SIGNALS = [
   { name: "Million Dials Pvt Ltd.", category: "B2B SaaS & Startups", metric: "1,800+ Demos Booked" },
-  { name: "Vizocom LLC", category: "Industrial & Healthcare", metric: "$1.8M+ Generated" },
+  { name: "Vizocom ICT LLC", category: "Industrial & Healthcare", metric: "$1.8M+ Generated" },
   { name: "OMC Group LLC", category: "Legal SEO Outbound", metric: "75% Connect Rate" },
   { name: "Autolift Transport / Nexus LTD", category: "Freight Logistics", metric: "1,700+ Loads" },
 ];
@@ -291,7 +291,7 @@ const CASE_STUDIES = [
       "Ran multi-region outbound campaigns targeting founders, CTOs, and VPs of Sales for B2B SaaS clients across US, UK, and EU markets.",
   },
   {
-    client: "Vizocom LLC",
+    client: "Vizocom ICT LLC",
     category: "Industrial & Healthcare Bulk Procurement",
     engagement: "5-month engagement",
     dialsLabel: "18,000 Calls Dialed",
@@ -323,6 +323,7 @@ const CASE_STUDIES = [
     category: "Freight Logistics & Dispatching",
     engagement: "3-month engagement",
     dialsLabel: "12,000+ Calls Dialed",
+    quotes: "2,200+ Quotations Sent",
     connectRate: "55% Connect Rate",
     loadsBooked: "1,700+ Loads Booked",
     revenueTarget: 150,
@@ -437,7 +438,7 @@ const TESTIMONIALS = [
     id: "robin",
     name: "Robin Hunter",
     role: "Sales Manager",
-    company: "Vizocom LLC",
+    company: "Vizocom ICT LLC",
     type: "logo" as const,
     logo: vizocomLogo,
     rating: 5.0,
@@ -985,6 +986,12 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
                       <p className="text-xs font-bold text-foreground">{cs.meetingsLabel}</p>
                     </div>
                   )}
+                  {cs.quotes && (
+                    <div className="rounded-md border border-border bg-secondary/50 p-2">
+                      <p className="text-[9px] uppercase tracking-wider text-muted-foreground font-semibold">Quotes</p>
+                      <p className="text-xs font-bold text-foreground">{cs.quotes}</p>
+                    </div>
+                  )}
                   {cs.leads && (
                     <div className="rounded-md border border-border bg-secondary/50 p-2">
                       <p className="text-[9px] uppercase tracking-wider text-muted-foreground font-semibold">Leads</p>
@@ -1313,7 +1320,7 @@ function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
       <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-slate-700/80 bg-slate-950 p-1 flex items-center justify-center shadow-xs">
         <img
           src={item.logo}
-          alt="Vizocom LLC"
+          alt="Vizocom ICT LLC"
           width={52}
           height={52}
           className="h-full w-full object-contain scale-125"

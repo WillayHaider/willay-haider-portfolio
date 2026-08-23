@@ -83,7 +83,7 @@ const CAREER_HIGHLIGHTS = [
   },
   {
     role: "Business Development Representative",
-    company: "Vizocom LLC",
+    company: "Vizocom ICT LLC",
     period: "Jun 2025 to Dec 2025",
     desc: "Ran enterprise outbound cold calling targeting hospital supply procurement directors and battery systems, generating 320+ qualified MQLs and securing 77+ high-ticket purchase orders.",
   },
@@ -213,9 +213,13 @@ function AboutPage() {
               <Sparkles className="h-3 w-3" />
               <span>About Willay Haider</span>
             </div>
-            <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-              Turning Cold Prospects Into <br />
-              <span className="text-primary">High-Ticket Closed Revenue</span>
+            <h1 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+              <span className="block text-foreground">
+                Turning Cold Prospects Into
+              </span>
+              <span className="block mt-1 sm:mt-2 text-primary">
+                High-Ticket Closed Revenue
+              </span>
             </h1>
             <p className="mt-4 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
               I am a senior Business Development Representative and outbound sales strategist who specializes in
