@@ -138,15 +138,15 @@ function PrivacyPolicyPage() {
             <ul className="list-disc list-inside space-y-1.5">
               <li>
                 <span className="font-semibold text-foreground">Contact information you provide: </span>
-                such as your name, email address, company name, and phone number if you reach out via the discovery form or email.
+                such as your name, email address, company name, and phone number when submitting discovery requests or email inquiries.
               </li>
               <li>
                 <span className="font-semibold text-foreground">Automatically collected data: </span>
-                including IP address, browser type, device type, pages visited, and time spent on the site, collected through standard analytics tools.
+                including IP address, browser type, operating system, referring URLs, device identifiers, and pages visited, collected through standard analytics and server logs.
               </li>
               <li>
-                <span className="font-semibold text-foreground">Cookies: </span>
-                this site may use cookies to improve user experience and analyze traffic.
+                <span className="font-semibold text-foreground">Cookies &amp; Local Storage: </span>
+                small data files stored on your browser to maintain essential site settings, measure performance, and deliver personalized experiences.
               </li>
             </ul>
           </Section>
@@ -155,32 +155,81 @@ function PrivacyPolicyPage() {
             <ul className="list-disc list-inside space-y-1.5">
               <li>To respond to your inquiries and schedule discovery sessions.</li>
               <li>To provide requested proposals and sales outreach materials.</li>
-              <li>To improve website performance and user experience.</li>
-              <li>I do not sell, rent, or trade your personal information to third parties.</li>
+              <li>To improve website performance, reader experience, and article relevance.</li>
+              <li>I do not sell, rent, or trade your personal contact details to third parties.</li>
             </ul>
           </Section>
 
-          <Section title="Third-Party Services">
+          <Section title="Cookies and Third-Party Advertising (Google AdSense)">
             <p>
-              I may use third-party tools such as analytics providers, form handlers (EmailJS), and calendar booking platforms (Cal.com / Calendly) to operate this site. These services have their own privacy policies.
+              This website may partner with third-party advertising networks, such as <span className="font-semibold text-foreground">Google AdSense</span>, to serve advertisements when you visit our website.
+            </p>
+            <ul className="list-disc list-inside space-y-1.5 mt-2">
+              <li>
+                <span className="font-semibold text-foreground">Third-Party Cookies: </span>
+                Google, as a third-party vendor, uses cookies to serve ads on willayhaider.pro.
+              </li>
+              <li>
+                <span className="font-semibold text-foreground">DoubleClick DART Cookie: </span>
+                Google&apos;s use of the DART cookie enables it to serve ads to users based on their visit to this site and other sites on the Internet.
+              </li>
+              <li>
+                <span className="font-semibold text-foreground">Opting Out of Personalized Advertising: </span>
+                Users may opt out of personalized advertising by visiting{" "}
+                <a
+                  href="https://www.google.com/settings/ads"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline font-semibold"
+                >
+                  Google Ads Settings
+                </a>{" "}
+                or by visiting{" "}
+                <a
+                  href="https://www.aboutads.info/choices/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline font-semibold"
+                >
+                  www.aboutads.info
+                </a>.
+              </li>
+            </ul>
+            <p className="mt-2 text-xs text-muted-foreground">
+              You can also control or disable cookies through your individual browser options. Please refer to your browser&apos;s help documentation for instructions on managing cookies.
             </p>
           </Section>
 
-          <Section title="Data Security">
+          <Section title="Third-Party Analytics &amp; Service Providers">
             <p>
-              I take reasonable technical and organizational measures to protect your information against unauthorized access, loss, or alteration.
+              I may use reputable third-party tools such as analytics providers (Google Analytics), form handlers (EmailJS), and calendar booking tools to operate this portfolio. These service providers have independent privacy policies governing their data handling practices.
             </p>
           </Section>
 
-          <Section title="Your Rights">
+          <Section title="Data Security &amp; Retention">
             <p>
-              You may request access to, correction of, or deletion of any personal data you have provided by emailing <a href="mailto:Contact.whaider@gmail.com" className="text-primary hover:underline font-medium">Contact.whaider@gmail.com</a>.
+              I implement industry-standard technical and organizational security measures to protect your information against unauthorized access, loss, or misuse. Data is retained only as long as necessary to fulfill the purposes outlined in this policy.
+            </p>
+          </Section>
+
+          <Section title="Your Privacy Rights (GDPR &amp; CCPA/CPRA)">
+            <p>
+              Depending on your location, you have rights regarding your personal information, including the right to access, rectify, delete, or restrict the processing of your data, as well as the right to opt out of the sale or sharing of personal data.
+            </p>
+            <p className="mt-2">
+              To exercise any of these rights, contact me directly at:{" "}
+              <a href="mailto:Contact.whaider@gmail.com" className="text-primary hover:underline font-semibold">
+                Contact.whaider@gmail.com
+              </a>.
             </p>
           </Section>
 
           <Section title="Contact">
             <p>
-              For privacy-related questions: <a href="mailto:Contact.whaider@gmail.com" className="text-primary hover:underline font-medium">Contact.whaider@gmail.com</a>.
+              If you have questions about this Privacy Policy or cookie practices, please contact:{" "}
+              <a href="mailto:Contact.whaider@gmail.com" className="text-primary hover:underline font-semibold">
+                Contact.whaider@gmail.com
+              </a>.
             </p>
           </Section>
         </div>

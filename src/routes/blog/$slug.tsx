@@ -1,7 +1,8 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
-import { useState } from 'react'
-import { ArrowLeft, Clock, Calendar, Share2, ArrowRight } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { ArrowLeft, Clock, Calendar, Share2, ArrowRight, ThumbsUp, ThumbsDown, CheckCircle2, Award } from 'lucide-react'
 import { BLOG_POSTS, type BlogPost } from '@/lib/blog-posts'
+import heroPortrait from '@/assets/willay-portrait-final-nobg.webp'
 
 export const Route = createFileRoute('/blog/$slug')({
   loader: ({ params }) => {
@@ -183,6 +184,25 @@ function RenderContent({ content }: { content: string }) {
 function BlogPostPage() {
   const post = Route.useLoaderData()
   const [menuOpen, setMenuOpen] = useState(false);
+  const [feedback, setFeedback] = useState<'yes' | 'no' | null>(null);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(`feedback_${post.slug}`);
+      if (saved === 'yes' || saved === 'no') {
+        setFeedback(saved);
+      }
+    } catch {}
+  }, [post.slug]);
+
+  const handleFeedback = (type: 'yes' | 'no') => {
+    setFeedback(type);
+    try {
+      localStorage.setItem(`feedback_${post.slug}`, type);
+    } catch {}
+  };
+
+  const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 2);
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
@@ -291,24 +311,111 @@ function BlogPostPage() {
 
           <RenderContent content={post.content} />
 
-          {/* Author Bio Card */}
-          <div className="mt-12 rounded-xl border border-border bg-card p-5 sm:p-6 shadow-xs">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-primary">Written by Willay Haider</p>
-                <h3 className="text-base font-bold text-foreground mt-0.5">Senior BDR & Outbound Sales Specialist</h3>
-                <p className="text-xs text-foreground/80 font-medium mt-1 max-w-lg">
-                  Specializing in unscripted cold calling, appointment setting, and CRM RevOps for US, UK, and European B2B companies.
-                </p>
+          {/* Interactive Helpfulness Feedback Widget */}
+          <div className="mt-10 rounded-2xl border border-border/80 bg-secondary/30 p-5 text-center backdrop-blur-sm">
+            <h4 className="text-sm font-bold text-foreground">Was this playbook helpful to your sales process?</h4>
+            <p className="text-xs text-muted-foreground mt-1">Your feedback directly shapes future actionable deep-dives.</p>
+            {feedback ? (
+              <div className="mt-3.5 inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 px-3.5 py-1 text-xs font-semibold text-emerald-500 animate-fade-in">
+                <CheckCircle2 className="h-3.5 w-3.5" />
+                Thank you! Your feedback has been recorded.
               </div>
-              <a
-                href="/about"
-                className="btn-click-effect shrink-0 rounded-full border border-border bg-secondary/50 px-4 py-2 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
-              >
-                About Me
-              </a>
+            ) : (
+              <div className="mt-3.5 flex items-center justify-center gap-3">
+                <button
+                  onClick={() => handleFeedback('yes')}
+                  className="btn-click-effect inline-flex items-center gap-1.5 rounded-xl border border-border bg-card px-4 py-2 text-xs font-bold text-foreground hover:border-primary hover:text-primary transition-all active:scale-95"
+                >
+                  <ThumbsUp className="h-3.5 w-3.5 text-primary" /> Yes, very helpful
+                </button>
+                <button
+                  onClick={() => handleFeedback('no')}
+                  className="btn-click-effect inline-flex items-center gap-1.5 rounded-xl border border-border bg-card px-4 py-2 text-xs font-bold text-muted-foreground hover:text-foreground transition-all active:scale-95"
+                >
+                  <ThumbsDown className="h-3.5 w-3.5" /> Needs improvement
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Rich Author Bio Box (E-E-A-T) */}
+          <div className="mt-8 rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs">
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
+              <img
+                src={heroPortrait}
+                alt="Willay Haider - Senior BDR"
+                width={72}
+                height={72}
+                className="h-16 w-16 sm:h-20 sm:w-20 rounded-2xl object-cover border border-border bg-secondary/40 shrink-0"
+                loading="lazy"
+              />
+              <div className="flex-1">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-primary">Article Author &amp; Outbound Specialist</span>
+                    <h3 className="text-base sm:text-lg font-bold text-foreground">Willay Haider</h3>
+                    <p className="text-xs text-muted-foreground font-medium">Senior Business Development Representative</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="/about"
+                      className="btn-click-effect rounded-full border border-border bg-secondary/80 px-3.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-all"
+                    >
+                      View Profile
+                    </a>
+                    <a
+                      href="/#contact"
+                      className="btn-click-effect rounded-full px-3.5 py-1.5 text-xs font-bold text-primary-foreground shadow-xs hover:opacity-90 transition-all"
+                      style={{ background: "var(--gradient-primary)" }}
+                    >
+                      Hire Willay
+                    </a>
+                  </div>
+                </div>
+
+                <p className="mt-3 text-xs leading-relaxed text-foreground/80 font-medium">
+                  Outbound practitioner with over 57,000+ live cold dials and $3.5M+ in pipeline closed for US, UK, and European B2B companies across SaaS, enterprise healthcare, and tech services.
+                </p>
+
+                {/* Verified Credentials Badges */}
+                <div className="mt-3.5 flex flex-wrap items-center gap-1.5 text-[11px] font-semibold text-muted-foreground">
+                  <span className="rounded-md bg-secondary px-2 py-0.5 border border-border/60">57k+ Verified Dials</span>
+                  <span className="rounded-md bg-secondary px-2 py-0.5 border border-border/60">$3.5M+ Pipeline</span>
+                  <span className="rounded-md bg-secondary px-2 py-0.5 border border-border/60">Google Analytics Certified</span>
+                  <span className="rounded-md bg-secondary px-2 py-0.5 border border-border/60">AWS Cloud Practitioner</span>
+                </div>
+              </div>
             </div>
           </div>
+
+          {/* Related Articles Section */}
+          {relatedPosts.length > 0 && (
+            <div className="mt-12">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-base sm:text-lg font-bold text-foreground">Related Sales Playbooks</h3>
+                <a href="/blog" className="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1">
+                  Explore all articles <ArrowRight className="h-3 w-3" />
+                </a>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {relatedPosts.map((rPost) => (
+                  <a
+                    key={rPost.slug}
+                    href={`/blog/${rPost.slug}`}
+                    className="group block rounded-xl border border-border bg-card p-4 transition-all hover:border-primary/50 hover:shadow-md"
+                  >
+                    <p className="text-[10px] text-muted-foreground mb-1">{rPost.date} • {rPost.readTime}</p>
+                    <h4 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                      {rPost.title}
+                    </h4>
+                    <p className="text-xs text-muted-foreground line-clamp-2 mt-1.5 leading-relaxed">
+                      {rPost.excerpt}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </main>
 
