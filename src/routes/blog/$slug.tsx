@@ -1,6 +1,6 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { useState, useEffect } from 'react'
-import { ArrowLeft, Clock, Calendar, Share2, ArrowRight, ThumbsUp, ThumbsDown, CheckCircle2, Award } from 'lucide-react'
+import { ArrowLeft, Clock, Calendar, ArrowRight, ThumbsUp, ThumbsDown, CheckCircle2, Quote, Sparkles, Compass } from 'lucide-react'
 import { BLOG_POSTS, type BlogPost } from '@/lib/blog-posts'
 import heroPortrait from '@/assets/willay-portrait-final-nobg.webp'
 
@@ -40,7 +40,7 @@ export const Route = createFileRoute('/blog/$slug')({
             headline: loaderData.title,
             description: loaderData.excerpt,
             datePublished: loaderData.date,
-            dateModified: "2026-08-23",
+            dateModified: "2026-08-24",
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id": `https://willayhaider.pro/blog/${loaderData.slug}`,
@@ -66,20 +66,31 @@ export const Route = createFileRoute('/blog/$slug')({
   component: BlogPostPage,
 })
 
-function formatText(text: string) {
-  // Simple markdown inline parser for bold and links
+function formatInline(text: string): React.ReactNode {
+  // Replace any AI em dashes or en dashes with standard hyphen
+  const cleaned = text.replace(/[\u2014\u2013]/g, " - ");
+  
+  // Regex to match bold, italic, links, and code
+  const regex = /(\*\*.*?\*\*|\*.*?\*|\[.*?\]\(.*?\)|`.*?`)/g;
   const parts: React.ReactNode[] = [];
-  const regex = /(\*\*.*?\*\*|\[.*?\]\(.*?\))/g;
   let lastIndex = 0;
   let match;
 
-  while ((match = regex.exec(text)) !== null) {
+  while ((match = regex.exec(cleaned)) !== null) {
     if (match.index > lastIndex) {
-      parts.push(text.substring(lastIndex, match.index));
+      parts.push(cleaned.substring(lastIndex, match.index));
     }
     const token = match[0];
     if (token.startsWith("**") && token.endsWith("**")) {
       parts.push(<strong key={match.index} className="font-bold text-foreground">{token.slice(2, -2)}</strong>);
+    } else if (token.startsWith("*") && token.endsWith("*") && token.length > 2) {
+      parts.push(<em key={match.index} className="italic text-foreground/90">{token.slice(1, -1)}</em>);
+    } else if (token.startsWith("`") && token.endsWith("`")) {
+      parts.push(
+        <code key={match.index} className="rounded bg-secondary px-1.5 py-0.5 text-xs font-mono text-primary">
+          {token.slice(1, -1)}
+        </code>
+      );
     } else if (token.startsWith("[") && token.includes("](")) {
       const linkText = token.substring(1, token.indexOf("]("));
       const linkUrl = token.substring(token.indexOf("](") + 2, token.length - 1);
@@ -92,23 +103,33 @@ function formatText(text: string) {
     lastIndex = regex.lastIndex;
   }
 
-  if (lastIndex < text.length) {
-    parts.push(text.substring(lastIndex));
+  if (lastIndex < cleaned.length) {
+    parts.push(cleaned.substring(lastIndex));
   }
 
-  return parts.length > 0 ? parts : text;
+  return parts.length > 0 ? parts : cleaned;
 }
 
 function RenderContent({ content }: { content: string }) {
-  const blocks = content.split("\n\n");
+  // Normalize newlines and clean any em dashes
+  const sanitized = content.replace(/[\u2014\u2013]/g, " - ").replace(/\r\n/g, "\n");
+  const rawBlocks = sanitized.split(/\n\n+/);
 
   return (
-    <article className="prose prose-invert max-w-none space-y-4">
-      {blocks.map((block, idx) => {
+    <article className="space-y-6 text-foreground/90">
+      {rawBlocks.map((block, idx) => {
         const trimmed = block.trim();
+        if (!trimmed) return null;
+
         if (trimmed === "---") {
-          return <hr key={idx} className="my-8 border-border" />;
+          return (
+            <div key={idx} className="my-8 flex items-center justify-center">
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
+            </div>
+          );
         }
+
+        // Image handler
         if (trimmed.startsWith("![") && trimmed.includes("](") && trimmed.endsWith(")")) {
           const alt = trimmed.substring(2, trimmed.indexOf("]("));
           const src = trimmed.substring(trimmed.indexOf("](") + 2, trimmed.length - 1);
@@ -126,54 +147,98 @@ function RenderContent({ content }: { content: string }) {
             </div>
           );
         }
+
+        // H2 Heading (Major Section)
         if (trimmed.startsWith("## ")) {
+          const headingText = trimmed.replace("## ", "");
           return (
-            <h2 key={idx} className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mt-8 mb-3">
-              {trimmed.replace("## ", "")}
-            </h2>
+            <div key={idx} className="pt-8 pb-2">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-2 w-2 rounded-full bg-primary" />
+                <span className="text-[11px] font-bold uppercase tracking-wider text-primary">Strategic Framework</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground border-l-4 border-primary pl-4 py-1">
+                {headingText}
+              </h2>
+            </div>
           );
         }
+
+        // H3 Heading (Sub-section)
         if (trimmed.startsWith("### ")) {
+          const subText = trimmed.replace("### ", "");
           return (
-            <h3 key={idx} className="text-lg sm:text-xl font-bold tracking-tight text-foreground mt-6 mb-2">
-              {trimmed.replace("### ", "")}
+            <h3 key={idx} className="text-lg sm:text-xl font-bold tracking-tight text-foreground mt-6 mb-2 flex items-center gap-2">
+              <Compass className="h-4 w-4 text-primary" />
+              {subText}
             </h3>
           );
         }
+
+        // Script / Quotation Card (> )
         if (trimmed.startsWith("> ")) {
+          const quoteLines = trimmed.split("\n").map((l) => l.replace(/^>\s*/, "")).join("\n");
           return (
-            <blockquote key={idx} className="border-l-2 border-primary bg-secondary/30 p-3.5 rounded-r-lg my-3 italic text-foreground/90 text-sm sm:text-base">
-              {formatText(trimmed.replace(/^>\s*/gm, ""))}
-            </blockquote>
+            <div
+              key={idx}
+              className="relative my-5 overflow-hidden rounded-2xl border border-primary/30 bg-primary/5 p-4 sm:p-5 shadow-xs backdrop-blur-xs"
+            >
+              <div className="flex items-start gap-3">
+                <Quote className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <div className="text-xs sm:text-sm leading-relaxed text-foreground/95 italic font-medium space-y-1">
+                  {quoteLines.split("\n").map((qLine, qIdx) => (
+                    <p key={qIdx}>{formatInline(qLine)}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
           );
         }
+
+        // Bulleted Lists (- or *)
         if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
           const items = trimmed.split("\n").filter((l) => l.trim().startsWith("- ") || l.trim().startsWith("* "));
           return (
-            <ul key={idx} className="space-y-1.5 list-disc list-inside my-3 text-foreground/85 text-sm sm:text-base font-medium">
-              {items.map((item, itemIdx) => (
-                <li key={itemIdx} className="leading-relaxed">
-                  {formatText(item.replace(/^[-*]\s+/, ""))}
-                </li>
-              ))}
+            <ul key={idx} className="my-4 space-y-2.5">
+              {items.map((item, itemIdx) => {
+                const itemContent = item.replace(/^[-*]\s+/, "");
+                return (
+                  <li key={itemIdx} className="flex items-start gap-2.5 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                    <div className="flex-1">{formatInline(itemContent)}</div>
+                  </li>
+                );
+              })}
             </ul>
           );
         }
+
+        // Numbered Lists (1. 2. 3.)
         if (/^\d+\.\s+/.test(trimmed)) {
           const items = trimmed.split("\n").filter((l) => /^\d+\.\s+/.test(l.trim()));
           return (
-            <ol key={idx} className="space-y-1.5 list-decimal list-inside my-3 text-foreground/85 text-sm sm:text-base font-medium">
-              {items.map((item, itemIdx) => (
-                <li key={itemIdx} className="leading-relaxed">
-                  {formatText(item.replace(/^\d+\.\s+/, ""))}
-                </li>
-              ))}
+            <ol key={idx} className="my-4 space-y-3">
+              {items.map((item, itemIdx) => {
+                const numMatch = item.match(/^(\d+)\.\s+(.*)/);
+                const num = numMatch ? numMatch[1] : itemIdx + 1;
+                const text = numMatch ? numMatch[2] : item;
+                return (
+                  <li key={itemIdx} className="flex items-start gap-3 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[11px] font-bold text-primary border border-primary/20 mt-0.5">
+                      {num}
+                    </span>
+                    <div className="flex-1">{formatInline(text)}</div>
+                  </li>
+                );
+              })}
             </ol>
           );
         }
+
+        // Standard Paragraph
         return (
-          <p key={idx} className="text-foreground/90 text-sm sm:text-base leading-relaxed font-medium">
-            {formatText(trimmed)}
+          <p key={idx} className="text-xs sm:text-sm md:text-base leading-relaxed text-foreground/85 font-normal">
+            {formatInline(trimmed)}
           </p>
         );
       })}
@@ -305,9 +370,21 @@ function BlogPostPage() {
             </div>
           </div>
 
+          {/* Article Header */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mb-6 leading-tight">
             {post.title}
           </h1>
+
+          {/* Executive Playbook Blueprint Hero Card */}
+          <div className="mb-8 rounded-2xl border border-primary/30 bg-primary/5 p-5 shadow-xs backdrop-blur-xs">
+            <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider mb-2">
+              <Sparkles className="h-4 w-4" />
+              Executive Playbook Overview
+            </div>
+            <p className="text-xs sm:text-sm text-foreground/85 leading-relaxed font-medium">
+              {post.excerpt}
+            </p>
+          </div>
 
           <RenderContent content={post.content} />
 
@@ -426,4 +503,3 @@ function BlogPostPage() {
     </div>
   )
 }
-

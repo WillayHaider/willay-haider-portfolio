@@ -320,7 +320,7 @@ If you are evaluating whether to [hire an SDR/BDR](/#pricing) internally or brin
     readTime: "9 min read",
     content: `## Moving Beyond Raw Dialing Volume
 
-Outbound sales is no longer a numbers game of spamming dials; it is a game of structured relevance. The era of buying a static list of 10,000 generic contacts, loading them into an automated power dialer, and reciting a rigid pitch deck is officially dead. Modern B2B buyers—from VPs of Engineering to Chief Revenue Officers—are inundated with dozens of automated touches every week. If your outreach lacks immediate context and commercial value, it is discarded within three seconds.
+Outbound sales is no longer a numbers game of spamming dials; it is a game of structured relevance. The era of buying a static list of 10,000 generic contacts, loading them into an automated power dialer, and reciting a rigid pitch deck is officially dead. Modern B2B buyers - from VPs of Engineering to Chief Revenue Officers - are inundated with dozens of automated touches every week. If your outreach lacks immediate context and commercial value, it is discarded within three seconds.
 
 After executing over 50,000 outbound cold calls and managing 15+ complex B2B campaigns, I have realized that the difference between an empty calendar and a booked pipeline comes down to repeatable frameworks. High-growth sales development teams do not rely on luck, charismatic improvisation, or aggressive pressure. They operate with systematic conversational architectures that lower prospect resistance and diagnose latent business pain.
 
@@ -330,7 +330,7 @@ This guide details the exact 7 appointment setting frameworks required to conver
 
 ## 1. The Hook-Value-Ask (HVA) Model
 
-The Hook-Value-Ask (HVA) model is engineered specifically for synchronous outreach—primarily live cold calling and rapid conversational touchpoints. When a decision-maker answers an unexpected phone call, their cognitive defense mechanism immediately asks three subconscious questions: *Who is this? Why are they calling me? How fast can I get off the phone?*
+The Hook-Value-Ask (HVA) model is engineered specifically for synchronous outreach - primarily live cold calling and rapid conversational touchpoints. When a decision-maker answers an unexpected phone call, their cognitive defense mechanism immediately asks three subconscious questions: *Who is this? Why are they calling me? How fast can I get off the phone?*
 
 The HVA framework neutralizes these defenses within the first 15 seconds by eliminating introductory fluff and focusing entirely on the buyer's operational reality.
 
