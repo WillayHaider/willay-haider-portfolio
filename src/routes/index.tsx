@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import {
   ArrowRight,
   PhoneCall,
@@ -33,7 +33,10 @@ import adbiLogo from "@/assets/adbi-logo.png";
 import omcLogo from "@/assets/omc-group-logo.png";
 import vizocomLogo from "@/assets/vizocom-logo.png";
 import autoliftLogo from "@/assets/autolift-transport-logo.png";
-import { LeadCaptureModal } from "@/components/LeadCaptureModal";
+
+const LazyLeadCaptureModal = lazy(() =>
+  import("@/components/LeadCaptureModal").then((m) => ({ default: m.LeadCaptureModal }))
+);
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -549,12 +552,16 @@ function ServiceBusinessPage() {
       <FAQSection />
       <FooterSection />
 
-      {/* Global Lead Capture Modal */}
-      <LeadCaptureModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        defaultService={modalService}
-      />
+      {/* Global Lead Capture Modal (Lazy loaded on demand) */}
+      {isModalOpen && (
+        <Suspense fallback={null}>
+          <LazyLeadCaptureModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            defaultService={modalService}
+          />
+        </Suspense>
+      )}
     </div>
   );
 }

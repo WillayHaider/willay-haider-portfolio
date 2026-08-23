@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useRef } from "react";
+import { useState, useRef, lazy, Suspense } from "react";
 import {
   Award,
   Briefcase,
@@ -15,7 +15,10 @@ import googleLogo from "@/assets/google-logo.png";
 import deloitteLogo from "@/assets/deloitte-logo.png";
 import awsLogo from "@/assets/aws-logo.png";
 import adbiLogo from "@/assets/adbi-logo.png";
-import { LeadCaptureModal } from "@/components/LeadCaptureModal";
+
+const LazyLeadCaptureModal = lazy(() =>
+  import("@/components/LeadCaptureModal").then((m) => ({ default: m.LeadCaptureModal }))
+);
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
@@ -389,13 +392,17 @@ function AboutPage() {
         © 2026 All rights are reserved by Mr Haider.
       </footer>
 
-      {/* Modal */}
-      <LeadCaptureModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        defaultService={modalService}
-        directConnect={isDirectConnect}
-      />
+      {/* Modal (Lazy loaded) */}
+      {isModalOpen && (
+        <Suspense fallback={null}>
+          <LazyLeadCaptureModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            defaultService={modalService}
+            directConnect={isDirectConnect}
+          />
+        </Suspense>
+      )}
     </div>
   );
 }
