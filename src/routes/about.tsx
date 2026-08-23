@@ -268,7 +268,7 @@ function AboutPage() {
             </h2>
 
             <p className="mt-2.5 max-w-3xl text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">
-              Grab a slot directly on the calendar to schedule an interview, or reach out on WhatsApp, whatever suits you best.
+              Book a time directly on the calendar to schedule an interview, or reach out on WhatsApp at your convenience.
             </p>
 
             <div className="mt-4">
