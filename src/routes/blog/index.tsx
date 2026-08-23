@@ -136,20 +136,25 @@ function BlogPage() {
           ) : (
             <div className="grid gap-6 md:grid-cols-2">
               {BLOG_POSTS.map((post) => (
-                <article key={post.slug} className="rounded-xl border border-border bg-card p-6 shadow-xs flex flex-col justify-between">
+                <a
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group rounded-xl border border-border bg-card p-6 shadow-xs flex flex-col justify-between transition-all hover:border-primary/50 hover:shadow-md cursor-pointer"
+                >
                   <div>
                     <p className="text-[10px] text-muted-foreground mb-2">{post.date}</p>
-                    <h2 className="text-base sm:text-lg font-bold text-foreground mb-2">{post.title}</h2>
-                    <p className="text-muted-foreground text-xs leading-relaxed mb-4">{post.excerpt}</p>
+                    <h2 className="text-base sm:text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-2">
+                      {post.title}
+                    </h2>
+                    <p className="text-muted-foreground text-xs leading-relaxed mb-4">
+                      {post.excerpt}
+                    </p>
                   </div>
-                  <a
-                    href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1 text-primary text-xs font-semibold hover:underline"
-                  >
+                  <div className="inline-flex items-center gap-1 text-primary text-xs font-semibold group-hover:underline mt-auto pt-2">
                     <span>Read article</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </a>
-                </article>
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                </a>
               ))}
             </div>
           )}
