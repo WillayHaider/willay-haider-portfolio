@@ -2,14 +2,15 @@
 
 Whenever the user asks to write, generate, or publish a blog post:
 1. Always draw inspiration and high-intent, low-competition keywords from:
-   - `src/lib/high-intent-sales-topics.md` (Pillar clusters: RevOps, Signal-Driven Outbound, Demo Show-Up Workflows, Sales Tech Stack & Data Operations, In-House Team Economics, and Scriptless Discovery).
-   - `src/lib/blog-generation-blueprint.md` (Master Prompt & 3-Part Package).
+   - `src/lib/universal-sales-psychology.md` (Universal Sales Psychology, Cognitive Biases, Price Anchoring, High-Stakes Negotiation, Doctor-Patient Frameworks, Ghosting Resurrections, Tonality, and Closer Mindset across all industries worldwide).
+   - `src/lib/high-intent-sales-topics.md` (Pillar clusters: RevOps, Signal-Driven Outbound, Demo Show-Up Workflows, Sales Tech Stack & Data Operations, In-House Team Economics).
+   - `src/lib/blog-generation-blueprint.md` (Master 3-Part Prompt Package).
 2. Adhere to the core content standards:
-   - **No Limits to Narrow Niches:** Write on peak B2B sales topics (enterprise closing, RevOps, multi-threading, deal velocity, sales engineering, cold calling).
-   - **Anti-AI Overviews:** Target long-tail operational friction terms (e.g. stage exit criteria, multi-threading playbooks, tech stack workflows) that Google AI Overviews cannot answer generically.
+   - **Universal Scope:** Not limited to any single niche: write on peak universal sales psychology, human behavioral science, negotiation dynamics, and closing philosophies that appeal to sales professionals in every industry globally.
+   - **Anti-AI Overviews:** Target long-tail operational friction and deep psychological frameworks that Google AI Overviews cannot answer generically.
    - **STRICT CONSTRAINT:** ZERO em dashes ("—") anywhere.
-   - **Dual-Geo Targeting:** USA/UK decision-makers and Pakistan-based agency owners.
-   - **Internal Links:** Link to `/#services`, `/#results`, `/#pricing`, `/#contact`, `/about`, and related blog posts.
+   - **Dual-Geo & Global Reach:** Appeals to worldwide closers, founders, and sales leaders, while maintaining natural hooks for US, UK, and Pakistan audiences.
+   - **Internal Links:** Contextually link to `/#services`, `/#results`, `/#pricing`, `/#contact`, `/about`, and other blog posts.
    - **Part 2: LinkedIn Thought Leadership Post:**
      - Scroll-stopping hook, bulleted insights, blog link callout.
      - Dedicated verbatim closing callout:
