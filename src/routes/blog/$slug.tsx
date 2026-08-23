@@ -1,8 +1,12 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
-import { useState, useEffect } from 'react'
-import { ArrowLeft, Clock, Calendar, ArrowRight, ThumbsUp, ThumbsDown, CheckCircle2, Quote, Sparkles, Compass } from 'lucide-react'
+import { useState, useEffect, lazy, Suspense } from 'react'
+import { ArrowLeft, Clock, Calendar, ArrowRight, ThumbsUp, ThumbsDown, CheckCircle2 } from 'lucide-react'
 import { BLOG_POSTS, type BlogPost } from '@/lib/blog-posts'
 import heroPortrait from '@/assets/willay-portrait-final-nobg.webp'
+
+const LazyLeadCaptureModal = lazy(() =>
+  import('@/components/LeadCaptureModal').then((m) => ({ default: m.LeadCaptureModal }))
+);
 
 export const Route = createFileRoute('/blog/$slug')({
   loader: ({ params }) => {
@@ -317,6 +321,7 @@ function BlogPostPage() {
   const post = Route.useLoaderData()
   const [menuOpen, setMenuOpen] = useState(false);
   const [feedback, setFeedback] = useState<'yes' | 'no' | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     try {
@@ -490,18 +495,19 @@ function BlogPostPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <a
-                      href="/about"
+                      href="/"
                       className="btn-click-effect rounded-full border border-border bg-secondary/80 px-3.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-all"
                     >
                       View Profile
                     </a>
-                    <a
-                      href="/#contact"
-                      className="btn-click-effect rounded-full px-3.5 py-1.5 text-xs font-bold text-primary-foreground shadow-xs hover:opacity-90 transition-all"
+                    <button
+                      type="button"
+                      onClick={() => setIsModalOpen(true)}
+                      className="btn-click-effect rounded-full px-3.5 py-1.5 text-xs font-bold text-primary-foreground shadow-xs hover:opacity-90 transition-all cursor-pointer"
                       style={{ background: "var(--gradient-primary)" }}
                     >
                       Hire Willay
-                    </a>
+                    </button>
                   </div>
                 </div>
 
@@ -555,6 +561,18 @@ function BlogPostPage() {
       <footer className="border-t border-border bg-background py-8 text-center text-xs font-medium text-muted-foreground">
         © 2026 All rights are reserved by Mr Haider.
       </footer>
+
+      {/* Modal (Lazy loaded) */}
+      {isModalOpen && (
+        <Suspense fallback={null}>
+          <LazyLeadCaptureModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            defaultService="B2B Appointment Setting"
+            directConnect={false}
+          />
+        </Suspense>
+      )}
     </div>
   )
 }
