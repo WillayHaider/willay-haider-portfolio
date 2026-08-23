@@ -659,8 +659,8 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
               <img
                 src={heroPortrait}
                 alt="Willay Haider: Senior Business Development Representative"
-                width={560}
-                height={560}
+                width={455}
+                height={455}
                 className="relative z-10 h-auto w-full object-contain drop-shadow-md rounded-2xl"
                 loading="eager"
                 fetchPriority="high"
@@ -737,8 +737,8 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
               <img
                 src={heroPortrait}
                 alt="Willay Haider: Business Development Representative and Outbound Sales Leader"
-                width={560}
-                height={560}
+                width={455}
+                height={455}
                 className="h-auto w-full max-w-[360px] lg:max-w-[400px] rounded-xl object-contain"
                 loading="eager"
                 fetchPriority="high"
