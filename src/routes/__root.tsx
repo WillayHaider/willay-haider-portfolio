@@ -126,6 +126,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@graph": [
             {
+              "@type": "WebSite",
+              "@id": "https://willayhaider.pro/#website",
+              url: "https://willayhaider.pro",
+              name: "Willay Haider: Senior BDR & Outbound Sales Specialist",
+              description:
+                "Senior Business Development Representative and outbound sales strategist delivering cold calling, appointment setting, and CRM RevOps for US, UK, and European B2B companies.",
+              publisher: {
+                "@id": "https://willayhaider.pro/#person",
+              },
+              inLanguage: "en-US",
+            },
+            {
               "@type": "Person",
               "@id": "https://willayhaider.pro/#person",
               name: "Willay Haider",
@@ -135,29 +147,152 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
                 "https://www.linkedin.com/in/willayhaider",
                 "https://www.instagram.com/damn_haiderrr",
               ],
+              email: "contact.whaider@gmail.com",
+              telephone: "+923206990099",
               description:
-                "Professional BDR and Outbound Sales Leader specializing in B2B cold calling, appointment setting, pipeline building, and CRM RevOps.",
-            },
-            {
-              "@type": "ProfessionalService",
-              "@id": "https://willayhaider.pro/#service",
-              name: "Willay Haider: Outbound Sales & Growth Systems",
-              url: "https://willayhaider.pro",
-              founder: {
-                "@id": "https://willayhaider.pro/#person",
-              },
-              areaServed: ["United States", "United Kingdom", "European Union", "Global"],
+                "Professional BDR and Outbound Sales Leader with 57,000+ dialed calls and $3.5M+ in verified closed revenue across SaaS, healthcare, and enterprise B2B verticals.",
               knowsAbout: [
-                "Cold Calling",
+                "B2B Cold Calling",
                 "Appointment Setting",
                 "B2B Lead Generation",
                 "Sales Development",
                 "HubSpot CRM",
                 "Salesforce",
-                "Web Development",
+                "RevOps Management",
+                "Outbound Pipeline Architecture",
+              ],
+            },
+            {
+              "@type": "ProfessionalService",
+              "@id": "https://willayhaider.pro/#service",
+              name: "Willay Haider: Outbound Sales Systems & BDR Services",
+              url: "https://willayhaider.pro",
+              founder: {
+                "@id": "https://willayhaider.pro/#person",
+              },
+              priceRange: "$$",
+              telephone: "+923206990099",
+              email: "contact.whaider@gmail.com",
+              areaServed: [
+                { "@type": "Country", name: "United States" },
+                { "@type": "Country", name: "United Kingdom" },
+                { "@type": "Country", name: "European Union" },
+                { "@type": "Country", name: "Pakistan" },
+                { "@type": "Place", name: "Worldwide" },
               ],
               description:
-                "Done-for-you outbound sales systems, cold calling, and pipeline generation services for high-growth B2B companies.",
+                "Done-for-you outbound sales systems, unscripted cold calling, qualified demo booking, and CRM RevOps management for B2B companies.",
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Outbound Sales & RevOps Services",
+                itemListElement: [
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Cold Calling & Outbound Prospecting",
+                      description:
+                        "Direct dials into C-suite and VP-level calendars with unscripted conversational discovery and objection handling.",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Appointment Setting & Demo Booking",
+                      description:
+                        "Turning cold accounts into qualified discovery calls directly placed onto Account Executive calendars.",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "B2B Lead Generation & Pipeline Architecture",
+                      description:
+                        "Building verified TAM account lists with accurate direct dials, validated emails, and intent signals.",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "CRM Setup & RevOps Management",
+                      description:
+                        "Structuring sales tech stacks for flawless tracking, clean pipeline stages, and rep performance analytics.",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Custom Web & App Development",
+                      description:
+                        "High-converting digital solutions and full-stack web applications engineered to capture and convert leads.",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "In-house Hiring / Consulting",
+                      description:
+                        "Dedicated full-time SDR/BDR placement and team onboarding for Pakistan-based agencies.",
+                    },
+                  },
+                ],
+              },
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.9",
+                reviewCount: "6",
+                bestRating: "5",
+                worstRating: "1",
+              },
+              review: [
+                {
+                  "@type": "Review",
+                  author: { "@type": "Person", name: "Rana Ammad Ali" },
+                  reviewRating: { "@type": "Rating", ratingValue: "5.0", bestRating: "5" },
+                  reviewBody:
+                    "Willay consistently books qualified meetings with decision makers. His discovery is sharp and prospects arrive to demos already warmed up and ready to discuss solutions.",
+                },
+                {
+                  "@type": "Review",
+                  author: { "@type": "Person", name: "Henry" },
+                  reviewRating: { "@type": "Rating", ratingValue: "5.0", bestRating: "5" },
+                  reviewBody:
+                    "Mr Haider was always respectful with our legal advisors and kept them engaged on every call. Made it easy for our closing team to follow up and get the deal signed.",
+                },
+                {
+                  "@type": "Review",
+                  author: { "@type": "Person", name: "Robin Hunter" },
+                  reviewRating: { "@type": "Rating", ratingValue: "5.0", bestRating: "5" },
+                  reviewBody:
+                    "Solid MQLs and SQLs coming in consistently, and he digs into enough detail on each prospect that we can send accurate quotes without going back and forth. Makes the follow-up so much easier.",
+                },
+                {
+                  "@type": "Review",
+                  author: { "@type": "Person", name: "Ahmad Maaz" },
+                  reviewRating: { "@type": "Rating", ratingValue: "4.0", bestRating: "5" },
+                  reviewBody:
+                    "Very reliable communicator. Good call discipline and keeps CRM notes up to date, which made managing the pipeline straightforward.",
+                },
+                {
+                  "@type": "Review",
+                  author: { "@type": "Person", name: "Arsalan" },
+                  reviewRating: { "@type": "Rating", ratingValue: "5.0", bestRating: "5" },
+                  reviewBody:
+                    "Great work ethic and solid results on our outbound campaign. Would recommend him to anyone looking for dedicated sales support.",
+                },
+                {
+                  "@type": "Review",
+                  author: { "@type": "Person", name: "Aima" },
+                  reviewRating: { "@type": "Rating", ratingValue: "5.0", bestRating: "5" },
+                  reviewBody:
+                    "Fast to respond, easy to coordinate with, and delivered quality leads consistently throughout our campaign. A dependable outbound partner.",
+                },
+              ],
             },
           ],
         }),

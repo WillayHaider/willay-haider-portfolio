@@ -4,9 +4,32 @@ import { useState } from 'react'
 export const Route = createFileRoute('/privacy-policy')({
   head: () => ({
     meta: [
-      { title: "Privacy Policy: Willay Haider" },
-      { name: "description", content: "Privacy Policy for willayhaider.pro" },
+      { title: "Privacy Policy | Willay Haider: Outbound Sales Systems" },
+      {
+        name: "description",
+        content:
+          "Privacy policy and data protection standards for willayhaider.pro, explaining information collection, usage, and client confidentiality.",
+      },
+      { name: "robots", content: "index, follow" },
+      { name: "author", content: "Willay Haider" },
+      { property: "og:title", content: "Privacy Policy | Willay Haider: Outbound Sales Systems" },
+      {
+        property: "og:description",
+        content:
+          "Privacy policy and data protection standards for willayhaider.pro, explaining information collection, usage, and client confidentiality.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://willayhaider.pro/privacy-policy" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Privacy Policy | Willay Haider: Outbound Sales Systems" },
+      {
+        name: "twitter:description",
+        content:
+          "Privacy policy and data protection standards for willayhaider.pro, explaining information collection, usage, and client confidentiality.",
+      },
     ],
+    links: [{ rel: "canonical", href: "https://willayhaider.pro/privacy-policy" }],
   }),
   component: PrivacyPolicyPage,
 })

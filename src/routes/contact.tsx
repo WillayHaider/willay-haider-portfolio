@@ -5,19 +5,35 @@ import ContactForm from '../components/ContactForm'
 export const Route = createFileRoute('/contact')({
   head: () => ({
     meta: [
-      { title: "Contact Willay Haider: Hire an Outbound BDR Specialist" },
+      { title: "Contact Willay Haider | Hire Senior BDR & Outbound Sales Specialist" },
       {
         name: "description",
         content:
-          "Ready to scale your pipeline? Get in touch with Willay Haider for cold calling, outbound sales strategy, and appointment setting services.",
+          "Ready to scale your B2B pipeline? Get in touch with Willay Haider to schedule discovery, hire a cold caller, or discuss appointment setting campaigns.",
       },
-      { property: "og:title", content: "Contact Willay Haider: Hire an Outbound BDR Specialist" },
+      {
+        name: "keywords",
+        content:
+          "contact Willay Haider, hire cold caller, B2B sales development representative, schedule outbound consultation, willayhaider.pro contact",
+      },
+      { name: "author", content: "Willay Haider" },
+      { property: "og:title", content: "Contact Willay Haider | Hire Senior BDR & Outbound Sales Specialist" },
       {
         property: "og:description",
         content:
-          "Ready to scale your pipeline? Get in touch with Willay Haider for cold calling, outbound sales strategy, and appointment setting services.",
+          "Ready to scale your B2B pipeline? Get in touch with Willay Haider to schedule discovery, hire a cold caller, or discuss appointment setting campaigns.",
       },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: "https://willayhaider.pro/contact" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Contact Willay Haider | Hire Senior BDR & Outbound Sales Specialist" },
+      {
+        name: "twitter:description",
+        content:
+          "Ready to scale your B2B pipeline? Get in touch with Willay Haider to schedule discovery, hire a cold caller, or discuss appointment setting campaigns.",
+      },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
     ],
     links: [{ rel: "canonical", href: "https://willayhaider.pro/contact" }],
   }),

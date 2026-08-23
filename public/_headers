@@ -1,0 +1,35 @@
+# Cache static hashed assets (1 year)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache images, audio and icons (30 days)
+/*.png
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.jpg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.jpeg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.webp
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.ico
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.svg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.ogg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.pdf
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# SEO control files
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+/sitemap.xml
+  Cache-Control: public, max-age=86400

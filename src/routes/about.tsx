@@ -21,25 +21,37 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
   head: () => ({
     meta: [
-      { title: "About Willay Haider: Senior BDR & Outbound Sales Specialist" },
+      { title: "About Willay Haider | Senior BDR & Outbound Sales Specialist" },
       {
         name: "description",
         content:
-          "Learn more about Willay Haider: Senior Business Development Representative with 1.5+ years of outbound sales experience, $3.5M+ in pipeline generated, and deep expertise in cold calling and RevOps.",
+          "Learn more about Willay Haider: Senior Business Development Representative with 57,000+ dials, $3.5M+ in pipeline generated, and deep expertise in cold calling and RevOps.",
       },
       {
         name: "keywords",
         content:
-          "Willay Haider, About Willay Haider, Business Development Representative, BDR Bio, Cold Calling Specialist, willayhaider.pro",
+          "Willay Haider, About Willay Haider, Senior BDR, Business Development Representative Pakistan, Cold Calling Specialist, Outbound Sales Strategist, willayhaider.pro",
       },
-      { property: "og:title", content: "About Willay Haider: Outbound Sales Leader" },
+      { name: "author", content: "Willay Haider" },
+      { property: "og:title", content: "About Willay Haider | Senior BDR & Outbound Sales Specialist" },
       {
         property: "og:description",
         content:
-          "Background, verified credentials, and track record of Willay Haider across B2B SaaS, healthcare, and enterprise outbound.",
+          "Background, verified credentials, and track record of Willay Haider across B2B SaaS, healthcare procurement, and enterprise outbound sales.",
       },
+      { property: "og:type", content: "profile" },
       { property: "og:url", content: "https://willayhaider.pro/about" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "About Willay Haider | Senior BDR & Outbound Sales Specialist" },
+      {
+        name: "twitter:description",
+        content:
+          "Background, verified credentials, and track record of Willay Haider across B2B SaaS, healthcare procurement, and enterprise outbound sales.",
+      },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
     ],
+    links: [{ rel: "canonical", href: "https://willayhaider.pro/about" }],
   }),
 });
 
@@ -338,9 +350,10 @@ function AboutPage() {
                   <div className="h-9 w-full max-w-[120px] flex items-center justify-center mb-2">
                     <img
                       src={cert.logo}
-                      alt={cert.issuer}
+                      alt={`${cert.issuer} ${cert.name} certification logo`}
                       className="h-7 w-auto max-w-[110px] object-contain"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <span className="text-xs font-bold text-foreground leading-tight">{cert.name}</span>

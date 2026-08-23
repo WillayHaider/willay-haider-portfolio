@@ -38,7 +38,7 @@ import { LeadCaptureModal } from "@/components/LeadCaptureModal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Willay Haider: Outbound Sales Systems, BDR & Growth Partner" },
+      { title: "Willay Haider | Outbound Sales Systems, Senior BDR & Pipeline Partner" },
       {
         name: "description",
         content:
@@ -49,13 +49,26 @@ export const Route = createFileRoute("/")({
         content:
           "Willay Haider, Willay Haider BDR, Business Development Representative, Cold Calling Specialist, B2B Appointment Setting, Lead Generation, Outbound Sales Systems, HubSpot CRM, willayhaider.pro",
       },
-      { property: "og:title", content: "Willay Haider: Outbound Sales Systems & Growth Partner" },
+      { name: "author", content: "Willay Haider" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:site_name", content: "Willay Haider: Outbound Sales Systems" },
+      { property: "og:title", content: "Willay Haider | Outbound Sales Systems, Senior BDR & Pipeline Partner" },
       {
         property: "og:description",
         content:
-          "Done-for-you outbound sales systems, cold calling, qualified demo booking, and CRM revops for US and global B2B companies.",
+          "Done-for-you outbound sales systems, cold calling, qualified demo booking, and CRM RevOps for US and global B2B companies.",
       },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: "https://willayhaider.pro" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Willay Haider | Outbound Sales Systems & Senior BDR" },
+      {
+        name: "twitter:description",
+        content:
+          "Done-for-you outbound sales systems, cold calling, qualified demo booking, and CRM RevOps for US and global B2B companies.",
+      },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
     ],
     links: [{ rel: "canonical", href: "https://willayhaider.pro" }],
   }),
@@ -650,6 +663,8 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
                 height={650}
                 className="relative z-10 h-auto w-full object-contain drop-shadow-md rounded-2xl"
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
 
@@ -726,6 +741,8 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
                 height={1000}
                 className="h-auto w-full max-w-[360px] lg:max-w-[400px] rounded-xl object-contain"
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
 
               {/* Floating Verified Badge */}
@@ -898,9 +915,10 @@ function CertificationsSection() {
               <div className="h-9 w-full max-w-[120px] flex items-center justify-center mb-2">
                 <img
                   src={cert.logo}
-                  alt={cert.issuer}
+                  alt={`${cert.issuer} ${cert.name} certification logo`}
                   className="h-7 w-auto max-w-[110px] object-contain"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <span className="text-xs font-bold text-foreground leading-tight">{cert.name}</span>
@@ -1290,11 +1308,12 @@ function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
       <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-border bg-secondary/80 shadow-xs">
         <img
           src={item.avatar}
-          alt={item.name}
+          alt={`${item.name} - ${item.role}, ${item.company}`}
           width={52}
           height={52}
           className="h-full w-full object-cover"
           loading="lazy"
+          decoding="async"
         />
       </div>
     );
@@ -1305,11 +1324,12 @@ function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
       <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-border bg-white p-0.5 flex items-center justify-center shadow-xs">
         <img
           src={item.logo}
-          alt="OMC Group LLC"
+          alt="OMC Group LLC - Client Logo"
           width={52}
           height={52}
           className="h-full w-full object-contain scale-[2.38]"
           loading="lazy"
+          decoding="async"
         />
       </div>
     );
@@ -1320,11 +1340,12 @@ function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
       <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-slate-700/80 bg-slate-950 p-1 flex items-center justify-center shadow-xs">
         <img
           src={item.logo}
-          alt="Vizocom ICT LLC"
+          alt="Vizocom ICT LLC - Client Logo"
           width={52}
           height={52}
           className="h-full w-full object-contain scale-125"
           loading="lazy"
+          decoding="async"
         />
       </div>
     );
@@ -1335,11 +1356,12 @@ function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
       <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-border bg-white p-0.5 flex items-center justify-center shadow-xs">
         <img
           src={item.logo}
-          alt="Autolift Transport / Nexus LTD"
+          alt="Autolift Transport / Nexus LTD - Client Logo"
           width={52}
           height={52}
           className="h-full w-full object-contain scale-135"
           loading="lazy"
+          decoding="async"
         />
       </div>
     );

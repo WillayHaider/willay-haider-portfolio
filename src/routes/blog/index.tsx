@@ -6,19 +6,35 @@ import { BLOG_POSTS } from '@/lib/blog-posts'
 export const Route = createFileRoute('/blog/')({
   head: () => ({
     meta: [
-      { title: "Cold Calling & B2B Lead Generation Blog: Willay Haider" },
+      { title: "B2B Cold Calling & Outbound Sales Blog | Willay Haider" },
       {
         name: "description",
         content:
-          "Cold calling tips, B2B lead generation strategies, and outbound sales advice from real campaigns. Practical guides for SDRs, founders, and anyone doing outreach.",
+          "Practical B2B sales insights, outbound cold calling strategies, appointment setting cadences, and pipeline RevOps from senior BDR Willay Haider.",
       },
-      { property: "og:title", content: "Cold Calling & B2B Lead Generation Blog: Willay Haider" },
+      {
+        name: "keywords",
+        content:
+          "cold calling blog, B2B sales development, appointment setting guides, outbound lead generation, cold calling techniques, hire a cold caller",
+      },
+      { name: "author", content: "Willay Haider" },
+      { property: "og:title", content: "B2B Cold Calling & Outbound Sales Blog | Willay Haider" },
       {
         property: "og:description",
         content:
-          "Cold calling tips, B2B lead generation strategies, and outbound sales advice from real campaigns.",
+          "Practical B2B sales insights, outbound cold calling strategies, appointment setting cadences, and pipeline RevOps from senior BDR Willay Haider.",
       },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: "https://willayhaider.pro/blog" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "B2B Cold Calling & Outbound Sales Blog | Willay Haider" },
+      {
+        name: "twitter:description",
+        content:
+          "Practical B2B sales insights, outbound cold calling strategies, appointment setting cadences, and pipeline RevOps from senior BDR Willay Haider.",
+      },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
     ],
     links: [{ rel: "canonical", href: "https://willayhaider.pro/blog" }],
   }),

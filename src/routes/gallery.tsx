@@ -12,9 +12,36 @@ import photo9 from '../assets/willay-haider-with-car.jpg'
 export const Route = createFileRoute('/gallery')({
   head: () => ({
     meta: [
-      { title: "Gallery: Willay Haider" },
-      { name: "description", content: "Personal and professional photos of Willay Haider." },
+      { title: "Gallery & Professional Media | Willay Haider" },
+      {
+        name: "description",
+        content:
+          "Photo gallery and professional event captures of Willay Haider, Senior Business Development Representative and outbound sales strategist.",
+      },
+      {
+        name: "keywords",
+        content: "Willay Haider photos, Willay Haider gallery, BDR professional images, outbound specialist event speaker",
+      },
+      { name: "author", content: "Willay Haider" },
+      { property: "og:title", content: "Gallery & Professional Media | Willay Haider" },
+      {
+        property: "og:description",
+        content:
+          "Photo gallery and professional event captures of Willay Haider, Senior Business Development Representative.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://willayhaider.pro/gallery" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Gallery & Professional Media | Willay Haider" },
+      {
+        name: "twitter:description",
+        content:
+          "Photo gallery and professional event captures of Willay Haider, Senior Business Development Representative.",
+      },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
     ],
+    links: [{ rel: "canonical", href: "https://willayhaider.pro/gallery" }],
   }),
   component: GalleryPage,
 })
@@ -123,6 +150,7 @@ function GalleryPage() {
                   src={p.src}
                   alt={p.alt}
                   loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
                   className="rounded-xl object-cover w-full h-48 sm:h-64 transition-transform duration-300 hover:scale-105"
                 />
               </div>
