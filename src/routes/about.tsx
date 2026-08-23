@@ -28,7 +28,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Learn more about Willay Haider: Senior Business Development Representative with 57,000+ dials, $3.5M+ in pipeline generated, and deep expertise in cold calling and RevOps.",
+          "Learn about Willay Haider: Senior BDR with 57,000+ dials, $3.5M+ pipeline generated, and deep expertise in outbound cold calling and sales systems.",
       },
       {
         name: "keywords",

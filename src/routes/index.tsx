@@ -45,7 +45,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Willay Haider is a senior Business Development Representative (BDR) and outbound sales specialist delivering qualified meetings, cold calling campaigns, lead generation, and CRM systems for US, UK & global B2B companies.",
+          "Senior BDR Willay Haider builds and executes high-converting cold calling campaigns, booking qualified B2B decision-maker meetings for US & UK teams.",
       },
       {
         name: "keywords",
