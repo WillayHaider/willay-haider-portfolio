@@ -90,6 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "author", content: "Willay Haider" },
       { name: "robots", content: "index, follow" },
+      { name: "msvalidate.01", content: "36255D72FF4CDB0F66717DB6045F221A" },
       { property: "og:site_name", content: "Willay Haider: Outbound Sales Systems" },
       { property: "og:title", content: "Willay Haider: Outbound Sales Systems, BDR & Growth Partner" },
       {
