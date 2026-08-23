@@ -1,37 +1,37 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 
-export const Route = createFileRoute('/privacy-policy')({
+export const Route = createFileRoute('/terms-and-conditions')({
   head: () => ({
     meta: [
-      { title: "Privacy Policy | Willay Haider: Outbound Sales Systems" },
+      { title: "Terms and Conditions | Willay Haider" },
       {
         name: "description",
         content:
-          "Privacy policy and data protection standards for willayhaider.pro, explaining information collection, usage, and client confidentiality.",
+          "Terms and Conditions of use and engagement for willayhaider.pro. Intellectual property, user conduct, liability, and governing law.",
       },
       { name: "robots", content: "index, follow" },
       { name: "author", content: "Willay Haider" },
-      { property: "og:title", content: "Privacy Policy | Willay Haider: Outbound Sales Systems" },
+      { property: "og:title", content: "Terms and Conditions | Willay Haider" },
       {
         property: "og:description",
         content:
-          "Privacy policy and data protection standards for willayhaider.pro, explaining information collection, usage, and client confidentiality.",
+          "Terms and Conditions of use and engagement for willayhaider.pro. Intellectual property, user conduct, liability, and governing law.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://willayhaider.pro/privacy-policy" },
+      { property: "og:url", content: "https://willayhaider.pro/terms-and-conditions" },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Privacy Policy | Willay Haider: Outbound Sales Systems" },
+      { name: "twitter:title", content: "Terms and Conditions | Willay Haider" },
       {
         name: "twitter:description",
         content:
-          "Privacy policy and data protection standards for willayhaider.pro, explaining information collection, usage, and client confidentiality.",
+          "Terms and Conditions of use and engagement for willayhaider.pro. Intellectual property, user conduct, liability, and governing law.",
       },
     ],
-    links: [{ rel: "canonical", href: "https://willayhaider.pro/privacy-policy" }],
+    links: [{ rel: "canonical", href: "https://willayhaider.pro/terms-and-conditions" }],
   }),
-  component: PrivacyPolicyPage,
+  component: TermsAndConditionsPage,
 })
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -43,7 +43,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   )
 }
 
-function PrivacyPolicyPage() {
+function TermsAndConditionsPage() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -127,103 +127,40 @@ function PrivacyPolicyPage() {
       <main className="pt-24 pb-16 sm:pt-32 sm:pb-24 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
-            Privacy <span className="text-primary">Policy</span>
+            Terms and <span className="text-primary">Conditions</span>
           </h1>
 
           <p className="text-xs sm:text-sm text-muted-foreground mb-8">
-            This Privacy Policy explains how willayhaider.pro collects, uses, and protects information when you visit.
+            Welcome to Willay Haider (willayhaider.pro). By accessing this website, you agree to comply with and be bound by the following terms and conditions of use.
           </p>
 
-          <Section title="Information I Collect">
-            <ul className="list-disc list-inside space-y-1.5">
-              <li>
-                <span className="font-semibold text-foreground">Contact information you provide: </span>
-                such as your name, email address, company name, and phone number when submitting discovery requests or email inquiries.
-              </li>
-              <li>
-                <span className="font-semibold text-foreground">Automatically collected data: </span>
-                including IP address, browser type, operating system, referring URLs, device identifiers, and pages visited, collected through standard analytics and server logs.
-              </li>
-              <li>
-                <span className="font-semibold text-foreground">Cookies &amp; Local Storage: </span>
-                small data files stored on your browser to maintain essential site settings, measure performance, and deliver personalized experiences.
-              </li>
-            </ul>
-          </Section>
-
-          <Section title="How I Use Information">
-            <ul className="list-disc list-inside space-y-1.5">
-              <li>To respond to your inquiries and schedule discovery sessions.</li>
-              <li>To provide requested proposals and sales outreach materials.</li>
-              <li>To improve website performance, reader experience, and article relevance.</li>
-              <li>I do not sell, rent, or trade your personal contact details to third parties.</li>
-            </ul>
-          </Section>
-
-          <Section title="Google AdSense and Third-Party Advertising Cookies">
-            <ul className="list-disc list-inside space-y-2 mt-2">
-              <li>
-                Google, as a third-party vendor, uses cookies to serve ads on this website.
-              </li>
-              <li>
-                Google&apos;s use of advertising cookies enables it and its partners to serve ads to our users based on their visit to this site and/or other sites on the Internet.
-              </li>
-              <li>
-                Users may opt out of personalized advertising by visiting{" "}
-                <a
-                  href="https://www.google.com/settings/ads"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline font-semibold"
-                >
-                  Google Ads Settings
-                </a>{" "}
-                or{" "}
-                <a
-                  href="https://www.aboutads.info/choices/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline font-semibold"
-                >
-                  www.aboutads.info
-                </a>.
-              </li>
-              <li>
-                We use third-party advertising companies to serve ads when you visit our website. These companies may use information about your visits to this and other websites in order to provide advertisements about goods and services of interest to you.
-              </li>
-            </ul>
-            <p className="mt-3 text-xs text-muted-foreground">
-              You can also control or disable cookies through your individual browser options. Please refer to your browser&apos;s help documentation for instructions on managing cookies.
-            </p>
-          </Section>
-
-          <Section title="Third-Party Analytics &amp; Service Providers">
+          <Section title="Intellectual Property">
             <p>
-              I may use reputable third-party tools such as analytics providers (Google Analytics), form handlers (EmailJS), and calendar booking tools to operate this portfolio. These service providers have independent privacy policies governing their data handling practices.
+              The content, layout, design, data, and graphics on this website are protected by intellectual property laws. You may not reproduce, copy, or redistribute any material from this website without explicit written permission.
             </p>
           </Section>
 
-          <Section title="Data Security &amp; Retention">
+          <Section title="User Conduct">
             <p>
-              I implement industry-standard technical and organizational security measures to protect your information against unauthorized access, loss, or misuse. Data is retained only as long as necessary to fulfill the purposes outlined in this policy.
+              You agree to use this website only for lawful purposes and in a manner that does not infringe the rights of, restrict, or inhibit the use and enjoyment of this site by any third party.
             </p>
           </Section>
 
-          <Section title="Your Privacy Rights (GDPR &amp; CCPA/CPRA)">
+          <Section title="Limitation of Liability">
             <p>
-              Depending on your location, you have rights regarding your personal information, including the right to access, rectify, delete, or restrict the processing of your data, as well as the right to opt out of the sale or sharing of personal data.
+              The information provided on this website is for general informational and commercial portfolio purposes. While we strive for accuracy, we make no guarantees regarding the completeness or accuracy of the information provided.
             </p>
-            <p className="mt-2">
-              To exercise any of these rights, contact me directly at:{" "}
-              <a href="mailto:Contact.whaider@gmail.com" className="text-primary hover:underline font-semibold">
-                Contact.whaider@gmail.com
-              </a>.
+          </Section>
+
+          <Section title="Governing Law">
+            <p>
+              These terms are governed by and construed in accordance with the laws of Pakistan, and any disputes relating to these terms will be subject to the exclusive jurisdiction of the courts.
             </p>
           </Section>
 
           <Section title="Contact">
             <p>
-              If you have questions about this Privacy Policy or cookie practices, please contact:{" "}
+              If you have any questions regarding these Terms and Conditions, please contact:{" "}
               <a href="mailto:Contact.whaider@gmail.com" className="text-primary hover:underline font-semibold">
                 Contact.whaider@gmail.com
               </a>.
@@ -231,6 +168,11 @@ function PrivacyPolicyPage() {
           </Section>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="border-t border-border bg-background py-8 text-center text-xs font-medium text-muted-foreground">
+        © 2026 All rights are reserved by Mr Haider.
+      </footer>
     </div>
   )
 }

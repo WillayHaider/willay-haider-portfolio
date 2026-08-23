@@ -1790,7 +1790,7 @@ function FooterSection() {
             <a href="/privacy-policy" className="hover:text-primary transition-colors font-medium">
               Privacy Policy
             </a>
-            <a href="/terms" className="hover:text-primary transition-colors font-medium">
+            <a href="/terms-and-conditions" className="hover:text-primary transition-colors font-medium">
               Terms & Conditions
             </a>
           </div>
