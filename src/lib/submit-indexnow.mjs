@@ -11,7 +11,9 @@ const URLS = [
   `https://${HOST}/blog`,
   `https://${HOST}/blog/how-to-handle-gatekeepers-in-2026`,
   `https://${HOST}/blog/how-b2b-cold-calling-actually-works`,
+  `https://${HOST}/blog/top-7-appointment-setting-frameworks-to-double-sales-pipeline`,
   `https://${HOST}/privacy-policy`,
+  `https://${HOST}/terms-and-conditions`,
   `https://${HOST}/terms`
 ];
 
