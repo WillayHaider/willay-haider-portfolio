@@ -112,10 +112,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       {
-        rel: "canonical",
-        href: "https://willayhaider.pro",
-      },
-      {
         rel: "preload",
         href: appCss,
         as: "style",
