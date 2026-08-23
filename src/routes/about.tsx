@@ -208,16 +208,16 @@ function AboutPage() {
       <main className="pt-24 pb-16 sm:pt-32 sm:pb-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           {/* Hero Bio - Clean Plain Text */}
-          <div className="max-w-3xl">
+          <div className="max-w-4xl">
             <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
               <Sparkles className="h-3 w-3" />
               <span>About Willay Haider</span>
             </div>
-            <h1 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-              <span className="block text-foreground">
+            <h1 className="mt-3 text-[22px] sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight leading-tight">
+              <span className="block text-foreground whitespace-nowrap">
                 Turning Cold Prospects Into
               </span>
-              <span className="block mt-1 sm:mt-2 text-primary">
+              <span className="block mt-1 sm:mt-2 text-primary whitespace-nowrap">
                 High-Ticket Closed Revenue
               </span>
             </h1>

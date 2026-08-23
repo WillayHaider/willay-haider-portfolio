@@ -1499,7 +1499,7 @@ function ReviewsSection() {
             <Star className="h-3 w-3 fill-current" />
             <span>Verified Reviews</span>
           </div>
-          <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 className="mt-3 text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-foreground whitespace-nowrap">
             What Founders & <span className="text-primary">Sales Leaders</span> Say
           </h2>
           <p className="mt-2 text-xs sm:text-sm text-foreground/80 font-medium max-w-md">
