@@ -1645,7 +1645,7 @@ function TeamCapabilitiesSection({ onOpenModal }: { onOpenModal: (service?: stri
 
             <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-secondary/50 p-5 text-center">
               <Sparkles className="h-6 w-6 text-primary" />
-              <h4 className="mt-2 text-sm font-bold text-foreground">Need a Custom Growth Setup?</h4>
+              <h3 className="mt-2 text-sm font-bold text-foreground">Need a Custom Growth Setup?</h3>
               <p className="mt-1 text-xs text-foreground/80 font-medium">
                 Let me assemble the right mix of sales reps, list researchers, and developers for your project.
               </p>
