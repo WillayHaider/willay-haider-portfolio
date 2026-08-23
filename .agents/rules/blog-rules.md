@@ -1,12 +1,15 @@
 # Blog, LinkedIn & Infographic Poster Generation Rule for Willay Haider Portfolio
 
 Whenever the user asks to write, generate, or publish a blog post:
-1. Always follow the complete 3-part blueprint in `src/lib/blog-generation-blueprint.md`:
-   - **Part 1: Blog Post:** First-person "I/me" authentic practitioner voice (Willay Haider, Senior BDR, 57,000+ dials, $3.5M+ closed revenue).
-     - STRICT CONSTRAINT: ZERO em dashes ("—") anywhere. Use colons, periods, or standard hyphens.
-     - 5-minute read (~750–900 words) with structured H2 headings, diagnostic questions, and "bad vs good" comparisons.
-     - Dual-geo keyword targeting for US and Pakistan audiences.
-     - Contextual internal links to `/#services`, `/#results`, `/#pricing`, `/#contact`, `/about`, and other blog posts.
+1. Always draw inspiration and high-intent, low-competition keywords from:
+   - `src/lib/high-intent-sales-topics.md` (Pillar clusters: RevOps, Signal-Driven Outbound, Demo Show-Up Workflows, Sales Tech Stack & Data Operations, In-House Team Economics, and Scriptless Discovery).
+   - `src/lib/blog-generation-blueprint.md` (Master Prompt & 3-Part Package).
+2. Adhere to the core content standards:
+   - **No Limits to Narrow Niches:** Write on peak B2B sales topics (enterprise closing, RevOps, multi-threading, deal velocity, sales engineering, cold calling).
+   - **Anti-AI Overviews:** Target long-tail operational friction terms (e.g. stage exit criteria, multi-threading playbooks, tech stack workflows) that Google AI Overviews cannot answer generically.
+   - **STRICT CONSTRAINT:** ZERO em dashes ("—") anywhere.
+   - **Dual-Geo Targeting:** USA/UK decision-makers and Pakistan-based agency owners.
+   - **Internal Links:** Link to `/#services`, `/#results`, `/#pricing`, `/#contact`, `/about`, and related blog posts.
    - **Part 2: LinkedIn Thought Leadership Post:**
      - Scroll-stopping hook, bulleted insights, blog link callout.
      - Dedicated verbatim closing callout:
