@@ -1082,25 +1082,17 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
   const touchStartX = useRef<number | null>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const updateHeight = () => {
+  useEffect(() => {
     const el = cardRefs.current[currentIndex];
-    if (el) {
-      setContainerHeight(el.offsetHeight);
-    }
-  };
-
-  useEffect(() => {
-    updateHeight();
+    if (!el) return;
+    const ro = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setContainerHeight(entry.contentRect.height);
+      }
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
   }, [currentIndex]);
-
-  useEffect(() => {
-    window.addEventListener("resize", updateHeight);
-    const timeout = setTimeout(updateHeight, 150);
-    return () => {
-      window.removeEventListener("resize", updateHeight);
-      clearTimeout(timeout);
-    };
-  }, []);
 
   const nextTier = () => {
     setCurrentIndex((prev) => (prev + 1) % PRICING_TIERS.length);
@@ -1423,49 +1415,48 @@ function ReviewsSection() {
   const startOffsetRef = useRef(0);
   const resumeTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Measure single segment width
-  const updateSegmentWidth = () => {
-    if (trackRef.current) {
-      segmentWidthRef.current = trackRef.current.scrollWidth / 2;
-    }
-  };
-
   useEffect(() => {
-    updateSegmentWidth();
-    window.addEventListener("resize", updateSegmentWidth);
-
     let animId: number;
     let lastTime = performance.now();
 
-    const loop = (now: number) => {
-      const delta = now - lastTime;
-      lastTime = now;
+    const track = trackRef.current;
+    if (track) {
+      const ro = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          segmentWidthRef.current = entry.contentRect.width / 2;
+        }
+      });
+      ro.observe(track);
 
-      // When not dragging and not hovered, advance offset via GPU transform
-      if (!isDraggingRef.current && !isHoveredRef.current && trackRef.current && segmentWidthRef.current > 0) {
-        const speed = 40; // 40px per second
-        offsetRef.current += (speed * delta) / 1000;
+      const loop = (now: number) => {
+        const delta = now - lastTime;
+        lastTime = now;
 
-        // Wrap seamlessly
-        if (offsetRef.current >= segmentWidthRef.current) {
-          offsetRef.current -= segmentWidthRef.current;
-        } else if (offsetRef.current < 0) {
-          offsetRef.current += segmentWidthRef.current;
+        // When not dragging and not hovered, advance offset via GPU transform
+        if (!isDraggingRef.current && !isHoveredRef.current && trackRef.current && segmentWidthRef.current > 0) {
+          const speed = 40; // 40px per second
+          offsetRef.current += (speed * delta) / 1000;
+
+          // Wrap seamlessly
+          if (offsetRef.current >= segmentWidthRef.current) {
+            offsetRef.current -= segmentWidthRef.current;
+          } else if (offsetRef.current < 0) {
+            offsetRef.current += segmentWidthRef.current;
+          }
+
+          trackRef.current.style.transform = `translate3d(-${offsetRef.current}px, 0, 0)`;
         }
 
-        trackRef.current.style.transform = `translate3d(-${offsetRef.current}px, 0, 0)`;
-      }
+        animId = requestAnimationFrame(loop);
+      };
 
       animId = requestAnimationFrame(loop);
-    };
 
-    animId = requestAnimationFrame(loop);
-
-    return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener("resize", updateSegmentWidth);
-      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
-    };
+      return () => {
+        ro.disconnect();
+        cancelAnimationFrame(animId);
+      };
+    }
   }, []);
 
   const onPointerDown = (e: React.PointerEvent) => {
