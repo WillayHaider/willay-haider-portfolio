@@ -34,43 +34,44 @@ export function CookieConsent() {
   return (
     <aside
       aria-label="Cookie Notice"
-      className="fixed bottom-3 right-3 left-3 z-50 sm:left-auto sm:right-5 sm:bottom-5 sm:max-w-[340px] animate-fade-in"
+      className="fixed bottom-3 right-3 left-3 z-50 sm:left-auto sm:right-5 sm:bottom-5 sm:max-w-[360px] animate-fade-in"
     >
-      <div className="relative overflow-hidden rounded-xl border border-border/80 bg-card/95 p-3.5 shadow-xl backdrop-blur-md">
+      <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card/95 p-4 shadow-xl backdrop-blur-md">
         <div className="flex items-start justify-between gap-2">
           <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-              <Cookie className="h-3.5 w-3.5" />
+            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <Cookie className="h-4 w-4" />
             </div>
             <p className="text-xs font-bold text-foreground">Cookie Preferences</p>
           </div>
 
           <button
             onClick={handleDecline}
-            aria-label="Close"
-            className="btn-click-effect -mr-1 -mt-1 p-1 text-muted-foreground transition-colors hover:text-foreground"
+            aria-label="Close cookie banner"
+            className="btn-click-effect -mr-1 -mt-1 p-1.5 text-muted-foreground transition-colors hover:text-foreground"
           >
-            <X className="h-3.5 w-3.5" />
+            <X className="h-4 w-4" />
           </button>
         </div>
 
-        <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
-          We use cookies to optimize performance and analytics. Review our{" "}
-          <Link to="/privacy-policy" className="font-semibold text-primary underline">
+        <p className="mt-2.5 text-xs leading-relaxed text-muted-foreground">
+          Cookies are used to optimize performance and analytics. Review our{" "}
+          <Link to="/privacy-policy" className="font-semibold text-primary underline hover:opacity-80">
             Privacy Policy
-          </Link>.
+          </Link>{" "}
+          for more info.
         </p>
 
-        <div className="mt-3 flex items-center justify-end gap-2">
+        <div className="mt-3.5 grid grid-cols-2 gap-2">
           <button
             onClick={handleDecline}
-            className="btn-click-effect rounded-lg border border-border bg-secondary/80 px-2.5 py-1 text-[11px] font-semibold text-foreground transition-all hover:bg-secondary active:scale-95"
+            className="btn-click-effect w-full rounded-xl border border-border bg-secondary/80 py-2.5 px-3 text-xs font-bold text-foreground transition-all hover:bg-secondary active:scale-95 text-center"
           >
             Essential
           </button>
           <button
             onClick={handleAccept}
-            className="btn-click-effect rounded-lg px-3 py-1 text-[11px] font-bold text-primary-foreground shadow-xs transition-all hover:opacity-90 active:scale-95"
+            className="btn-click-effect w-full rounded-xl py-2.5 px-3 text-xs font-bold text-primary-foreground shadow-xs transition-all hover:opacity-90 active:scale-95 text-center"
             style={{ background: "var(--gradient-primary)" }}
           >
             Accept
