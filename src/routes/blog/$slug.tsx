@@ -520,7 +520,6 @@ function BlogPostPage() {
               <span className="rounded-md bg-secondary/80 px-2 py-0.5 border border-border/50">57k+ Dials</span>
               <span className="rounded-md bg-secondary/80 px-2 py-0.5 border border-border/50">$3.5M+ Pipeline</span>
               <span className="rounded-md bg-secondary/80 px-2 py-0.5 border border-border/50">Google Analytics Certified</span>
-              <span className="rounded-md bg-secondary/80 px-2 py-0.5 border border-border/50">AWS Cloud Practitioner</span>
             </div>
           </div>
 
