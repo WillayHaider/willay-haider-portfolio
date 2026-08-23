@@ -540,16 +540,18 @@ function ServiceBusinessPage() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20 overflow-x-hidden">
       <Navbar onOpenModal={openLeadModal} />
-      <HeroSection onOpenModal={openLeadModal} />
-      <TrustBarSection />
-      <ServicesSection onOpenModal={openLeadModal} />
-      <ToolsGridSection />
-      <CertificationsSection />
-      <CaseStudiesSection onOpenModal={openLeadModal} />
-      <PricingCarouselSection onOpenModal={openLeadModal} />
-      <ReviewsSection />
-      <TeamCapabilitiesSection onOpenModal={openLeadModal} />
-      <FAQSection />
+      <main id="main-content">
+        <HeroSection onOpenModal={openLeadModal} />
+        <TrustBarSection />
+        <ServicesSection onOpenModal={openLeadModal} />
+        <ToolsGridSection />
+        <CertificationsSection />
+        <CaseStudiesSection onOpenModal={openLeadModal} />
+        <PricingCarouselSection onOpenModal={openLeadModal} />
+        <ReviewsSection />
+        <TeamCapabilitiesSection onOpenModal={openLeadModal} />
+        <FAQSection />
+      </main>
       <FooterSection />
 
       {/* Global Lead Capture Modal (Lazy loaded on demand) */}
