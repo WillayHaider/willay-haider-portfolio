@@ -128,6 +128,7 @@ type ParsedBlock =
   | { type: 'ul'; items: string[] }
   | { type: 'ol'; items: string[] }
   | { type: 'image'; alt: string; src: string }
+  | { type: 'table'; headers: string[]; rows: string[][] }
   | { type: 'p'; text: string };
 
 function parseMarkdown(content: string): ParsedBlock[] {
@@ -179,6 +180,7 @@ function parseMarkdown(content: string): ParsedBlock[] {
         !lines[i].trim().startsWith("#") &&
         !lines[i].trim().startsWith("- ") &&
         !lines[i].trim().startsWith("* ") &&
+        !lines[i].trim().startsWith("|") &&
         !/^\d+\.\s+/.test(lines[i].trim()) &&
         lines[i].trim() !== "---"
       ) {
@@ -187,6 +189,32 @@ function parseMarkdown(content: string): ParsedBlock[] {
       }
       blocks.push({ type: 'blockquote', lines: quoteLines });
       continue;
+    }
+
+    // Markdown Table Parser
+    if (trimmed.startsWith("|") && trimmed.endsWith("|")) {
+      const tableLines: string[] = [];
+      while (i < lines.length && lines[i].trim().startsWith("|") && lines[i].trim().endsWith("|")) {
+        tableLines.push(lines[i].trim());
+        i++;
+      }
+      if (tableLines.length >= 2) {
+        const splitRow = (rowStr: string) =>
+          rowStr
+            .slice(1, -1)
+            .split("|")
+            .map((c) => c.trim());
+        
+        const headers = splitRow(tableLines[0]);
+        const isSeparator = /^\|?(\s*:?-+:?\s*\|?)+$/.test(tableLines[1]);
+        const dataStart = isSeparator ? 2 : 1;
+        const rows: string[][] = [];
+        for (let r = dataStart; r < tableLines.length; r++) {
+          rows.push(splitRow(tableLines[r]));
+        }
+        blocks.push({ type: 'table', headers, rows });
+        continue;
+      }
     }
 
     if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
@@ -218,6 +246,7 @@ function parseMarkdown(content: string): ParsedBlock[] {
       !lines[i].trim().startsWith(">") &&
       !lines[i].trim().startsWith("- ") &&
       !lines[i].trim().startsWith("* ") &&
+      !lines[i].trim().startsWith("|") &&
       !/^\d+\.\s+/.test(lines[i].trim()) &&
       lines[i].trim() !== "---"
     ) {
@@ -285,6 +314,35 @@ function RenderContent({ content }: { content: string }) {
                 return <p key={qIdx}>{formatInline(unquoted)}</p>;
               })}
             </blockquote>
+          );
+        }
+
+        if (block.type === "table") {
+          return (
+            <div key={idx} className="my-6 overflow-x-auto rounded-xl border border-border bg-card/70 shadow-xs">
+              <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[500px]">
+                <thead>
+                  <tr className="border-b border-border bg-secondary/60">
+                    {block.headers.map((header, hIdx) => (
+                      <th key={hIdx} className="py-3 px-3.5 sm:px-4 font-bold text-foreground tracking-tight">
+                        {formatInline(header)}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border/50">
+                  {block.rows.map((row, rIdx) => (
+                    <tr key={rIdx} className="hover:bg-secondary/30 transition-colors">
+                      {row.map((cell, cIdx) => (
+                        <td key={cIdx} className="py-2.5 sm:py-3 px-3.5 sm:px-4 text-foreground/90 leading-relaxed align-top">
+                          {formatInline(cell)}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           );
         }
 
