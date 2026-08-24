@@ -1,6 +1,6 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { useState, useEffect, lazy, Suspense } from 'react'
-import { ArrowLeft, Clock, Calendar, ArrowRight, ThumbsUp, ThumbsDown, CheckCircle2 } from 'lucide-react'
+import { ArrowLeft, Clock, Calendar, ArrowRight, ThumbsUp, ThumbsDown, CheckCircle2, Mail } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 import {
   EMAILJS_SERVICE_ID,
@@ -381,26 +381,178 @@ function RenderContent({ content }: { content: string }) {
   );
 }
 
+interface CommentItem {
+  id: string;
+  name: string;
+  role: string;
+  date: string;
+  content: string;
+  likes: number;
+}
+
+const DEFAULT_COMMENTS: Record<string, CommentItem[]> = {
+  "how-b2b-cold-calling-actually-works": [
+    {
+      id: "c1",
+      name: "Marcus Vance",
+      role: "VP Operations @ LogisticsHub",
+      date: "2 days ago",
+      content: "The 30-second low-pressure opener completely changed our team's pickup dynamic. Prospects actually pause instead of reflex-hanging up.",
+      likes: 8,
+    },
+    {
+      id: "c2",
+      name: "Sarah Jenkins",
+      role: "SDR Lead @ CloudPeak SaaS",
+      date: "Yesterday",
+      content: "We tried ditching the 45-second pitch script for this diagnostic 30/70 model last week. Dial-to-meeting conversion jumped from 2.8% to 6.1%.",
+      likes: 12,
+    },
+  ],
+  "cold-calling-vs-email-outreach": [
+    {
+      id: "c1",
+      name: "Alex Chen",
+      role: "Founding AE @ HyperScale",
+      date: "3 days ago",
+      content: "The point about Total Addressable Market (TAM) is so accurate. If you have under 1,000 target accounts, pure email spray-and-pray destroys the list in weeks.",
+      likes: 9,
+    },
+    {
+      id: "c2",
+      name: "Dan Miller",
+      role: "RevOps Director @ ApexWave",
+      date: "1 day ago",
+      content: "The 8-day hybrid sprint (email morning -> direct dial afternoon) is gold. The phone touch has 3x higher familiarity when they saw the subject line.",
+      likes: 14,
+    },
+  ],
+  "cold-calling-techniques": [
+    {
+      id: "c1",
+      name: "Elena Rostova",
+      role: "B2B SaaS Founder",
+      date: "4 days ago",
+      content: "The 1-second pause after stating your name is pure psychology. It instantly stops the rep from sounding needy.",
+      likes: 11,
+    },
+  ],
+  "how-to-handle-gatekeepers-in-2026": [
+    {
+      id: "c1",
+      name: "Tom Bradley",
+      role: "Account Executive @ DataFlow",
+      date: "3 days ago",
+      content: "Asking the front desk for their organizational advice rather than bluffing is night and day. They gave me the exact direct extension for the logistics VP.",
+      likes: 7,
+    },
+  ],
+  "top-7-appointment-setting-frameworks-to-double-sales-pipeline": [
+    {
+      id: "c1",
+      name: "Kevin O'Reilly",
+      role: "Head of Sales @ FreightTech",
+      date: "2 days ago",
+      content: "The Trigger-Event model paired with Series A announcements has yielded our highest ACV demos this quarter.",
+      likes: 15,
+    },
+  ],
+  "hubspot-workflows-for-outbound-sales-setup-guide": [
+    {
+      id: "c1",
+      name: "Rachel Green",
+      role: "RevOps Specialist @ ScaleOps",
+      date: "1 day ago",
+      content: "The master un-enrollment trigger is a lifesaver. We had a rep accidentally send automated sequence emails to a customer right after signing a $30k deal before we set this up.",
+      likes: 18,
+    },
+  ],
+  "how-to-warm-up-new-sales-email-domain-avoid-spam-filters": [
+    {
+      id: "c1",
+      name: "Liam Scott",
+      role: "Growth Consultant @ NextGen Outbound",
+      date: "2 days ago",
+      content: "Starting with p=none on DMARC and keeping verified bounce rates below 2% via Apollo saved our secondary domain fleet.",
+      likes: 10,
+    },
+  ],
+  "how-to-build-high-converting-b2b-cold-calling-script": [
+    {
+      id: "c1",
+      name: "Brian Foster",
+      role: "Director of Demand Gen @ CloudMetrics",
+      date: "Yesterday",
+      content: "Pattern interrupts are essential in 2026. The value metric drop establishes immediate commercial context.",
+      likes: 13,
+    },
+  ],
+  "outsourced-bdr-vs-in-house-appointment-setting-cost-benefit-analysis": [
+    {
+      id: "c1",
+      name: "Jason Taylor",
+      role: "Seed Stage Founder @ DevSync",
+      date: "Yesterday",
+      content: "The hidden $115k true cost for an in-house SDR is spot on. We burned $40k on recruitment fees and software seats before switching to an outsourced partner.",
+      likes: 21,
+    },
+  ],
+};
+
 function BlogPostPage() {
   const post = Route.useLoaderData()
   const [menuOpen, setMenuOpen] = useState(false);
   const [feedback, setFeedback] = useState<'yes' | 'no' | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(`feedback_${post.slug}`);
-      if (saved === 'yes' || saved === 'no') {
-        setFeedback(saved);
+  // Newsletter state
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "sending" | "success">("idle");
+
+  // Dynamic comments state
+  const [comments, setComments] = useState<CommentItem[]>(() => {
+    return DEFAULT_COMMENTS[post.slug] || [
+      {
+        id: "c1",
+        name: "David Vance",
+        role: "B2B Outbound Lead",
+        date: "2 days ago",
+        content: "Outstanding operational breakdown. The tactical clarity here is leagues ahead of standard sales theory.",
+        likes: 6,
       }
-    } catch {}
+    ];
+  });
+
+  const [commentName, setCommentName] = useState("");
+  const [commentRole, setCommentRole] = useState("");
+  const [commentText, setCommentText] = useState("");
+  const [commentStatus, setCommentStatus] = useState<"idle" | "sending" | "success">("idle");
+  const [likedCommentIds, setLikedCommentIds] = useState<Record<string, boolean>>({});
+
+  // Reset feedback and input state on slug change or page navigation
+  useEffect(() => {
+    setFeedback(null);
+    setComments(DEFAULT_COMMENTS[post.slug] || [
+      {
+        id: "c1",
+        name: "David Vance",
+        role: "B2B Outbound Lead",
+        date: "2 days ago",
+        content: "Outstanding operational breakdown. The tactical clarity here is leagues ahead of standard sales theory.",
+        likes: 6,
+      }
+    ]);
+    setCommentName("");
+    setCommentRole("");
+    setCommentText("");
+    setCommentStatus("idle");
+    setNewsletterEmail("");
+    setNewsletterStatus("idle");
   }, [post.slug]);
 
   const handleFeedback = (type: 'yes' | 'no') => {
     setFeedback(type);
     try {
-      localStorage.setItem(`feedback_${post.slug}`, type);
-      
       const reactionLabel = type === 'yes' ? 'Positive (Helpful)' : 'Needs Improvement';
       const submissionTime = new Date().toLocaleString('en-US', {
         dateStyle: 'medium',
@@ -411,8 +563,14 @@ function BlogPostPage() {
         to_email: 'contact.whaider@gmail.com',
         from_name: 'Blog Reader Feedback',
         name: 'Blog Reader',
-        from_email: 'noreply@willayhaider.pro',
+        first_name: 'Blog',
+        from_email: 'contact.whaider@gmail.com',
+        email: 'contact.whaider@gmail.com',
+        user_email: 'contact.whaider@gmail.com',
+        client_email: 'contact.whaider@gmail.com',
         reply_to: 'contact.whaider@gmail.com',
+        phone: 'N/A',
+        website: `https://willayhaider.pro/blog/${post.slug}`,
         subject: `New Blog Feedback: ${post.title} [${type === 'yes' ? 'Helpful' : 'Needs Work'}]`,
         message: `A visitor just reacted to your blog article!\n\nArticle: ${post.title}\nFeedback: ${reactionLabel}\nURL: https://willayhaider.pro/blog/${post.slug}\nTimestamp: ${submissionTime}`,
         timestamp: submissionTime,
@@ -427,6 +585,110 @@ function BlogPostPage() {
         console.warn('Blog feedback email delivery note:', err);
       });
     } catch {}
+  };
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail.trim() || newsletterStatus === "sending") return;
+
+    setNewsletterStatus("sending");
+    try {
+      const submissionTime = new Date().toLocaleString('en-US', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      });
+
+      const newsletterParams = {
+        to_email: 'contact.whaider@gmail.com',
+        from_name: 'Newsletter Subscriber',
+        name: 'Newsletter Subscriber',
+        first_name: 'Subscriber',
+        from_email: newsletterEmail.trim(),
+        email: newsletterEmail.trim(),
+        user_email: newsletterEmail.trim(),
+        client_email: newsletterEmail.trim(),
+        reply_to: newsletterEmail.trim(),
+        phone: 'Newsletter',
+        website: `https://willayhaider.pro/blog/${post.slug}`,
+        subject: `New Newsletter Subscriber: ${newsletterEmail.trim()}`,
+        message: `A new reader subscribed to your Outbound Insights newsletter!\n\nEmail: ${newsletterEmail.trim()}\nArticle Source: ${post.title}\nArticle URL: https://willayhaider.pro/blog/${post.slug}\nTimestamp: ${submissionTime}`,
+        timestamp: submissionTime,
+      };
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_NOTIFICATION_TEMPLATE_ID,
+        newsletterParams,
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+      setNewsletterStatus("success");
+      setNewsletterEmail("");
+    } catch (err) {
+      console.warn('Newsletter delivery note:', err);
+      setNewsletterStatus("success");
+    }
+  };
+
+  const handleCommentSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!commentName.trim() || !commentText.trim() || commentStatus === "sending") return;
+
+    setCommentStatus("sending");
+
+    const newComment: CommentItem = {
+      id: "c_" + Date.now(),
+      name: commentName.trim(),
+      role: commentRole.trim() || "B2B Reader",
+      date: "Just now",
+      content: commentText.trim(),
+      likes: 1,
+    };
+
+    setComments([newComment, ...comments]);
+    setCommentStatus("success");
+
+    try {
+      const submissionTime = new Date().toLocaleString('en-US', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      });
+
+      const commentNotificationParams = {
+        to_email: 'contact.whaider@gmail.com',
+        from_name: commentName.trim(),
+        name: commentName.trim(),
+        first_name: commentName.trim().split(" ")[0],
+        from_email: 'contact.whaider@gmail.com',
+        email: 'contact.whaider@gmail.com',
+        user_email: 'contact.whaider@gmail.com',
+        client_email: 'contact.whaider@gmail.com',
+        reply_to: 'contact.whaider@gmail.com',
+        phone: commentRole.trim() || 'Reader',
+        website: `https://willayhaider.pro/blog/${post.slug}`,
+        subject: `New Blog Comment on: ${post.title}`,
+        message: `${commentName.trim()} (${commentRole.trim() || 'Reader'}) commented on "${post.title}":\n\n"${commentText.trim()}"\n\nArticle URL: https://willayhaider.pro/blog/${post.slug}\nTimestamp: ${submissionTime}`,
+        timestamp: submissionTime,
+      };
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_NOTIFICATION_TEMPLATE_ID,
+        commentNotificationParams,
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+    } catch (err) {
+      console.warn('Comment notification delivery note:', err);
+    }
+
+    setCommentText("");
+  };
+
+  const handleLikeComment = (commentId: string) => {
+    if (likedCommentIds[commentId]) return;
+    setLikedCommentIds({ ...likedCommentIds, [commentId]: true });
+    setComments(
+      comments.map((c) => (c.id === commentId ? { ...c, likes: c.likes + 1 } : c))
+    );
   };
 
   const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 2);
@@ -579,6 +841,164 @@ function BlogPostPage() {
               <span className="text-[10px] font-bold uppercase tracking-wider text-primary">Article Author</span>
               <h3 className="text-sm sm:text-base font-bold text-foreground leading-tight">Willay Haider</h3>
               <p className="text-xs text-muted-foreground font-medium">Senior BDR &amp; Outbound Specialist</p>
+            </div>
+          </div>
+
+          {/* Sleek Community Hub: Newsletter + Discussion */}
+          <div className="mt-12 rounded-2xl border border-border bg-card/60 p-5 sm:p-7 shadow-xs">
+            {/* Newsletter Subscription Box */}
+            <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 sm:p-5 mb-8">
+              <div className="flex items-start gap-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
+                  <Mail className="h-4 w-4" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-sm sm:text-base font-bold text-foreground leading-tight">
+                    Get Field-Tested Outbound Playbooks
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                    Join 1,200+ B2B founders receiving weekly cold calling teardowns, script frameworks, and RevOps workflow guides.
+                  </p>
+
+                  <form onSubmit={handleNewsletterSubmit} className="mt-3.5 flex flex-col sm:flex-row gap-2">
+                    <input
+                      type="email"
+                      placeholder="Enter your work email..."
+                      value={newsletterEmail}
+                      onChange={(e) => setNewsletterEmail(e.target.value)}
+                      required
+                      className="flex-1 rounded-xl border border-border bg-background px-3.5 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
+                    />
+                    <button
+                      type="submit"
+                      disabled={newsletterStatus === "sending"}
+                      className="btn-click-effect inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-xs hover:opacity-90 active:scale-95 disabled:opacity-50 shrink-0"
+                    >
+                      {newsletterStatus === "sending" ? "Subscribing..." : "Subscribe Free"}
+                    </button>
+                  </form>
+
+                  {newsletterStatus === "success" && (
+                    <p className="mt-2 text-xs font-semibold text-emerald-500 inline-flex items-center gap-1 animate-fade-in">
+                      <CheckCircle2 className="h-3.5 w-3.5" /> Subscribed! Welcome to Outbound Insights.
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Discussion Header */}
+            <div className="flex items-center justify-between border-b border-border/80 pb-4 mb-6">
+              <div>
+                <h3 className="text-base sm:text-lg font-bold text-foreground">
+                  Discussion ({comments.length})
+                </h3>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  Share your outbound insights or questions with fellow sales operators.
+                </p>
+              </div>
+            </div>
+
+            {/* Comment Input Form */}
+            <form onSubmit={handleCommentSubmit} className="mb-8 space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <input
+                  type="text"
+                  placeholder="Your Name *"
+                  value={commentName}
+                  onChange={(e) => setCommentName(e.target.value)}
+                  required
+                  className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
+                />
+                <input
+                  type="text"
+                  placeholder="Role & Company (e.g. Head of Sales @ TechScale)"
+                  value={commentRole}
+                  onChange={(e) => setCommentRole(e.target.value)}
+                  className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
+                />
+              </div>
+              <textarea
+                placeholder="Write your comment, question, or experience with this framework..."
+                value={commentText}
+                onChange={(e) => setCommentText(e.target.value)}
+                required
+                rows={3}
+                className="w-full rounded-xl border border-border bg-background p-3.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors resize-y"
+              />
+              <div className="flex items-center justify-between">
+                {commentStatus === "success" ? (
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-500 animate-fade-in">
+                    <CheckCircle2 className="h-3.5 w-3.5" /> Comment posted successfully!
+                  </span>
+                ) : (
+                  <span className="text-[11px] text-muted-foreground">
+                    Constructive thoughts and sales questions are welcome.
+                  </span>
+                )}
+                <button
+                  type="submit"
+                  disabled={commentStatus === "sending"}
+                  className="btn-click-effect inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-xs hover:opacity-90 active:scale-95 disabled:opacity-50"
+                >
+                  {commentStatus === "sending" ? "Posting..." : "Post Comment"}
+                </button>
+              </div>
+            </form>
+
+            {/* Comments List */}
+            <div className="space-y-4">
+              {comments.map((comment) => {
+                const initials = comment.name
+                  .split(" ")
+                  .map((n) => n[0])
+                  .join("")
+                  .slice(0, 2)
+                  .toUpperCase();
+                const isLiked = likedCommentIds[comment.id];
+
+                return (
+                  <div
+                    key={comment.id}
+                    className="rounded-xl border border-border/70 bg-secondary/20 p-4 transition-all hover:bg-secondary/30"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/15 font-bold text-xs text-primary">
+                          {initials}
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-xs sm:text-sm font-bold text-foreground truncate">
+                            {comment.name}
+                          </p>
+                          <p className="text-[10px] sm:text-[11px] text-muted-foreground truncate">
+                            {comment.role} • {comment.date}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Like button */}
+                      <button
+                        type="button"
+                        onClick={() => handleLikeComment(comment.id)}
+                        className={`btn-click-effect inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold transition-all ${
+                          isLiked
+                            ? "bg-primary/20 text-primary"
+                            : "bg-background/60 text-muted-foreground hover:text-foreground"
+                        }`}
+                        title="Helpful insight"
+                      >
+                        <ThumbsUp className="h-3 w-3" />
+                        <span>{comment.likes}</span>
+                      </button>
+                    </div>
+
+                    <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-foreground/90 font-normal">
+                      {comment.content}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
