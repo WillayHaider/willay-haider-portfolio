@@ -697,9 +697,8 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
 
               <a
                 href="#results"
-                className="btn-click-effect inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full border border-border bg-card px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-foreground transition-all hover:border-primary/50 hover:text-primary active:scale-95 shadow-xs"
+                className="btn-click-effect inline-flex min-h-[42px] items-center justify-center rounded-full border border-border bg-card px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-foreground transition-all hover:border-primary/50 hover:text-primary active:scale-95 shadow-xs"
               >
-                <TrendingUp className="h-3.5 w-3.5 text-primary" />
                 <span>View Results</span>
               </a>
             </div>
