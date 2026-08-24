@@ -14,6 +14,7 @@ const URLS = [
   `https://${HOST}/blog/top-7-appointment-setting-frameworks-to-double-sales-pipeline`,
   `https://${HOST}/blog/hubspot-workflows-for-outbound-sales-setup-guide`,
   `https://${HOST}/blog/how-to-warm-up-new-sales-email-domain-avoid-spam-filters`,
+  `https://${HOST}/blog/how-to-build-high-converting-b2b-cold-calling-script`,
   `https://${HOST}/privacy-policy`,
   `https://${HOST}/terms-and-conditions`,
   `https://${HOST}/terms`
