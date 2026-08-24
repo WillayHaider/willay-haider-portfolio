@@ -1,6 +1,6 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { useState, useEffect, lazy, Suspense } from 'react'
-import { ArrowLeft, Clock, Calendar, ArrowRight, ThumbsUp, ThumbsDown, CheckCircle2, Mail } from 'lucide-react'
+import { ArrowLeft, Clock, Calendar, ArrowRight, ThumbsUp, ThumbsDown, CheckCircle2, MessageSquare, X } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 import {
   EMAILJS_SERVICE_ID,
@@ -529,9 +529,12 @@ function BlogPostPage() {
   const [commentStatus, setCommentStatus] = useState<"idle" | "sending" | "success">("idle");
   const [likedCommentIds, setLikedCommentIds] = useState<Record<string, boolean>>({});
 
+  const [isCommentsOpen, setIsCommentsOpen] = useState(false);
+
   // Reset feedback and input state on slug change or page navigation
   useEffect(() => {
     setFeedback(null);
+    setIsCommentsOpen(false);
     setComments(DEFAULT_COMMENTS[post.slug] || [
       {
         id: "c1",
@@ -844,163 +847,141 @@ function BlogPostPage() {
             </div>
           </div>
 
-          {/* Sleek Community Hub: Newsletter + Discussion */}
-          <div className="mt-12 rounded-2xl border border-border bg-card/60 p-5 sm:p-7 shadow-xs">
-            {/* Newsletter Subscription Box */}
-            <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 sm:p-5 mb-8">
-              <div className="flex items-start gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
-                  <Mail className="h-4 w-4" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <h3 className="text-sm sm:text-base font-bold text-foreground leading-tight">
-                    Get Field-Tested Outbound Playbooks
+          {/* Small Sleek Comments Icon Button */}
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setIsCommentsOpen(!isCommentsOpen)}
+              className="btn-click-effect inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground shadow-xs hover:border-primary/50 hover:text-primary transition-all active:scale-95"
+            >
+              <MessageSquare className="h-3.5 w-3.5 text-primary" />
+              <span>Comments ({comments.length})</span>
+            </button>
+          </div>
+
+          {/* Expandable Comments Drawer / Panel */}
+          {isCommentsOpen && (
+            <div className="mt-6 rounded-2xl border border-border bg-card/80 p-4 sm:p-6 shadow-xs animate-fade-in">
+              <div className="flex items-center justify-between border-b border-border pb-3 mb-5">
+                <div className="flex items-center gap-2">
+                  <MessageSquare className="h-4 w-4 text-primary" />
+                  <h3 className="text-sm sm:text-base font-bold text-foreground">
+                    Comments ({comments.length})
                   </h3>
-                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                    Join 1,200+ B2B founders receiving weekly cold calling teardowns, script frameworks, and RevOps workflow guides.
-                  </p>
-
-                  <form onSubmit={handleNewsletterSubmit} className="mt-3.5 flex flex-col sm:flex-row gap-2">
-                    <input
-                      type="email"
-                      placeholder="Enter your work email..."
-                      value={newsletterEmail}
-                      onChange={(e) => setNewsletterEmail(e.target.value)}
-                      required
-                      className="flex-1 rounded-xl border border-border bg-background px-3.5 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
-                    />
-                    <button
-                      type="submit"
-                      disabled={newsletterStatus === "sending"}
-                      className="btn-click-effect inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-xs hover:opacity-90 active:scale-95 disabled:opacity-50 shrink-0"
-                    >
-                      {newsletterStatus === "sending" ? "Subscribing..." : "Subscribe Free"}
-                    </button>
-                  </form>
-
-                  {newsletterStatus === "success" && (
-                    <p className="mt-2 text-xs font-semibold text-emerald-500 inline-flex items-center gap-1 animate-fade-in">
-                      <CheckCircle2 className="h-3.5 w-3.5" /> Subscribed! Welcome to Outbound Insights.
-                    </p>
-                  )}
                 </div>
-              </div>
-            </div>
-
-            {/* Discussion Header */}
-            <div className="flex items-center justify-between border-b border-border/80 pb-4 mb-6">
-              <div>
-                <h3 className="text-base sm:text-lg font-bold text-foreground">
-                  Discussion ({comments.length})
-                </h3>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  Share your outbound insights or questions with fellow sales operators.
-                </p>
-              </div>
-            </div>
-
-            {/* Comment Input Form */}
-            <form onSubmit={handleCommentSubmit} className="mb-8 space-y-3">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <input
-                  type="text"
-                  placeholder="Your Name *"
-                  value={commentName}
-                  onChange={(e) => setCommentName(e.target.value)}
-                  required
-                  className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
-                />
-                <input
-                  type="text"
-                  placeholder="Role & Company (e.g. Head of Sales @ TechScale)"
-                  value={commentRole}
-                  onChange={(e) => setCommentRole(e.target.value)}
-                  className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
-                />
-              </div>
-              <textarea
-                placeholder="Write your comment, question, or experience with this framework..."
-                value={commentText}
-                onChange={(e) => setCommentText(e.target.value)}
-                required
-                rows={3}
-                className="w-full rounded-xl border border-border bg-background p-3.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors resize-y"
-              />
-              <div className="flex items-center justify-between">
-                {commentStatus === "success" ? (
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-500 animate-fade-in">
-                    <CheckCircle2 className="h-3.5 w-3.5" /> Comment posted successfully!
-                  </span>
-                ) : (
-                  <span className="text-[11px] text-muted-foreground">
-                    Constructive thoughts and sales questions are welcome.
-                  </span>
-                )}
                 <button
-                  type="submit"
-                  disabled={commentStatus === "sending"}
-                  className="btn-click-effect inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-xs hover:opacity-90 active:scale-95 disabled:opacity-50"
+                  type="button"
+                  onClick={() => setIsCommentsOpen(false)}
+                  className="btn-click-effect inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground font-medium px-2 py-1 rounded-md hover:bg-secondary transition-colors"
                 >
-                  {commentStatus === "sending" ? "Posting..." : "Post Comment"}
+                  <X className="h-3.5 w-3.5" />
+                  <span>Close</span>
                 </button>
               </div>
-            </form>
 
-            {/* Comments List */}
-            <div className="space-y-4">
-              {comments.map((comment) => {
-                const initials = comment.name
-                  .split(" ")
-                  .map((n) => n[0])
-                  .join("")
-                  .slice(0, 2)
-                  .toUpperCase();
-                const isLiked = likedCommentIds[comment.id];
-
-                return (
-                  <div
-                    key={comment.id}
-                    className="rounded-xl border border-border/70 bg-secondary/20 p-4 transition-all hover:bg-secondary/30"
+              {/* Comment Input Form */}
+              <form onSubmit={handleCommentSubmit} className="mb-6 space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <input
+                    type="text"
+                    placeholder="Your Name *"
+                    value={commentName}
+                    onChange={(e) => setCommentName(e.target.value)}
+                    required
+                    className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Role & Company (e.g. Head of Sales @ TechScale)"
+                    value={commentRole}
+                    onChange={(e) => setCommentRole(e.target.value)}
+                    className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
+                  />
+                </div>
+                <textarea
+                  placeholder="Write your comment, question, or feedback..."
+                  value={commentText}
+                  onChange={(e) => setCommentText(e.target.value)}
+                  required
+                  rows={3}
+                  className="w-full rounded-xl border border-border bg-background p-3 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors resize-y"
+                />
+                <div className="flex items-center justify-between">
+                  {commentStatus === "success" ? (
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-500 animate-fade-in">
+                      <CheckCircle2 className="h-3.5 w-3.5" /> Comment posted!
+                    </span>
+                  ) : (
+                    <span className="text-[11px] text-muted-foreground">
+                      Constructive feedback welcome.
+                    </span>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={commentStatus === "sending"}
+                    className="btn-click-effect inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-xs hover:opacity-90 active:scale-95 disabled:opacity-50"
                   >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-center gap-2.5 min-w-0">
-                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/15 font-bold text-xs text-primary">
-                          {initials}
+                    {commentStatus === "sending" ? "Posting..." : "Post Comment"}
+                  </button>
+                </div>
+              </form>
+
+              {/* Comments List */}
+              <div className="space-y-3.5">
+                {comments.map((comment) => {
+                  const initials = comment.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")
+                    .slice(0, 2)
+                    .toUpperCase();
+                  const isLiked = likedCommentIds[comment.id];
+
+                  return (
+                    <div
+                      key={comment.id}
+                      className="rounded-xl border border-border/70 bg-secondary/20 p-3.5 transition-all hover:bg-secondary/30"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/15 font-bold text-xs text-primary">
+                            {initials}
+                          </div>
+                          <div className="min-w-0">
+                            <p className="text-xs sm:text-sm font-bold text-foreground truncate">
+                              {comment.name}
+                            </p>
+                            <p className="text-[10px] sm:text-[11px] text-muted-foreground truncate">
+                              {comment.role} • {comment.date}
+                            </p>
+                          </div>
                         </div>
-                        <div className="min-w-0">
-                          <p className="text-xs sm:text-sm font-bold text-foreground truncate">
-                            {comment.name}
-                          </p>
-                          <p className="text-[10px] sm:text-[11px] text-muted-foreground truncate">
-                            {comment.role} • {comment.date}
-                          </p>
-                        </div>
+
+                        {/* Like button */}
+                        <button
+                          type="button"
+                          onClick={() => handleLikeComment(comment.id)}
+                          className={`btn-click-effect inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold transition-all ${
+                            isLiked
+                              ? "bg-primary/20 text-primary"
+                              : "bg-background/60 text-muted-foreground hover:text-foreground"
+                          }`}
+                          title="Helpful insight"
+                        >
+                          <ThumbsUp className="h-3 w-3" />
+                          <span>{comment.likes}</span>
+                        </button>
                       </div>
 
-                      {/* Like button */}
-                      <button
-                        type="button"
-                        onClick={() => handleLikeComment(comment.id)}
-                        className={`btn-click-effect inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold transition-all ${
-                          isLiked
-                            ? "bg-primary/20 text-primary"
-                            : "bg-background/60 text-muted-foreground hover:text-foreground"
-                        }`}
-                        title="Helpful insight"
-                      >
-                        <ThumbsUp className="h-3 w-3" />
-                        <span>{comment.likes}</span>
-                      </button>
+                      <p className="mt-2 text-xs sm:text-sm leading-relaxed text-foreground/90 font-normal">
+                        {comment.content}
+                      </p>
                     </div>
-
-                    <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-foreground/90 font-normal">
-                      {comment.content}
-                    </p>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Related Articles Section */}
           {relatedPosts.length > 0 && (
