@@ -22,6 +22,11 @@ export const Route = createFileRoute('/blog/$slug')({
   },
   head: ({ loaderData }) => {
     if (!loaderData) return {}
+    const imgMatch = loaderData.content.match(/!\[.*?\]\((.*?)\)/);
+    const featuredImg = imgMatch
+      ? (imgMatch[1].startsWith("http") ? imgMatch[1] : `https://willayhaider.pro${imgMatch[1]}`)
+      : "https://willayhaider.pro/gatekeepers-infographic.jpg";
+
     return {
       meta: [
         { title: loaderData.metaTitle || `${loaderData.title} | Willay Haider` },
@@ -32,11 +37,11 @@ export const Route = createFileRoute('/blog/$slug')({
         { property: "og:description", content: loaderData.metaDescription || loaderData.excerpt },
         { property: "og:type", content: "article" },
         { property: "og:url", content: `https://willayhaider.pro/blog/${loaderData.slug}` },
-        { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
+        { property: "og:image", content: featuredImg },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: loaderData.metaTitle || loaderData.title },
         { name: "twitter:description", content: loaderData.metaDescription || loaderData.excerpt },
-        { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
+        { name: "twitter:image", content: featuredImg },
       ],
       links: [
         { rel: "canonical", href: `https://willayhaider.pro/blog/${loaderData.slug}` },
@@ -49,6 +54,7 @@ export const Route = createFileRoute('/blog/$slug')({
             "@type": "BlogPosting",
             headline: loaderData.title,
             description: loaderData.excerpt,
+            image: featuredImg,
             datePublished: loaderData.date,
             dateModified: "2026-08-24",
             mainEntityOfPage: {
