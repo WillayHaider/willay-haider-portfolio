@@ -93,7 +93,7 @@ const CAREER_HIGHLIGHTS = [
   {
     role: "Business Growth Specialist",
     company: "Million Dials Pvt Ltd.",
-    period: "Jan 2026 to recent",
+    period: "Jan 2026 to Recent",
     desc: "Leading outbound sales motions, developing dynamic cold call talk tracks, and training junior SDRs on discovery and qualification across B2B SaaS accounts.",
   },
   {
