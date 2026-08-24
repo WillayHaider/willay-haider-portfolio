@@ -661,7 +661,14 @@ function BlogPostPage() {
     });
   };
 
-  const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 2);
+  const currentIndex = BLOG_POSTS.findIndex((p) => p.slug === post.slug);
+  const relatedPosts =
+    currentIndex !== -1 && BLOG_POSTS.length > 1
+      ? [
+          BLOG_POSTS[(currentIndex + 1) % BLOG_POSTS.length],
+          BLOG_POSTS[(currentIndex + 2) % BLOG_POSTS.length],
+        ]
+      : BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 2);
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
