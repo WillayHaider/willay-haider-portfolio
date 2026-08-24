@@ -1,6 +1,6 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { useState, useEffect, lazy, Suspense } from 'react'
-import { ArrowLeft, Clock, Calendar, ArrowRight, ThumbsUp, ThumbsDown, CheckCircle2, MessageSquare, X } from 'lucide-react'
+import { ArrowLeft, Clock, Calendar, ArrowRight, ThumbsUp, ThumbsDown, CheckCircle2, MessageSquare, X, ChevronDown } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 import {
   EMAILJS_SERVICE_ID,
@@ -174,16 +174,7 @@ function parseMarkdown(content: string): ParsedBlock[] {
 
     if (trimmed.startsWith(">")) {
       const quoteLines: string[] = [];
-      while (
-        i < lines.length &&
-        lines[i].trim() !== "" &&
-        !lines[i].trim().startsWith("#") &&
-        !lines[i].trim().startsWith("- ") &&
-        !lines[i].trim().startsWith("* ") &&
-        !lines[i].trim().startsWith("|") &&
-        !/^\d+\.\s+/.test(lines[i].trim()) &&
-        lines[i].trim() !== "---"
-      ) {
+      while(i < lines.length && lines[i].trim() !== "" && !lines[i].trim().startsWith("#") && !lines[i].trim().startsWith("- ") && !lines[i].trim().startsWith("* ") && !lines[i].trim().startsWith("|") && !/^\d+\.\s+/.test(lines[i].trim()) && lines[i].trim() !== "---") {
         quoteLines.push(lines[i].trim().replace(/^>\s*/, ""));
         i++;
       }
@@ -191,7 +182,6 @@ function parseMarkdown(content: string): ParsedBlock[] {
       continue;
     }
 
-    // Markdown Table Parser
     if (trimmed.startsWith("|") && trimmed.endsWith("|")) {
       const tableLines: string[] = [];
       while (i < lines.length && lines[i].trim().startsWith("|") && lines[i].trim().endsWith("|")) {
@@ -199,12 +189,7 @@ function parseMarkdown(content: string): ParsedBlock[] {
         i++;
       }
       if (tableLines.length >= 2) {
-        const splitRow = (rowStr: string) =>
-          rowStr
-            .slice(1, -1)
-            .split("|")
-            .map((c) => c.trim());
-        
+        const splitRow = (rowStr: string) => rowStr.slice(1, -1).split("|").map((c) => c.trim());
         const headers = splitRow(tableLines[0]);
         const isSeparator = /^\|?(\s*:?-+:?\s*\|?)+$/.test(tableLines[1]);
         const dataStart = isSeparator ? 2 : 1;
@@ -237,19 +222,8 @@ function parseMarkdown(content: string): ParsedBlock[] {
       continue;
     }
 
-    // Paragraph
     const pLines: string[] = [];
-    while (
-      i < lines.length &&
-      lines[i].trim() !== "" &&
-      !lines[i].trim().startsWith("#") &&
-      !lines[i].trim().startsWith(">") &&
-      !lines[i].trim().startsWith("- ") &&
-      !lines[i].trim().startsWith("* ") &&
-      !lines[i].trim().startsWith("|") &&
-      !/^\d+\.\s+/.test(lines[i].trim()) &&
-      lines[i].trim() !== "---"
-    ) {
+    while (i < lines.length && lines[i].trim() !== "" && !lines[i].trim().startsWith("#") && !lines[i].trim().startsWith(">") && !lines[i].trim().startsWith("- ") && !lines[i].trim().startsWith("* ") && !lines[i].trim().startsWith("|") && !/^\d+\.\s+/.test(lines[i].trim()) && lines[i].trim() !== "---") {
       pLines.push(lines[i].trim());
       i++;
     }
@@ -263,119 +237,35 @@ function parseMarkdown(content: string): ParsedBlock[] {
 
 function RenderContent({ content }: { content: string }) {
   const blocks = parseMarkdown(content);
-
   return (
     <article className="space-y-4 text-foreground">
       {blocks.map((block, idx) => {
-        if (block.type === "hr") {
-          return <hr key={idx} className="my-6 border-border" />;
-        }
-
-        if (block.type === "image") {
-          return (
+        if (block.type === "hr") return <hr key={idx} className="my-6 border-border" />;
+        if (block.type === "image") return (
             <div key={idx} className="my-6 flex justify-center">
               <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm w-full">
-                <img
-                  src={block.src}
-                  alt={block.alt}
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img src={block.src} alt={block.alt} className="w-full h-auto object-contain" loading="lazy" decoding="async" />
               </div>
             </div>
           );
-        }
-
-        if (block.type === "h2") {
-          return (
-            <h2 key={idx} className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mt-8 mb-3">
-              {block.text}
-            </h2>
-          );
-        }
-
-        if (block.type === "h3") {
-          return (
-            <h3 key={idx} className="text-base sm:text-lg font-bold tracking-tight text-foreground mt-5 mb-2">
-              {block.text}
-            </h3>
-          );
-        }
-
-        if (block.type === "blockquote") {
-          return (
-            <blockquote
-              key={idx}
-              className="border-l-2 border-border/80 bg-secondary/30 rounded-r-lg p-3.5 sm:p-4 my-3 text-sm sm:text-base leading-relaxed text-foreground italic space-y-1"
-            >
-              {block.lines.map((qLine, qIdx) => {
-                const unquoted = qLine.replace(/^["“”']+|["“”']+$/g, "").trim();
-                return <p key={qIdx}>{formatInline(unquoted)}</p>;
-              })}
+        if (block.type === "h2") return <h2 key={idx} className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mt-8 mb-3">{block.text}</h2>;
+        if (block.type === "h3") return <h3 key={idx} className="text-base sm:text-lg font-bold tracking-tight text-foreground mt-5 mb-2">{block.text}</h3>;
+        if (block.type === "blockquote") return (
+            <blockquote key={idx} className="border-l-2 border-border/80 bg-secondary/30 rounded-r-lg p-3.5 sm:p-4 my-3 text-sm sm:text-base leading-relaxed text-foreground italic space-y-1">
+              {block.lines.map((qLine, qIdx) => <p key={qIdx}>{formatInline(qLine.replace(/^["“”']+|["“”']+$/g, "").trim())}</p>)}
             </blockquote>
           );
-        }
-
-        if (block.type === "table") {
-          return (
+        if (block.type === "table") return (
             <div key={idx} className="my-6 overflow-x-auto rounded-xl border border-border bg-card/70 shadow-xs">
               <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[500px]">
-                <thead>
-                  <tr className="border-b border-border bg-secondary/60">
-                    {block.headers.map((header, hIdx) => (
-                      <th key={hIdx} className="py-3 px-3.5 sm:px-4 font-bold text-foreground tracking-tight">
-                        {formatInline(header)}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-border/50">
-                  {block.rows.map((row, rIdx) => (
-                    <tr key={rIdx} className="hover:bg-secondary/30 transition-colors">
-                      {row.map((cell, cIdx) => (
-                        <td key={cIdx} className="py-2.5 sm:py-3 px-3.5 sm:px-4 text-foreground/90 leading-relaxed align-top">
-                          {formatInline(cell)}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
+                <thead><tr className="border-b border-border bg-secondary/60">{block.headers.map((h, hIdx) => <th key={hIdx} className="py-3 px-3.5 sm:px-4 font-bold text-foreground tracking-tight">{formatInline(h)}</th>)}</tr></thead>
+                <tbody className="divide-y divide-border/50">{block.rows.map((r, rIdx) => <tr key={rIdx} className="hover:bg-secondary/30 transition-colors">{r.map((c, cIdx) => <td key={cIdx} className="py-2.5 sm:py-3 px-3.5 sm:px-4 text-foreground/90 leading-relaxed align-top">{formatInline(c)}</td>)}</tr>)}</tbody>
               </table>
             </div>
           );
-        }
-
-        if (block.type === "ul") {
-          return (
-            <ul key={idx} className="my-3 space-y-1.5 list-disc list-inside text-sm sm:text-base leading-relaxed text-foreground">
-              {block.items.map((item, itemIdx) => (
-                <li key={itemIdx} className="leading-relaxed">
-                  {formatInline(item)}
-                </li>
-              ))}
-            </ul>
-          );
-        }
-
-        if (block.type === "ol") {
-          return (
-            <ol key={idx} className="my-3 space-y-1.5 list-decimal list-inside text-sm sm:text-base leading-relaxed text-foreground">
-              {block.items.map((item, itemIdx) => (
-                <li key={itemIdx} className="leading-relaxed">
-                  {formatInline(item)}
-                </li>
-              ))}
-            </ol>
-          );
-        }
-
-        // Standard Paragraph
-        return (
-          <p key={idx} className="text-sm sm:text-base leading-relaxed text-foreground font-normal">
-            {formatInline(block.text)}
-          </p>
-        );
+        if (block.type === "ul") return <ul key={idx} className="my-3 space-y-1.5 list-disc list-inside text-sm sm:text-base leading-relaxed text-foreground">{block.items.map((i, idx) => <li key={idx} className="leading-relaxed">{formatInline(i)}</li>)}</ul>;
+        if (block.type === "ol") return <ol key={idx} className="my-3 space-y-1.5 list-decimal list-inside text-sm sm:text-base leading-relaxed text-foreground">{block.items.map((i, idx) => <li key={idx} className="leading-relaxed">{formatInline(i)}</li>)}</ol>;
+        return <p key={idx} className="text-sm sm:text-base leading-relaxed text-foreground font-normal">{formatInline(block.text)}</p>;
       })}
     </article>
   );
@@ -392,28 +282,21 @@ interface CommentItem {
 const DEFAULT_COMMENTS: Record<string, CommentItem[]> = {
   "how-b2b-cold-calling-actually-works": [
     {
-      id: "c1",
-      name: "Marcus V.",
-      date: "2 days ago",
-      content: "Tried the 30-second opener this morning on 20 dials. Booked 2 meetings right away! 🔥",
-      likes: 8,
-    },
-    {
       id: "c2",
       name: "Sarah J.",
       date: "Yesterday",
       content: "That 1-second pause after stating your name is pure gold. Totally changes their tone 🙌",
       likes: 12,
     },
-  ],
-  "cold-calling-vs-email-outreach": [
     {
       id: "c1",
-      name: "Alex Chen",
-      date: "3 days ago",
-      content: "100% on the small TAM point. Burnt our email list last quarter, phone outreach saved us 💯",
-      likes: 9,
+      name: "Marcus V.",
+      date: "2 days ago",
+      content: "Tried the 30-second opener this morning on 20 dials. Booked 2 meetings right away! 🔥",
+      likes: 8,
     },
+  ],
+  "cold-calling-vs-email-outreach": [
     {
       id: "c2",
       name: "Dan M.",
@@ -421,15 +304,15 @@ const DEFAULT_COMMENTS: Record<string, CommentItem[]> = {
       content: "Email touch in the morning + direct dial in the afternoon works like a charm 👏",
       likes: 14,
     },
-  ],
-  "cold-calling-techniques": [
     {
       id: "c1",
-      name: "Elena R.",
-      date: "4 days ago",
-      content: "Dropping the salesy pitch tone is so key. Prospects relax immediately 🎯",
-      likes: 11,
+      name: "Alex Chen",
+      date: "3 days ago",
+      content: "100% on the small TAM point. Burnt our email list last quarter, phone outreach saved us 💯",
+      likes: 9,
     },
+  ],
+  "cold-calling-techniques": [
     {
       id: "c2",
       name: "Leo K.",
@@ -437,15 +320,15 @@ const DEFAULT_COMMENTS: Record<string, CommentItem[]> = {
       content: "Calm tonality really makes or breaks the call 👌",
       likes: 6,
     },
-  ],
-  "how-to-handle-gatekeepers-in-2026": [
     {
       id: "c1",
-      name: "Tom B.",
-      date: "3 days ago",
-      content: "Treating receptionists with genuine respect changed my entire connect rate! ✨",
-      likes: 7,
+      name: "Elena R.",
+      date: "4 days ago",
+      content: "Dropping the salesy pitch tone is so key. Prospects relax immediately 🎯",
+      likes: 11,
     },
+  ],
+  "how-to-handle-gatekeepers-in-2026": [
     {
       id: "c2",
       name: "Maya S.",
@@ -453,21 +336,28 @@ const DEFAULT_COMMENTS: Record<string, CommentItem[]> = {
       content: "The ask for organizational guidance trick actually works so well 👏",
       likes: 9,
     },
-  ],
-  "top-7-appointment-setting-frameworks-to-double-sales-pipeline": [
     {
       id: "c1",
-      name: "Kevin O.",
-      date: "2 days ago",
-      content: "The trigger-event framework is unmatched. Closed a hot lead right after their funding news 🚀",
-      likes: 15,
+      name: "Tom B.",
+      date: "3 days ago",
+      content: "Treating receptionists with genuine respect changed my entire connect rate! ✨",
+      likes: 7,
     },
+  ],
+  "top-7-appointment-setting-frameworks-to-double-sales-pipeline": [
     {
       id: "c2",
       name: "Chris D.",
       date: "Yesterday",
       content: "Clean actionable frameworks! Saving this for our outbound team 📌",
       likes: 8,
+    },
+    {
+      id: "c1",
+      name: "Kevin O.",
+      date: "2 days ago",
+      content: "The trigger-event framework is unmatched. Closed a hot lead right after their funding news 🚀",
+      likes: 15,
     },
   ],
   "hubspot-workflows-for-outbound-sales-setup-guide": [
@@ -481,19 +371,12 @@ const DEFAULT_COMMENTS: Record<string, CommentItem[]> = {
     {
       id: "c2",
       name: "Sam W.",
-      date: "Yesterday",
+      date: "2 days ago",
       content: "Super clear HubSpot setup. Setting these tags up right now 👍",
       likes: 10,
     },
   ],
   "how-to-warm-up-new-sales-email-domain-avoid-spam-filters": [
-    {
-      id: "c1",
-      name: "Liam S.",
-      date: "2 days ago",
-      content: "Great breakdown on DKIM and DMARC. Rushing warmup burns domains so fast ⚠️",
-      likes: 10,
-    },
     {
       id: "c2",
       name: "Noah P.",
@@ -501,21 +384,28 @@ const DEFAULT_COMMENTS: Record<string, CommentItem[]> = {
       content: "Keeping bounce rate strictly under 2% is non-negotiable 🎯",
       likes: 7,
     },
-  ],
-  "how-to-build-high-converting-b2b-cold-calling-script": [
     {
       id: "c1",
-      name: "Brian F.",
-      date: "Yesterday",
-      content: "Keeping the script under 45 seconds is so true. Less pitching, more listening 💡",
-      likes: 13,
+      name: "Liam S.",
+      date: "2 days ago",
+      content: "Great breakdown on DKIM and DMARC. Rushing warmup burns domains so fast ⚠️",
+      likes: 10,
     },
+  ],
+  "how-to-build-high-converting-b2b-cold-calling-script": [
     {
       id: "c2",
       name: "Emma T.",
       date: "Yesterday",
       content: "The pattern interrupt opener is so good! 🔥",
       likes: 11,
+    },
+    {
+      id: "c1",
+      name: "Brian F.",
+      date: "2 days ago",
+      content: "Keeping the script under 45 seconds is so true. Less pitching, more listening 💡",
+      likes: 13,
     },
   ],
   "outsourced-bdr-vs-in-house-appointment-setting-cost-benefit-analysis": [
@@ -569,11 +459,9 @@ function BlogPostPage() {
   const [feedback, setFeedback] = useState<'yes' | 'no' | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Newsletter state
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "sending" | "success">("idle");
 
-  // Dynamic comments state with permanent local storage persistence
   const [comments, setComments] = useState<CommentItem[]>(() => {
     return getStoredComments(post.slug);
   });
@@ -584,11 +472,12 @@ function BlogPostPage() {
   const [likedCommentIds, setLikedCommentIds] = useState<Record<string, boolean>>({});
 
   const [isCommentsOpen, setIsCommentsOpen] = useState(false);
+  const [showAllComments, setShowAllComments] = useState(false);
 
-  // Reset feedback state on slug change, load stored comments & likes
   useEffect(() => {
     setFeedback(null);
     setIsCommentsOpen(false);
+    setShowAllComments(false);
     setComments(getStoredComments(post.slug));
     setCommentName("");
     setCommentText("");
@@ -999,7 +888,7 @@ function BlogPostPage() {
 
               {/* Comments List */}
               <div className="space-y-3">
-                {comments.map((comment) => {
+                {(showAllComments ? comments : comments.slice(0, 3)).map((comment) => {
                   const initials = comment.name
                     .split(" ")
                     .map((n) => n[0])
@@ -1051,6 +940,20 @@ function BlogPostPage() {
                   );
                 })}
               </div>
+
+              {/* Show more comments button when comments exceed 3 */}
+              {comments.length > 3 && (
+                <div className="mt-4 pt-1 text-center">
+                  <button
+                    type="button"
+                    onClick={() => setShowAllComments(!showAllComments)}
+                    className="btn-click-effect inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline py-1 px-3 rounded-lg hover:bg-primary/10 transition-colors"
+                  >
+                    <span>{showAllComments ? "Show less" : `Show more comments (${comments.length - 3} more)`}</span>
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllComments ? "rotate-180" : ""}`} />
+                  </button>
+                </div>
+              )}
             </div>
           )}
 
