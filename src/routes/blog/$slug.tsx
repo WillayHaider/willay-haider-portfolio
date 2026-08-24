@@ -475,40 +475,20 @@ function BlogPostPage() {
             )}
           </div>
 
-          {/* Ultra-Sleek Author Strip (E-E-A-T) */}
-          <div className="mt-8 rounded-xl border border-border bg-card p-3.5 sm:p-4 shadow-xs">
-            <div className="flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
-              <div className="flex items-center gap-3">
-                <img
-                  src={heroPortrait}
-                  alt="Willay Haider - Senior BDR"
-                  width={44}
-                  height={44}
-                  className="h-11 w-11 rounded-xl object-cover border border-border bg-secondary/40 shrink-0"
-                  loading="lazy"
-                />
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-primary">Article Author</span>
-                  <h3 className="text-sm sm:text-base font-bold text-foreground leading-tight">Willay Haider</h3>
-                  <p className="text-[11px] sm:text-xs text-muted-foreground font-medium">Senior BDR &amp; Outbound Specialist</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 w-full sm:w-auto justify-end mt-1 sm:mt-0">
-                <a
-                  href="/"
-                  className="btn-click-effect flex-1 sm:flex-initial text-center rounded-full border border-border bg-secondary/80 px-3 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-all"
-                >
-                  View Profile
-                </a>
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(true)}
-                  className="btn-click-effect flex-1 sm:flex-initial text-center rounded-full px-3.5 py-1.5 text-xs font-bold text-primary-foreground shadow-xs hover:opacity-90 transition-all cursor-pointer"
-                  style={{ background: "var(--gradient-primary)" }}
-                >
-                  Hire Willay
-                </button>
-              </div>
+          {/* Natural Editorial Author Signature (E-E-A-T) */}
+          <div className="mt-10 pt-6 border-t border-border flex items-center gap-3.5">
+            <img
+              src={heroPortrait}
+              alt="Willay Haider - Senior BDR"
+              width={48}
+              height={48}
+              className="h-12 w-12 rounded-full object-cover border border-border bg-secondary/40 shrink-0"
+              loading="lazy"
+            />
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-primary">Article Author</span>
+              <h3 className="text-sm sm:text-base font-bold text-foreground leading-tight">Willay Haider</h3>
+              <p className="text-xs text-muted-foreground font-medium">Senior BDR &amp; Outbound Specialist</p>
             </div>
           </div>
 
