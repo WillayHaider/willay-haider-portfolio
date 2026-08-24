@@ -91,7 +91,7 @@ const CERTIFICATIONS = [
 
 const CAREER_HIGHLIGHTS = [
   {
-    role: "Senior Business Development Representative",
+    role: "Business Growth Specialist",
     company: "Million Dials Pvt Ltd.",
     period: "Jan 2026 to Present",
     desc: "Leading outbound sales motions, developing dynamic cold call talk tracks, and training junior SDRs on discovery and qualification across B2B SaaS accounts.",
@@ -103,7 +103,7 @@ const CAREER_HIGHLIGHTS = [
     desc: "Ran enterprise outbound cold calling targeting hospital supply procurement directors and battery systems, generating 320+ qualified MQLs and securing 77+ high-ticket purchase orders.",
   },
   {
-    role: "Business Development Representative",
+    role: "Sales Development Representative",
     company: "OMC Group LLC",
     period: "Mar 2025 to Apr 2025",
     desc: "Targeted law firms and attorneys across North America for digital marketing and SEO services, establishing a 75% connect rate on outbound calling blocks.",

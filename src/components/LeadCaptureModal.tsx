@@ -179,7 +179,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
               Schedule Interview / Connect
             </h3>
             <p className="mt-1.5 text-xs sm:text-sm text-foreground/85 font-medium max-w-sm mx-auto">
-              Choose your preferred way to connect: book a slot directly on my calendar or reach out via WhatsApp.
+              Choose your preferred way to connect: book a slot directly on the calendar or reach out via WhatsApp.
             </p>
 
             {/* Direct Connect Options */}
