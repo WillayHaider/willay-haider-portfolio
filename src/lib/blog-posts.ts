@@ -18,7 +18,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: "A real-world breakdown of unscripted B2B cold calling in 2026. How genuine conversational discovery and peer status turn cold dials into $68k pipeline opportunities.",
     keywords: "cold calling services for B2B, hire a cold caller, B2B appointment setting service, cold calling agency Pakistan, outsource appointment setting, hire an SDR BDR, outbound sales partner for startups",
     excerpt: "Most people assume cold calling is reciting a pitch until someone caves. Here is what actually happened on a 4-minute dial that turned into a $68k pipeline opportunity.",
-    date: "2026-08-19",
+    date: "2026-08-18",
     readTime: "6 min read",
     content: `It was 10:14 AM on a Tuesday when I dialed a VP of Supply Chain named Greg at a mid-sized logistics firm in Ohio.
 
@@ -114,7 +114,7 @@ Take a look at my [verified client case studies](/#results) to see how we restru
     metaDescription: "An honest channel comparison between cold phone outreach and cold email for B2B startups. Discover conversion benchmarks, cost per meeting, and hybrid workflows.",
     keywords: "lead generation services USA, outsource appointment setting, cold calling services for B2B, hire an SDR BDR, B2B appointment setting service, CRM setup and management service",
     excerpt: "Most founders treat cold calls and emails as a tribal debate. Here is the realistic breakdown of when each channel wins, backed by pipeline data.",
-    date: "2026-08-19",
+    date: "2026-08-18",
     readTime: "7 min read",
     content: `Ask ten founders whether cold calling or cold email is better for B2B pipeline, and you will get ten conflicting opinions.
 
@@ -275,7 +275,7 @@ Explore my [background and experience](/about) or [schedule an introductory call
     metaDescription: "A practical cold calling playbook to handle gatekeepers in 2026 without manipulation. Real scripts, questions, and CRM tactics from thousands of live dials.",
     keywords: "hire a cold caller, cold calling services for B2B, outsource appointment setting, hire an SDR BDR, gatekeeper cold calling, B2B appointment setting service, cold calling agency Pakistan, lead generation services USA",
     excerpt: "Gatekeepers are not obstacles to trick; they are valuable account intelligence. Here is the comprehensive field guide to turning the front desk into an internal ally.",
-    date: "2026-08-23",
+    date: "2026-08-20",
     readTime: "6 min read",
     content: `Early in my outbound career, I made the mistake every rookie caller makes: I treated executive assistants and front-desk coordinators like obstacles to trick.
 
@@ -370,7 +370,7 @@ Check out my [pricing and engagement tiers](/#pricing) or [send a direct inquiry
     metaDescription: "Discover 7 proven appointment setting frameworks used by elite BDRs to optimize outbound sales pipelines, scale conversions, and book high-ticket B2B meetings.",
     keywords: "appointment setting frameworks, B2B appointment setting, outbound sales pipeline, cold calling frameworks, lead generation strategies, hire an SDR BDR, sales development rep",
     excerpt: "Outbound sales is no longer about spamming hundreds of dials a day. Here are 7 practical frameworks top BDRs use to book qualified executive meetings consistently.",
-    date: "2026-08-24",
+    date: "2026-08-21",
     readTime: "6 min read",
     content: `Most sales teams treat appointment setting like a numbers game: throw 500 dials against the wall every day and hope a handful stick.
 
@@ -452,7 +452,7 @@ Review my [verified client reviews](/#reviews) or [schedule a discovery consulta
     metaDescription: "Learn how to set up automated HubSpot workflows for BDR outbound sales. Step-by-step guide to lead rotation, multi-channel sequences, and pipeline tracking.",
     keywords: "hubspot workflows for outbound sales, hubspot sales automation, b2b outbound workflows, hubspot sequences setup, lead rotation hubspot, crm automation bdr, apollo hubspot integration, zoho crm outbound",
     excerpt: "When BDRs manually track tasks in spreadsheets, high-value deals leak through the cracks. Here is the exact technical blueprint to automate your outbound pipeline in HubSpot.",
-    date: "2026-08-24",
+    date: "2026-08-22",
     readTime: "5 min read",
     content: `A few months ago, I audited an outbound sales team that had three full-time BDRs dialing cold lists.
 
@@ -537,7 +537,7 @@ Take a look at my [services and background](/about) or [schedule a quick chat](/
     metaDescription: "Learn how to warm up a new B2B sales email domain to avoid spam filters. Step-by-step SPF, DKIM, DMARC DNS setup, volume ramp schedule, and deliverability tools.",
     keywords: "warm up sales email domain, avoid spam filters cold email, email domain warmup guide, spf dkim dmarc setup, cold email deliverability, apollo email warmup, hubspot sales email deliverability, zoho mail outbound",
     excerpt: "Blasting cold emails from a brand-new domain is the fastest way to get blacklisted. Here is the exact technical roadmap to harden DNS and achieve 98%+ deliverability.",
-    date: "2026-08-24",
+    date: "2026-08-23",
     readTime: "5 min read",
     content: `I once watched a startup founder buy three new domains on a Monday, upload a list of 2,500 unverified contacts on Tuesday, and launch an aggressive outbound email campaign by Wednesday morning.
 
