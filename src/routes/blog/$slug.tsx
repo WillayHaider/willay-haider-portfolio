@@ -1,6 +1,12 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { useState, useEffect, lazy, Suspense } from 'react'
 import { ArrowLeft, Clock, Calendar, ArrowRight, ThumbsUp, ThumbsDown, CheckCircle2 } from 'lucide-react'
+import emailjs from '@emailjs/browser'
+import {
+  EMAILJS_SERVICE_ID,
+  EMAILJS_NOTIFICATION_TEMPLATE_ID,
+  EMAILJS_PUBLIC_KEY,
+} from '@/components/ContactForm'
 import { BLOG_POSTS, type BlogPost } from '@/lib/blog-posts'
 import heroPortrait from '@/assets/willay-portrait-final-nobg.webp'
 
@@ -336,6 +342,32 @@ function BlogPostPage() {
     setFeedback(type);
     try {
       localStorage.setItem(`feedback_${post.slug}`, type);
+      
+      const reactionLabel = type === 'yes' ? 'Positive (Helpful)' : 'Needs Improvement';
+      const submissionTime = new Date().toLocaleString('en-US', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      });
+
+      const notificationParams = {
+        to_email: 'contact.whaider@gmail.com',
+        from_name: 'Blog Reader Feedback',
+        name: 'Blog Reader',
+        from_email: 'noreply@willayhaider.pro',
+        reply_to: 'contact.whaider@gmail.com',
+        subject: `New Blog Feedback: ${post.title} [${type === 'yes' ? 'Helpful' : 'Needs Work'}]`,
+        message: `A visitor just reacted to your blog article!\n\nArticle: ${post.title}\nFeedback: ${reactionLabel}\nURL: https://willayhaider.pro/blog/${post.slug}\nTimestamp: ${submissionTime}`,
+        timestamp: submissionTime,
+      };
+
+      emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_NOTIFICATION_TEMPLATE_ID,
+        notificationParams,
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      ).catch((err) => {
+        console.warn('Blog feedback email delivery note:', err);
+      });
     } catch {}
   };
 
