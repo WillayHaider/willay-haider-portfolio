@@ -384,7 +384,6 @@ function RenderContent({ content }: { content: string }) {
 interface CommentItem {
   id: string;
   name: string;
-  role: string;
   date: string;
   content: string;
   likes: number;
@@ -394,18 +393,16 @@ const DEFAULT_COMMENTS: Record<string, CommentItem[]> = {
   "how-b2b-cold-calling-actually-works": [
     {
       id: "c1",
-      name: "Marcus Vance",
-      role: "VP Operations @ LogisticsHub",
+      name: "Marcus V.",
       date: "2 days ago",
-      content: "The 30-second low-pressure opener completely changed our team's pickup dynamic. Prospects actually pause instead of reflex-hanging up.",
+      content: "Tried the 30-second opener this morning on 20 dials. Booked 2 meetings right away! 🔥",
       likes: 8,
     },
     {
       id: "c2",
-      name: "Sarah Jenkins",
-      role: "SDR Lead @ CloudPeak SaaS",
+      name: "Sarah J.",
       date: "Yesterday",
-      content: "We tried ditching the 45-second pitch script for this diagnostic 30/70 model last week. Dial-to-meeting conversion jumped from 2.8% to 6.1%.",
+      content: "That 1-second pause after stating your name is pure gold. Totally changes their tone 🙌",
       likes: 12,
     },
   ],
@@ -413,88 +410,128 @@ const DEFAULT_COMMENTS: Record<string, CommentItem[]> = {
     {
       id: "c1",
       name: "Alex Chen",
-      role: "Founding AE @ HyperScale",
       date: "3 days ago",
-      content: "The point about Total Addressable Market (TAM) is so accurate. If you have under 1,000 target accounts, pure email spray-and-pray destroys the list in weeks.",
+      content: "100% on the small TAM point. Burnt our email list last quarter, phone outreach saved us 💯",
       likes: 9,
     },
     {
       id: "c2",
-      name: "Dan Miller",
-      role: "RevOps Director @ ApexWave",
+      name: "Dan M.",
       date: "1 day ago",
-      content: "The 8-day hybrid sprint (email morning -> direct dial afternoon) is gold. The phone touch has 3x higher familiarity when they saw the subject line.",
+      content: "Email touch in the morning + direct dial in the afternoon works like a charm 👏",
       likes: 14,
     },
   ],
   "cold-calling-techniques": [
     {
       id: "c1",
-      name: "Elena Rostova",
-      role: "B2B SaaS Founder",
+      name: "Elena R.",
       date: "4 days ago",
-      content: "The 1-second pause after stating your name is pure psychology. It instantly stops the rep from sounding needy.",
+      content: "Dropping the salesy pitch tone is so key. Prospects relax immediately 🎯",
       likes: 11,
+    },
+    {
+      id: "c2",
+      name: "Leo K.",
+      date: "2 days ago",
+      content: "Calm tonality really makes or breaks the call 👌",
+      likes: 6,
     },
   ],
   "how-to-handle-gatekeepers-in-2026": [
     {
       id: "c1",
-      name: "Tom Bradley",
-      role: "Account Executive @ DataFlow",
+      name: "Tom B.",
       date: "3 days ago",
-      content: "Asking the front desk for their organizational advice rather than bluffing is night and day. They gave me the exact direct extension for the logistics VP.",
+      content: "Treating receptionists with genuine respect changed my entire connect rate! ✨",
       likes: 7,
+    },
+    {
+      id: "c2",
+      name: "Maya S.",
+      date: "1 day ago",
+      content: "The ask for organizational guidance trick actually works so well 👏",
+      likes: 9,
     },
   ],
   "top-7-appointment-setting-frameworks-to-double-sales-pipeline": [
     {
       id: "c1",
-      name: "Kevin O'Reilly",
-      role: "Head of Sales @ FreightTech",
+      name: "Kevin O.",
       date: "2 days ago",
-      content: "The Trigger-Event model paired with Series A announcements has yielded our highest ACV demos this quarter.",
+      content: "The trigger-event framework is unmatched. Closed a hot lead right after their funding news 🚀",
       likes: 15,
+    },
+    {
+      id: "c2",
+      name: "Chris D.",
+      date: "Yesterday",
+      content: "Clean actionable frameworks! Saving this for our outbound team 📌",
+      likes: 8,
     },
   ],
   "hubspot-workflows-for-outbound-sales-setup-guide": [
     {
       id: "c1",
-      name: "Rachel Green",
-      role: "RevOps Specialist @ ScaleOps",
+      name: "Rachel G.",
       date: "1 day ago",
-      content: "The master un-enrollment trigger is a lifesaver. We had a rep accidentally send automated sequence emails to a customer right after signing a $30k deal before we set this up.",
+      content: "That master un-enrollment trigger is a total lifesaver haha 😅",
       likes: 18,
+    },
+    {
+      id: "c2",
+      name: "Sam W.",
+      date: "Yesterday",
+      content: "Super clear HubSpot setup. Setting these tags up right now 👍",
+      likes: 10,
     },
   ],
   "how-to-warm-up-new-sales-email-domain-avoid-spam-filters": [
     {
       id: "c1",
-      name: "Liam Scott",
-      role: "Growth Consultant @ NextGen Outbound",
+      name: "Liam S.",
       date: "2 days ago",
-      content: "Starting with p=none on DMARC and keeping verified bounce rates below 2% via Apollo saved our secondary domain fleet.",
+      content: "Great breakdown on DKIM and DMARC. Rushing warmup burns domains so fast ⚠️",
       likes: 10,
+    },
+    {
+      id: "c2",
+      name: "Noah P.",
+      date: "1 day ago",
+      content: "Keeping bounce rate strictly under 2% is non-negotiable 🎯",
+      likes: 7,
     },
   ],
   "how-to-build-high-converting-b2b-cold-calling-script": [
     {
       id: "c1",
-      name: "Brian Foster",
-      role: "Director of Demand Gen @ CloudMetrics",
+      name: "Brian F.",
       date: "Yesterday",
-      content: "Pattern interrupts are essential in 2026. The value metric drop establishes immediate commercial context.",
+      content: "Keeping the script under 45 seconds is so true. Less pitching, more listening 💡",
       likes: 13,
+    },
+    {
+      id: "c2",
+      name: "Emma T.",
+      date: "Yesterday",
+      content: "The pattern interrupt opener is so good! 🔥",
+      likes: 11,
     },
   ],
   "outsourced-bdr-vs-in-house-appointment-setting-cost-benefit-analysis": [
     {
       id: "c1",
-      name: "Jason Taylor",
-      role: "Seed Stage Founder @ DevSync",
+      name: "Jason T.",
       date: "Yesterday",
-      content: "The hidden $115k true cost for an in-house SDR is spot on. We burned $40k on recruitment fees and software seats before switching to an outsourced partner.",
+      content: "The hiring and ramp-up costs sneak up fast. Very realistic breakdown 👍",
       likes: 21,
+    },
+    {
+      id: "c2",
+      name: "Mark R.",
+      date: "2 days ago",
+      content: "100% agreed on the hidden ramp time costs 💯",
+      likes: 9,
     },
   ],
 };
@@ -514,17 +551,15 @@ function BlogPostPage() {
     return DEFAULT_COMMENTS[post.slug] || [
       {
         id: "c1",
-        name: "David Vance",
-        role: "B2B Outbound Lead",
+        name: "David V.",
         date: "2 days ago",
-        content: "Outstanding operational breakdown. The tactical clarity here is leagues ahead of standard sales theory.",
+        content: "Awesome breakdown! Very practical and easy to apply 🔥",
         likes: 6,
       }
     ];
   });
 
   const [commentName, setCommentName] = useState("");
-  const [commentRole, setCommentRole] = useState("");
   const [commentText, setCommentText] = useState("");
   const [commentStatus, setCommentStatus] = useState<"idle" | "sending" | "success">("idle");
   const [likedCommentIds, setLikedCommentIds] = useState<Record<string, boolean>>({});
@@ -538,15 +573,13 @@ function BlogPostPage() {
     setComments(DEFAULT_COMMENTS[post.slug] || [
       {
         id: "c1",
-        name: "David Vance",
-        role: "B2B Outbound Lead",
+        name: "David V.",
         date: "2 days ago",
-        content: "Outstanding operational breakdown. The tactical clarity here is leagues ahead of standard sales theory.",
+        content: "Awesome breakdown! Very practical and easy to apply 🔥",
         likes: 6,
       }
     ]);
     setCommentName("");
-    setCommentRole("");
     setCommentText("");
     setCommentStatus("idle");
     setNewsletterEmail("");
@@ -641,7 +674,6 @@ function BlogPostPage() {
     const newComment: CommentItem = {
       id: "c_" + Date.now(),
       name: commentName.trim(),
-      role: commentRole.trim() || "B2B Reader",
       date: "Just now",
       content: commentText.trim(),
       likes: 1,
@@ -666,10 +698,10 @@ function BlogPostPage() {
         user_email: 'contact.whaider@gmail.com',
         client_email: 'contact.whaider@gmail.com',
         reply_to: 'contact.whaider@gmail.com',
-        phone: commentRole.trim() || 'Reader',
+        phone: 'Blog Comment',
         website: `https://willayhaider.pro/blog/${post.slug}`,
         subject: `New Blog Comment on: ${post.title}`,
-        message: `${commentName.trim()} (${commentRole.trim() || 'Reader'}) commented on "${post.title}":\n\n"${commentText.trim()}"\n\nArticle URL: https://willayhaider.pro/blog/${post.slug}\nTimestamp: ${submissionTime}`,
+        message: `${commentName.trim()} commented on "${post.title}":\n\n"${commentText.trim()}"\n\nArticle URL: https://willayhaider.pro/blog/${post.slug}\nTimestamp: ${submissionTime}`,
         timestamp: submissionTime,
       };
 
@@ -880,30 +912,23 @@ function BlogPostPage() {
               </div>
 
               {/* Comment Input Form */}
-              <form onSubmit={handleCommentSubmit} className="mb-6 space-y-3">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <form onSubmit={handleCommentSubmit} className="mb-6 space-y-2.5">
+                <div>
                   <input
                     type="text"
                     placeholder="Your Name *"
                     value={commentName}
                     onChange={(e) => setCommentName(e.target.value)}
                     required
-                    className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Role & Company (e.g. Head of Sales @ TechScale)"
-                    value={commentRole}
-                    onChange={(e) => setCommentRole(e.target.value)}
-                    className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
+                    className="w-full rounded-xl border border-border bg-background px-3.5 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
                   />
                 </div>
                 <textarea
-                  placeholder="Write your comment, question, or feedback..."
+                  placeholder="Write a comment..."
                   value={commentText}
                   onChange={(e) => setCommentText(e.target.value)}
                   required
-                  rows={3}
+                  rows={2}
                   className="w-full rounded-xl border border-border bg-background p-3 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors resize-y"
                 />
                 <div className="flex items-center justify-between">
@@ -913,7 +938,7 @@ function BlogPostPage() {
                     </span>
                   ) : (
                     <span className="text-[11px] text-muted-foreground">
-                      Constructive feedback welcome.
+                      Share your thoughts or feedback.
                     </span>
                   )}
                   <button
@@ -927,7 +952,7 @@ function BlogPostPage() {
               </form>
 
               {/* Comments List */}
-              <div className="space-y-3.5">
+              <div className="space-y-3">
                 {comments.map((comment) => {
                   const initials = comment.name
                     .split(" ")
@@ -952,7 +977,7 @@ function BlogPostPage() {
                               {comment.name}
                             </p>
                             <p className="text-[10px] sm:text-[11px] text-muted-foreground truncate">
-                              {comment.role} • {comment.date}
+                              {comment.date}
                             </p>
                           </div>
                         </div>
