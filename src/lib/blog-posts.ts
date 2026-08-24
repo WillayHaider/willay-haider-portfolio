@@ -882,6 +882,8 @@ An internal SDR who reads a robotic monologue will get hung up on just as fast a
 
 Focus on building a pristine lead database, adopting peer-to-peer discovery techniques (as outlined in [How B2B Cold Calling Actually Works](/blog/how-b2b-cold-calling-actually-works)), and tracking pipeline revenue rather than vanity activity metrics.
 
+![Early Stage Startup ROI Projection Analysis: Outbound Revenue and Operating Margin Forecast](/early-stage-startup-roi-projection-analysis.jpg)
+
 ---
 
 ## Ready to Scale Your Outbound Sales Pipeline?
