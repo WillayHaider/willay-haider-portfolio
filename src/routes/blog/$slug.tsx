@@ -536,6 +536,33 @@ const DEFAULT_COMMENTS: Record<string, CommentItem[]> = {
   ],
 };
 
+function getStoredComments(slug: string): CommentItem[] {
+  const defaults = DEFAULT_COMMENTS[slug] || [
+    {
+      id: "c1",
+      name: "David V.",
+      date: "2 days ago",
+      content: "Awesome breakdown! Very practical and easy to apply 🔥",
+      likes: 6,
+    },
+  ];
+
+  if (typeof window === "undefined") return defaults;
+  try {
+    const saved = localStorage.getItem(`custom_comments_${slug}`);
+    if (saved) {
+      const parsed: CommentItem[] = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        const uniqueCustom = parsed.filter(
+          (c) => !defaults.some((d) => d.id === c.id)
+        );
+        return [...uniqueCustom, ...defaults];
+      }
+    }
+  } catch {}
+  return defaults;
+}
+
 function BlogPostPage() {
   const post = Route.useLoaderData()
   const [menuOpen, setMenuOpen] = useState(false);
@@ -546,17 +573,9 @@ function BlogPostPage() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "sending" | "success">("idle");
 
-  // Dynamic comments state
+  // Dynamic comments state with permanent local storage persistence
   const [comments, setComments] = useState<CommentItem[]>(() => {
-    return DEFAULT_COMMENTS[post.slug] || [
-      {
-        id: "c1",
-        name: "David V.",
-        date: "2 days ago",
-        content: "Awesome breakdown! Very practical and easy to apply 🔥",
-        likes: 6,
-      }
-    ];
+    return getStoredComments(post.slug);
   });
 
   const [commentName, setCommentName] = useState("");
@@ -566,24 +585,25 @@ function BlogPostPage() {
 
   const [isCommentsOpen, setIsCommentsOpen] = useState(false);
 
-  // Reset feedback and input state on slug change or page navigation
+  // Reset feedback state on slug change, load stored comments & likes
   useEffect(() => {
     setFeedback(null);
     setIsCommentsOpen(false);
-    setComments(DEFAULT_COMMENTS[post.slug] || [
-      {
-        id: "c1",
-        name: "David V.",
-        date: "2 days ago",
-        content: "Awesome breakdown! Very practical and easy to apply 🔥",
-        likes: 6,
-      }
-    ]);
+    setComments(getStoredComments(post.slug));
     setCommentName("");
     setCommentText("");
     setCommentStatus("idle");
     setNewsletterEmail("");
     setNewsletterStatus("idle");
+
+    try {
+      const savedLikes = localStorage.getItem(`liked_comments_${post.slug}`);
+      if (savedLikes) {
+        setLikedCommentIds(JSON.parse(savedLikes));
+      } else {
+        setLikedCommentIds({});
+      }
+    } catch {}
   }, [post.slug]);
 
   const handleFeedback = (type: 'yes' | 'no') => {
@@ -679,8 +699,18 @@ function BlogPostPage() {
       likes: 1,
     };
 
-    setComments([newComment, ...comments]);
+    setComments((prev) => [newComment, ...prev]);
     setCommentStatus("success");
+
+    // Store custom comment permanently in localStorage
+    try {
+      const saved = localStorage.getItem(`custom_comments_${post.slug}`);
+      const existing: CommentItem[] = saved ? JSON.parse(saved) : [];
+      localStorage.setItem(
+        `custom_comments_${post.slug}`,
+        JSON.stringify([newComment, ...existing])
+      );
+    } catch {}
 
     try {
       const submissionTime = new Date().toLocaleString('en-US', {
@@ -720,10 +750,26 @@ function BlogPostPage() {
 
   const handleLikeComment = (commentId: string) => {
     if (likedCommentIds[commentId]) return;
-    setLikedCommentIds({ ...likedCommentIds, [commentId]: true });
-    setComments(
-      comments.map((c) => (c.id === commentId ? { ...c, likes: c.likes + 1 } : c))
-    );
+    const newLiked = { ...likedCommentIds, [commentId]: true };
+    setLikedCommentIds(newLiked);
+
+    setComments((prev) => {
+      const updated = prev.map((c) =>
+        c.id === commentId ? { ...c, likes: c.likes + 1 } : c
+      );
+      try {
+        localStorage.setItem(`liked_comments_${post.slug}`, JSON.stringify(newLiked));
+        const savedCustom = localStorage.getItem(`custom_comments_${post.slug}`);
+        if (savedCustom) {
+          const parsedCustom: CommentItem[] = JSON.parse(savedCustom);
+          const updatedCustom = parsedCustom.map((c) =>
+            c.id === commentId ? { ...c, likes: c.likes + 1 } : c
+          );
+          localStorage.setItem(`custom_comments_${post.slug}`, JSON.stringify(updatedCustom));
+        }
+      } catch {}
+      return updated;
+    });
   };
 
   const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 2);
