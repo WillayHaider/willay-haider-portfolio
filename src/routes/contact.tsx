@@ -160,29 +160,6 @@ function ContactPage() {
 
           <ContactForm />
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-12">
-            <div className="rounded-xl border border-border bg-card p-4 shadow-xs">
-              <p className="text-[10px] sm:text-xs uppercase tracking-wide text-muted-foreground mb-1">Email</p>
-              <a href="mailto:Contact.whaider@gmail.com" className="block text-xs sm:text-sm text-primary font-semibold hover:underline truncate">
-                Contact.whaider@gmail.com
-              </a>
-            </div>
-            <div className="rounded-xl border border-border bg-card p-4 shadow-xs">
-              <p className="text-[10px] sm:text-xs uppercase tracking-wide text-muted-foreground mb-1">Phone / WhatsApp</p>
-              <a href="https://wa.me/923206990099" className="block text-xs sm:text-sm text-primary font-semibold hover:underline truncate">
-                +92 320 699 00 99
-              </a>
-            </div>
-            <div className="rounded-xl border border-border bg-card p-4 shadow-xs">
-              <p className="text-[10px] sm:text-xs uppercase tracking-wide text-muted-foreground mb-1">Location</p>
-              <p className="text-xs sm:text-sm text-foreground font-semibold truncate">Punjab, Pakistan</p>
-            </div>
-            <div className="rounded-xl border border-border bg-card p-4 shadow-xs">
-              <p className="text-[10px] sm:text-xs uppercase tracking-wide text-muted-foreground mb-1">Website</p>
-              <p className="text-xs sm:text-sm text-foreground font-semibold truncate">willayhaider.pro</p>
-            </div>
-          </div>
-
           {/* Social Channels Badge Bar */}
           <div className="mt-8 rounded-2xl border border-border bg-card/60 p-5 text-center shadow-xs">
             <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground">
