@@ -367,6 +367,7 @@ const PRICING_TIERS = [
     ],
     contract: "Week-to-week, cancel anytime",
     serviceTarget: "Flexible (Hourly) Outbound",
+    ctaText: "Select Flexible (Hourly)",
   },
   {
     id: "starter",
@@ -385,6 +386,7 @@ const PRICING_TIERS = [
     ],
     contract: "Month-to-month, no long-term contract",
     serviceTarget: "Starter Monthly Engine",
+    ctaText: "Get Started Free",
   },
   {
     id: "growth",
@@ -404,6 +406,7 @@ const PRICING_TIERS = [
     ],
     contract: "Month-to-month, no long-term contract",
     serviceTarget: "Growth Outbound Engine",
+    ctaText: "Get Started Free",
   },
   {
     id: "enterprise",
@@ -424,6 +427,7 @@ const PRICING_TIERS = [
     specialClause:
       "First 30 days include a performance check-in: if the system is not tracking toward your targets, we adjust the approach together.",
     serviceTarget: "Enterprise Pipeline Partnership",
+    ctaText: "Select Enterprise",
   },
 ];
 
@@ -1250,7 +1254,7 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
                       className="btn-click-effect w-full rounded-xl py-2.5 text-center text-xs font-bold text-primary-foreground shadow-xs hover:opacity-95 active:scale-95"
                       style={{ background: "var(--gradient-primary)" }}
                     >
-                      Select {tier.name}
+                      {tier.ctaText || `Select ${tier.name}`}
                     </button>
                   </div>
                 </div>
