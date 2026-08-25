@@ -212,7 +212,7 @@ function AboutPage() {
                 Blog
               </a>
               <a href="/contact" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
-                Contact
+                Contact Me
               </a>
             </div>
           </div>

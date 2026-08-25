@@ -210,7 +210,7 @@ const NAV_LINKS = [
   { label: "About Me", href: "/about" },
   { label: "Certifications", href: "#certifications" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact Me", href: "/contact" },
 ];
 
 const CLIENT_TRUST_SIGNALS = [
