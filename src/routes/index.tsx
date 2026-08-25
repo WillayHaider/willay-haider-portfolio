@@ -524,7 +524,7 @@ const FAQS = [
   {
     question: "How does the 1-week free trial work, and is there any upfront risk?",
     answer:
-      "There is zero financial risk and no credit card required upfront. During your 1-week free trial on Starter or Growth plans, I build your targeted ICP list, dial live decision-makers, and book qualified meetings directly to your calendar. You receive full call recordings, live CRM notes, and verified prospect data. If you love the booked pipeline, we transition seamlessly into the monthly package. If not, you walk away with zero obligation and keep all generated leads.",
+      "There is zero financial risk and no credit card required upfront. During your 1-week free trial on Starter or Growth plans, I build your targeted ICP list, dial live decision-makers, and book qualified meetings directly to your calendar. You receive live CRM notes and verified prospect data. If you love the booked pipeline, we transition seamlessly into the monthly package. If not, you walk away with zero obligation and keep all generated leads.",
   },
 ];
 
