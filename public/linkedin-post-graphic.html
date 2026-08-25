@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Post Image & Copy Generator | Willay Haider</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #090d16;
+      color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 1240px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      align-items: center;
+    }
+    .header-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #1e293b;
+    }
+    .header-title h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #10b981;
+    }
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      box-shadow: 0 4px 20px -4px rgba(16, 185, 129, 0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px -4px rgba(16, 185, 129, 0.5);
+    }
+    .btn-secondary {
+      background: #1e293b;
+      color: #cbd5e1;
+      border: 1px solid #334155;
+    }
+    .btn-secondary:hover {
+      background: #334155;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    .workspace {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      width: 100%;
+    }
+    @media (max-width: 1024px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+    }
+    .image-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+    }
+    .preview-wrapper {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      background: #060911;
+    }
+    .preview-wrapper img, .preview-wrapper svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+    }
+    .caption-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .caption-card h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .caption-content {
+      background: #070b14;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 18px;
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      overflow-y: auto;
+      max-height: 520px;
+      font-family: inherit;
+    }
+    .copied-toast {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10b981;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+      animation: fadeIn 0.2s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-bar">
+      <div class="header-title">
+        <h1>LinkedIn Deliverability Post Graphic</h1>
+        <div class="badge"><span class="badge-dot"></span> Ready to Post (1200 x 1200px)</div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-secondary" onclick="copyPostText()">📋 Copy Post Text</button>
+        <button class="btn btn-primary" onclick="downloadHighResPNG()">⬇️ Download 1200x1200px PNG</button>
+      </div>
+    </div>
+
+    <div class="workspace">
+      <!-- Left: Graphic Preview -->
+      <div class="image-card">
+        <div class="preview-wrapper">
+          <img id="svgVisual" src="/linkedin-warmup-blueprint.svg" alt="Cold Email Deliverability Blueprint">
+        </div>
+        <p style="font-size: 13px; color: #64748b; text-align: center;">
+          Square (1:1) format optimized for desktop & mobile LinkedIn feeds.
+        </p>
+      </div>
+
+      <!-- Right: Ready-to-copy Post Caption -->
+      <div class="caption-card">
+        <h2>
+          <span>Post Caption</span>
+          <span style="font-size: 12px; color: #10b981; font-weight: 600;">Formatted for high dwell time</span>
+        </h2>
+        <div class="caption-content" id="postCaption">Registering a fresh domain on Monday and blasting 500 cold emails on Tuesday is the fastest way to burn your sales pipeline.
+
+In the eyes of Google Workspace and Microsoft 365 spam filters:
+Neutral domain reputation = High-risk reputation.
+
+If security algorithms detect sudden volume spikes with zero sender history, your domain gets blacklisted within hours.
+
+Here is the exact 4-week technical warmup blueprint we use to guarantee primary inbox placement:
+
+1️⃣ DNS Technical Hardening
+Before sending a single email, configure your 4 foundational records:
+• SPF (Authorizes sender IPs)
+• DKIM (Cryptographic header signature)
+• DMARC (Governance policy against spoofing)
+• Custom Tracking Domain (Protects link click deliverability)
+
+2️⃣ Automated Peer-to-Peer Warmup
+Enroll your new mailbox in an automated warmup network. Generating authentic opens, positive spam rescues, and conversational AI reply threads signals high commercial trust to email providers.
+
+3️⃣ Strict 21-Day Volume Ramp
+Never jump from 0 to 50 emails overnight.
+• Week 1: 5 emails/day (100% automated warmup)
+• Week 2: 20 emails/day (10 warmup + 10 manual B2B leads)
+• Week 3: 40 emails/day (15 warmup + 25 manual B2B leads)
+• Week 4+: Cap at 40-50 outbound emails per mailbox.
+
+4️⃣ Copywriting Sanitation
+Spam filters analyze syntax and trigger words. Strip out financial hype, urgency tags, and formatting traps. Write peer-to-peer emails addressing genuine operational pain points.
+
+5️⃣ Domain Health KPIs
+• Keep hard bounce rates strictly under 2% (always verify data in Apollo.io).
+• Run weekly blacklist audits on MxToolbox.
+• Keep spam complaints under 0.1%.
+
+What is your current warmup protocol before launching outbound campaigns? Let's discuss in the comments. ⬇️
+
+#ColdEmail #SalesEngagement #B2BGrowth #LeadGeneration #Deliverability #OutboundSales</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="copied-toast">✓ Copied to clipboard!</div>
+
+  <canvas id="exportCanvas" width="1200" height="1200" style="display: none;"></canvas>
+
+  <script>
+    function copyPostText() {
+      const text = document.getElementById('postCaption').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("✓ LinkedIn Post text copied!");
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.innerText = msg;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2500);
+    }
+
+    async function downloadHighResPNG() {
+      try {
+        const response = await fetch('/linkedin-warmup-blueprint.svg');
+        const svgText = await response.text();
+        
+        const canvas = document.getElementById('exportCanvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+        
+        const svgBlob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+        const URL = window.URL || window.webkitURL || window;
+        const blobURL = URL.createObjectURL(svgBlob);
+        
+        img.onload = function () {
+          ctx.clearRect(0, 0, 1200, 1200);
+          ctx.drawImage(img, 0, 0, 1200, 1200);
+          URL.revokeObjectURL(blobURL);
+          
+          const pngUrl = canvas.toDataURL('image/png');
+          const downloadLink = document.createElement('a');
+          downloadLink.href = pngUrl;
+          downloadLink.download = 'linkedin-cold-email-warmup-blueprint.png';
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+          showToast("✓ Downloaded 1200x1200px PNG!");
+        };
+        img.src = blobURL;
+      } catch (err) {
+        console.error("Download error:", err);
+        // Fallback: download SVG directly
+        const downloadLink = document.createElement('a');
+        downloadLink.href = '/linkedin-warmup-blueprint.svg';
+        downloadLink.download = 'linkedin-cold-email-warmup-blueprint.svg';
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+      }
+    }
+  </script>
+</body>
+</html>

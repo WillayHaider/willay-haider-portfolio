@@ -1,15 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useRef, lazy, Suspense } from "react";
-import {
-  Award,
-  Briefcase,
-  Globe,
-  Sparkles,
-  ArrowRight,
-  Building2,
-  Play,
-  Pause,
-} from "lucide-react";
+import { ArrowRight, Play, Pause } from "lucide-react";
 import introAudioUrl from "@/assets/willay-intro.ogg";
 import googleLogo from "@/assets/google-logo.png";
 import deloitteLogo from "@/assets/deloitte-logo.png";
@@ -224,8 +215,7 @@ function AboutPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           {/* Hero Bio - Clean Plain Text */}
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
-              <Sparkles className="h-3 w-3" />
+            <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
               <span>About Willay Haider</span>
             </div>
             <h1 className="mt-3 text-[22px] sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight leading-tight">
@@ -273,8 +263,7 @@ function AboutPage() {
 
           {/* Local In-House Opportunities Section as Plain Text */}
           <div className="mt-12 sm:mt-16">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary mb-2.5">
-              <Building2 className="h-3 w-3" />
+            <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary mb-2.5">
               <span>Local In-House Opportunities</span>
             </div>
 
@@ -304,8 +293,7 @@ function AboutPage() {
           {/* Career Timeline */}
           <div className="mt-16 sm:mt-24">
             <div className="text-center">
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
-                <Briefcase className="h-3 w-3" />
+              <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
                 <span>Track Record</span>
               </div>
               <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
@@ -335,8 +323,7 @@ function AboutPage() {
           {/* Verified Certifications */}
           <div className="mt-16 sm:mt-24">
             <div className="text-center">
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
-                <Award className="h-3 w-3" />
+              <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
                 <span>Credentials</span>
               </div>
               <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
@@ -370,8 +357,7 @@ function AboutPage() {
           {/* Languages */}
           <div className="mt-12 rounded-xl border border-border bg-card p-5 text-center shadow-xs">
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary">
-                <Globe className="h-4 w-4" />
+              <div className="flex items-center text-xs font-bold uppercase tracking-wider text-primary">
                 <span>Fluent Languages:</span>
               </div>
               {["English (US/UK)", "Urdu", "Punjabi", "Saraiki"].map((lang) => (
