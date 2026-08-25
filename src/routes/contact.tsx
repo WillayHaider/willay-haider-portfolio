@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
+import { Calendar, ArrowRight } from 'lucide-react'
 import ContactForm from '../components/ContactForm'
 
 export const Route = createFileRoute('/contact')({
@@ -123,12 +124,39 @@ function ContactPage() {
       {/* Main Content */}
       <main className="pt-24 pb-16 sm:pt-32 sm:pb-24 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
+          {/* Availability Status Badge */}
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+            </span>
+            <span>Available for new campaigns · Typical response &lt; 2 hrs</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-3">
             Get In <span className="text-primary">Touch</span>
           </h1>
-          <p className="text-xs sm:text-sm text-muted-foreground mb-8 leading-relaxed">
+          <p className="text-xs sm:text-sm text-muted-foreground mb-6 leading-relaxed">
             I would love to hear from you: whether it is about an outbound sales campaign, a collaboration, or scheduling a strategy call. Reach out below.
           </p>
+
+          {/* Direct Calendar Booking Quick Strip */}
+          <div className="mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 rounded-xl border border-border/80 bg-card/60 p-3 px-4 shadow-2xs">
+            <div className="flex items-center gap-2.5 text-xs text-foreground/90 font-medium">
+              <Calendar className="h-4 w-4 text-primary shrink-0" />
+              <span>Prefer to book a 15-min discovery call directly?</span>
+            </div>
+            <a
+              href="https://calendly.com/contact-whaider"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-click-effect inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold text-primary-foreground shadow-2xs hover:opacity-95 active:scale-95 shrink-0"
+              style={{ background: "var(--gradient-primary)" }}
+            >
+              <span>Book On Calendar</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
 
           <ContactForm />
 
