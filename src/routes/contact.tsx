@@ -156,12 +156,12 @@ function ContactPage() {
           </div>
 
           {/* Social Channels Badge Bar */}
-          <div className="mt-8 rounded-2xl border border-border bg-card/60 p-6 text-center shadow-xs">
+          <div className="mt-8 rounded-2xl border border-border bg-card/60 p-5 text-center shadow-xs">
             <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground">
-              Direct Social & Professional Channels
+              Connect With Me
             </h2>
             <p className="mt-1 text-xs text-muted-foreground font-medium">
-              Connect directly on your preferred network for fast responses and updates.
+              Find me on your preferred channel for quick responses.
             </p>
             <div className="mt-4 flex items-center justify-center gap-2.5">
               {/* LinkedIn */}
