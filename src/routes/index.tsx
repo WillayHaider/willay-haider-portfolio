@@ -1745,6 +1745,19 @@ function FooterSection() {
               </svg>
             </a>
 
+            {/* X (Twitter) */}
+            <a
+              href="https://x.com/damn_haiderrr?s=11"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X (Twitter) Profile"
+              className="btn-click-effect flex h-7.5 w-7.5 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-black text-white border border-white/15 shadow-2xs opacity-90 transition-all hover:opacity-100 hover:scale-105 active:scale-95"
+            >
+              <svg className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-current" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+
             {/* Instagram */}
             <a
               href="https://www.instagram.com/damn_haiderrr?igsh=MW81Ymw3MzdkeGNrYg%3D%3D&utm_source=qr"

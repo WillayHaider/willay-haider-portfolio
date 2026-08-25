@@ -148,6 +148,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               url: "https://willayhaider.pro",
               sameAs: [
                 "https://www.linkedin.com/in/willayhaider",
+                "https://x.com/damn_haiderrr",
                 "https://www.instagram.com/damn_haiderrr",
               ],
               email: "contact.whaider@gmail.com",
