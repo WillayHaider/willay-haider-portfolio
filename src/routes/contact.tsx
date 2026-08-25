@@ -125,12 +125,9 @@ function ContactPage() {
       <main className="pt-24 pb-16 sm:pt-32 sm:pb-24 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
           {/* Availability Status Badge */}
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-            </span>
-            <span>Available for new campaigns · Typical response &lt; 2 hrs</span>
+          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0" />
+            <span>Available Now</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-3">
