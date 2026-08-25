@@ -522,9 +522,9 @@ const FAQS = [
       "Once we complete the initial onboarding discovery session and approve the target decision-maker criteria and call scripts, outbound dials typically launch within 48 to 72 hours.",
   },
   {
-    question: "Do you supply the lead lists or work from our database?",
+    question: "How does the 1-week free trial work, and is there any upfront risk?",
     answer:
-      "Both. I can curate verified, high-accuracy B2B prospect lists with direct dials and verified work emails, or execute high-velocity outreach directly on your existing CRM database and inbound inquiries.",
+      "There is zero financial risk and no credit card required upfront. During your 1-week free trial on Starter or Growth plans, I build your targeted ICP list, dial live decision-makers, and book qualified meetings directly to your calendar. You receive full call recordings, live CRM notes, and verified prospect data. If you love the booked pipeline, we transition seamlessly into the monthly package. If not, you walk away with zero obligation and keep all generated leads.",
   },
 ];
 
