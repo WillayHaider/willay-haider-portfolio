@@ -10,6 +10,7 @@ const URLS = [
   `https://${HOST}/contact`,
   `https://${HOST}/gallery`,
   `https://${HOST}/blog`,
+  `https://${HOST}/blog/how-to-export-unlimited-leads-from-linkedin-sales-navigator-without-paid-extensions`,
   `https://${HOST}/blog/how-b2b-cold-calling-actually-works`,
   `https://${HOST}/blog/cold-calling-vs-email-outreach`,
   `https://${HOST}/blog/cold-calling-techniques`,
