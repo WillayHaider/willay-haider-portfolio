@@ -209,7 +209,6 @@ const NAV_LINKS = [
   { label: "FAQs", href: "#faq" },
   { label: "About Me", href: "/about" },
   { label: "Hire In-House", href: "/hire-in-house" },
-  { label: "Certifications", href: "#certifications" },
   { label: "Blog", href: "/blog" },
   { label: "Contact Me", href: "/contact" },
 ];
