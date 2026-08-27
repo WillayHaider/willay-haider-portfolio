@@ -1,153 +1,101 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <filter id="hubspotShadow" x="-5%" y="-5%" width="110%" height="115%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.08" />
+    <filter id="hubspotShadowBig" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.08" />
     </filter>
   </defs>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap');
     text { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    .mono { font-family: 'JetBrains Mono', monospace; }
   </style>
 
-  <!-- Background Canvas: Clean Crisp White -->
+  <!-- Background -->
   <rect width="1200" height="630" fill="#ffffff" />
-  <rect width="1200" height="4" fill="#ff7a59" />
+  <rect width="1200" height="6" fill="#ff7a59" />
 
-  <!-- Container Box -->
-  <g transform="translate(40, 35)">
-    
-    <!-- Outer Application Window -->
-    <rect width="1120" height="540" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#hubspotShadow)" />
+  <!-- Outer App Window -->
+  <g transform="translate(60, 45)">
+    <rect width="1080" height="520" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#hubspotShadowBig)" />
 
-    <!-- HubSpot Header Bar -->
-    <rect width="1120" height="60" rx="14" fill="#f8fafc" />
-    <rect y="46" width="1120" height="14" fill="#f8fafc" />
-    <line x1="0" y1="60" x2="1120" y2="60" stroke="#e2e8f0" stroke-width="1" />
+    <!-- App Header Bar -->
+    <rect width="1080" height="64" rx="16" fill="#f8fafc" />
+    <rect y="50" width="1080" height="14" fill="#f8fafc" />
+    <line x1="0" y1="64" x2="1080" y2="64" stroke="#e2e8f0" stroke-width="1.5" />
 
-    <!-- Window Dots -->
-    <circle cx="28" cy="30" r="6" fill="#cbd5e1" />
-    <circle cx="48" cy="30" r="6" fill="#cbd5e1" />
-    <circle cx="68" cy="30" r="6" fill="#cbd5e1" />
-
-    <!-- HubSpot Brand Badge -->
-    <g transform="translate(100, 16)">
-      <rect width="140" height="28" rx="6" fill="#ff7a59" fill-opacity="0.1" stroke="#ff7a59" stroke-opacity="0.3" />
-      <circle cx="16" cy="14" r="6" fill="#ff7a59" />
-      <text x="32" y="19" fill="#c2410c" font-size="12" font-weight="700">HubSpot CRM</text>
+    <!-- HubSpot Badge -->
+    <g transform="translate(30, 16)">
+      <rect width="160" height="32" rx="8" fill="#ff7a59" fill-opacity="0.12" stroke="#ff7a59" stroke-opacity="0.4" />
+      <circle cx="18" cy="16" r="7" fill="#ff7a59" />
+      <text x="36" y="22" fill="#c2410c" font-size="14" font-weight="800">HubSpot CRM</text>
     </g>
 
-    <!-- Header Stats -->
-    <g transform="translate(740, 16)">
-      <rect width="350" height="28" rx="6" fill="#ecfdf5" stroke="#a7f3d0" />
-      <circle cx="18" cy="14" r="4" fill="#10b981" />
-      <text x="32" y="19" fill="#047857" font-size="11" font-weight="700">2,500 Validated Leads Ingested • 0 Formatting Errors</text>
+    <g transform="translate(730, 16)">
+      <rect width="320" height="32" rx="8" fill="#ecfdf5" stroke="#a7f3d0" />
+      <circle cx="18" cy="16" r="5" fill="#10b981" />
+      <text x="32" y="22" fill="#047857" font-size="13" font-weight="800">2,500 Validated Leads • 0 Errors</text>
     </g>
 
-    <!-- Table Column Headers -->
-    <g transform="translate(25, 80)">
-      <rect width="1070" height="38" rx="6" fill="#f1f5f9" />
-      <text x="20" y="24" fill="#475569" font-size="11" font-weight="700">CONTACT NAME</text>
-      <text x="210" y="24" fill="#475569" font-size="11" font-weight="700">JOB TITLE</text>
-      <text x="440" y="24" fill="#475569" font-size="11" font-weight="700">COMPANY (CLEANED)</text>
-      <text x="660" y="24" fill="#475569" font-size="11" font-weight="700">LEAD SOURCE</text>
-      <text x="860" y="24" fill="#475569" font-size="11" font-weight="700">VERIFICATION STATUS</text>
+    <!-- Table Header -->
+    <g transform="translate(25, 85)">
+      <rect width="1030" height="42" rx="8" fill="#f1f5f9" />
+      <text x="25" y="27" fill="#475569" font-size="13" font-weight="800">CONTACT NAME</text>
+      <text x="240" y="27" fill="#475569" font-size="13" font-weight="800">TITLE</text>
+      <text x="500" y="27" fill="#475569" font-size="13" font-weight="800">COMPANY (CLEANED)</text>
+      <text x="800" y="27" fill="#475569" font-size="13" font-weight="800">STATUS</text>
     </g>
 
-    <!-- Lead Row 1 -->
-    <g transform="translate(25, 130)">
-      <rect width="1070" height="52" rx="6" fill="#ffffff" stroke="#e2e8f0" />
-      <circle cx="28" cy="26" r="14" fill="#eff6ff" />
-      <text x="28" y="30" fill="#2563eb" font-size="11" font-weight="800" text-anchor="middle">GW</text>
-      <text x="52" y="31" fill="#0f172a" font-size="13" font-weight="700">Greg Williams</text>
-      <text x="210" y="31" fill="#334155" font-size="12" font-weight="500">VP of Supply Chain</text>
-      <text x="440" y="31" fill="#0f172a" font-size="12" font-weight="700">Apex Freight Systems</text>
+    <!-- Row 1 -->
+    <g transform="translate(25, 140)">
+      <rect width="1030" height="58" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+      <text x="25" y="35" fill="#0f172a" font-size="17" font-weight="800">Greg Williams</text>
+      <text x="240" y="35" fill="#334155" font-size="15" font-weight="600">VP of Supply Chain</text>
+      <text x="500" y="35" fill="#0f172a" font-size="16" font-weight="800">Apex Freight Systems</text>
       
-      <rect x="660" y="14" width="130" height="24" rx="4" fill="#f1f5f9" />
-      <text x="725" y="30" fill="#475569" font-size="11" font-weight="600" text-anchor="middle">Sales_Nav_List</text>
-
-      <rect x="860" y="14" width="140" height="24" rx="12" fill="#ecfdf5" stroke="#a7f3d0" />
-      <text x="930" y="30" fill="#047857" font-size="11" font-weight="700" text-anchor="middle">✓ Direct Dial Verified</text>
+      <rect x="800" y="14" width="200" height="30" rx="15" fill="#ecfdf5" stroke="#a7f3d0" />
+      <text x="900" y="34" fill="#047857" font-size="13" font-weight="800" text-anchor="middle">✓ Direct Dial Verified</text>
     </g>
 
-    <!-- Lead Row 2 -->
-    <g transform="translate(25, 192)">
-      <rect width="1070" height="52" rx="6" fill="#ffffff" stroke="#e2e8f0" />
-      <circle cx="28" cy="26" r="14" fill="#f5f3ff" />
-      <text x="28" y="30" fill="#7c3aed" font-size="11" font-weight="800" text-anchor="middle">SC</text>
-      <text x="52" y="31" fill="#0f172a" font-size="13" font-weight="700">Sarah Campbell</text>
-      <text x="210" y="31" fill="#334155" font-size="12" font-weight="500">Head of Operations</text>
-      <text x="440" y="31" fill="#0f172a" font-size="12" font-weight="700">OmniTrack Logistics</text>
+    <!-- Row 2 -->
+    <g transform="translate(25, 210)">
+      <rect width="1030" height="58" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+      <text x="25" y="35" fill="#0f172a" font-size="17" font-weight="800">Sarah Campbell</text>
+      <text x="240" y="35" fill="#334155" font-size="15" font-weight="600">Head of Operations</text>
+      <text x="500" y="35" fill="#0f172a" font-size="16" font-weight="800">OmniTrack Logistics</text>
       
-      <rect x="660" y="14" width="130" height="24" rx="4" fill="#f1f5f9" />
-      <text x="725" y="30" fill="#475569" font-size="11" font-weight="600" text-anchor="middle">Sales_Nav_List</text>
-
-      <rect x="860" y="14" width="140" height="24" rx="12" fill="#ecfdf5" stroke="#a7f3d0" />
-      <text x="930" y="30" fill="#047857" font-size="11" font-weight="700" text-anchor="middle">✓ SMTP Deliverable</text>
+      <rect x="800" y="14" width="200" height="30" rx="15" fill="#ecfdf5" stroke="#a7f3d0" />
+      <text x="900" y="34" fill="#047857" font-size="13" font-weight="800" text-anchor="middle">✓ SMTP Deliverable</text>
     </g>
 
-    <!-- Lead Row 3 -->
-    <g transform="translate(25, 254)">
-      <rect width="1070" height="52" rx="6" fill="#ffffff" stroke="#e2e8f0" />
-      <circle cx="28" cy="26" r="14" fill="#ecfdf5" />
-      <text x="28" y="30" fill="#059669" font-size="11" font-weight="800" text-anchor="middle">MT</text>
-      <text x="52" y="31" fill="#0f172a" font-size="13" font-weight="700">Michael Thornton</text>
-      <text x="210" y="31" fill="#334155" font-size="12" font-weight="500">Chief Technology Officer</text>
-      <text x="440" y="31" fill="#0f172a" font-size="12" font-weight="700">VectorScale Health</text>
+    <!-- Row 3 -->
+    <g transform="translate(25, 280)">
+      <rect width="1030" height="58" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+      <text x="25" y="35" fill="#0f172a" font-size="17" font-weight="800">Michael Thornton</text>
+      <text x="240" y="35" fill="#334155" font-size="15" font-weight="600">Chief Technology Officer</text>
+      <text x="500" y="35" fill="#0f172a" font-size="16" font-weight="800">VectorScale Health</text>
       
-      <rect x="660" y="14" width="130" height="24" rx="4" fill="#f1f5f9" />
-      <text x="725" y="30" fill="#475569" font-size="11" font-weight="600" text-anchor="middle">Sales_Nav_List</text>
-
-      <rect x="860" y="14" width="140" height="24" rx="12" fill="#ecfdf5" stroke="#a7f3d0" />
-      <text x="930" y="30" fill="#047857" font-size="11" font-weight="700" text-anchor="middle">✓ Direct Dial Verified</text>
+      <rect x="800" y="14" width="200" height="30" rx="15" fill="#ecfdf5" stroke="#a7f3d0" />
+      <text x="900" y="34" fill="#047857" font-size="13" font-weight="800" text-anchor="middle">✓ Direct Dial Verified</text>
     </g>
 
-    <!-- Lead Row 4 -->
-    <g transform="translate(25, 316)">
-      <rect width="1070" height="52" rx="6" fill="#ffffff" stroke="#e2e8f0" />
-      <circle cx="28" cy="26" r="14" fill="#fffbeb" />
-      <text x="28" y="30" fill="#d97706" font-size="11" font-weight="800" text-anchor="middle">ER</text>
-      <text x="52" y="31" fill="#0f172a" font-size="13" font-weight="700">Elena Rodriguez</text>
-      <text x="210" y="31" fill="#334155" font-size="12" font-weight="500">VP of Revenue Operations</text>
-      <text x="440" y="31" fill="#0f172a" font-size="12" font-weight="700">Clarify Analytics</text>
+    <!-- Stat Highlights Bottom Bar -->
+    <g transform="translate(25, 365)">
+      <rect width="1030" height="110" rx="12" fill="#f8fafc" stroke="#e2e8f0" />
       
-      <rect x="660" y="14" width="130" height="24" rx="4" fill="#f1f5f9" />
-      <text x="725" y="30" fill="#475569" font-size="11" font-weight="600" text-anchor="middle">Sales_Nav_List</text>
-
-      <rect x="860" y="14" width="140" height="24" rx="12" fill="#ecfdf5" stroke="#a7f3d0" />
-      <text x="930" y="30" fill="#047857" font-size="11" font-weight="700" text-anchor="middle">✓ SMTP Deliverable</text>
-    </g>
-
-    <!-- Summary Metrics Card -->
-    <g transform="translate(25, 385)">
-      <rect width="1070" height="85" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
-      
-      <g transform="translate(30, 18)">
-        <text x="0" y="16" fill="#64748b" font-size="11" font-weight="700">TOTAL PROSPECTS</text>
-        <text x="0" y="44" fill="#0f172a" font-size="22" font-weight="800">2,500</text>
+      <g transform="translate(50, 25)">
+        <text x="0" y="20" fill="#64748b" font-size="13" font-weight="700">INGESTED LEADS</text>
+        <text x="0" y="60" fill="#0f172a" font-size="34" font-weight="800">2,500</text>
       </g>
 
-      <g transform="translate(300, 18)">
-        <text x="0" y="16" fill="#64748b" font-size="11" font-weight="700">CLEANED DOMAINS</text>
-        <text x="0" y="44" fill="#2563eb" font-size="22" font-weight="800">100.0%</text>
+      <g transform="translate(360, 25)">
+        <text x="0" y="20" fill="#64748b" font-size="13" font-weight="700">CLEANED NAMES</text>
+        <text x="0" y="60" fill="#2563eb" font-size="34" font-weight="800">100.0%</text>
       </g>
 
-      <g transform="translate(580, 18)">
-        <text x="0" y="16" fill="#64748b" font-size="11" font-weight="700">BOUNCE RATE RISK</text>
-        <text x="0" y="44" fill="#10b981" font-size="22" font-weight="800">&lt; 1.5%</text>
+      <g transform="translate(680, 25)">
+        <text x="0" y="20" fill="#64748b" font-size="13" font-weight="700">BOUNCE RATE</text>
+        <text x="0" y="60" fill="#10b981" font-size="34" font-weight="800">&lt; 1.5%</text>
       </g>
-
-      <g transform="translate(850, 18)">
-        <text x="0" y="16" fill="#64748b" font-size="11" font-weight="700">STATUS</text>
-        <text x="0" y="44" fill="#059669" font-size="18" font-weight="800">Ready for Cadence</text>
-      </g>
-    </g>
-
-    <!-- Bottom Footer Inside Window -->
-    <g transform="translate(25, 495)">
-      <text x="0" y="20" fill="#64748b" font-size="11" font-weight="600">Enterprise HubSpot CRM Contact View • Automated Lead Ingestion</text>
-      <text x="1070" y="20" fill="#2563eb" font-size="11" font-weight="700" text-anchor="end">willayhaider.pro</text>
     </g>
 
   </g>

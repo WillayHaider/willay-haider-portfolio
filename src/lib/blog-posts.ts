@@ -13,7 +13,7 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "how-to-export-unlimited-leads-from-linkedin-sales-navigator-without-paid-extensions",
-    title: "How to Export Unlimited Leads from LinkedIn Sales Navigator Without Paid Extensions",
+    title: "How to Export Unlimited Leads from LinkedIn Sales Navigator Without Paid Extensions [2026]",
     metaTitle: "How to Export Unlimited Leads from LinkedIn Sales Navigator [2026] | Willay Haider",
     metaDescription: "Learn the ethical, policy-safe framework to export unlimited leads from LinkedIn Sales Navigator without paid extensions. Includes Google Sheets RegEx formulas and CRM workflows.",
     keywords: "how to export unlimited leads from linkedin sales navigator without paid extensions, export leads from linkedin sales navigator, export leads from linkedin sales navigator to excel, linkedin sales navigator scraper, how to extract emails from linkedin sales navigator, sync linkedin leads with crm, hire a cold caller, cold calling services for b2b, lead generation services usa, cold calling agency pakistan",
