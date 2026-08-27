@@ -86,11 +86,11 @@ function formatInline(text: string): React.ReactNode {
   // Replace any AI em dashes or en dashes with standard hyphen
   const cleaned = text.replace(/[\u2014\u2013]/g, " - ");
   
-  // Regex to match bold, italic, links, and code
-  const regex = /(\*\*.*?\*\*|\*.*?\*|\[.*?\]\(.*?\)|`.*?`)/g;
+  // Regex to match bold, italic, links, and inline code safely
+  const regex = /(\*\*.*?\*\*|\*.*?\*|\[.*?\]\(.*?\)|`[^`\n]+`)/g;
   const parts: React.ReactNode[] = [];
   let lastIndex = 0;
-  let match;
+  let match: RegExpExecArray | null;
 
   while ((match = regex.exec(cleaned)) !== null) {
     if (match.index > lastIndex) {
@@ -103,7 +103,7 @@ function formatInline(text: string): React.ReactNode {
       parts.push(<em key={match.index} className="italic text-foreground/90">{token.slice(1, -1)}</em>);
     } else if (token.startsWith("`") && token.endsWith("`")) {
       parts.push(
-        <code key={match.index} className="rounded bg-secondary px-1.5 py-0.5 text-xs font-mono text-primary">
+        <code key={match.index} className="rounded bg-secondary px-1.5 py-0.5 text-xs font-mono text-primary font-semibold">
           {token.slice(1, -1)}
         </code>
       );
@@ -117,6 +117,9 @@ function formatInline(text: string): React.ReactNode {
       );
     }
     lastIndex = regex.lastIndex;
+    if (match.index === regex.lastIndex) {
+      regex.lastIndex++;
+    }
   }
 
   if (lastIndex < cleaned.length) {
@@ -131,6 +134,7 @@ type ParsedBlock =
   | { type: 'h2'; text: string }
   | { type: 'h3'; text: string }
   | { type: 'blockquote'; lines: string[] }
+  | { type: 'code'; language: string; code: string }
   | { type: 'ul'; items: string[] }
   | { type: 'ol'; items: string[] }
   | { type: 'image'; alt: string; src: string }
@@ -158,6 +162,19 @@ function parseMarkdown(content: string): ParsedBlock[] {
       continue;
     }
 
+    if (trimmed.startsWith("```")) {
+      const language = trimmed.slice(3).trim();
+      const codeLines: string[] = [];
+      i++;
+      while (i < lines.length && !lines[i].trim().startsWith("```")) {
+        codeLines.push(lines[i]);
+        i++;
+      }
+      if (i < lines.length) i++; // skip closing ```
+      blocks.push({ type: 'code', language, code: codeLines.join("\n") });
+      continue;
+    }
+
     if (trimmed.startsWith("![") && trimmed.includes("](") && trimmed.endsWith(")")) {
       const alt = trimmed.substring(2, trimmed.indexOf("]("));
       const src = trimmed.substring(trimmed.indexOf("](") + 2, trimmed.length - 1);
@@ -180,7 +197,7 @@ function parseMarkdown(content: string): ParsedBlock[] {
 
     if (trimmed.startsWith(">")) {
       const quoteLines: string[] = [];
-      while(i < lines.length && lines[i].trim() !== "" && !lines[i].trim().startsWith("#") && !lines[i].trim().startsWith("- ") && !lines[i].trim().startsWith("* ") && !lines[i].trim().startsWith("|") && !/^\d+\.\s+/.test(lines[i].trim()) && lines[i].trim() !== "---") {
+      while(i < lines.length && lines[i].trim() !== "" && !lines[i].trim().startsWith("#") && !lines[i].trim().startsWith("```") && !lines[i].trim().startsWith("- ") && !lines[i].trim().startsWith("* ") && !lines[i].trim().startsWith("|") && !/^\d+\.\s+/.test(lines[i].trim()) && lines[i].trim() !== "---") {
         quoteLines.push(lines[i].trim().replace(/^>\s*/, ""));
         i++;
       }
@@ -229,7 +246,7 @@ function parseMarkdown(content: string): ParsedBlock[] {
     }
 
     const pLines: string[] = [];
-    while (i < lines.length && lines[i].trim() !== "" && !lines[i].trim().startsWith("#") && !lines[i].trim().startsWith(">") && !lines[i].trim().startsWith("- ") && !lines[i].trim().startsWith("* ") && !lines[i].trim().startsWith("|") && !/^\d+\.\s+/.test(lines[i].trim()) && lines[i].trim() !== "---") {
+    while (i < lines.length && lines[i].trim() !== "" && !lines[i].trim().startsWith("#") && !lines[i].trim().startsWith("```") && !lines[i].trim().startsWith(">") && !lines[i].trim().startsWith("- ") && !lines[i].trim().startsWith("* ") && !lines[i].trim().startsWith("|") && !/^\d+\.\s+/.test(lines[i].trim()) && lines[i].trim() !== "---") {
       pLines.push(lines[i].trim());
       i++;
     }
@@ -256,6 +273,19 @@ function RenderContent({ content }: { content: string }) {
           );
         if (block.type === "h2") return <h2 key={idx} className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mt-8 mb-3">{block.text}</h2>;
         if (block.type === "h3") return <h3 key={idx} className="text-base sm:text-lg font-bold tracking-tight text-foreground mt-5 mb-2">{block.text}</h3>;
+        if (block.type === "code") return (
+            <div key={idx} className="my-5 overflow-hidden rounded-xl border border-border bg-[#080d1a] shadow-md">
+              {block.language && (
+                <div className="flex items-center justify-between border-b border-border/60 bg-[#0d162a] px-4 py-2 text-xs font-mono font-bold text-muted-foreground uppercase tracking-wider">
+                  <span className="text-primary">{block.language}</span>
+                  <span className="text-[10px] text-muted-foreground lowercase">copy-pasteable snippet</span>
+                </div>
+              )}
+              <pre className="overflow-x-auto p-4 text-xs sm:text-sm font-mono text-emerald-400 leading-relaxed selection:bg-primary/30">
+                <code>{block.code}</code>
+              </pre>
+            </div>
+          );
         if (block.type === "blockquote") return (
             <blockquote key={idx} className="border-l-2 border-border/80 bg-secondary/30 rounded-r-lg p-3.5 sm:p-4 my-3 text-sm sm:text-base leading-relaxed text-foreground italic space-y-1">
               {block.lines.map((qLine, qIdx) => <p key={qIdx}>{formatInline(qLine.replace(/^["“”']+|["“”']+$/g, "").trim())}</p>)}
