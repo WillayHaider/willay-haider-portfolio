@@ -39,7 +39,7 @@ To extract search results safely with zero extension overhead, you pull your ses
 5. Scroll through the cookie list to find the exact cookie named **\`li_at\`**.
 6. Copy the value string: this is a 150+ character alphanumeric session identifier token (e.g., \`AQEDASgK8B0Fq...\`).
 
-![LinkedIn Developer Tools Cookie Extraction li_at Token Step](/linkedin-warmup-blueprint.svg)
+![How to extract emails from linkedin sales navigator using Chrome DevTools li_at session cookie token](/sales-nav-session-cookie-devtools-guide.svg)
 
 ### The Anti-Ban Safety Configuration
 
@@ -52,6 +52,8 @@ Apply these exact rate-limit parameters in your execution node:
 - **Header Uniformity:** Pass a standard browser User-Agent string (\`Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36\`) and your valid \`li_at\` session token in the authorization header.
 
 This ensures your traffic mirrors organic human browsing across LinkedIn Sales Navigator filters.
+
+![Export leads from linkedin sales navigator to excel for free vs paid scrapers comparison matrix](/sales-nav-scraper-vs-webhook-matrix.svg)
 
 ---
 
@@ -166,6 +168,8 @@ In LinkedIn Sales Navigator:
 2. Click **Save Search** at the top right of the search panel.
 3. Name your search query with the vertical and date (e.g., \`US_Logistics_VPs_Q3_2026\`).
 4. Copy the unique search URL to use as the input parameter in your automated extraction script.
+
+![How to save a search on sales navigator and build an ICP prospecting list](/sales-nav-search-filters-icp-setup.svg)
 
 ### How to sync LinkedIn leads with CRM without manual CSV exports?
 Set up a cloud webhook receiver (in Zapier, Make, or custom HTTP endpoint) that listens for the \`lead_extracted\` JSON event. Configure field mapping directly into [HubSpot](https://www.hubspot.com), [Salesforce](https://www.salesforce.com), or [Zoho CRM](https://www.zoho.com/crm), automatically tagging the record with \`Lead Source = Sales_Nav_Exploit\` for immediate SDR follow-up.

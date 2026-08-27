@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="compBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c16" />
+      <stop offset="50%" stop-color="#0d1527" />
+      <stop offset="100%" stop-color="#050810" />
+    </linearGradient>
+
+    <linearGradient id="redCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f131d" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#130b14" stop-opacity="0.95" />
+    </linearGradient>
+
+    <linearGradient id="greenCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f221e" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#071714" stop-opacity="0.95" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap');
+    text { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="675" fill="url(#compBg)" />
+
+  <!-- Top Title -->
+  <g transform="translate(60, 45)">
+    <rect width="210" height="26" rx="13" fill="#6366f1" fill-opacity="0.2" stroke="#6366f1" stroke-opacity="0.4" />
+    <text x="105" y="17" fill="#a5b4fc" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">ARCHITECTURAL AUDIT</text>
+    <text x="0" y="58" fill="#ffffff" font-size="26" font-weight="800">Paid Browser Scrapers vs. Zero-Extension Webhook Architecture</text>
+    <text x="0" y="82" fill="#94a3b8" font-size="13" font-weight="500">Why enterprise RevOps teams avoid extension-based scrapers for B2B data pipelines.</text>
+  </g>
+
+  <!-- 2-Column Comparison Container -->
+  <g transform="translate(60, 150)">
+    
+    <!-- Left Column: Paid Scrapers (Red Warning) -->
+    <g transform="translate(0, 0)">
+      <rect width="520" height="420" rx="16" fill="url(#redCard)" stroke="#dc2626" stroke-opacity="0.3" stroke-width="1.5" />
+      <rect width="520" height="6" rx="3" fill="#ef4444" />
+      
+      <rect x="25" y="25" width="220" height="28" rx="14" fill="#ef4444" fill-opacity="0.2" />
+      <text x="135" y="44" fill="#f87171" font-size="12" font-weight="700" text-anchor="middle">❌ PAID BROWSER EXTENSIONS</text>
+      <text x="25" y="80" fill="#ffffff" font-size="16" font-weight="700">Evaboot, PhantomBuster, Scrupp</text>
+
+      <g transform="translate(25, 105)">
+        <text x="0" y="20" fill="#fca5a5" font-weight="700">• Cost Overhead:</text>
+        <text x="130" y="20" fill="#cbd5e1" font-size="13">$99 - $299/month recurring credits</text>
+
+        <text x="0" y="60" fill="#fca5a5" font-weight="700">• Security Risk:</text>
+        <text x="130" y="60" fill="#cbd5e1" font-size="13">High. DOM injection triggers bot flags</text>
+
+        <text x="0" y="100" fill="#fca5a5" font-weight="700">• Extraction Limits:</text>
+        <text x="130" y="100" fill="#cbd5e1" font-size="13">Hard credit caps &amp; sudden rate blocks</text>
+
+        <text x="0" y="140" fill="#fca5a5" font-weight="700">• CRM Integration:</text>
+        <text x="130" y="140" fill="#cbd5e1" font-size="13">Manual CSV download &amp; re-upload required</text>
+
+        <text x="0" y="180" fill="#fca5a5" font-weight="700">• Account Longevity:</text>
+        <text x="130" y="180" fill="#cbd5e1" font-size="13">Prone to shadow-bans &amp; CAPTCHA locks</text>
+      </g>
+
+      <rect x="25" y="340" width="470" height="50" rx="10" fill="#ef4444" fill-opacity="0.1" stroke="#ef4444" stroke-opacity="0.3" />
+      <text x="260" y="370" fill="#f87171" font-size="13" font-weight="700" text-anchor="middle">VERDICT: Fragile, expensive, and risky for primary accounts.</text>
+    </g>
+
+    <!-- Right Column: Zero-Extension Webhook Pipeline (Green Winner) -->
+    <g transform="translate(560, 0)">
+      <rect width="520" height="420" rx="16" fill="url(#greenCard)" stroke="#10b981" stroke-opacity="0.4" stroke-width="1.5" />
+      <rect width="520" height="6" rx="3" fill="#10b981" />
+      
+      <rect x="25" y="25" width="240" height="28" rx="14" fill="#10b981" fill-opacity="0.2" />
+      <text x="145" y="44" fill="#34d399" font-size="12" font-weight="700" text-anchor="middle">✓ ZERO-EXTENSION ARCHITECTURE</text>
+      <text x="25" y="80" fill="#ffffff" font-size="16" font-weight="700">Manual Cookie + Free Cloud Webhook</text>
+
+      <g transform="translate(25, 105)">
+        <text x="0" y="20" fill="#6ee7b7" font-weight="700">• Cost Overhead:</text>
+        <text x="135" y="20" fill="#34d399" font-size="13" font-weight="700">$0.00 / 100% Free (Forever)</text>
+
+        <text x="0" y="60" fill="#6ee7b7" font-weight="700">• Security Risk:</text>
+        <text x="135" y="60" fill="#cbd5e1" font-size="13">Zero DOM footprint. Mimics human API hits</text>
+
+        <text x="0" y="100" fill="#6ee7b7" font-weight="700">• Extraction Limits:</text>
+        <text x="135" y="100" fill="#cbd5e1" font-size="13">Controlled by custom jitter timer (8-22s)</text>
+
+        <text x="0" y="140" fill="#6ee7b7" font-weight="700">• CRM Integration:</text>
+        <text x="135" y="140" fill="#cbd5e1" font-size="13">Direct automated push into HubSpot / Sheets</text>
+
+        <text x="0" y="180" fill="#6ee7b7" font-weight="700">• Account Longevity:</text>
+        <text x="135" y="180" fill="#cbd5e1" font-size="13">100% safety record with strict rate limiting</text>
+      </g>
+
+      <rect x="25" y="340" width="470" height="50" rx="10" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.4" />
+      <text x="260" y="370" fill="#34d399" font-size="13" font-weight="700" text-anchor="middle">VERDICT: Production-grade, automated, and zero software cost.</text>
+    </g>
+
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(60, 615)">
+    <text x="0" y="20" fill="#64748b" font-size="12" font-weight="600">Enterprise Outbound Tech Stack Optimization • Willay Haider</text>
+    <text x="1080" y="20" fill="#38bdf8" font-size="12" font-weight="700" text-anchor="end">willayhaider.pro</text>
+  </g>
+</svg>
