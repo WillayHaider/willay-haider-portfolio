@@ -1,37 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#070a12" />
-      <stop offset="50%" stop-color="#0b1329" />
-      <stop offset="100%" stop-color="#050811" />
+    <linearGradient id="whiteCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f8fafc" />
     </linearGradient>
-
-    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="100%" stop-color="#2563eb" />
-    </linearGradient>
-
-    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#34d399" />
-      <stop offset="100%" stop-color="#059669" />
-    </linearGradient>
-
-    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#a855f7" />
-      <stop offset="100%" stop-color="#6366f1" />
-    </linearGradient>
-
-    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#131d36" stop-opacity="0.9" />
-      <stop offset="100%" stop-color="#0c1324" stop-opacity="0.95" />
-    </linearGradient>
-
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#38bdf8" flood-opacity="0.3" />
-    </filter>
-
-    <filter id="emeraldGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#10b981" flood-opacity="0.3" />
+    <filter id="subtleShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.06" />
     </filter>
   </defs>
 
@@ -41,149 +15,131 @@
     .mono { font-family: 'JetBrains Mono', monospace; }
   </style>
 
-  <!-- Background Canvas -->
-  <rect width="1200" height="675" fill="url(#bgGrad)" />
-
-  <!-- Subtle Grid Pattern -->
-  <g opacity="0.05" stroke="#ffffff" stroke-width="1">
-    <line x1="0" y1="135" x2="1200" y2="135" />
-    <line x1="0" y1="270" x2="1200" y2="270" />
-    <line x1="0" y1="405" x2="1200" y2="405" />
-    <line x1="0" y1="540" x2="1200" y2="540" />
-    <line x1="240" y1="0" x2="240" y2="675" />
-    <line x1="480" y1="0" x2="480" y2="675" />
-    <line x1="720" y1="0" x2="720" y2="675" />
-    <line x1="960" y1="0" x2="960" y2="675" />
-  </g>
+  <!-- Background Canvas: Clean Crisp White -->
+  <rect width="1200" height="630" fill="#ffffff" />
+  
+  <!-- Subtle top accent line -->
+  <rect width="1200" height="4" fill="#2563eb" />
 
   <!-- Header Section -->
-  <g transform="translate(60, 50)">
-    <rect x="0" y="0" width="220" height="28" rx="14" fill="#2563eb" fill-opacity="0.2" stroke="#3b82f6" stroke-opacity="0.4" />
-    <text x="110" y="19" fill="#60a5fa" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">ZERO-EXTENSION ARCHITECTURE</text>
-    <text x="0" y="62" fill="#ffffff" font-size="28" font-weight="800" letter-spacing="-0.5">Automated Sales Navigator Lead Extraction Pipeline</text>
-    <text x="0" y="88" fill="#94a3b8" font-size="14" font-weight="500">Bypass browser scrapers, avoid account bans, and export verified B2B leads directly into your CRM.</text>
+  <g transform="translate(60, 45)">
+    <rect width="210" height="26" rx="13" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1" />
+    <text x="105" y="17" fill="#1d4ed8" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">ETHICAL B2B DATA PIPELINE</text>
+    <text x="0" y="58" fill="#0f172a" font-size="26" font-weight="800">Compliant LinkedIn Sales Navigator Export Architecture</text>
+    <text x="0" y="82" fill="#64748b" font-size="13" font-weight="500">4-Stage Workflow: Filter Definition -> Compliant Data Export -> Automated Regex Cleaning -> Verified CRM Routing</text>
   </g>
 
-  <!-- Step 1 Card: Cookie Extraction -->
-  <g transform="translate(60, 175)">
-    <rect width="250" height="380" rx="16" fill="url(#cardBg)" stroke="#1e293b" stroke-width="1.5" />
-    <rect x="0" y="0" width="250" height="6" rx="3" fill="#3b82f6" />
+  <!-- 4-Step Pipeline Flow Cards (Horizontal) -->
+  <g transform="translate(60, 160)">
     
-    <circle cx="36" cy="40" r="18" fill="#2563eb" fill-opacity="0.2" stroke="#3b82f6" />
-    <text x="36" y="46" fill="#60a5fa" font-size="14" font-weight="800" text-anchor="middle">01</text>
-    
-    <text x="66" y="44" fill="#ffffff" font-size="15" font-weight="700">Session Cookie</text>
-    <text x="24" y="85" fill="#94a3b8" font-size="12" font-weight="600">SOURCE: DevTools Storage</text>
+    <!-- Step 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="245" height="360" rx="12" fill="url(#whiteCardGrad)" stroke="#e2e8f0" stroke-width="1.5" filter="url(#subtleShadow)" />
+      <rect width="245" height="5" rx="2.5" fill="#3b82f6" />
+      <circle cx="36" cy="40" r="16" fill="#eff6ff" stroke="#93c5fd" />
+      <text x="36" y="45" fill="#1d4ed8" font-size="13" font-weight="800" text-anchor="middle">1</text>
+      
+      <text x="64" y="44" fill="#0f172a" font-size="15" font-weight="700">ICP Search Filter</text>
+      <text x="20" y="85" fill="#475569" font-size="12" font-weight="600">DEFINE TARGET LIST</text>
+      
+      <rect x="20" y="98" width="205" height="185" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
+      <text x="30" y="125" fill="#334155" font-size="11" font-weight="600">• Geography: US, UK, CA</text>
+      <text x="30" y="150" fill="#334155" font-size="11" font-weight="600">• Headcount: 51-500</text>
+      <text x="30" y="175" fill="#334155" font-size="11" font-weight="600">• Seniority: VP, CXO, Director</text>
+      <text x="30" y="200" fill="#334155" font-size="11" font-weight="600">• Industry: B2B SaaS, Logistics</text>
+      <text x="30" y="235" fill="#2563eb" font-size="11" font-weight="700">Save Search Target</text>
+      <text x="30" y="255" fill="#64748b" font-size="10">Zero-risk filter parameters</text>
 
-    <rect x="20" y="100" width="210" height="85" rx="8" fill="#070c18" stroke="#1e293b" />
-    <text x="32" y="122" fill="#64748b" font-size="10" font-weight="700" class="mono">TARGET TOKEN:</text>
-    <text x="32" y="142" fill="#38bdf8" font-size="11" font-weight="700" class="mono">li_at = "AQEDASg..."</text>
-    <text x="32" y="166" fill="#10b981" font-size="10" font-weight="600" class="mono">✓ No DOM Injection</text>
+      <rect x="20" y="295" width="205" height="42" rx="6" fill="#eff6ff" stroke="#bfdbfe" />
+      <text x="122" y="321" fill="#1d4ed8" font-size="11" font-weight="700" text-anchor="middle">✓ 100% Policy Compliant</text>
+    </g>
 
-    <text x="24" y="215" fill="#cbd5e1" font-size="12" font-weight="500">1. Inspect Application Tab</text>
-    <text x="24" y="240" fill="#cbd5e1" font-size="12" font-weight="500">2. Extract 150-char token</text>
-    <text x="24" y="265" fill="#cbd5e1" font-size="12" font-weight="500">3. Bind to Search URL</text>
+    <!-- Arrow 1 -> 2 -->
+    <g transform="translate(252, 170)">
+      <path d="M 0 0 L 18 0 M 12 -6 L 18 0 L 12 6" stroke="#94a3b8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
 
-    <rect x="20" y="300" width="210" height="50" rx="8" fill="#1e293b" fill-opacity="0.5" />
-    <text x="125" y="322" fill="#94a3b8" font-size="11" font-weight="600" text-anchor="middle">SAFETY FIREWALL</text>
-    <text x="125" y="340" fill="#38bdf8" font-size="12" font-weight="700" text-anchor="middle">100 Profiles / 24h Max</text>
+    <!-- Step 2 -->
+    <g transform="translate(278, 0)">
+      <rect width="245" height="360" rx="12" fill="url(#whiteCardGrad)" stroke="#e2e8f0" stroke-width="1.5" filter="url(#subtleShadow)" />
+      <rect width="245" height="5" rx="2.5" fill="#10b981" />
+      <circle cx="36" cy="40" r="16" fill="#ecfdf5" stroke="#a7f3d0" />
+      <text x="36" y="45" fill="#047857" font-size="13" font-weight="800" text-anchor="middle">2</text>
+      
+      <text x="64" y="44" fill="#0f172a" font-size="15" font-weight="700">Compliant Export</text>
+      <text x="20" y="85" fill="#475569" font-size="12" font-weight="600">STRUCTURED DATA</text>
+      
+      <rect x="20" y="98" width="205" height="185" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
+      <text x="30" y="125" fill="#334155" font-size="11" font-weight="600">• Native Account Lists</text>
+      <text x="30" y="150" fill="#334155" font-size="11" font-weight="600">• Official Lead Exports</text>
+      <text x="30" y="175" fill="#334155" font-size="11" font-weight="600">• Public Company Domains</text>
+      <text x="30" y="200" fill="#334155" font-size="11" font-weight="600">• Decision-Maker Titles</text>
+      <text x="30" y="235" fill="#059669" font-size="11" font-weight="700">No Risky Extensions</text>
+      <text x="30" y="255" fill="#64748b" font-size="10">Zero DOM injection risk</text>
+
+      <rect x="20" y="295" width="205" height="42" rx="6" fill="#ecfdf5" stroke="#a7f3d0" />
+      <text x="122" y="321" fill="#047857" font-size="11" font-weight="700" text-anchor="middle">✓ Safe &amp; Clean Output</text>
+    </g>
+
+    <!-- Arrow 2 -> 3 -->
+    <g transform="translate(530, 170)">
+      <path d="M 0 0 L 18 0 M 12 -6 L 18 0 L 12 6" stroke="#94a3b8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- Step 3 -->
+    <g transform="translate(556, 0)">
+      <rect width="245" height="360" rx="12" fill="url(#whiteCardGrad)" stroke="#e2e8f0" stroke-width="1.5" filter="url(#subtleShadow)" />
+      <rect width="245" height="5" rx="2.5" fill="#8b5cf6" />
+      <circle cx="36" cy="40" r="16" fill="#f5f3ff" stroke="#ddd6fe" />
+      <text x="36" y="45" fill="#6d28d9" font-size="13" font-weight="800" text-anchor="middle">3</text>
+      
+      <text x="64" y="44" fill="#0f172a" font-size="15" font-weight="700">Data Normalization</text>
+      <text x="20" y="85" fill="#475569" font-size="12" font-weight="600">REGEX &amp; SHEETS</text>
+      
+      <rect x="20" y="98" width="205" height="185" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
+      <text x="30" y="125" fill="#334155" font-size="11" font-weight="600">• Strip LLC, Inc, GmbH</text>
+      <text x="30" y="150" fill="#334155" font-size="11" font-weight="600">• Remove Emojis &amp; Icons</text>
+      <text x="30" y="175" fill="#334155" font-size="11" font-weight="600">• Proper Case Conversion</text>
+      <text x="30" y="200" fill="#334155" font-size="11" font-weight="600">• Split First / Last Names</text>
+      <text x="30" y="235" fill="#7c3aed" font-size="11" font-weight="700">Standardized Dataset</text>
+      <text x="30" y="255" fill="#64748b" font-size="10">High deliverability hygiene</text>
+
+      <rect x="20" y="295" width="205" height="42" rx="6" fill="#f5f3ff" stroke="#ddd6fe" />
+      <text x="122" y="321" fill="#6d28d9" font-size="11" font-weight="700" text-anchor="middle">✓ Clean CRM Readiness</text>
+    </g>
+
+    <!-- Arrow 3 -> 4 -->
+    <g transform="translate(808, 170)">
+      <path d="M 0 0 L 18 0 M 12 -6 L 18 0 L 12 6" stroke="#94a3b8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- Step 4 -->
+    <g transform="translate(834, 0)">
+      <rect width="245" height="360" rx="12" fill="url(#whiteCardGrad)" stroke="#e2e8f0" stroke-width="1.5" filter="url(#subtleShadow)" />
+      <rect width="245" height="5" rx="2.5" fill="#f59e0b" />
+      <circle cx="36" cy="40" r="16" fill="#fffbeb" stroke="#fde68a" />
+      <text x="36" y="45" fill="#b45309" font-size="13" font-weight="800" text-anchor="middle">4</text>
+      
+      <text x="64" y="44" fill="#0f172a" font-size="15" font-weight="700">CRM Enrichment</text>
+      <text x="20" y="85" fill="#475569" font-size="12" font-weight="600">VERIFICATION GATES</text>
+      
+      <rect x="20" y="98" width="205" height="185" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
+      <text x="30" y="125" fill="#334155" font-size="11" font-weight="600">• HubSpot / CRM Sync</text>
+      <text x="30" y="150" fill="#334155" font-size="11" font-weight="600">• SMTP MX Validation</text>
+      <text x="30" y="175" fill="#334155" font-size="11" font-weight="600">• DNC Scrubbing Gate</text>
+      <text x="30" y="200" fill="#334155" font-size="11" font-weight="600">• SDR Phone Cadence</text>
+      <text x="30" y="235" fill="#d97706" font-size="11" font-weight="700">Multi-Channel Outbound</text>
+      <text x="30" y="255" fill="#64748b" font-size="10">High conversion velocity</text>
+
+      <rect x="20" y="295" width="205" height="42" rx="6" fill="#fffbeb" stroke="#fde68a" />
+      <text x="122" y="321" fill="#b45309" font-size="11" font-weight="700" text-anchor="middle">✓ Pipeline Ready</text>
+    </g>
+
   </g>
 
-  <!-- Connecting Arrow 1 -->
-  <g transform="translate(320, 350)">
-    <line x1="0" y1="0" x2="30" y2="0" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 4" />
-    <polygon points="30,-5 40,0 30,5" fill="#3b82f6" />
-  </g>
-
-  <!-- Step 2 Card: Google Sheets Engine -->
-  <g transform="translate(370, 175)">
-    <rect width="250" height="380" rx="16" fill="url(#cardBg)" stroke="#1e293b" stroke-width="1.5" />
-    <rect x="0" y="0" width="250" height="6" rx="3" fill="#10b981" />
-    
-    <circle cx="36" cy="40" r="18" fill="#059669" fill-opacity="0.2" stroke="#10b981" />
-    <text x="36" y="46" fill="#34d399" font-size="14" font-weight="800" text-anchor="middle">02</text>
-    
-    <text x="66" y="44" fill="#ffffff" font-size="15" font-weight="700">Apps Script Engine</text>
-    <text x="24" y="85" fill="#94a3b8" font-size="12" font-weight="600">LOGIC: Jitter &amp; Cleanse</text>
-
-    <rect x="20" y="100" width="210" height="85" rx="8" fill="#070c18" stroke="#1e293b" />
-    <text x="32" y="122" fill="#64748b" font-size="10" font-weight="700" class="mono">RANDOM DELAY:</text>
-    <text x="32" y="142" fill="#34d399" font-size="11" font-weight="700" class="mono">sleep(8000, 22000)</text>
-    <text x="32" y="166" fill="#38bdf8" font-size="10" font-weight="600" class="mono">✓ Regex Name Scrubbing</text>
-
-    <text x="24" y="215" fill="#cbd5e1" font-size="12" font-weight="500">1. Executes pagination</text>
-    <text x="24" y="240" fill="#cbd5e1" font-size="12" font-weight="500">2. Strips "Inc / LLC" tags</text>
-    <text x="24" y="265" fill="#cbd5e1" font-size="12" font-weight="500">3. Compiles raw rows</text>
-
-    <rect x="20" y="300" width="210" height="50" rx="8" fill="#1e293b" fill-opacity="0.5" />
-    <text x="125" y="322" fill="#94a3b8" font-size="11" font-weight="600" text-anchor="middle">AUTOMATION COST</text>
-    <text x="125" y="340" fill="#10b981" font-size="12" font-weight="700" text-anchor="middle">$0.00 / 100% Free</text>
-  </g>
-
-  <!-- Connecting Arrow 2 -->
-  <g transform="translate(630, 350)">
-    <line x1="0" y1="0" x2="30" y2="0" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4" />
-    <polygon points="30,-5 40,0 30,5" fill="#10b981" />
-  </g>
-
-  <!-- Step 3 Card: Cloud Webhook -->
-  <g transform="translate(680, 175)">
-    <rect width="250" height="380" rx="16" fill="url(#cardBg)" stroke="#1e293b" stroke-width="1.5" />
-    <rect x="0" y="0" width="250" height="6" rx="3" fill="#8b5cf6" />
-    
-    <circle cx="36" cy="40" r="18" fill="#7c3aed" fill-opacity="0.2" stroke="#8b5cf6" />
-    <text x="36" y="46" fill="#c084fc" font-size="14" font-weight="800" text-anchor="middle">03</text>
-    
-    <text x="66" y="44" fill="#ffffff" font-size="15" font-weight="700">Webhook Loop</text>
-    <text x="24" y="85" fill="#94a3b8" font-size="12" font-weight="600">FORMAT: Structured JSON</text>
-
-    <rect x="20" y="100" width="210" height="85" rx="8" fill="#070c18" stroke="#1e293b" />
-    <text x="32" y="122" fill="#64748b" font-size="10" font-weight="700" class="mono">EVENT PAYLOAD:</text>
-    <text x="32" y="142" fill="#c084fc" font-size="11" font-weight="700" class="mono">"lead_extracted"</text>
-    <text x="32" y="166" fill="#38bdf8" font-size="10" font-weight="600" class="mono">✓ Real-Time Post</text>
-
-    <text x="24" y="215" fill="#cbd5e1" font-size="12" font-weight="500">1. Standardizes fields</text>
-    <text x="24" y="240" fill="#cbd5e1" font-size="12" font-weight="500">2. Enriches with email tools</text>
-    <text x="24" y="265" fill="#cbd5e1" font-size="12" font-weight="500">3. Validates deliverability</text>
-
-    <rect x="20" y="300" width="210" height="50" rx="8" fill="#1e293b" fill-opacity="0.5" />
-    <text x="125" y="322" fill="#94a3b8" font-size="11" font-weight="600" text-anchor="middle">ROUTING CONDITIONAL</text>
-    <text x="125" y="340" fill="#c084fc" font-size="12" font-weight="700" text-anchor="middle">VerifyFlag = TRUE</text>
-  </g>
-
-  <!-- Connecting Arrow 3 -->
-  <g transform="translate(940, 350)">
-    <line x1="0" y1="0" x2="30" y2="0" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="4 4" />
-    <polygon points="30,-5 40,0 30,5" fill="#8b5cf6" />
-  </g>
-
-  <!-- Step 4 Card: CRM & Outbound -->
-  <g transform="translate(990, 175)">
-    <rect width="150" height="380" rx="16" fill="url(#cardBg)" stroke="#1e293b" stroke-width="1.5" />
-    <rect x="0" y="0" width="150" height="6" rx="3" fill="#38bdf8" />
-    
-    <circle cx="36" cy="40" r="18" fill="#0284c7" fill-opacity="0.2" stroke="#38bdf8" />
-    <text x="36" y="46" fill="#38bdf8" font-size="14" font-weight="800" text-anchor="middle">04</text>
-    
-    <text x="66" y="44" fill="#ffffff" font-size="14" font-weight="700">CRM Sync</text>
-
-    <rect x="15" y="100" width="120" height="85" rx="8" fill="#070c18" stroke="#1e293b" />
-    <text x="25" y="128" fill="#10b981" font-size="11" font-weight="700" class="mono">HubSpot</text>
-    <text x="25" y="148" fill="#38bdf8" font-size="11" font-weight="700" class="mono">Salesforce</text>
-    <text x="25" y="168" fill="#c084fc" font-size="11" font-weight="700" class="mono">Apollo.io</text>
-
-    <text x="18" y="215" fill="#cbd5e1" font-size="11" font-weight="500">• Clean Dials</text>
-    <text x="18" y="240" fill="#cbd5e1" font-size="11" font-weight="500">• Auto Tasks</text>
-    <text x="18" y="265" fill="#cbd5e1" font-size="11" font-weight="500">• Cold Calling</text>
-
-    <rect x="15" y="300" width="120" height="50" rx="8" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.3" />
-    <text x="75" y="322" fill="#34d399" font-size="10" font-weight="700" text-anchor="middle">OUTCOME</text>
-    <text x="75" y="340" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle">1,800+ Demos</text>
-  </g>
-
-  <!-- Footer Branding -->
-  <g transform="translate(60, 615)">
-    <text x="0" y="20" fill="#64748b" font-size="12" font-weight="600">Willay Haider | Senior BDR &amp; Outbound Automation Specialist</text>
-    <text x="1080" y="20" fill="#38bdf8" font-size="12" font-weight="700" text-anchor="end">willayhaider.pro</text>
+  <!-- Footer Info -->
+  <g transform="translate(60, 580)">
+    <text x="0" y="0" fill="#64748b" font-size="12" font-weight="600">Ethical B2B Outbound Lead Generation &amp; Data Pipeline • Willay Haider</text>
+    <text x="1080" y="0" fill="#2563eb" font-size="12" font-weight="700" text-anchor="end">willayhaider.pro</text>
   </g>
 </svg>

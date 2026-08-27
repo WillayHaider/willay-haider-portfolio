@@ -1,15 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="devtoolsBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#090d18" />
-      <stop offset="50%" stop-color="#0e172a" />
-      <stop offset="100%" stop-color="#070a12" />
-    </linearGradient>
-
-    <linearGradient id="cookieCard" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.9" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
-    </linearGradient>
+    <filter id="whiteGuideShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.08" />
+    </filter>
   </defs>
 
   <style>
@@ -18,104 +11,106 @@
     .mono { font-family: 'JetBrains Mono', monospace; }
   </style>
 
-  <!-- Background -->
-  <rect width="1200" height="675" fill="url(#devtoolsBg)" />
+  <!-- Background Canvas: Clean Crisp White -->
+  <rect width="1200" height="630" fill="#ffffff" />
+  <rect width="1200" height="4" fill="#0284c7" />
 
-  <!-- Top Title -->
-  <g transform="translate(60, 45)">
-    <rect width="210" height="26" rx="13" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-opacity="0.3" />
-    <text x="105" y="17" fill="#60a5fa" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">CHROME DEVTOOLS PROTOCOL</text>
-    <text x="0" y="58" fill="#ffffff" font-size="26" font-weight="800">Manual Session Cookie Extraction (Bypassing Scraper Detection)</text>
-    <text x="0" y="82" fill="#94a3b8" font-size="13" font-weight="500">How to safely extract your 150+ character li_at authentication token in under 20 seconds.</text>
-  </g>
+  <!-- Outer Window -->
+  <g transform="translate(40, 35)">
+    <rect width="1120" height="540" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#whiteGuideShadow)" />
 
-  <!-- Mockup DevTools Window -->
-  <g transform="translate(60, 150)">
-    <rect width="1080" height="420" rx="12" fill="#070c18" stroke="#1e293b" stroke-width="1.5" />
-    
-    <!-- DevTools Top Tab Bar -->
-    <rect width="1080" height="42" rx="12" fill="#0f172a" />
-    <circle cx="25" cy="21" r="5" fill="#ef4444" />
-    <circle cx="42" cy="21" r="5" fill="#f59e0b" />
-    <circle cx="59" cy="21" r="5" fill="#10b981" />
+    <!-- App Header Bar -->
+    <rect width="1120" height="56" rx="14" fill="#f8fafc" />
+    <rect y="42" width="1120" height="14" fill="#f8fafc" />
+    <line x1="0" y1="56" x2="1120" y2="56" stroke="#e2e8f0" stroke-width="1" />
 
-    <text x="100" y="26" fill="#64748b" font-size="12" font-weight="600">Elements</text>
-    <text x="180" y="26" fill="#64748b" font-size="12" font-weight="600">Console</text>
-    <text x="260" y="26" fill="#64748b" font-size="12" font-weight="600">Sources</text>
-    <text x="340" y="26" fill="#64748b" font-size="12" font-weight="600">Network</text>
-    
-    <!-- Active Application Tab -->
-    <rect x="410" y="6" width="115" height="30" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1" />
-    <text x="467" y="25" fill="#38bdf8" font-size="12" font-weight="700" text-anchor="middle">Application</text>
+    <!-- Window Controls -->
+    <circle cx="28" cy="28" r="6" fill="#cbd5e1" />
+    <circle cx="48" cy="28" r="6" fill="#cbd5e1" />
+    <circle cx="68" cy="28" r="6" fill="#cbd5e1" />
 
-    <!-- Sidebar Left: Storage Tree -->
-    <g transform="translate(20, 60)">
-      <rect width="240" height="330" rx="8" fill="#0c1222" stroke="#1e293b" />
-      <text x="20" y="30" fill="#94a3b8" font-size="11" font-weight="700">STORAGE</text>
-      <text x="30" y="60" fill="#64748b" font-size="12">▶ Local Storage</text>
-      <text x="30" y="90" fill="#64748b" font-size="12">▶ Session Storage</text>
-      <text x="30" y="120" fill="#64748b" font-size="12">▼ Cookies</text>
+    <text x="100" y="34" fill="#0f172a" font-size="14" font-weight="700">LinkedIn Sales Navigator • Ethical Lead List Building &amp; Export Protocol</text>
+    <rect x="910" y="14" width="180" height="28" rx="6" fill="#ecfdf5" stroke="#a7f3d0" />
+    <text x="1000" y="32" fill="#047857" font-size="11" font-weight="700" text-anchor="middle">✓ 100% Policy Compliant</text>
+
+    <!-- 2 Column Layout Inside -->
+    <g transform="translate(25, 75)">
       
-      <!-- Selected Cookies URL -->
-      <rect x="40" y="132" width="180" height="26" rx="4" fill="#2563eb" fill-opacity="0.25" stroke="#3b82f6" stroke-width="1" />
-      <text x="50" y="150" fill="#60a5fa" font-size="11" font-weight="700">https://www.linkedin.com</text>
-      
-      <text x="30" y="190" fill="#64748b" font-size="12">▶ IndexedDB</text>
-      <text x="30" y="220" fill="#64748b" font-size="12">▶ Cache storage</text>
+      <!-- Left Column: Step-by-Step Ethical Export Setup -->
+      <g transform="translate(0, 0)">
+        <rect width="520" height="425" rx="10" fill="#f8fafc" stroke="#e2e8f0" />
+        <rect width="520" height="4" rx="2" fill="#0284c7" />
+        
+        <text x="24" y="34" fill="#0f172a" font-size="16" font-weight="700">Official List Building &amp; Export Steps</text>
+        <text x="24" y="54" fill="#64748b" font-size="12" font-weight="600">ZERO EXTENSION RISK • COMPLIANT PROSPECTING</text>
+
+        <!-- Step Item 1 -->
+        <g transform="translate(20, 75)">
+          <rect width="480" height="60" rx="8" fill="#ffffff" stroke="#e2e8f0" />
+          <circle cx="28" cy="30" r="14" fill="#eff6ff" />
+          <text x="28" y="35" fill="#1d4ed8" font-size="12" font-weight="800" text-anchor="middle">1</text>
+          <text x="56" y="26" fill="#0f172a" font-size="13" font-weight="700">Build Saved ICP Account Lists</text>
+          <text x="56" y="46" fill="#64748b" font-size="11">Filter by Geography, Verified Headcount &amp; Industry</text>
+        </g>
+
+        <!-- Step Item 2 -->
+        <g transform="translate(20, 145)">
+          <rect width="480" height="60" rx="8" fill="#ffffff" stroke="#e2e8f0" />
+          <circle cx="28" cy="30" r="14" fill="#eff6ff" />
+          <text x="28" y="35" fill="#1d4ed8" font-size="12" font-weight="800" text-anchor="middle">2</text>
+          <text x="56" y="26" fill="#0f172a" font-size="13" font-weight="700">Export Public Company &amp; Contact Metadata</text>
+          <text x="56" y="46" fill="#64748b" font-size="11">Extract full names, executive titles, and corporate domains</text>
+        </g>
+
+        <!-- Step Item 3 -->
+        <g transform="translate(20, 215)">
+          <rect width="480" height="60" rx="8" fill="#ffffff" stroke="#e2e8f0" />
+          <circle cx="28" cy="30" r="14" fill="#eff6ff" />
+          <text x="28" y="35" fill="#1d4ed8" font-size="12" font-weight="800" text-anchor="middle">3</text>
+          <text x="56" y="26" fill="#0f172a" font-size="13" font-weight="700">Normalize via Automated Google Sheets Formula</text>
+          <text x="56" y="46" fill="#64748b" font-size="11">Clean legal entities ("LLC", "Inc") with standard RegEx</text>
+        </g>
+
+        <!-- Step Item 4 -->
+        <g transform="translate(20, 285)">
+          <rect width="480" height="60" rx="8" fill="#ffffff" stroke="#e2e8f0" />
+          <circle cx="28" cy="30" r="14" fill="#eff6ff" />
+          <text x="28" y="35" fill="#1d4ed8" font-size="12" font-weight="800" text-anchor="middle">4</text>
+          <text x="56" y="26" fill="#0f172a" font-size="13" font-weight="700">Verified Email &amp; Phone Append</text>
+          <text x="56" y="46" fill="#64748b" font-size="11">Validate MX records &amp; DNC status before enrolling in cadences</text>
+        </g>
+
+        <rect x="20" y="360" width="480" height="42" rx="6" fill="#ecfdf5" stroke="#a7f3d0" />
+        <text x="260" y="386" fill="#047857" font-size="12" font-weight="700" text-anchor="middle">✓ Protects LinkedIn Account Longevity &amp; Reputation</text>
+      </g>
+
+      <!-- Right Column: Code & Data Schema Box -->
+      <g transform="translate(550, 0)">
+        <rect width="520" height="425" rx="10" fill="#f8fafc" stroke="#e2e8f0" />
+        <rect width="520" height="4" rx="2" fill="#10b981" />
+        
+        <text x="24" y="34" fill="#0f172a" font-size="16" font-weight="700">Standardized Outbound Lead Schema</text>
+        <text x="24" y="54" fill="#64748b" font-size="12" font-weight="600">CLEAN JSON STRUCTURE FOR CRM INGESTION</text>
+
+        <g transform="translate(20, 75)">
+          <rect width="480" height="265" rx="8" fill="#ffffff" stroke="#e2e8f0" />
+          <text x="20" y="35" fill="#047857" font-size="12" font-weight="700" class="mono">{</text>
+          <text x="40" y="60" fill="#2563eb" font-size="12" class="mono">"event": <tspan fill="#0f172a">"lead_ingested"</tspan>,</text>
+          <text x="40" y="85" fill="#2563eb" font-size="12" class="mono">"source": <tspan fill="#0f172a">"sales_nav_verified"</tspan>,</text>
+          <text x="40" y="110" fill="#2563eb" font-size="12" class="mono">"lead_data": {</text>
+          <text x="60" y="135" fill="#7c3aed" font-size="12" class="mono">"full_name": <tspan fill="#0f172a">"Greg Williams"</tspan>,</text>
+          <text x="60" y="160" fill="#7c3aed" font-size="12" class="mono">"company_cleaned": <tspan fill="#0f172a">"Apex Freight"</tspan>,</text>
+          <text x="60" y="185" fill="#7c3aed" font-size="12" class="mono">"title": <tspan fill="#0f172a">"VP of Supply Chain"</tspan>,</text>
+          <text x="60" y="210" fill="#7c3aed" font-size="12" class="mono">"verified_email": <tspan fill="#047857">"greg@apexfreight.com"</tspan></text>
+          <text x="40" y="235" fill="#2563eb" font-size="12" class="mono">}</text>
+          <text x="20" y="255" fill="#047857" font-size="12" font-weight="700" class="mono">}</text>
+        </g>
+
+        <rect x="20" y="360" width="480" height="42" rx="6" fill="#eff6ff" stroke="#bfdbfe" />
+        <text x="260" y="386" fill="#1d4ed8" font-size="12" font-weight="700" text-anchor="middle">✓ Compatible with HubSpot, Salesforce &amp; Zoho CRM</text>
+      </g>
+
     </g>
 
-    <!-- Cookie Table Right -->
-    <g transform="translate(280, 60)">
-      <rect width="780" height="330" rx="8" fill="#0c1222" stroke="#1e293b" />
-      
-      <!-- Cookie Table Header -->
-      <rect width="780" height="35" rx="8" fill="#131d36" />
-      <text x="25" y="22" fill="#94a3b8" font-size="11" font-weight="700">NAME</text>
-      <text x="140" y="22" fill="#94a3b8" font-size="11" font-weight="700">VALUE (SESSION TOKEN)</text>
-      <text x="580" y="22" fill="#94a3b8" font-size="11" font-weight="700">DOMAIN</text>
-      <text x="700" y="22" fill="#94a3b8" font-size="11" font-weight="700">SECURE</text>
-
-      <!-- Row 1: li_at (HIGHLIGHTED) -->
-      <g transform="translate(0, 35)">
-        <rect width="780" height="50" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-width="1.5" />
-        <circle cx="15" cy="25" r="4" fill="#10b981" />
-        <text x="25" y="30" fill="#34d399" font-size="13" font-weight="800" class="mono">li_at</text>
-        <text x="140" y="30" fill="#ffffff" font-size="12" font-weight="600" class="mono">AQEDASgK8B0Fq9m2AAABk... (150+ chars)</text>
-        <text x="580" y="30" fill="#94a3b8" font-size="12" class="mono">.linkedin.com</text>
-        <text x="700" y="30" fill="#10b981" font-size="12" font-weight="700">✓ True</text>
-      </g>
-
-      <!-- Row 2: JSESSIONID -->
-      <g transform="translate(0, 85)">
-        <line x1="0" y1="45" x2="780" y2="45" stroke="#1e293b" />
-        <text x="25" y="28" fill="#cbd5e1" font-size="12" class="mono">JSESSIONID</text>
-        <text x="140" y="28" fill="#64748b" font-size="11" class="mono">"ajax:7492048194028472910"</text>
-        <text x="580" y="28" fill="#64748b" font-size="11" class="mono">.www.linkedin.com</text>
-        <text x="700" y="28" fill="#10b981" font-size="11">✓ True</text>
-      </g>
-
-      <!-- Row 3: bcookie -->
-      <g transform="translate(0, 130)">
-        <line x1="0" y1="45" x2="780" y2="45" stroke="#1e293b" />
-        <text x="25" y="28" fill="#cbd5e1" font-size="12" class="mono">bcookie</text>
-        <text x="140" y="28" fill="#64748b" font-size="11" class="mono">"v=2&amp;c4b123984e784532..."</text>
-        <text x="580" y="28" fill="#64748b" font-size="11" class="mono">.linkedin.com</text>
-        <text x="700" y="28" fill="#10b981" font-size="11">✓ True</text>
-      </g>
-
-      <!-- Callout Box inside table -->
-      <g transform="translate(25, 200)">
-        <rect width="730" height="75" rx="8" fill="#1e293b" fill-opacity="0.6" stroke="#334155" />
-        <text x="20" y="26" fill="#38bdf8" font-size="12" font-weight="700">SECURITY AUDIT NOTE:</text>
-        <text x="20" y="46" fill="#e2e8f0" font-size="11" font-weight="500">Copying `li_at` directly keeps extraction external to the browser sandbox, avoiding DOM-based scraper heuristics.</text>
-        <text x="20" y="64" fill="#94a3b8" font-size="11">Never share this token publicly or check it into public GitHub repositories.</text>
-      </g>
-    </g>
-  </g>
-
-  <!-- Footer -->
-  <g transform="translate(60, 615)">
-    <text x="0" y="20" fill="#64748b" font-size="12" font-weight="600">LinkedIn Sales Navigator Security Architecture • Willay Haider</text>
-    <text x="1080" y="20" fill="#38bdf8" font-size="12" font-weight="700" text-anchor="end">willayhaider.pro</text>
   </g>
 </svg>
