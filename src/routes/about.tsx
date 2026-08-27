@@ -129,7 +129,7 @@ function AboutPage() {
         <article className="mx-auto max-w-3xl px-4 sm:px-6 animate-fade-in">
           {/* Top Intro Section */}
           <div className="text-sm sm:text-base leading-relaxed text-foreground/90 font-normal">
-            <div className="mb-6 sm:mb-7">
+            <div className="mb-9 sm:mb-10">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
                 About Willay Haider
               </span>
