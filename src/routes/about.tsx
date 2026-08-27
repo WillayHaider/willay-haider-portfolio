@@ -175,37 +175,45 @@ function AboutPage() {
                 Fast forward to today:
               </p>
 
-              {/* Fast Forward Stats Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 my-4">
-                <div className="glass-card rounded-xl border border-border p-4 text-left">
-                  <div className="flex items-center gap-2 text-foreground font-extrabold text-lg sm:text-xl">
-                    <PhoneCall className="h-4 w-4 text-primary shrink-0" />
-                    <span>57,500+</span>
-                  </div>
-                  <p className="mt-1 text-xs text-muted-foreground font-medium">cold calls dialed.</p>
+              {/* Single row layout exactly like homepage hero */}
+              <div className="grid grid-cols-3 gap-3 border-y border-border/80 py-5 my-4 sm:flex sm:flex-wrap sm:gap-10 sm:py-6">
+                <div>
+                  <p className="text-xl font-extrabold text-[var(--emerald-accent)] sm:text-3xl">
+                    $3.5M+
+                  </p>
+                  <p className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-[11px]">
+                    Revenue Closed
+                  </p>
                 </div>
 
-                <div className="glass-card rounded-xl border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)]/40 p-4 text-left">
-                  <div className="flex items-center gap-2 text-[var(--emerald-accent)] font-extrabold text-lg sm:text-xl">
-                    <TrendingUp className="h-4 w-4 shrink-0" />
-                    <span>$3.5M+</span>
-                  </div>
-                  <p className="mt-1 text-xs text-muted-foreground font-medium">in verified closed revenue generated for B2B startups.</p>
+                <div>
+                  <p className="text-xl font-extrabold text-foreground sm:text-3xl">
+                    57,500+
+                  </p>
+                  <p className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-[11px]">
+                    Outbound Calls
+                  </p>
                 </div>
 
-                <div className="glass-card rounded-xl border border-primary/20 bg-primary/[0.04] p-4 text-left">
-                  <div className="flex items-center gap-2 text-primary font-extrabold text-lg sm:text-xl">
-                    <CheckCircle2 className="h-4 w-4 shrink-0" />
-                    <span>72%</span>
-                  </div>
-                  <p className="mt-1 text-xs text-muted-foreground font-medium">average show-up rate on booked demos.</p>
+                <div>
+                  <p className="text-xl font-extrabold text-primary sm:text-3xl">
+                    72%
+                  </p>
+                  <p className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-[11px]">
+                    Avg Show-up Rate
+                  </p>
                 </div>
               </div>
             </div>
 
-            <p className="pt-3 text-base sm:text-lg font-bold text-foreground">
-              The bottom line? You show up to close. I handle everything else.
-            </p>
+            <div className="pt-2">
+              <p className="text-base sm:text-lg font-bold text-foreground">
+                <span className="block">The bottom line?</span>
+                <span className="block mt-1 font-semibold text-foreground/90">
+                  You show up to close. I handle everything else.
+                </span>
+              </p>
+            </div>
 
             {/* Action Button */}
             <div className="pt-4">
