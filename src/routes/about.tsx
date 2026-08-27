@@ -215,7 +215,7 @@ function AboutPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           {/* Hero Bio - Clean Plain Text */}
           <div className="max-w-4xl">
-            <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+            <div className="inline-flex items-center rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
               <span>About Willay Haider</span>
             </div>
             <h1 className="mt-3 text-[22px] sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight leading-tight">
@@ -263,7 +263,7 @@ function AboutPage() {
 
           {/* Local In-House Opportunities Section as Plain Text */}
           <div className="mt-12 sm:mt-16">
-            <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary mb-2.5">
+            <div className="inline-flex items-center rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary mb-2.5">
               <span>Local In-House Opportunities</span>
             </div>
 
@@ -293,7 +293,7 @@ function AboutPage() {
           {/* Career Timeline */}
           <div className="mt-16 sm:mt-24">
             <div className="text-center">
-              <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+              <div className="inline-flex items-center rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
                 <span>Track Record</span>
               </div>
               <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
@@ -323,7 +323,7 @@ function AboutPage() {
           {/* Verified Certifications */}
           <div className="mt-16 sm:mt-24">
             <div className="text-center">
-              <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+              <div className="inline-flex items-center rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
                 <span>Credentials</span>
               </div>
               <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">

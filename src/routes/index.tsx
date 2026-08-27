@@ -815,7 +815,7 @@ function ServicesSection({ onOpenModal }: { onOpenModal: (service?: string) => v
     <section id="services" className="relative py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
             <Zap className="h-3 w-3" />
             <span>Services</span>
           </div>
@@ -905,7 +905,7 @@ function CertificationsSection() {
     <section id="certifications" className="relative py-10 sm:py-14 border-b border-border/70 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
             <Award className="h-3 w-3" />
             <span>Verified Credentials</span>
           </div>
@@ -1149,7 +1149,7 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
     <section id="pricing" className="relative py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
             <BarChart3 className="h-3 w-3" />
             <span>Pricing</span>
           </div>
@@ -1517,7 +1517,7 @@ function ReviewsSection() {
     <section id="reviews" className="relative py-14 sm:py-20 bg-secondary/20 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-col items-center text-center mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
             <Star className="h-3 w-3 fill-current" />
             <span>Verified Reviews</span>
           </div>
@@ -1605,7 +1605,7 @@ function TeamCapabilitiesSection({ onOpenModal }: { onOpenModal: (service?: stri
         <div className="glass-card overflow-hidden rounded-2xl p-6 sm:p-8">
           <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-[1.2fr_0.8fr]">
             <div>
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
                 <Users className="h-3 w-3" />
                 <span>Full-Stack Growth Capability</span>
               </div>
@@ -1669,7 +1669,7 @@ function FAQSection() {
     <section id="faq" className="relative py-14 sm:py-20 bg-secondary/20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <div className="flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
             <ShieldCheck className="h-3 w-3" />
             <span>Questions</span>
           </div>

@@ -125,7 +125,7 @@ function ContactPage() {
       <main className="pt-24 pb-16 sm:pt-32 sm:pb-24 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
           {/* Availability Status Badge */}
-          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
             <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0" />
             <span>Available Now</span>
           </div>
