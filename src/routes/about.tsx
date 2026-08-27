@@ -191,7 +191,7 @@ function AboutPage() {
                 download="Mr Haider-BDR-Resume.pdf"
                 className="btn-click-effect inline-flex min-h-[38px] items-center justify-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-xs sm:text-sm font-semibold text-foreground transition-colors hover:border-primary shadow-xs"
               >
-                Download Full CV (PDF)
+                Download CV (PDF)
               </a>
             </div>
           </header>
