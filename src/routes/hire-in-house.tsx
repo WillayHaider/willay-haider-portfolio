@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useRef, lazy, Suspense } from "react";
-import { ArrowRight, Play, Pause, Globe, Clock, MessageSquare, Database, ShieldCheck, Award } from "lucide-react";
+import { ArrowRight, Play, Pause, PhoneCall, Users, Target, ShieldCheck, CheckCircle2, Building2 } from "lucide-react";
 import introAudioUrl from "@/assets/willay-intro.ogg";
 import googleLogo from "@/assets/google-logo.png";
 import deloitteLogo from "@/assets/deloitte-logo.png";
@@ -11,71 +11,64 @@ const LazyLeadCaptureModal = lazy(() =>
   import("@/components/LeadCaptureModal").then((m) => ({ default: m.LeadCaptureModal }))
 );
 
-export const Route = createFileRoute("/about")({
-  component: AboutPage,
+export const Route = createFileRoute("/hire-in-house")({
+  component: HireInHousePage,
   head: () => ({
     meta: [
-      { title: "About Willay Haider | Senior BDR & Global Outbound Sales Specialist" },
+      { title: "Hire Willay Haider In-House | Senior BDR & Sales Team Leader" },
       {
         name: "description",
         content:
-          "Meet Willay Haider: Senior Business Development Representative & Outbound Sales Strategist. 57,000+ dials, $3.5M+ closed revenue across US, UK, and European B2B SaaS and enterprise markets.",
+          "Hire Willay Haider in-house: Senior BDR & Outbound Sales Leader with 57,000+ dials, $3.5M+ pipeline generated, available for on-site sales floor leadership and BDR management for Pakistan-based agencies.",
       },
       {
         name: "keywords",
         content:
-          "Willay Haider, About Willay Haider, Senior BDR, Remote Sales Development Representative, Outbound Sales Strategist, Global B2B Cold Calling, willayhaider.pro",
+          "Hire In-House BDR, In-House Sales Development Representative Pakistan, Senior BDR Lahore, Outbound Sales Manager Pakistan, Cold Calling Floor Lead, Willay Haider In-House, willayhaider.pro",
       },
       { name: "author", content: "Willay Haider" },
-      { property: "og:title", content: "About Willay Haider | Senior BDR & Global Outbound Sales Specialist" },
+      { property: "og:title", content: "Hire Willay Haider In-House | Senior BDR & Sales Team Leader" },
       {
         property: "og:description",
         content:
-          "Background, verified credentials, and track record of Willay Haider across B2B SaaS, healthcare procurement, and enterprise outbound sales.",
+          "Bring 57,000+ cold dials, proven objection-handling systems, and high-energy sales floor leadership directly into your agency.",
       },
       { property: "og:type", content: "profile" },
-      { property: "og:url", content: "https://willayhaider.pro/about" },
+      { property: "og:url", content: "https://willayhaider.pro/hire-in-house" },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "About Willay Haider | Senior BDR & Global Outbound Sales Specialist" },
+      { name: "twitter:title", content: "Hire Willay Haider In-House | Senior BDR & Sales Team Leader" },
       {
         name: "twitter:description",
         content:
-          "Background, verified credentials, and track record of Willay Haider across B2B SaaS, healthcare procurement, and enterprise outbound sales.",
+          "Bring 57,000+ cold dials, proven objection-handling systems, and high-energy sales floor leadership directly into your agency.",
       },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
     ],
-    links: [{ rel: "canonical", href: "https://willayhaider.pro/about" }],
+    links: [{ rel: "canonical", href: "https://willayhaider.pro/hire-in-house" }],
   }),
 });
 
-const STATS_DATA = [
-  { value: "57,000+", label: "Verified Outbound Dials", sub: "US & European B2B targets" },
-  { value: "$3.5M+", label: "Closed Revenue Generated", sub: "Directly sourced from cold pipeline" },
-  { value: "75%+", label: "Calling Block Connect Rate", sub: "Multi-touch cadence optimization" },
-  { value: "320+", label: "Qualified Discovery Demos", sub: "Booked for Account Executives" },
-];
-
-const GLOBAL_ADVANTAGES = [
+const IN_HOUSE_PILLARS = [
   {
-    icon: Clock,
-    title: "US, UK & European Timezone Alignment",
-    desc: "Seamlessly operating during Eastern (EST), Central (CST), GMT, and Central European (CET) business hours for real-time outreach, rapid follow-ups, and live calendar booking.",
+    icon: Users,
+    title: "SDR Floor Leadership & Coaching",
+    desc: "Hands-on caller coaching, daily live call shadowing, objection handling teardowns, and custom talk-track scripting to elevate your whole team's booking rate.",
   },
   {
-    icon: MessageSquare,
-    title: "High-Trust Consultative Communication",
-    desc: "Fluent business English with crisp articulation, active listening, and conversational control that builds immediate rapport with C-suite and VP-level decision makers.",
+    icon: PhoneCall,
+    title: "High-Volume Leading from Front",
+    desc: "Consistent 150–250+ targeted outbound dials per shift across US/UK markets, setting the daily standard for hustle, connect rates, and CRM accuracy.",
   },
   {
-    icon: Database,
-    title: "Modern Remote Sales Tech Stack",
-    desc: "End-to-end fluency across Apollo.io, ZoomInfo, HubSpot, Salesforce, Close CRM, LinkedIn Sales Navigator, and automated multichannel sequence engines.",
+    icon: Target,
+    title: "CRM Discipline & KPI Tracking",
+    desc: "Setting up and maintaining clean HubSpot, Salesforce, or Apollo pipelines with clear dispositions, activity analytics, and daily performance visibility.",
   },
   {
     icon: ShieldCheck,
-    title: "Discipline, Hygiene & Daily Reporting",
-    desc: "Zero fluff. Strict CRM logging, detailed call disposition tagging, call recording reviews, and transparent weekly pipeline forecasting for your leadership team.",
+    title: "Full Outbound Architecture",
+    desc: "Building clean ICP lists, domain warming, multichannel sequences (phone + email + LinkedIn), and smooth demo handoffs to your Account Executives.",
   },
 ];
 
@@ -137,10 +130,10 @@ const CAREER_HIGHLIGHTS = [
   },
 ];
 
-function AboutPage() {
+function HireInHousePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isDirectConnect, setIsDirectConnect] = useState(false);
-  const [modalService, setModalService] = useState<string | undefined>(undefined);
+  const [isDirectConnect, setIsDirectConnect] = useState(true);
+  const [modalService, setModalService] = useState<string | undefined>("In-house Hiring / Consulting (Pakistan-based agencies)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -190,14 +183,14 @@ function AboutPage() {
 
           <button
             onClick={() => {
-              setIsDirectConnect(false);
-              setModalService(undefined);
+              setIsDirectConnect(true);
+              setModalService("In-house Hiring / Consulting (Pakistan-based agencies)");
               setIsModalOpen(true);
             }}
             className="btn-click-effect rounded-full px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-xs transition-transform hover:opacity-90 active:scale-95 sm:px-4 sm:py-2"
             style={{ background: "var(--gradient-primary)" }}
           >
-            Request Proposal
+            Schedule Interview
           </button>
         </div>
 
@@ -223,10 +216,10 @@ function AboutPage() {
               <a href="/#faq" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 FAQs
               </a>
-              <a href="/about" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-primary bg-primary/10 transition-colors">
+              <a href="/about" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 About Me
               </a>
-              <a href="/hire-in-house" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
+              <a href="/hire-in-house" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-primary bg-primary/10 transition-colors">
                 Hire In-House
               </a>
               <a href="/#certifications" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
@@ -246,41 +239,37 @@ function AboutPage() {
       {/* Main Content */}
       <main className="pt-24 pb-16 sm:pt-32 sm:pb-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
-          {/* Hero Bio */}
+          {/* Hero Section */}
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
-              <Globe className="h-3 w-3" />
-              <span>About Willay Haider</span>
+              <Building2 className="h-3 w-3" />
+              <span>In-House Opportunities & Leadership</span>
             </div>
 
-            <h1 className="mt-3 text-[22px] sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight leading-tight">
+            <h1 className="mt-3 text-[22px] sm:text-4xl md:text-5xl lg:text-[50px] font-extrabold tracking-tight leading-tight">
               <span className="block text-foreground">
-                Turning Cold Prospects Into
+                Pakistan-Based Agency Owner Looking
               </span>
               <span className="block mt-1 sm:mt-2 text-primary">
-                High-Ticket Closed Revenue
+                To Hire In-House Sales Leadership?
               </span>
             </h1>
 
-            <p className="mt-4 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
-              I am a Senior Business Development Representative and Outbound Sales Strategist specializing in orchestrating end-to-end pipeline systems for high-growth US, UK, and European B2B companies. Over the past 1.5+ years, I have executed over 57,000+ dials and directly generated $3.5M+ in verified closed revenue.
-            </p>
-
-            <p className="mt-3 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
-              My philosophy is straightforward: cold calling is not about reading robotic scripts; it is about sharp discovery, genuine consultative rapport, and relentless CRM discipline to surface real business pain points.
+            <p className="mt-4 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium max-w-3xl">
+              I bring 57,000+ verified cold dials, battle-tested objection-handling playbooks, and high-energy sales floor leadership directly into your physical office. Whether you are building a new BDR team from scratch or scaling an existing cold calling department, I lead from the front to generate predictable pipeline revenue.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <button
                 onClick={() => {
-                  setIsDirectConnect(false);
-                  setModalService(undefined);
+                  setIsDirectConnect(true);
+                  setModalService("In-house Hiring / Consulting (Pakistan-based agencies)");
                   setIsModalOpen(true);
                 }}
                 className="btn-click-effect inline-flex min-h-[40px] items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs transition-transform hover:opacity-90 active:scale-95"
                 style={{ background: "var(--gradient-primary)" }}
               >
-                <span>Work With Me Remotely</span>
+                <span>Schedule In-House Interview</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
 
@@ -309,55 +298,59 @@ function AboutPage() {
             </div>
           </div>
 
-          {/* Stats Bar */}
-          <div className="mt-12 sm:mt-16 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            {STATS_DATA.map((stat, i) => (
-              <div
-                key={i}
-                className="glass-card rounded-xl border border-border p-4 text-center shadow-xs"
-              >
-                <div className="text-xl sm:text-2xl font-black text-primary tracking-tight">
-                  {stat.value}
-                </div>
-                <div className="mt-1 text-xs font-bold text-foreground">
-                  {stat.label}
-                </div>
-                <div className="mt-0.5 text-[10px] text-muted-foreground font-medium">
-                  {stat.sub}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Global Collaboration & Remote Advantages */}
-          <div className="mt-16 sm:mt-24">
+          {/* Value Pillars Section */}
+          <div className="mt-16 sm:mt-20">
             <div className="text-center mb-8">
               <div className="inline-flex items-center rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
-                <span>Worldwide Remote Execution</span>
+                <span>In-House Capabilities</span>
               </div>
               <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                How I Collaborate With Global Teams
+                What I Bring to Your In-House Floor
               </h2>
               <p className="mt-2 text-xs sm:text-sm text-foreground/80 font-medium max-w-xl mx-auto">
-                Engineered for founders, VP Sales, and global revenue leaders looking for seamless remote outbound execution.
+                Practical, revenue-focused sales operations designed to turn raw callers into disciplined top producers.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {GLOBAL_ADVANTAGES.map((adv, i) => (
+              {IN_HOUSE_PILLARS.map((pillar, i) => (
                 <div
                   key={i}
                   className="glass-card rounded-xl border border-border p-5 sm:p-6 flex flex-col justify-between"
                 >
                   <div>
                     <div className="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3">
-                      <adv.icon className="h-5 w-5" />
+                      <pillar.icon className="h-5 w-5" />
                     </div>
-                    <h3 className="text-base font-bold text-foreground mb-1.5">{adv.title}</h3>
-                    <p className="text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">{adv.desc}</p>
+                    <h3 className="text-base font-bold text-foreground mb-1.5">{pillar.title}</h3>
+                    <p className="text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">{pillar.desc}</p>
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Quick Schedule Callout Banner */}
+          <div className="mt-12 rounded-2xl border border-border bg-gradient-to-r from-secondary/40 via-card to-secondary/40 p-6 sm:p-8 text-center shadow-xs">
+            <h3 className="text-lg sm:text-xl font-bold text-foreground">
+              Ready to Discuss an In-House BDR or Lead Role?
+            </h3>
+            <p className="mt-2 text-xs sm:text-sm text-foreground/80 font-medium max-w-2xl mx-auto">
+              Book an interview slot directly on the calendar or connect directly via WhatsApp to discuss on-site requirements in Pakistan.
+            </p>
+            <div className="mt-4 flex flex-wrap justify-center gap-3">
+              <button
+                onClick={() => {
+                  setIsDirectConnect(true);
+                  setModalService("In-house Hiring / Consulting (Pakistan-based agencies)");
+                  setIsModalOpen(true);
+                }}
+                className="btn-click-effect inline-flex min-h-[40px] items-center justify-center gap-1.5 rounded-full px-5 py-2 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs hover:opacity-90 active:scale-95"
+                style={{ background: "var(--gradient-primary)" }}
+              >
+                <span>Schedule Interview Now</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </button>
             </div>
           </div>
 
@@ -425,27 +418,20 @@ function AboutPage() {
             </div>
           </div>
 
-          {/* Global Consultation CTA Banner */}
-          <div className="mt-16 rounded-2xl border border-border bg-gradient-to-r from-secondary/40 via-card to-secondary/40 p-6 sm:p-8 text-center shadow-xs">
-            <h3 className="text-lg sm:text-xl font-bold text-foreground">
-              Ready to Accelerate Your Global Outbound Pipeline?
-            </h3>
-            <p className="mt-2 text-xs sm:text-sm text-foreground/80 font-medium max-w-2xl mx-auto">
-              Whether you need high-volume cold calling blocks, dedicated SDR prospecting, or an outbound strategy audit, let's connect.
-            </p>
-            <div className="mt-4 flex flex-wrap justify-center gap-3">
-              <button
-                onClick={() => {
-                  setIsDirectConnect(false);
-                  setModalService(undefined);
-                  setIsModalOpen(true);
-                }}
-                className="btn-click-effect inline-flex min-h-[40px] items-center justify-center gap-1.5 rounded-full px-5 py-2 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs hover:opacity-90 active:scale-95"
-                style={{ background: "var(--gradient-primary)" }}
-              >
-                <span>Request Proposal / Consultation</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </button>
+          {/* Languages */}
+          <div className="mt-12 rounded-xl border border-border bg-card p-5 text-center shadow-xs">
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <div className="flex items-center text-xs font-bold uppercase tracking-wider text-primary">
+                <span>Fluent Languages:</span>
+              </div>
+              {["English (US/UK)", "Urdu", "Punjabi", "Saraiki"].map((lang) => (
+                <span
+                  key={lang}
+                  className="rounded-full border border-border bg-secondary/60 px-3 py-0.5 text-xs font-semibold text-foreground"
+                >
+                  {lang}
+                </span>
+              ))}
             </div>
           </div>
         </div>

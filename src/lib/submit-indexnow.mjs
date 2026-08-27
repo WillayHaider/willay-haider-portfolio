@@ -6,6 +6,7 @@ const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const URLS = [
   `https://${HOST}`,
   `https://${HOST}/about`,
+  `https://${HOST}/hire-in-house`,
   `https://${HOST}/contact`,
   `https://${HOST}/gallery`,
   `https://${HOST}/blog`,

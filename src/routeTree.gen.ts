@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as HireInHouseRouteImport } from './routes/hire-in-house'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
@@ -37,6 +38,11 @@ const ContactRoute = ContactRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HireInHouseRoute = HireInHouseRouteImport.update({
+  id: '/hire-in-house',
+  path: '/hire-in-house',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -70,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/hire-in-house': typeof HireInHouseRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms': typeof TermsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/hire-in-house': typeof HireInHouseRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms': typeof TermsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/hire-in-house': typeof HireInHouseRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms': typeof TermsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/gallery'
+    | '/hire-in-house'
     | '/privacy-policy'
     | '/terms'
     | '/terms-and-conditions'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/gallery'
+    | '/hire-in-house'
     | '/privacy-policy'
     | '/terms'
     | '/terms-and-conditions'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/gallery'
+    | '/hire-in-house'
     | '/privacy-policy'
     | '/terms'
     | '/terms-and-conditions'
@@ -140,6 +152,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
+  HireInHouseRoute: typeof HireInHouseRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   TermsRoute: typeof TermsRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
@@ -175,6 +188,13 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hire-in-house': {
+      id: '/hire-in-house'
+      path: '/hire-in-house'
+      fullPath: '/hire-in-house'
+      preLoaderRoute: typeof HireInHouseRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -220,6 +240,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
+  HireInHouseRoute: HireInHouseRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   TermsRoute: TermsRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
