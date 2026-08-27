@@ -20,7 +20,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Want to bypass expensive scrapers? Learn how to export unlimited leads from LinkedIn Sales Navigator without paid extensions. Includes the exact, copy-pasteable JSON webhook script and Google Sheets formula to extract the leads safely without profile bans.",
     date: "2026-08-27",
     readTime: "6 min read",
-    content: `![Visual Flowchart: Raw LinkedIn Search URL -> Google Sheets Apps Script -> Free Cloud API Webhook Loop -> Validated CSV Export Dataset](/linkedin-sales-navigator-unlimited-leads-export-flowchart.svg)
+    content: `![Visual Flowchart: How to export unlimited leads from LinkedIn Sales Navigator without paid extensions and export data from LinkedIn Sales Navigator to Excel for free](/linkedin-sales-navigator-unlimited-leads-export-flowchart.svg)
 
 ## Section 1: The Session Token Extraction (Bypassing Browser Scrapers)
 
@@ -39,7 +39,7 @@ To extract search results safely with zero extension overhead, you pull your ses
 5. Scroll through the cookie list to find the exact cookie named **\`li_at\`**.
 6. Copy the value string: this is a 150+ character alphanumeric session identifier token (e.g., \`AQEDASgK8B0Fq...\`).
 
-![How to extract emails from linkedin sales navigator using Chrome DevTools li_at session cookie token](/sales-nav-session-cookie-devtools-guide.svg)
+![How to extract emails from LinkedIn Sales Navigator and export list of contacts from LinkedIn without extensions](/sales-nav-session-cookie-devtools-guide.svg)
 
 ### The Anti-Ban Safety Configuration
 
@@ -53,7 +53,7 @@ Apply these exact rate-limit parameters in your execution node:
 
 This ensures your traffic mirrors organic human browsing across LinkedIn Sales Navigator filters.
 
-![Export leads from linkedin sales navigator to excel for free vs paid scrapers comparison matrix](/sales-nav-scraper-vs-webhook-matrix.svg)
+![Can you export account lists from Sales Navigator for free? LinkedIn Sales Navigator scraper vs custom free webhook extension tutorial 2026](/sales-nav-scraper-vs-webhook-matrix.svg)
 
 ---
 
@@ -96,13 +96,15 @@ Apply this advanced regular expression formula in your Google Sheets database to
 - **\`\\p{So}\`**: Unicode category filter that removes symbols, decorative icons, and emojis.
 - **\`PROPER()\`**: Re-capitalizes the cleaned business name into clean title case.
 
+![Export leads from LinkedIn Sales Navigator to Excel: automated Google Sheets formula to clean and export contacts LinkedIn](/tech-stack-cost-breakdown-options-matrix.png)
+
 ---
 
 ## Section 3: Database Verification & Multi-Channel Handoff
 
 Clean data extraction is only the first stage of an enterprise outbound system. Before routing extracted contacts into live calling cadences or automated email infrastructure, records must undergo enrichment and automated verification gates.
 
-![Visual Evidence Screenshot: Active HubSpot CRM database showing a clean influx of 2,500 leads populated with custom fields mapped directly from the free JSON webhook loop without dataset errors.](/hubspot-crm-clean-leads-database-screenshot.svg)
+![Sync LinkedIn leads with CRM: How to export emails from LinkedIn Sales Navigator directly into HubSpot without paid extensions](/hubspot-crm-clean-leads-database-screenshot.svg)
 
 ### HubSpot CRM Property Mapping Architecture
 
@@ -162,6 +164,8 @@ LinkedIn Sales Navigator does not expose raw business email addresses directly i
 ### Does LinkedIn Sales Navigator provide email addresses and direct phone numbers?
 No. LinkedIn Sales Navigator provides InMail credits and public profile information, but does not provide direct business phone numbers or validated work emails. Outbound teams bridge this gap by connecting Sales Navigator search exports to enrichment databases like [Apollo.io](https://www.apollo.io) and [ZoomInfo](https://www.zoominfo.com).
 
+![Does LinkedIn Sales Navigator provide email addresses and how to get phone numbers from Sales Navigator](/b2b-sales-crm-pipeline-management-dashboard.png)
+
 ### How to save a search and build an ideal customer profile (ICP) list?
 In LinkedIn Sales Navigator:
 1. Apply granular filters: Geography (e.g., United States, United Kingdom), Headcount (e.g., 51-200), Seniority Level (e.g., VP, Director, C-Suite), and Function (e.g., Operations, Supply Chain, Revenue).
@@ -169,7 +173,7 @@ In LinkedIn Sales Navigator:
 3. Name your search query with the vertical and date (e.g., \`US_Logistics_VPs_Q3_2026\`).
 4. Copy the unique search URL to use as the input parameter in your automated extraction script.
 
-![How to save a search on sales navigator and build an ICP prospecting list](/sales-nav-search-filters-icp-setup.svg)
+![How to use LinkedIn Sales Navigator to generate leads: how to save a search on Sales Navigator and build best lead lists](/sales-nav-search-filters-icp-setup.svg)
 
 ### How to sync LinkedIn leads with CRM without manual CSV exports?
 Set up a cloud webhook receiver (in Zapier, Make, or custom HTTP endpoint) that listens for the \`lead_extracted\` JSON event. Configure field mapping directly into [HubSpot](https://www.hubspot.com), [Salesforce](https://www.salesforce.com), or [Zoho CRM](https://www.zoho.com/crm), automatically tagging the record with \`Lead Source = Sales_Nav_Exploit\` for immediate SDR follow-up.
