@@ -128,18 +128,22 @@ function AboutPage() {
       <main className="pt-24 pb-20 sm:pt-32 sm:pb-28">
         <article className="mx-auto max-w-3xl px-4 sm:px-6 animate-fade-in">
           {/* Top Intro Section */}
-          <div className="space-y-4 text-sm sm:text-base leading-relaxed text-foreground/90 font-normal">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary mb-1">
-              <span>About Willay Haider</span>
+          <div className="text-sm sm:text-base leading-relaxed text-foreground/90 font-normal">
+            <div className="mb-4 sm:mb-5">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+                About Willay Haider
+              </span>
             </div>
 
-            <p className="text-base sm:text-lg font-medium text-foreground leading-relaxed">
-              BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems. Over the past 1.5+ years, I have dialed 57,000+ cold calls and generated $3.5M+ in verified closed revenue.
-            </p>
+            <div className="space-y-4">
+              <p className="text-base sm:text-lg font-medium text-foreground leading-relaxed">
+                BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems. Over the past 1.5+ years, I have dialed 57,000+ cold calls and generated $3.5M+ in verified closed revenue.
+              </p>
 
-            <p>
-              Cold calling is not just about following a script, it's about building high-trust conversations to find their real business pain points.
-            </p>
+              <p>
+                Cold calling is not just about following a script, it's about building high-trust conversations to find their real business pain points.
+              </p>
+            </div>
           </div>
 
           <hr className="border-border/60 my-8 sm:my-10" />
