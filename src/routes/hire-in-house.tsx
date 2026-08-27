@@ -234,7 +234,7 @@ function HireInHousePage() {
                 aria-label="Listen to voice intro"
               >
                 {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5 text-primary" />}
-                <span>{isPlaying ? "Pause Intro" : "Play Voice Intro"}</span>
+                <span>{isPlaying ? "Pause Intro" : "Play Intro"}</span>
               </button>
 
               <a

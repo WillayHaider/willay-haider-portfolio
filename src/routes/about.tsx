@@ -181,7 +181,7 @@ function AboutPage() {
                 aria-label="Listen to voice intro"
               >
                 {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5 text-primary" />}
-                <span>{isPlaying ? "Pause 60s Voice Intro" : "Play 60s Voice Intro"}</span>
+                <span>{isPlaying ? "Pause Intro" : "Play Intro"}</span>
               </button>
 
               <a
