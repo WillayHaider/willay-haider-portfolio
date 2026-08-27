@@ -214,11 +214,8 @@ function HireInHousePage() {
                 High-Ticket Closed Revenue
               </span>
             </h1>
-            <p className="mt-4 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
-              I am a Senior Business Development Representative/Outbound Sales Strategy Partner that works in collaboration with US, UK, and European business to business organizations in implementing full-fledged outbound programs. Within the last 1.5+ years, I have made over 57,000 cold calls and successfully generated over $3.5M of closed revenue.
-            </p>
-            <p className="mt-3 text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
-              Firstly, I begin with accurate discovery, establishing true relationships, and adhering to disciplined CRM. Cold calling is not just about following a script, it's about building high-trust conversations to find their real business pain points.
+            <p className="mt-4 text-xs sm:text-sm md:text-base leading-relaxed text-foreground/90 font-medium max-w-3xl">
+              Senior BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems. Over the past 1.5+ years, I have dialed 57,000+ cold calls and generated $3.5M+ in verified closed revenue.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
