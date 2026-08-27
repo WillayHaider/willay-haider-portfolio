@@ -215,7 +215,10 @@ function HireInHousePage() {
               </span>
             </h1>
             <p className="mt-4 text-xs sm:text-sm md:text-base leading-relaxed text-foreground/90 font-medium max-w-3xl">
-              Senior BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems. Over the past 1.5+ years, I have dialed 57,000+ cold calls and generated $3.5M+ in verified closed revenue.
+              BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems. Over the past 1.5+ years, I have dialed 57,000+ cold calls and generated $3.5M+ in verified closed revenue.
+            </p>
+            <p className="mt-3 text-xs sm:text-sm md:text-base leading-relaxed text-foreground/90 font-medium max-w-3xl">
+              Cold calling is not just about following a script, it's about building high-trust conversations to find their real business pain points.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
