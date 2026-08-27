@@ -213,6 +213,17 @@ const NAV_LINKS = [
   { label: "Contact Me", href: "/contact" },
 ];
 
+const FOOTER_NAV_LINKS = [
+  { label: "Services", href: "#services" },
+  { label: "Case Studies", href: "#results" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "FAQs", href: "#faq" },
+  { label: "About Me", href: "/about" },
+  { label: "Insights", href: "/blog" },
+  { label: "Contact Me", href: "/contact" },
+];
+
 const CLIENT_TRUST_SIGNALS = [
   { name: "Million Dials Pvt Ltd.", category: "B2B SaaS & Startups", metric: "1,800+ Demos Booked" },
   { name: "Vizocom ICT LLC", category: "Industrial & Healthcare", metric: "$1.8M+ Generated" },
@@ -1723,7 +1734,7 @@ function FooterSection() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           {/* Quick Links */}
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-muted-foreground sm:gap-6">
-            {NAV_LINKS.map((link) => (
+            {FOOTER_NAV_LINKS.map((link) => (
               <a key={link.href} href={link.href} className="transition-colors hover:text-primary">
                 {link.label}
               </a>
