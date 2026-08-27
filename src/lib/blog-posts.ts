@@ -89,7 +89,7 @@ When routing exported prospect records between spreadsheets or workflow automati
 }
 \`\`\`
 
-![Export leads from LinkedIn Sales Navigator to Excel: automated Google Sheets formula to clean and export contacts LinkedIn](/tech-stack-cost-breakdown-options-matrix.png)
+In live enterprise campaigns, having a standardized data schema prevents broken variables and ensures your SDRs always have accurate context before initiating cold outreach.
 
 ---
 
@@ -122,18 +122,7 @@ To protect domain reputation and keep SDRs focused on high-probability opportuni
 
 Only records passing all three conditional rules are passed into active multi-channel outbound phone and email sequences. For complete multi-channel cadence design, review our guides on [Cold Calling vs. Cold Email for B2B Lead Generation: Channel Comparison & Hybrid Cadence](/blog/cold-calling-vs-email-outreach) and [HubSpot Workflows for Outbound Sales Setup Guide](/blog/hubspot-workflows-for-outbound-sales-setup-guide). If you send cold emails, protect your sender score with our [Sales Email Domain Warmup Guide](/blog/how-to-warm-up-new-sales-email-domain-avoid-spam-filters).
 
----
-
-## Real Client Outcomes: 1,800+ Demos Booked
-
-Clean list building is only valuable when paired with rigorous execution. When I built the outbound pipeline infrastructure for **Million Dials Pvt Ltd.**, we paired ethical list building with verified direct-dial sourcing on [Apollo.io](https://www.apollo.io) and CRM lifecycle automations in HubSpot.
-
-The result:
-- **1,800+ verified B2B discovery demos booked** with C-level and VP executives.
-- **$3.5M+ in verified closed revenue generated** across US enterprise software, healthcare procurement, and logistics verticals.
-- **72% average show-up rate on booked demos**, driven by clean contact data and [unscripted conversational discovery](/blog/how-b2b-cold-calling-actually-works).
-
-As a certified professional holding the **Google Data Analytics Professional Certificate** and **IBM Data Science & Analytics Credentials**, I build outbound systems based on verifiable data models, rigorous error logging, and resilient API workflows using proven [appointment setting frameworks](/blog/top-7-appointment-setting-frameworks-to-double-sales-pipeline).
+When I built the outbound pipeline infrastructure for **Million Dials Pvt Ltd.**, we paired this exact list normalization and CRM routing protocol with verified direct-dial sourcing on [Apollo.io](https://www.apollo.io) and unscripted discovery cadences. Over enterprise campaigns in healthcare procurement, logistics, and B2B SaaS, this system generated **1,800+ verified discovery demos booked** and **$3.5M+ in closed revenue** with a **72% demo show-up rate**. As an analytics professional holding the **Google Data Analytics Professional Certificate** and **IBM Data Science Credentials**, I make sure every lead engine is backed by verifiable data models and error-free API sync using proven [appointment setting frameworks](/blog/top-7-appointment-setting-frameworks-to-double-sales-pipeline).
 
 ---
 
@@ -156,8 +145,6 @@ LinkedIn Sales Navigator does not expose direct email addresses in search result
 
 ### Does LinkedIn Sales Navigator provide email addresses and direct phone numbers?
 No. LinkedIn Sales Navigator provides InMail messaging and profile insights, but does not provide direct business phone numbers or validated work emails. Outbound teams bridge this gap by connecting Sales Navigator search exports to verified enrichment databases like Apollo and [ZoomInfo](https://www.zoominfo.com).
-
-![Does LinkedIn Sales Navigator provide email addresses and how to get phone numbers from Sales Navigator](/b2b-sales-crm-pipeline-management-dashboard.png)
 
 ### How to save a search and build an ideal customer profile (ICP) list?
 In Sales Navigator:
