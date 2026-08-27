@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, lazy, Suspense } from "react";
-import { ArrowRight, CheckCircle2, PhoneCall, TrendingUp } from "lucide-react";
+import { ArrowRight, PhoneCall, TrendingUp, CheckCircle2 } from "lucide-react";
 
 const LazyLeadCaptureModal = lazy(() =>
   import("@/components/LeadCaptureModal").then((m) => ({ default: m.LeadCaptureModal }))
@@ -10,11 +10,11 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
   head: () => ({
     meta: [
-      { title: "Why I Threw Away the Sales Script | Willay Haider" },
+      { title: "About Willay Haider | Senior BDR & Outbound Sales Strategist" },
       {
         name: "description",
         content:
-          "Why I threw away the sales script and built a $3.5M+ pipeline instead. Outbound sales systems, cold calling, and RevOps for B2B founders & agencies.",
+          "BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems. $3.5M+ closed revenue generated.",
       },
       {
         name: "keywords",
@@ -22,21 +22,21 @@ export const Route = createFileRoute("/about")({
           "Willay Haider, About Willay Haider, B2B Outbound Sales Philosophy, Cold Calling, BDR Strategy, willayhaider.pro",
       },
       { name: "author", content: "Willay Haider" },
-      { property: "og:title", content: "Why I Threw Away the Sales Script | Willay Haider" },
+      { property: "og:title", content: "About Willay Haider | Senior BDR & Outbound Sales Strategist" },
       {
         property: "og:description",
         content:
-          "Why I threw away the sales script and built a $3.5M+ pipeline instead. Outbound sales systems, cold calling, and RevOps for B2B founders & agencies.",
+          "BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems.",
       },
       { property: "og:type", content: "article" },
       { property: "og:url", content: "https://willayhaider.pro/about" },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Why I Threw Away the Sales Script | Willay Haider" },
+      { name: "twitter:title", content: "About Willay Haider | Senior BDR & Outbound Sales Strategist" },
       {
         name: "twitter:description",
         content:
-          "Why I threw away the sales script and built a $3.5M+ pipeline instead. Outbound sales systems, cold calling, and RevOps for B2B founders & agencies.",
+          "BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems.",
       },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/772dab88-26f3-44b7-a9ba-19d723b3c24f" },
     ],
@@ -127,25 +127,38 @@ function AboutPage() {
       {/* Main Content */}
       <main className="pt-24 pb-20 sm:pt-32 sm:pb-28">
         <article className="mx-auto max-w-3xl px-4 sm:px-6 animate-fade-in">
-          {/* Header & Main Heading */}
-          <header className="mb-8 sm:mb-10">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary mb-3">
-              <span>About Me</span>
+          {/* Top Intro Section */}
+          <div className="space-y-4 text-sm sm:text-base leading-relaxed text-foreground/90 font-normal">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary mb-1">
+              <span>About Willay Haider</span>
             </div>
 
+            <p className="text-base sm:text-lg font-medium text-foreground leading-relaxed">
+              BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems. Over the past 1.5+ years, I have dialed 57,000+ cold calls and generated $3.5M+ in verified closed revenue.
+            </p>
+
+            <p>
+              Cold calling is not just about following a script, it's about building high-trust conversations to find their real business pain points.
+            </p>
+          </div>
+
+          <hr className="border-border/60 my-8 sm:my-10" />
+
+          {/* Core Story Headline */}
+          <header className="mb-6 sm:mb-8">
             <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
               <span className="block text-foreground">
                 Why I Threw Away the Sales Script
               </span>
               <span className="block mt-1 sm:mt-2 text-primary">
-                (And Built a $3.5M+ Pipeline Instead)
+                And Built a $3.5M+ Pipeline Instead
               </span>
             </h1>
           </header>
 
-          {/* Body Content */}
+          {/* Story Body */}
           <div className="space-y-6 text-sm sm:text-base leading-relaxed text-foreground/90 font-normal">
-            <p className="text-base sm:text-lg font-medium text-foreground leading-relaxed">
+            <p className="text-base font-medium text-foreground leading-relaxed">
               Let’s be honest: nobody likes getting a robotic cold call.
             </p>
 
@@ -157,7 +170,7 @@ function AboutPage() {
               So, I did something different. I threw away the rigid scripts, started having real, human conversations, and built a system around it.
             </p>
 
-            <div className="pt-2 pb-1">
+            <div className="pt-2">
               <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
                 Fast forward to today:
               </p>
@@ -190,56 +203,20 @@ function AboutPage() {
               </div>
             </div>
 
-            <hr className="border-border/60 my-8" />
+            <p className="pt-3 text-base sm:text-lg font-bold text-foreground">
+              The bottom line? You show up to close. I handle everything else.
+            </p>
 
-            {/* What I Do Section */}
-            <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
-                What I Do For B2B Founders & Agencies
-              </h2>
-
-              <p className="text-foreground/90 font-medium">
-                I partner with teams in the US, UK, and EU to take the stress out of outbound:
-              </p>
-
-              <div className="space-y-3.5 my-4">
-                <div className="flex items-start gap-3 rounded-xl border border-border bg-card/60 p-3.5">
-                  <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                  <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
-                    <strong className="text-foreground">Precision Sourcing:</strong> Finding clean data and direct dials for your exact ICP.
-                  </p>
-                </div>
-
-                <div className="flex items-start gap-3 rounded-xl border border-border bg-card/60 p-3.5">
-                  <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                  <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
-                    <strong className="text-foreground">Unscripted Cold Calling:</strong> Booking qualified C-suite meetings through high-trust discovery.
-                  </p>
-                </div>
-
-                <div className="flex items-start gap-3 rounded-xl border border-border bg-card/60 p-3.5">
-                  <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                  <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
-                    <strong className="text-foreground">RevOps Setup:</strong> Structuring your HubSpot/Salesforce CRM so your pipeline runs like clockwork.
-                  </p>
-                </div>
-              </div>
-
-              <p className="pt-2 text-base font-bold text-foreground">
-                The bottom line? You show up to close. I handle everything else.
-              </p>
-
-              {/* Action Button */}
-              <div className="pt-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="btn-click-effect inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-bold text-primary-foreground shadow-md transition-transform hover:opacity-90 active:scale-95"
-                  style={{ background: "var(--gradient-primary)" }}
-                >
-                  <span>Request a Proposal</span>
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </div>
+            {/* Action Button */}
+            <div className="pt-4">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="btn-click-effect inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-bold text-primary-foreground shadow-md transition-transform hover:opacity-90 active:scale-95"
+                style={{ background: "var(--gradient-primary)" }}
+              >
+                <span>Request a Proposal</span>
+                <ArrowRight className="h-4 w-4" />
+              </button>
             </div>
           </div>
         </article>
