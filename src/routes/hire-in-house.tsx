@@ -203,10 +203,7 @@ function HireInHousePage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           {/* Hero Bio */}
           <div className="max-w-4xl">
-            <div className="inline-flex items-center rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
-              <span>About Willay Haider</span>
-            </div>
-            <h1 className="mt-3 text-[22px] sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight leading-tight">
+            <h1 className="text-[22px] sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight leading-tight">
               <span className="block text-foreground whitespace-nowrap">
                 Turning Cold Prospects Into
               </span>
