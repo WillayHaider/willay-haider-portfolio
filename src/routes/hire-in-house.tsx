@@ -188,7 +188,7 @@ function HireInHousePage() {
                 Hire In-House
               </a>
               <a href="/blog" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
-                Blog
+                Insights
               </a>
               <a href="/contact" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 Contact Me
