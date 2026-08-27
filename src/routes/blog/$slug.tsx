@@ -133,6 +133,7 @@ type ParsedBlock =
   | { type: 'hr' }
   | { type: 'h2'; text: string }
   | { type: 'h3'; text: string }
+  | { type: 'h4'; text: string }
   | { type: 'blockquote'; lines: string[] }
   | { type: 'code'; language: string; code: string }
   | { type: 'ul'; items: string[] }
@@ -183,14 +184,26 @@ function parseMarkdown(content: string): ParsedBlock[] {
       continue;
     }
 
-    if (trimmed.startsWith("## ")) {
-      blocks.push({ type: 'h2', text: trimmed.replace(/^##\s+/, "") });
+    if (trimmed.startsWith("#### ")) {
+      blocks.push({ type: 'h4', text: trimmed.replace(/^####\s+/, "") });
       i++;
       continue;
     }
 
     if (trimmed.startsWith("### ")) {
       blocks.push({ type: 'h3', text: trimmed.replace(/^###\s+/, "") });
+      i++;
+      continue;
+    }
+
+    if (trimmed.startsWith("## ")) {
+      blocks.push({ type: 'h2', text: trimmed.replace(/^##\s+/, "") });
+      i++;
+      continue;
+    }
+
+    if (trimmed.startsWith("# ")) {
+      blocks.push({ type: 'h2', text: trimmed.replace(/^#\s+/, "") });
       i++;
       continue;
     }
@@ -252,6 +265,10 @@ function parseMarkdown(content: string): ParsedBlock[] {
     }
     if (pLines.length > 0) {
       blocks.push({ type: 'p', text: pLines.join(" ") });
+    } else {
+      // Fallback safeguard to guarantee forward progress
+      blocks.push({ type: 'p', text: lines[i].trim() });
+      i++;
     }
   }
 
@@ -273,6 +290,7 @@ function RenderContent({ content }: { content: string }) {
           );
         if (block.type === "h2") return <h2 key={idx} className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mt-8 mb-3">{block.text}</h2>;
         if (block.type === "h3") return <h3 key={idx} className="text-base sm:text-lg font-bold tracking-tight text-foreground mt-5 mb-2">{block.text}</h3>;
+        if (block.type === "h4") return <h4 key={idx} className="text-sm sm:text-base font-semibold tracking-tight text-primary mt-4 mb-1.5">{block.text}</h4>;
         if (block.type === "code") return (
             <div key={idx} className="my-5 overflow-hidden rounded-xl border border-border bg-[#080d1a] shadow-md">
               {block.language && (
