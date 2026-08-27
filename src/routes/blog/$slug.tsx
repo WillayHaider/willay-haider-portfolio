@@ -53,10 +53,10 @@ export const Route = createFileRoute('/blog/$slug')({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: loaderData.title,
-            description: loaderData.excerpt,
+            description: loaderData.metaDescription || loaderData.excerpt,
             image: featuredImg,
             datePublished: loaderData.date,
-            dateModified: "2026-08-24",
+            dateModified: loaderData.date,
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id": `https://willayhaider.pro/blog/${loaderData.slug}`,
@@ -66,7 +66,7 @@ export const Route = createFileRoute('/blog/$slug')({
               "@type": "Person",
               name: "Willay Haider",
               url: "https://willayhaider.pro/about",
-              jobTitle: "Senior Business Development Representative",
+              jobTitle: "Senior B2B Growth & Outbound Specialist",
             },
             publisher: {
               "@type": "Person",
@@ -74,6 +74,54 @@ export const Route = createFileRoute('/blog/$slug')({
               url: "https://willayhaider.pro",
             },
             keywords: loaderData.keywords,
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://willayhaider.pro",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Insights",
+                item: "https://willayhaider.pro/blog",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: loaderData.title,
+                item: `https://willayhaider.pro/blog/${loaderData.slug}`,
+              },
+            ],
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: Array.from(
+              loaderData.content.matchAll(/###\s+([^\n\?]+\?)\n+([\s\S]*?)(?=\n###|\n##|\n---|$)/g)
+            ).map((match) => ({
+              "@type": "Question",
+              name: match[1].replace(/\[(.*?)\]\(.*?\)/g, "$1").replace(/[*_`]/g, "").trim(),
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: match[2]
+                  .replace(/!\[.*?\]\(.*?\)/g, "")
+                  .replace(/\[(.*?)\]\(.*?\)/g, "$1")
+                  .replace(/[*_`]/g, "")
+                  .trim(),
+              },
+            })),
           }),
         },
       ],

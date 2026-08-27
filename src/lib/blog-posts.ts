@@ -38,7 +38,9 @@ With the construction of an ethical and honest email list building process, you 
 4. Use native export and reporting features or structured cloud data pipelines to pull public company metadata, decision-maker titles, and verified corporate domains.
 5. Feed the structured records directly into your CRM or spreadsheet workspace for automated normalization.
 
-![How to extract emails from LinkedIn Sales Navigator and export list of contacts from LinkedIn without extensions](/sales-nav-session-cookie-devtools-guide.svg)
+When building your search, targeting high-intent signals significantly increases conversion. For example, filtering for "Years in current company: Less than 1 year" alongside the spotlight filter "Posted on LinkedIn" surfaces newly hired decision-makers who have fresh budget authority and are actively engaging on the platform:
+
+![LinkedIn Sales Navigator search interface showing Head of Marketing filter with Posted on LinkedIn spotlight and Less than 1 year tenure](/linkedin-sales-navigator-search-filters-active-lead-screenshot.png)
 
 ### The Anti-Restriction Safety Guidelines
 
@@ -55,6 +57,10 @@ The best outbound platforms always ensure that their platform is hygienic in ord
 ## Section 2: The Automated Data Normalization Script
 
 Raw company names from public profiles often contain legal suffixes ("Inc.", "LLC", "Ltd", "Corp", "GmbH") and promotional emojis that break cold email personalization tags and sound unnatural on cold calls.
+
+Once you pull the raw prospect metadata, organize the records in a structured [Google Sheets](https://www.google.com/sheets/about) workspace. Having dedicated columns makes it easy to run automated batch formulas and verify data integrity before pushing to CRM:
+
+![Google Sheets database view showing structured tabular columns for lead data processing and normalization](/google-sheets-lead-data-cleaning-spreadsheet-screenshot.png)
 
 ### Automated Google Sheets Data Cleaning Formula
 
@@ -160,11 +166,9 @@ Set up a webhook receiver in [Zapier](https://zapier.com), Make, or a custom HTT
 
 ---
 
-## Ready to Scale Your Outbound Pipeline?
+## Next Steps
 
-Building reliable B2B outbound systems requires more than extracting lists: it demands clean phone dials, unscripted high-trust discovery conversations, and integrated RevOps CRM workflows.
-
-Explore my [outbound services and pricing tiers](/#pricing), review our [verified case studies](/#results), learn more [about my unscripted outbound approach](/about), or [request a custom proposal for your team](/contact).`,
+If you want to talk through outbound strategy or need help setting up a clean pipeline, feel free to [explore our approach](/about) or [get in touch](/contact).`,
   },
   {
     slug: "how-b2b-cold-calling-actually-works",
