@@ -236,19 +236,9 @@ function AboutPage() {
 
       {/* Footer */}
       <footer className="border-t border-border bg-background py-10">
-        <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-6 px-4 text-center sm:px-6 md:flex-row md:text-left">
-          {/* Quick Links */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-muted-foreground sm:gap-6">
-            <a href="/" className="transition-colors hover:text-primary">Home</a>
-            <a href="/#services" className="transition-colors hover:text-primary">Services</a>
-            <a href="/#results" className="transition-colors hover:text-primary">Case Studies</a>
-            <a href="/#pricing" className="transition-colors hover:text-primary">Pricing</a>
-            <a href="/blog" className="transition-colors hover:text-primary">Insights</a>
-            <a href="/contact" className="transition-colors hover:text-primary">Contact Me</a>
-          </div>
-
+        <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-6 px-4 text-center sm:px-6">
           {/* Minimal Filled Brand Social Badges */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center gap-2">
             {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/willayhaider?utm_source=share_via&utm_content=profile&utm_medium=member_android"
@@ -328,20 +318,10 @@ function AboutPage() {
               </svg>
             </a>
           </div>
-        </div>
 
-        {/* Copyright Text */}
-        <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-4 text-[11px] font-medium text-muted-foreground sm:flex-row max-w-4xl mx-auto px-4 sm:px-6">
-          <div>
+          {/* Copyright Text */}
+          <div className="text-[11px] font-medium text-muted-foreground">
             © 2026 All rights are reserved by Mr Haider.
-          </div>
-          <div className="flex gap-4">
-            <a href="/privacy-policy" className="hover:text-primary transition-colors font-medium">
-              Privacy Policy
-            </a>
-            <a href="/terms-and-conditions" className="hover:text-primary transition-colors font-medium">
-              Terms and Conditions
-            </a>
           </div>
         </div>
       </footer>
