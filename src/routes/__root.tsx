@@ -335,14 +335,14 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3Y6ENKYGW" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVRVVVK5HE" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-X3Y6ENKYGW');
+              gtag('config', 'G-CVRVVVK5HE');
             `,
           }}
         />
