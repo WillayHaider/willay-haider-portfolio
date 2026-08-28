@@ -546,7 +546,8 @@ const FAQS = [
 function ServiceBusinessPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalService, setModalService] = useState<string | undefined>();
-  const [showNavCta, setShowNavCta] = useState(false);
+  const heroSlotRef = useRef<HTMLDivElement | null>(null);
+  const headerSlotRef = useRef<HTMLDivElement | null>(null);
 
   const openLeadModal = (service?: string) => {
     setModalService(service);
@@ -555,11 +556,16 @@ function ServiceBusinessPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20 overflow-x-hidden">
-      <Navbar showCta={showNavCta} onOpenModal={openLeadModal} />
+      <Navbar headerSlotRef={headerSlotRef} onOpenModal={openLeadModal} />
+      <SharedProposalButton
+        heroSlotRef={heroSlotRef}
+        headerSlotRef={headerSlotRef}
+        onOpenModal={openLeadModal}
+      />
       <main id="main-content">
         <HeroSection
+          heroSlotRef={heroSlotRef}
           onOpenModal={openLeadModal}
-          onCtaVisibilityChange={(inView) => setShowNavCta(!inView)}
         />
         <TrustBarSection />
         <ServicesSection onOpenModal={openLeadModal} />
@@ -588,20 +594,187 @@ function ServiceBusinessPage() {
 }
 
 /* =========================================================================
-   1. NAVBAR (NO SCROLL LOCK, CLEAN DROPDOWN PANEL)
+   1. SHARED SCROLL-DRIVEN FLIP PROPOSAL BUTTON (HERO -> HEADER)
+   ========================================================================= */
+
+function SharedProposalButton({
+  heroSlotRef,
+  headerSlotRef,
+  onOpenModal,
+}: {
+  heroSlotRef: React.RefObject<HTMLDivElement | null>;
+  headerSlotRef: React.RefObject<HTMLDivElement | null>;
+  onOpenModal: (service?: string) => void;
+}) {
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const arrowRef = useRef<SVGSVGElement | null>(null);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let rafId: number | null = null;
+    let heroRectCache = { top: 0, left: 0, width: 0, height: 0, pageTop: 0 };
+    let headerRectCache = { top: 0, left: 0, width: 0, height: 0 };
+
+    const updateMeasurements = () => {
+      if (!heroSlotRef.current || !headerSlotRef.current) return;
+      const heroRect = heroSlotRef.current.getBoundingClientRect();
+      const headerRect = headerSlotRef.current.getBoundingClientRect();
+      const currentScrollY = window.scrollY;
+
+      heroRectCache = {
+        top: heroRect.top,
+        left: heroRect.left,
+        width: heroRect.width,
+        height: heroRect.height,
+        pageTop: heroRect.top + currentScrollY,
+      };
+
+      headerRectCache = {
+        top: headerRect.top,
+        left: headerRect.left,
+        width: headerRect.width,
+        height: headerRect.height,
+      };
+    };
+
+    const applyScrollTransform = () => {
+      const btn = buttonRef.current;
+      if (!btn) return;
+
+      const currentScrollY = window.scrollY;
+      const travelDistance = Math.max(heroRectCache.pageTop - headerRectCache.top, 1);
+      const rawProgress = currentScrollY / travelDistance;
+      const progress = Math.min(Math.max(rawProgress, 0), 1);
+
+      if (prefersReducedMotion) {
+        if (progress >= 0.9) {
+          btn.style.transform = `translate3d(${headerRectCache.left}px, ${headerRectCache.top}px, 0)`;
+          btn.style.width = `${headerRectCache.width}px`;
+          btn.style.height = `${headerRectCache.height}px`;
+          btn.style.padding = "6px 14px";
+          btn.style.fontSize = "12px";
+          if (arrowRef.current) arrowRef.current.style.display = "none";
+        } else {
+          const currentHeroY = heroRectCache.pageTop - currentScrollY;
+          btn.style.transform = `translate3d(${heroRectCache.left}px, ${currentHeroY}px, 0)`;
+          btn.style.width = `${heroRectCache.width}px`;
+          btn.style.height = `${heroRectCache.height}px`;
+          btn.style.padding = heroRectCache.width > 160 ? "12px 24px" : "10px 20px";
+          btn.style.fontSize = heroRectCache.width > 160 ? "14px" : "12px";
+          if (arrowRef.current) arrowRef.current.style.display = "inline-block";
+        }
+        return;
+      }
+
+      // Smooth cubic-bezier ease-in-out FLIP interpolation
+      const t = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+      // Coordinate calculations
+      const currentHeroY = heroRectCache.pageTop - currentScrollY;
+      const currentX = heroRectCache.left + (headerRectCache.left - heroRectCache.left) * t;
+      const currentY = currentHeroY + (headerRectCache.top - currentHeroY) * t;
+      const currentW = heroRectCache.width + (headerRectCache.width - heroRectCache.width) * t;
+      const currentH = heroRectCache.height + (headerRectCache.height - heroRectCache.height) * t;
+
+      btn.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+      btn.style.width = `${currentW}px`;
+      btn.style.height = `${currentH}px`;
+
+      // Scale padding and typography smoothly
+      if (heroRectCache.width > 160) {
+        const padX = 24 + (16 - 24) * t;
+        const padY = 12 + (8 - 12) * t;
+        const fontSz = 14 + (12 - 14) * t;
+        btn.style.padding = `${padY}px ${padX}px`;
+        btn.style.fontSize = `${fontSz}px`;
+      } else {
+        const padX = 20 + (14 - 20) * t;
+        const padY = 10 + (6 - 10) * t;
+        btn.style.padding = `${padY}px ${padX}px`;
+        btn.style.fontSize = "12px";
+      }
+
+      // Interpolate arrow icon opacity and scale during transition
+      if (arrowRef.current) {
+        const arrowOpacity = Math.max(1 - t * 2.2, 0);
+        const arrowScale = Math.max(1 - t, 0);
+        arrowRef.current.style.opacity = `${arrowOpacity}`;
+        arrowRef.current.style.transform = `scale(${arrowScale})`;
+        arrowRef.current.style.width = `${arrowScale * 14}px`;
+        arrowRef.current.style.marginLeft = `${arrowScale * 6}px`;
+      }
+    };
+
+    const onScroll = () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(applyScrollTransform);
+    };
+
+    const onResize = () => {
+      updateMeasurements();
+      applyScrollTransform();
+    };
+
+    updateMeasurements();
+    applyScrollTransform();
+    setIsReady(true);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
+    window.addEventListener("orientationchange", onResize, { passive: true });
+
+    // Settle layout pass
+    const tId = setTimeout(() => {
+      updateMeasurements();
+      applyScrollTransform();
+    }, 120);
+
+    return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      clearTimeout(tId);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("orientationchange", onResize);
+    };
+  }, [heroSlotRef, headerSlotRef]);
+
+  return (
+    <button
+      ref={buttonRef}
+      onClick={() => onOpenModal()}
+      aria-label="Request Proposal"
+      className="btn-click-effect fixed top-0 left-0 z-50 inline-flex items-center justify-center rounded-full font-semibold text-primary-foreground shadow-xs will-change-transform cursor-pointer select-none active:scale-95 transition-shadow hover:opacity-95 hover:shadow-md"
+      style={{
+        background: "var(--gradient-primary)",
+        visibility: isReady ? "visible" : "hidden",
+      }}
+    >
+      <span className="whitespace-nowrap">Request Proposal</span>
+      <ArrowRight
+        ref={arrowRef}
+        className="h-3.5 w-3.5 shrink-0 transition-all origin-center"
+      />
+    </button>
+  );
+}
+
+/* =========================================================================
+   2. NAVBAR (NO SCROLL LOCK, CLEAN DROPDOWN PANEL)
    ========================================================================= */
 
 function Navbar({
-  showCta = false,
+  headerSlotRef,
   onOpenModal,
 }: {
-  showCta?: boolean;
+  headerSlotRef: React.RefObject<HTMLDivElement | null>;
   onOpenModal: (service?: string) => void;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/50 backdrop-blur-md transition-colors">
+    <header className="fixed top-0 z-40 w-full border-b border-border/40 bg-background/50 backdrop-blur-md transition-colors">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
         {/* Plain Morphing 3-Line Hamburger Icon */}
         <div className="relative z-50">
@@ -628,24 +801,13 @@ function Navbar({
           </button>
         </div>
 
-        {/* 3D Docking Header CTA Button (Smoothly animates in when scrolling past Hero) */}
-        <div className="relative">
-          <button
-            onClick={() => onOpenModal()}
-            className={`btn-click-effect rounded-full px-3.5 py-1.5 text-xs font-semibold text-primary-foreground transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:px-4 sm:py-2 ${
-              showCta
-                ? "opacity-100 scale-100 translate-y-0 shadow-md shadow-primary/25 pointer-events-auto"
-                : "opacity-0 scale-75 -translate-y-3 pointer-events-none"
-            }`}
-            style={{
-              background: "var(--gradient-primary)",
-              transformOrigin: "center right",
-            }}
-            tabIndex={showCta ? 0 : -1}
-            aria-hidden={!showCta}
-          >
-            Request Proposal
-          </button>
+        {/* Header CTA Docking Target Slot (Invisible placeholder that reserves exact dimensions) */}
+        <div
+          ref={headerSlotRef}
+          aria-hidden="true"
+          className="pointer-events-none invisible inline-flex rounded-full px-3.5 py-1.5 text-xs font-semibold sm:px-4 sm:py-2 select-none"
+        >
+          <span>Request Proposal</span>
         </div>
       </div>
 
@@ -671,36 +833,16 @@ function Navbar({
 }
 
 /* =========================================================================
-   2. HERO SECTION (EQUAL HEADLINE SIZING & BALANCED BUTTON SIZES)
+   3. HERO SECTION (EQUAL HEADLINE SIZING & BALANCED BUTTON SIZES)
    ========================================================================= */
 
 function HeroSection({
+  heroSlotRef,
   onOpenModal,
-  onCtaVisibilityChange,
 }: {
+  heroSlotRef: React.RefObject<HTMLDivElement | null>;
   onOpenModal: (service?: string) => void;
-  onCtaVisibilityChange?: (inView: boolean) => void;
 }) {
-  const heroCtaRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const el = heroCtaRef.current;
-    if (!el || !onCtaVisibilityChange) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        onCtaVisibilityChange(entry.isIntersecting);
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "-48px 0px 0px 0px",
-      }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [onCtaVisibilityChange]);
-
   return (
     <section
       id="hero"
@@ -746,16 +888,17 @@ function HeroSection({
               calendar so you can close more high-ticket deals.
             </p>
 
-            {/* CTAs: Both buttons sized visually matching */}
-            <div ref={heroCtaRef} className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
-              <button
-                onClick={() => onOpenModal()}
-                className="btn-click-effect inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs hover:opacity-95 active:scale-95 transition-all duration-300"
-                style={{ background: "var(--gradient-primary)" }}
+            {/* CTAs: Hero Slot Placeholder + View Results Button */}
+            <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
+              {/* Hero CTA Placeholder (Reserves exact space for the single shared floating button) */}
+              <div
+                ref={heroSlotRef}
+                aria-hidden="true"
+                className="pointer-events-none invisible inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold select-none"
               >
                 <span>Request Proposal</span>
                 <ArrowRight className="h-3.5 w-3.5" />
-              </button>
+              </div>
 
               <a
                 href="#results"
