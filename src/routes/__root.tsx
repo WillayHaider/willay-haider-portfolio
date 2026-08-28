@@ -171,6 +171,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
                 "https://www.linkedin.com/in/willayhaider",
                 "https://x.com/damn_haiderrr",
                 "https://www.instagram.com/damn_haiderrr",
+                "https://www.reddit.com/u/Willayhaider/s/DQkspODBGo",
               ],
               email: "contact.whaider@gmail.com",
               telephone: "+923206990099",
