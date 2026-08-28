@@ -1149,6 +1149,20 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const touchStartX = useRef<number | null>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [containerHeight, setContainerHeight] = useState<number | undefined>(undefined);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      const activeCard = cardRefs.current[currentIndex];
+      if (activeCard) {
+        setContainerHeight(activeCard.offsetHeight);
+      }
+    };
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, [currentIndex]);
 
   const nextTier = () => {
     setCurrentIndex((prev) => (prev + 1) % PRICING_TIERS.length);
@@ -1223,7 +1237,10 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
         </div>
 
         {/* Continuous Smooth Sliding Carousel Container */}
-        <div className="relative mt-6 max-w-lg mx-auto overflow-hidden py-2">
+        <div
+          className="relative mt-6 max-w-lg mx-auto overflow-hidden py-1 transition-[height] duration-300 ease-out"
+          style={{ height: containerHeight ? `${containerHeight + 4}px` : undefined }}
+        >
           {/* Sliding Track containing all cards */}
           <div
             onTouchStart={handleTouchStart}
@@ -1238,9 +1255,12 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
                 : `translateX(-${currentIndex * 100}%)`,
             }}
           >
-            {PRICING_TIERS.map((tier) => (
+            {PRICING_TIERS.map((tier, idx) => (
               <div
                 key={tier.name}
+                ref={(el) => {
+                  cardRefs.current[idx] = el;
+                }}
                 className="w-full shrink-0 px-2 sm:px-3"
               >
                 <div className="glass-card relative overflow-hidden rounded-2xl border-primary/40 bg-card p-6 shadow-md transition-all">
