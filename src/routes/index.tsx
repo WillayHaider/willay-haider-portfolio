@@ -606,7 +606,7 @@ function SharedProposalButton({
   headerSlotRef: React.RefObject<HTMLDivElement | null>;
   onOpenModal: (service?: string) => void;
 }) {
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const arrowRef = useRef<SVGSVGElement | null>(null);
   const [isReady, setIsReady] = useState(false);
 
@@ -614,96 +614,93 @@ function SharedProposalButton({
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     let rafId: number | null = null;
-    let heroRectCache = { top: 0, left: 0, width: 0, height: 0, pageTop: 0 };
-    let headerRectCache = { top: 0, left: 0, width: 0, height: 0 };
+    let resizeTimer: NodeJS.Timeout | null = null;
 
-    const updateMeasurements = () => {
-      if (!heroSlotRef.current || !headerSlotRef.current) return;
-      const heroRect = heroSlotRef.current.getBoundingClientRect();
-      const headerRect = headerSlotRef.current.getBoundingClientRect();
-      const currentScrollY = window.scrollY;
-
-      heroRectCache = {
-        top: heroRect.top,
-        left: heroRect.left,
-        width: heroRect.width,
-        height: heroRect.height,
-        pageTop: heroRect.top + currentScrollY,
-      };
-
-      headerRectCache = {
-        top: headerRect.top,
-        left: headerRect.left,
-        width: headerRect.width,
-        height: headerRect.height,
-      };
+    // Cache layout coordinates strictly outside scroll handler
+    const coords = {
+      heroLeft: 0,
+      heroPageTop: 0,
+      heroWidth: 0,
+      heroHeight: 0,
+      headerLeft: 0,
+      headerTop: 0,
+      headerWidth: 0,
+      headerHeight: 0,
+      targetScaleX: 1,
+      targetScaleY: 1,
+      travelDistance: 400,
     };
 
-    const applyScrollTransform = () => {
-      const btn = buttonRef.current;
-      if (!btn) return;
+    const updateMeasurements = () => {
+      const heroEl = heroSlotRef.current;
+      const headerEl = headerSlotRef.current;
+      if (!heroEl || !headerEl) return;
 
-      const currentScrollY = window.scrollY;
-      const travelDistance = Math.max(heroRectCache.pageTop - headerRectCache.top, 1);
-      const rawProgress = currentScrollY / travelDistance;
-      const progress = Math.min(Math.max(rawProgress, 0), 1);
+      const heroRect = heroEl.getBoundingClientRect();
+      const headerRect = headerEl.getBoundingClientRect();
+      const scrollY = window.scrollY;
+
+      coords.heroLeft = heroRect.left;
+      coords.heroPageTop = heroRect.top + scrollY;
+      coords.heroWidth = heroRect.width || 180;
+      coords.heroHeight = heroRect.height || 42;
+
+      coords.headerLeft = headerRect.left;
+      coords.headerTop = headerRect.top;
+      coords.headerWidth = headerRect.width || 135;
+      coords.headerHeight = headerRect.height || 34;
+
+      coords.targetScaleX = coords.headerWidth / coords.heroWidth;
+      coords.targetScaleY = coords.headerHeight / coords.heroHeight;
+      coords.travelDistance = Math.max(coords.heroPageTop - coords.headerTop, 1);
+
+      // Set initial base dimensions on container once (never touched in rAF)
+      const container = containerRef.current;
+      if (container) {
+        container.style.width = `${coords.heroWidth}px`;
+        container.style.height = `${coords.heroHeight}px`;
+      }
+    };
+
+    // 100% Pure Math & GPU Compositor Update (Zero Layout Reflows / Zero DOM Reads)
+    const applyScrollTransform = () => {
+      const container = containerRef.current;
+      if (!container) return;
+
+      const scrollY = window.scrollY;
+      const rawProgress = scrollY / coords.travelDistance;
+      const progress = rawProgress < 0 ? 0 : rawProgress > 1 ? 1 : rawProgress;
 
       if (prefersReducedMotion) {
         if (progress >= 0.9) {
-          btn.style.transform = `translate3d(${headerRectCache.left}px, ${headerRectCache.top}px, 0)`;
-          btn.style.width = `${headerRectCache.width}px`;
-          btn.style.height = `${headerRectCache.height}px`;
-          btn.style.padding = "6px 14px";
-          btn.style.fontSize = "12px";
-          if (arrowRef.current) arrowRef.current.style.display = "none";
+          container.style.transform = `translate3d(${coords.headerLeft}px, ${coords.headerTop}px, 0) scale(${coords.targetScaleX}, ${coords.targetScaleY})`;
+          if (arrowRef.current) arrowRef.current.style.opacity = "0";
         } else {
-          const currentHeroY = heroRectCache.pageTop - currentScrollY;
-          btn.style.transform = `translate3d(${heroRectCache.left}px, ${currentHeroY}px, 0)`;
-          btn.style.width = `${heroRectCache.width}px`;
-          btn.style.height = `${heroRectCache.height}px`;
-          btn.style.padding = heroRectCache.width > 160 ? "12px 24px" : "10px 20px";
-          btn.style.fontSize = heroRectCache.width > 160 ? "14px" : "12px";
-          if (arrowRef.current) arrowRef.current.style.display = "inline-block";
+          const currentHeroY = coords.heroPageTop - scrollY;
+          container.style.transform = `translate3d(${coords.heroLeft}px, ${currentHeroY}px, 0) scale(1, 1)`;
+          if (arrowRef.current) arrowRef.current.style.opacity = "1";
         }
         return;
       }
 
-      // Smooth cubic-bezier ease-in-out FLIP interpolation
+      // Smooth FLIP easing
       const t = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
-      // Coordinate calculations
-      const currentHeroY = heroRectCache.pageTop - currentScrollY;
-      const currentX = heroRectCache.left + (headerRectCache.left - heroRectCache.left) * t;
-      const currentY = currentHeroY + (headerRectCache.top - currentHeroY) * t;
-      const currentW = heroRectCache.width + (headerRectCache.width - heroRectCache.width) * t;
-      const currentH = heroRectCache.height + (headerRectCache.height - heroRectCache.height) * t;
+      const currentHeroY = coords.heroPageTop - scrollY;
+      const currentX = coords.heroLeft + (coords.headerLeft - coords.heroLeft) * t;
+      const currentY = currentHeroY + (coords.headerTop - currentHeroY) * t;
+      const scaleX = 1 + (coords.targetScaleX - 1) * t;
+      const scaleY = 1 + (coords.targetScaleY - 1) * t;
 
-      btn.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
-      btn.style.width = `${currentW}px`;
-      btn.style.height = `${currentH}px`;
+      // Single GPU composite property update
+      container.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) scale(${scaleX}, ${scaleY})`;
 
-      // Scale padding and typography smoothly
-      if (heroRectCache.width > 160) {
-        const padX = 24 + (16 - 24) * t;
-        const padY = 12 + (8 - 12) * t;
-        const fontSz = 14 + (12 - 14) * t;
-        btn.style.padding = `${padY}px ${padX}px`;
-        btn.style.fontSize = `${fontSz}px`;
-      } else {
-        const padX = 20 + (14 - 20) * t;
-        const padY = 10 + (6 - 10) * t;
-        btn.style.padding = `${padY}px ${padX}px`;
-        btn.style.fontSize = "12px";
-      }
-
-      // Interpolate arrow icon opacity and scale during transition
+      // Fade & scale arrow icon smoothly
       if (arrowRef.current) {
-        const arrowOpacity = Math.max(1 - t * 2.2, 0);
-        const arrowScale = Math.max(1 - t, 0);
+        const arrowOpacity = t >= 0.5 ? 0 : 1 - t * 2;
+        const arrowScale = t >= 1 ? 0 : 1 - t;
         arrowRef.current.style.opacity = `${arrowOpacity}`;
         arrowRef.current.style.transform = `scale(${arrowScale})`;
-        arrowRef.current.style.width = `${arrowScale * 14}px`;
-        arrowRef.current.style.marginLeft = `${arrowScale * 6}px`;
       }
     };
 
@@ -713,8 +710,11 @@ function SharedProposalButton({
     };
 
     const onResize = () => {
-      updateMeasurements();
-      applyScrollTransform();
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        updateMeasurements();
+        applyScrollTransform();
+      }, 100);
     };
 
     updateMeasurements();
@@ -725,38 +725,53 @@ function SharedProposalButton({
     window.addEventListener("resize", onResize, { passive: true });
     window.addEventListener("orientationchange", onResize, { passive: true });
 
-    // Settle layout pass
-    const tId = setTimeout(() => {
+    // Re-measure after fonts & stylesheets settle
+    const settleTimer = setTimeout(() => {
       updateMeasurements();
       applyScrollTransform();
-    }, 120);
+    }, 150);
 
     return () => {
       if (rafId !== null) cancelAnimationFrame(rafId);
-      clearTimeout(tId);
+      if (resizeTimer) clearTimeout(resizeTimer);
+      clearTimeout(settleTimer);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
       window.removeEventListener("orientationchange", onResize);
     };
   }, [heroSlotRef, headerSlotRef]);
 
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    // Synchronous immediate dispatch without animation state delay
+    onOpenModal();
+  };
+
   return (
-    <button
-      ref={buttonRef}
-      onClick={() => onOpenModal()}
-      aria-label="Request Proposal"
-      className="btn-click-effect fixed top-0 left-0 z-50 inline-flex items-center justify-center rounded-full font-semibold text-primary-foreground shadow-xs will-change-transform cursor-pointer select-none active:scale-95 transition-shadow hover:opacity-95 hover:shadow-md"
+    <div
+      ref={containerRef}
+      className="fixed top-0 left-0 z-50 pointer-events-auto will-change-transform"
       style={{
-        background: "var(--gradient-primary)",
+        transformOrigin: "top left",
         visibility: isReady ? "visible" : "hidden",
       }}
     >
-      <span className="whitespace-nowrap">Request Proposal</span>
-      <ArrowRight
-        ref={arrowRef}
-        className="h-3.5 w-3.5 shrink-0 transition-all origin-center"
-      />
-    </button>
+      <button
+        onClick={handleClick}
+        aria-label="Request Proposal"
+        type="button"
+        className="btn-click-effect relative w-full h-full inline-flex items-center justify-center gap-1.5 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs cursor-pointer select-none transition-shadow hover:opacity-95 hover:shadow-md active:scale-95"
+        style={{
+          background: "var(--gradient-primary)",
+        }}
+      >
+        <span className="whitespace-nowrap">Request Proposal</span>
+        <ArrowRight
+          ref={arrowRef}
+          className="h-3.5 w-3.5 shrink-0 transition-opacity origin-center"
+        />
+      </button>
+    </div>
   );
 }
 
