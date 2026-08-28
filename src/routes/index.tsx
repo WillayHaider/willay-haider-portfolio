@@ -158,7 +158,7 @@ function Reveal({
   delay?: number;
   as?: any;
   className?: string;
-  style?: React.Properties;
+  style?: React.CSSProperties;
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
