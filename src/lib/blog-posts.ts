@@ -32,9 +32,9 @@ Your pulse jumps. You've got about three seconds to decide what you're doing nex
 
 Most junior reps panic here. They either apologize and hang up (*"Oh sorry to bother you, have a good one!"*) or they jump right into defense mode (*"Wait, let me just explain our features for 30 seconds!"*). Both kill the call on the spot.
 
-I've logged more than **57,000 cold calls** over the last few years. I've dialed managing partners at law firms for **OMC Group**, hospital procurement directors for **Vizocom ICT**, and SaaS founders for **Million Dials**. 
+I've logged more than **57,000 cold calls** over the last few years. I've dialed managing partners at law firms for **OMC Group LLC**, hospital procurement directors for **Vizocom ICT LLC**, and SaaS founders for **Million Dials Pvt Ltd.** 
 
-If there is one thing that changed my entire outbound career, it's this:
+If there is one thing that changed my entire outbound career—and something I break down in my guide on [How B2B Cold Calling Actually Works in 2026](/blog/how-b2b-cold-calling-actually-works)—it's this:
 
 > **Nobody on a cold call is actually objecting to your product.** They don't even know what your product does yet. They are just reacting to the fact that an uninvited person interrupted their Tuesday morning.
 
@@ -58,10 +58,10 @@ The fastest way to lose a cold call is telling a prospect why they're wrong. If 
 When prospects feel trapped, they hang up. The moment you give them explicit permission to say no—using phrases like *"If this isn't relevant, just tell me and I'll get out of your hair"*—they suddenly relax. Ironically, giving people the freedom to end the call makes them much more willing to give you another 20 seconds.
 
 ### 4. Zero In On One Specific Friction Point
-Don't try to explain your whole company on a 90-second cold dial. When I was calling fleet operators for **Autolift Transport**, I didn't pitch an entire dispatch service. I just asked if their dispatchers were spending two hours a day arguing over broker detention fees. That's it. One concrete headache is easy to discuss; a generic "growth platform" isn't.
+Don't try to explain your whole company on a 90-second cold dial. When I was calling fleet operators for **Autolift Transport / Nexus LTD**, I didn't pitch an entire dispatch service. I just asked if their dispatchers were spending two hours a day arguing over broker detention fees. That's it. One concrete headache is easy to discuss; a generic "growth platform" isn't.
 
 ### 5. Ask for 20 Seconds, Not a 30-Minute Meeting
-Reps fail on objections because they try to close for a demo calendar invite before the prospect even admits they have a problem. Your only goal when handling a cold objection is earning the right to ask one good discovery question. Trade value for 20 seconds of their attention, not half an hour of their week.
+Reps fail on objections because they try to close for a demo calendar invite before the prospect even admits they have a problem. As we explore in our [Top 7 Appointment Setting Frameworks](/blog/top-7-appointment-setting-frameworks-to-double-sales-pipeline), your only goal when handling a cold objection is earning the right to ask one good discovery question. Trade value for 20 seconds of their attention, not half an hour of their week.
 
 ---
 
@@ -83,7 +83,7 @@ Most people chuckle or say *"Alright, twenty seconds, go."* That's all the openi
 ---
 
 ### "We already have a vendor / We already have a solution for this"
-When I was booking discovery calls for B2B SaaS teams at **Million Dials**, almost every VP of Sales we dialed already had tools or external agencies. If you attack their current vendor, you're basically telling them they made a bad decision.
+When I was booking discovery calls for B2B SaaS teams at **Million Dials Pvt Ltd.**, almost every VP of Sales we dialed already had tools like [Salesloft](https://www.salesloft.com) or external SDR agencies. If you attack their current vendor, you're basically telling them they made a bad decision.
 
 Acknowledge their setup, validate it, and test whether there's room for a backup:
 
@@ -94,7 +94,7 @@ This reframes your offer as low-risk insurance rather than a painful migration p
 ---
 
 ### "Just send me an email"
-This is the polite dismissal. If you just say *"Sure, what's your email?"* and hang up, you've wasted your dial. That email will rot in their spam folder.
+This is the polite dismissal. If you just say *"Sure, what's your email?"* and hang up, you've wasted your dial. That email will rot in their spam folder unless you've already built targeted relevance—a topic we cover in our [B2B Cold Email Warmup & Deliverability Guide](/blog/b2b-cold-email-warmup-deliverability-guide).
 
 Agree to the email, but use it as a bridge to qualify what they actually care about:
 
@@ -123,14 +123,14 @@ Take the financial pressure off the table completely:
 ---
 
 ### "How did you get my direct number?"
-When you're pulling cell numbers from verified databases, some prospects will get defensive about privacy. Never lie and say a colleague gave it to you. Radical honesty disarms the suspicion:
+When you're pulling mobile numbers through [Apollo.io](https://www.apollo.io) or extracting verified executive contacts using our [LinkedIn Sales Navigator Masterclass](/blog/linkedin-sales-navigator-lead-generation-masterclass) workflows, some prospects will get defensive about privacy. Never lie and say a colleague gave it to you. Radical honesty disarms the suspicion:
 
 > *"Fair question! I pulled it off your public profile on [Apollo.io](https://www.apollo.io), specifically because I saw you oversee regional dispatch at [Company]. I know I caught you completely unannounced—did you want me to hang up, or can I take twenty seconds to explain why I dialed you specifically?"*
 
 ---
 
 ### "I'm not the right person for this"
-Don't argue with their title. Treat it as an easy route to a warm internal referral:
+Don't argue with their title. As we practice during our [BDR & SDR Roleplay Coaching Scenarios](/blog/top-bdr-sdr-interview-questions-and-answers), treat this as an easy route to a warm internal referral:
 
 > *"Appreciate you telling me upfront. Who on the team usually handles the dispatch operations so I don't keep bugging the wrong desk?"*
 
@@ -139,7 +139,7 @@ When they give you a name, you can dial that person next and say: *"Hey Mark, yo
 ---
 
 ### "We tried something like this before and it didn't work"
-When dialing healthcare procurement accounts for **Vizocom ICT**, we ran into prospects who had been burned by low-quality outbound agencies that blasted generic spam and ruined domain reputations.
+When dialing healthcare procurement accounts for **Vizocom ICT LLC**, we ran into prospects who had been burned by low-quality outbound agencies that blasted generic spam and ruined domain reputations.
 
 Validate their frustration instead of defending the industry:
 
@@ -151,11 +151,12 @@ By diagnosing why the past attempt failed, you demonstrate that you understand t
 
 ## Field Notes on Tonality: What Separates Top Callers
 
-The exact words you say only account for half the result. The rest comes down to vocal presence:
+The exact words you say only account for half the result. The rest comes down to vocal presence and technology:
 
 * **Downward Inflection:** Amateur callers end sentences with an upward pitch, making statements sound like nervous questions. Top reps speak with a calm, flat downward inflection like a doctor giving a diagnosis.
 * **Emotional Detachment:** If you sound desperate for the meeting, prospects smell commission breath and pull back. If you sound indifferent—like you're genuinely just checking if there's a fit—they lean in.
-* **Logging Everything in CRM:** When running campaigns across [HubSpot](https://www.hubspot.com) or [Salesforce](https://www.salesforce.com), always log the exact objection type in your call dispositions. Tracking patterns tells you whether your market is pushing back on timing, vendor loyalty, or message clarity.
+* **Logging Everything in CRM:** When running campaigns across [HubSpot CRM](https://www.hubspot.com), [Salesforce](https://www.salesforce.com), or [Zoho CRM](https://www.zoho.com/crm), always log the exact objection type in your call dispositions. Tracking patterns in conversation intelligence platforms like [Gong.io](https://www.gong.io) tells you whether your market is pushing back on timing, vendor loyalty, or message clarity.
+* **Dialer Efficiency:** High-volume teams dialing on [VICIdial](https://www.vicidial.org) or cloud VoIP on [RingCentral](https://www.ringcentral.com) should always monitor connection latency so you don't introduce awkward audio lag right as the prospect says hello.
 
 ---
 
@@ -165,7 +166,9 @@ Training internal SDRs to handle objections smoothly takes daily call reviews, o
 
 If you're a founder or agency owner who wants qualified decision-maker demos placed directly on your calendar without the burden of managing cold callers yourself:
 
-* Check out my [transparent outbound pricing](/#pricing)
+* Explore my [verified case studies & client results](/#results) to see past campaign outcomes.
+* Check out my [transparent outbound pricing](/#pricing) for flexible and full-time packages.
+* For agency owners looking for dedicated full-time talent, learn more about my [in-house hiring & consulting](/hire-in-house) model.
 * Or [reach out directly for an outbound consultation](/contact) to talk through your target accounts.
 
 ---
@@ -185,7 +188,7 @@ Acknowledge the reflex calmly and ask for twenty seconds: *"That's completely fa
 Validate their choice and ask if they ever keep a secondary partner for overflow or benchmark testing: *"Makes sense, most teams we work with already have a provider. We aren't asking you to switch today. Out of curiosity, are they covering your entire outbound queue, or do you ever need a benchmark for overflow campaigns?"*
 
 ### How can sales leaders help reps handle objections better?
-Managers should run 15-minute daily roleplays before dialing blocks, review call recordings in conversation intelligence tools, and coach callers to slow down their speech and use downward vocal inflection.`,
+Managers should run 15-minute daily roleplays before dialing blocks, review call recordings in conversation intelligence tools like [Gong.io](https://www.gong.io), and coach callers to slow down their speech and use downward vocal inflection.`,
   },
   {
     slug: "top-bdr-sdr-interview-questions-and-answers",
