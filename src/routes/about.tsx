@@ -223,11 +223,11 @@ function AboutPage() {
             <div className="pt-4">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="btn-click-effect inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-bold text-primary-foreground shadow-md transition-transform hover:opacity-90 active:scale-95"
+                className="btn-click-effect inline-flex min-h-[32px] items-center justify-center gap-1.5 rounded-full px-5 py-2 text-xs font-bold text-primary-foreground shadow-sm transition-transform hover:opacity-90 active:scale-95"
                 style={{ background: "var(--gradient-primary)" }}
               >
                 <span>Request a Proposal</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </div>
           </div>
