@@ -223,7 +223,7 @@ function AboutPage() {
             <div className="pt-4">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="btn-click-effect inline-flex min-h-[36px] items-center justify-center gap-2 rounded-full px-6 py-2.5 text-[13px] font-bold text-primary-foreground shadow-sm transition-transform hover:opacity-90 active:scale-95"
+                className="btn-click-effect inline-flex min-h-[34px] items-center justify-center gap-1.5 rounded-full px-5.5 py-2 text-[12.5px] font-bold text-primary-foreground shadow-sm transition-transform hover:opacity-90 active:scale-95"
                 style={{ background: "var(--gradient-primary)" }}
               >
                 <span>Request a Proposal</span>
