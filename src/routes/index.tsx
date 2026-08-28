@@ -546,8 +546,6 @@ const FAQS = [
 function ServiceBusinessPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalService, setModalService] = useState<string | undefined>();
-  const heroSlotRef = useRef<HTMLDivElement | null>(null);
-  const headerSlotRef = useRef<HTMLDivElement | null>(null);
 
   const openLeadModal = (service?: string) => {
     setModalService(service);
@@ -556,17 +554,9 @@ function ServiceBusinessPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20 overflow-x-hidden">
-      <Navbar headerSlotRef={headerSlotRef} onOpenModal={openLeadModal} />
-      <SharedProposalButton
-        heroSlotRef={heroSlotRef}
-        headerSlotRef={headerSlotRef}
-        onOpenModal={openLeadModal}
-      />
+      <Navbar onOpenModal={openLeadModal} />
       <main id="main-content">
-        <HeroSection
-          heroSlotRef={heroSlotRef}
-          onOpenModal={openLeadModal}
-        />
+        <HeroSection onOpenModal={openLeadModal} />
         <TrustBarSection />
         <ServicesSection onOpenModal={openLeadModal} />
         <ToolsGridSection />
@@ -594,202 +584,14 @@ function ServiceBusinessPage() {
 }
 
 /* =========================================================================
-   1. SHARED SCROLL-DRIVEN FLIP PROPOSAL BUTTON (HERO -> HEADER)
+   1. NAVBAR (NO SCROLL LOCK, CLEAN DROPDOWN PANEL)
    ========================================================================= */
 
-function SharedProposalButton({
-  heroSlotRef,
-  headerSlotRef,
-  onOpenModal,
-}: {
-  heroSlotRef: React.RefObject<HTMLDivElement | null>;
-  headerSlotRef: React.RefObject<HTMLDivElement | null>;
-  onOpenModal: (service?: string) => void;
-}) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const arrowRef = useRef<SVGSVGElement | null>(null);
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    let rafId: number | null = null;
-    let resizeTimer: NodeJS.Timeout | null = null;
-
-    // Cache layout coordinates strictly outside scroll handler
-    const coords = {
-      heroLeft: 0,
-      heroPageTop: 0,
-      heroWidth: 0,
-      heroHeight: 0,
-      headerLeft: 0,
-      headerTop: 0,
-      headerWidth: 0,
-      headerHeight: 0,
-      targetScaleX: 1,
-      targetScaleY: 1,
-      travelDistance: 400,
-    };
-
-    const updateMeasurements = () => {
-      const heroEl = heroSlotRef.current;
-      const headerEl = headerSlotRef.current;
-      if (!heroEl || !headerEl) return;
-
-      const heroRect = heroEl.getBoundingClientRect();
-      const headerRect = headerEl.getBoundingClientRect();
-      const scrollY = window.scrollY;
-
-      coords.heroLeft = heroRect.left;
-      coords.heroPageTop = heroRect.top + scrollY;
-      coords.heroWidth = heroRect.width || 180;
-      coords.heroHeight = heroRect.height || 42;
-
-      coords.headerLeft = headerRect.left;
-      coords.headerTop = headerRect.top;
-      coords.headerWidth = headerRect.width || 135;
-      coords.headerHeight = headerRect.height || 34;
-
-      coords.targetScaleX = coords.headerWidth / coords.heroWidth;
-      coords.targetScaleY = coords.headerHeight / coords.heroHeight;
-      coords.travelDistance = Math.max(coords.heroPageTop - coords.headerTop, 1);
-
-      // Set initial base dimensions on container once (never touched in rAF)
-      const container = containerRef.current;
-      if (container) {
-        container.style.width = `${coords.heroWidth}px`;
-        container.style.height = `${coords.heroHeight}px`;
-      }
-    };
-
-    // 100% Pure Math & GPU Compositor Update (Zero Layout Reflows / Zero DOM Reads)
-    const applyScrollTransform = () => {
-      const container = containerRef.current;
-      if (!container) return;
-
-      const scrollY = window.scrollY;
-      const rawProgress = scrollY / coords.travelDistance;
-      const progress = rawProgress < 0 ? 0 : rawProgress > 1 ? 1 : rawProgress;
-
-      if (prefersReducedMotion) {
-        if (progress >= 0.9) {
-          container.style.transform = `translate3d(${coords.headerLeft}px, ${coords.headerTop}px, 0) scale(${coords.targetScaleX}, ${coords.targetScaleY})`;
-          if (arrowRef.current) arrowRef.current.style.opacity = "0";
-        } else {
-          const currentHeroY = coords.heroPageTop - scrollY;
-          container.style.transform = `translate3d(${coords.heroLeft}px, ${currentHeroY}px, 0) scale(1, 1)`;
-          if (arrowRef.current) arrowRef.current.style.opacity = "1";
-        }
-        return;
-      }
-
-      // Smooth FLIP easing
-      const t = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-
-      const currentHeroY = coords.heroPageTop - scrollY;
-      const currentX = coords.heroLeft + (coords.headerLeft - coords.heroLeft) * t;
-      const currentY = currentHeroY + (coords.headerTop - currentHeroY) * t;
-      const scaleX = 1 + (coords.targetScaleX - 1) * t;
-      const scaleY = 1 + (coords.targetScaleY - 1) * t;
-
-      // Single GPU composite property update
-      container.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) scale(${scaleX}, ${scaleY})`;
-
-      // Fade & scale arrow icon smoothly
-      if (arrowRef.current) {
-        const arrowOpacity = t >= 0.5 ? 0 : 1 - t * 2;
-        const arrowScale = t >= 1 ? 0 : 1 - t;
-        arrowRef.current.style.opacity = `${arrowOpacity}`;
-        arrowRef.current.style.transform = `scale(${arrowScale})`;
-      }
-    };
-
-    const onScroll = () => {
-      if (rafId !== null) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(applyScrollTransform);
-    };
-
-    const onResize = () => {
-      if (resizeTimer) clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        updateMeasurements();
-        applyScrollTransform();
-      }, 100);
-    };
-
-    updateMeasurements();
-    applyScrollTransform();
-    setIsReady(true);
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize, { passive: true });
-    window.addEventListener("orientationchange", onResize, { passive: true });
-
-    // Re-measure after fonts & stylesheets settle
-    const settleTimer = setTimeout(() => {
-      updateMeasurements();
-      applyScrollTransform();
-    }, 150);
-
-    return () => {
-      if (rafId !== null) cancelAnimationFrame(rafId);
-      if (resizeTimer) clearTimeout(resizeTimer);
-      clearTimeout(settleTimer);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-      window.removeEventListener("orientationchange", onResize);
-    };
-  }, [heroSlotRef, headerSlotRef]);
-
-  const handleClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    // Synchronous immediate dispatch without animation state delay
-    onOpenModal();
-  };
-
-  return (
-    <div
-      ref={containerRef}
-      className="fixed top-0 left-0 z-50 pointer-events-auto will-change-transform"
-      style={{
-        transformOrigin: "top left",
-        visibility: isReady ? "visible" : "hidden",
-      }}
-    >
-      <button
-        onClick={handleClick}
-        aria-label="Request Proposal"
-        type="button"
-        className="btn-click-effect relative w-full h-full inline-flex items-center justify-center gap-1.5 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs cursor-pointer select-none transition-shadow hover:opacity-95 hover:shadow-md active:scale-95"
-        style={{
-          background: "var(--gradient-primary)",
-        }}
-      >
-        <span className="whitespace-nowrap">Request Proposal</span>
-        <ArrowRight
-          ref={arrowRef}
-          className="h-3.5 w-3.5 shrink-0 transition-opacity origin-center"
-        />
-      </button>
-    </div>
-  );
-}
-
-/* =========================================================================
-   2. NAVBAR (NO SCROLL LOCK, CLEAN DROPDOWN PANEL)
-   ========================================================================= */
-
-function Navbar({
-  headerSlotRef,
-  onOpenModal,
-}: {
-  headerSlotRef: React.RefObject<HTMLDivElement | null>;
-  onOpenModal: (service?: string) => void;
-}) {
+function Navbar({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 z-40 w-full border-b border-border/40 bg-background/50 backdrop-blur-md transition-colors">
+    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/50 backdrop-blur-md transition-colors">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
         {/* Plain Morphing 3-Line Hamburger Icon */}
         <div className="relative z-50">
@@ -816,14 +618,14 @@ function Navbar({
           </button>
         </div>
 
-        {/* Header CTA Docking Target Slot (Invisible placeholder that reserves exact dimensions) */}
-        <div
-          ref={headerSlotRef}
-          aria-hidden="true"
-          className="pointer-events-none invisible inline-flex rounded-full px-3.5 py-1.5 text-xs font-semibold sm:px-4 sm:py-2 select-none"
+        {/* Small Header CTA Button */}
+        <button
+          onClick={() => onOpenModal()}
+          className="btn-click-effect rounded-full px-3.5 py-1.5 text-xs font-semibold text-primary-foreground shadow-xs transition-transform hover:opacity-90 active:scale-95 sm:px-4 sm:py-2"
+          style={{ background: "var(--gradient-primary)" }}
         >
-          <span>Request Proposal</span>
-        </div>
+          Request Proposal
+        </button>
       </div>
 
       {/* Expanded Full-Width Panel (Clean grid of links, no bottom site link or CTA button) */}
@@ -848,16 +650,10 @@ function Navbar({
 }
 
 /* =========================================================================
-   3. HERO SECTION (EQUAL HEADLINE SIZING & BALANCED BUTTON SIZES)
+   2. HERO SECTION (EQUAL HEADLINE SIZING & BALANCED BUTTON SIZES)
    ========================================================================= */
 
-function HeroSection({
-  heroSlotRef,
-  onOpenModal,
-}: {
-  heroSlotRef: React.RefObject<HTMLDivElement | null>;
-  onOpenModal: (service?: string) => void;
-}) {
+function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
   return (
     <section
       id="hero"
@@ -903,17 +699,16 @@ function HeroSection({
               calendar so you can close more high-ticket deals.
             </p>
 
-            {/* CTAs: Hero Slot Placeholder + View Results Button */}
+            {/* CTAs: Both buttons sized visually matching */}
             <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
-              {/* Hero CTA Placeholder (Reserves exact space for the single shared floating button) */}
-              <div
-                ref={heroSlotRef}
-                aria-hidden="true"
-                className="pointer-events-none invisible inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold select-none"
+              <button
+                onClick={() => onOpenModal()}
+                className="btn-click-effect inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs hover:opacity-95 active:scale-95"
+                style={{ background: "var(--gradient-primary)" }}
               >
                 <span>Request Proposal</span>
                 <ArrowRight className="h-3.5 w-3.5" />
-              </div>
+              </button>
 
               <a
                 href="#results"
