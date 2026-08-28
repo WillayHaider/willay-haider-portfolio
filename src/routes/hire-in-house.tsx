@@ -280,7 +280,7 @@ function HireInHousePage() {
                 <span>Track Record</span>
               </div>
               <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                Experience & Leadership
+                Professional Experience
               </h2>
             </div>
 
