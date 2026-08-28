@@ -546,6 +546,7 @@ const FAQS = [
 function ServiceBusinessPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalService, setModalService] = useState<string | undefined>();
+  const [showNavCta, setShowNavCta] = useState(false);
 
   const openLeadModal = (service?: string) => {
     setModalService(service);
@@ -554,9 +555,12 @@ function ServiceBusinessPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20 overflow-x-hidden">
-      <Navbar onOpenModal={openLeadModal} />
+      <Navbar showCta={showNavCta} onOpenModal={openLeadModal} />
       <main id="main-content">
-        <HeroSection onOpenModal={openLeadModal} />
+        <HeroSection
+          onOpenModal={openLeadModal}
+          onCtaVisibilityChange={(inView) => setShowNavCta(!inView)}
+        />
         <TrustBarSection />
         <ServicesSection onOpenModal={openLeadModal} />
         <ToolsGridSection />
@@ -587,7 +591,13 @@ function ServiceBusinessPage() {
    1. NAVBAR (NO SCROLL LOCK, CLEAN DROPDOWN PANEL)
    ========================================================================= */
 
-function Navbar({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
+function Navbar({
+  showCta = false,
+  onOpenModal,
+}: {
+  showCta?: boolean;
+  onOpenModal: (service?: string) => void;
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -618,14 +628,25 @@ function Navbar({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
           </button>
         </div>
 
-        {/* Small Header CTA Button */}
-        <button
-          onClick={() => onOpenModal()}
-          className="btn-click-effect rounded-full px-3.5 py-1.5 text-xs font-semibold text-primary-foreground shadow-xs transition-transform hover:opacity-90 active:scale-95 sm:px-4 sm:py-2"
-          style={{ background: "var(--gradient-primary)" }}
-        >
-          Request Proposal
-        </button>
+        {/* 3D Docking Header CTA Button (Smoothly animates in when scrolling past Hero) */}
+        <div className="relative">
+          <button
+            onClick={() => onOpenModal()}
+            className={`btn-click-effect rounded-full px-3.5 py-1.5 text-xs font-semibold text-primary-foreground transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:px-4 sm:py-2 ${
+              showCta
+                ? "opacity-100 scale-100 translate-y-0 shadow-md shadow-primary/25 pointer-events-auto"
+                : "opacity-0 scale-75 -translate-y-3 pointer-events-none"
+            }`}
+            style={{
+              background: "var(--gradient-primary)",
+              transformOrigin: "center right",
+            }}
+            tabIndex={showCta ? 0 : -1}
+            aria-hidden={!showCta}
+          >
+            Request Proposal
+          </button>
+        </div>
       </div>
 
       {/* Expanded Full-Width Panel (Clean grid of links, no bottom site link or CTA button) */}
@@ -653,7 +674,33 @@ function Navbar({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
    2. HERO SECTION (EQUAL HEADLINE SIZING & BALANCED BUTTON SIZES)
    ========================================================================= */
 
-function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
+function HeroSection({
+  onOpenModal,
+  onCtaVisibilityChange,
+}: {
+  onOpenModal: (service?: string) => void;
+  onCtaVisibilityChange?: (inView: boolean) => void;
+}) {
+  const heroCtaRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const el = heroCtaRef.current;
+    if (!el || !onCtaVisibilityChange) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        onCtaVisibilityChange(entry.isIntersecting);
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "-48px 0px 0px 0px",
+      }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [onCtaVisibilityChange]);
+
   return (
     <section
       id="hero"
@@ -700,10 +747,10 @@ function HeroSection({ onOpenModal }: { onOpenModal: (service?: string) => void 
             </p>
 
             {/* CTAs: Both buttons sized visually matching */}
-            <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
+            <div ref={heroCtaRef} className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
               <button
                 onClick={() => onOpenModal()}
-                className="btn-click-effect inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs hover:opacity-95 active:scale-95"
+                className="btn-click-effect inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs hover:opacity-95 active:scale-95 transition-all duration-300"
                 style={{ background: "var(--gradient-primary)" }}
               >
                 <span>Request Proposal</span>
