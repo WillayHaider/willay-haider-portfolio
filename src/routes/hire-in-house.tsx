@@ -341,7 +341,7 @@ function HireInHousePage() {
           <div className="mt-12 rounded-xl border border-border bg-card p-3 sm:p-5 text-center shadow-xs">
             <div className="flex items-center justify-center gap-1.5 sm:gap-2.5 overflow-x-auto no-scrollbar whitespace-nowrap">
               <div className="flex shrink-0 items-center text-[10.5px] sm:text-xs font-bold uppercase tracking-wider text-primary">
-                <span>Fluent Languages:</span>
+                <span>Languages:</span>
               </div>
               {["English (US/UK)", "Urdu", "Punjabi", "Saraiki"].map((lang) => (
                 <span
