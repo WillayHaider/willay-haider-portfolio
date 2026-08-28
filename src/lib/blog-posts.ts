@@ -26,6 +26,8 @@ export const BLOG_POSTS: BlogPost[] = [
 
 When I interview BDR and SDR candidates for enterprise outbound teams, I never evaluate candidates based on memorized resume bullet points. As sales author Jeb Blount notes in *Fanatical Prospecting*: *"The easiest way to lose peer status in sales is sounding like you have something to prove."* Live roleplay tests the single capability that determines whether an outbound caller hits quota: live conversational composure under pressure. Hiring managers score three specific signals during mock dials: steady pacing without nervous speedups, natural recovery from immediate brush-offs, and structured active listening rather than rushing to pitch.
 
+Before walking through the mock dialogue, look at how hiring teams structure the core interview evaluation stages:
+
 ![Sales Interview Questions guide for BDR and SDR outbound candidates](/bdr-sdr-sales-interview-questions-guide.png)
 
 ---
@@ -55,6 +57,8 @@ When I interview BDR and SDR candidates for enterprise outbound teams, I never e
 **7. Scenario: The automated operator asks for an extension number.**
 > Mock Answer: *"Press 0 or dial direct-dial extensions sourced from verified databases like [Apollo.io](https://www.apollo.io) to bypass standard front-desk phone routing."*
 
+Once you demonstrate that you can navigate gatekeepers with neutral confidence, hiring managers and talent screening panels immediately evaluate how you hook the prospect when they pick up live:
+
 ![Top HR interview questions panel assessing cold call roleplay and objection handling](/top-bdr-hr-interview-questions-panel.jpg)
 
 ### Cold Call Opening Roleplays (8 to 14)
@@ -79,6 +83,8 @@ When I interview BDR and SDR candidates for enterprise outbound teams, I never e
 
 **14. Scenario: The prospect sighs and says, "Make it fast."**
 > Mock Answer: *"Understood. Most VPs of Supply Chain we partner with tell us their dispatchers waste 3 hours daily on manual rate renegotiations. Is that something your team is experiencing right now?"*
+
+During live interview roleplays, interviewers simulate real-world prospect pushback to test whether you get defensive or know how to acknowledge and reframe objections naturally:
 
 ![BDR interview roleplay scenario illustration showing candidate handling cold call objections](/bdr-interview-roleplay-scenario-illustration.jpg)
 
