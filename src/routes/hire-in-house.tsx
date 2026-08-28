@@ -246,10 +246,6 @@ function HireInHousePage() {
 
           {/* Local In-House Opportunities Section */}
           <div className="mt-12 sm:mt-16">
-            <div className="inline-flex items-center rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary mb-2.5">
-              <span>Local In-House Opportunities</span>
-            </div>
-
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
               Pakistan-based agency owner looking to hire in-house?
             </h2>
