@@ -338,15 +338,15 @@ function HireInHousePage() {
           </div>
 
           {/* Languages */}
-          <div className="mt-12 rounded-xl border border-border bg-card p-5 text-center shadow-xs">
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <div className="flex items-center text-xs font-bold uppercase tracking-wider text-primary">
+          <div className="mt-12 rounded-xl border border-border bg-card p-3 sm:p-5 text-center shadow-xs">
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2.5 overflow-x-auto no-scrollbar whitespace-nowrap">
+              <div className="flex shrink-0 items-center text-[10.5px] sm:text-xs font-bold uppercase tracking-wider text-primary">
                 <span>Fluent Languages:</span>
               </div>
               {["English (US/UK)", "Urdu", "Punjabi", "Saraiki"].map((lang) => (
                 <span
                   key={lang}
-                  className="rounded-full border border-border bg-secondary/60 px-3 py-0.5 text-xs font-semibold text-foreground"
+                  className="shrink-0 rounded-full border border-border bg-secondary/60 px-2 py-0.5 text-[10.5px] font-semibold text-foreground sm:px-3 sm:text-xs"
                 >
                   {lang}
                 </span>
