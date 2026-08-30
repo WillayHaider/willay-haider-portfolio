@@ -26,8 +26,20 @@
   </url>
   <url>
     <loc>https://willayhaider.pro/blog</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://willayhaider.pro/blog/google-workspace-email-blocked-fix-550-permanent-failure-bounce</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://willayhaider.pro/blog/top-5-cold-call-objection-handling-techniques-b2b</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>

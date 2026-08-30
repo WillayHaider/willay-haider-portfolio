@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640">
+  <defs>
+    <filter id="shadowBig" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap');
+    text { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="640" fill="#ffffff" />
+  <rect width="1200" height="6" fill="url(#blueGrad)" />
+
+  <!-- Header Section -->
+  <g transform="translate(60, 45)">
+    <rect width="280" height="32" rx="16" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" />
+    <text x="140" y="21" fill="#1d4ed8" font-size="13" font-weight="800" text-anchor="middle" letter-spacing="1">EMAIL DELIVERABILITY ARCHITECTURE</text>
+    <text x="0" y="70" fill="#0f172a" font-size="30" font-weight="800">Google Workspace 550 Bounce Resolution Pipeline</text>
+    <text x="0" y="96" fill="#64748b" font-size="15" font-weight="600">4-Stage Verification Workflow: Preventing Permanent Domain Rejections</text>
+  </g>
+
+  <!-- 4 Big Clean Flow Cards -->
+  <g transform="translate(60, 175)">
+    
+    <!-- Stage 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="250" height="365" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#shadowBig)" />
+      <rect width="250" height="8" rx="4" fill="#3b82f6" />
+      
+      <circle cx="45" cy="48" r="22" fill="#eff6ff" stroke="#bfdbfe" stroke-width="2" />
+      <text x="45" y="55" fill="#1d4ed8" font-size="18" font-weight="800" text-anchor="middle">1</text>
+      
+      <text x="45" y="112" fill="#0f172a" font-size="22" font-weight="800">SMTP Handshake</text>
+      <text x="45" y="138" fill="#64748b" font-size="14" font-weight="600">Inbound MTA Check</text>
+
+      <rect x="20" y="165" width="210" height="115" rx="10" fill="#f8fafc" stroke="#e2e8f0" />
+      <text x="32" y="196" fill="#1e293b" font-size="14" font-weight="700">• Recipient MX Lookup</text>
+      <text x="32" y="226" fill="#1e293b" font-size="14" font-weight="700">• Subcode 550 5.1.1 Check</text>
+      <text x="32" y="256" fill="#1e293b" font-size="14" font-weight="700">• Real-Time Mailbox Ping</text>
+
+      <rect x="20" y="300" width="210" height="42" rx="8" fill="#eff6ff" />
+      <text x="125" y="327" fill="#1d4ed8" font-size="13" font-weight="800" text-anchor="middle">Zero Dead Addresses</text>
+    </g>
+
+    <!-- Arrow 1 -->
+    <g transform="translate(255, 170)">
+      <path d="M0 0 L15 10 L0 20 Z" fill="#94a3b8" />
+    </g>
+
+    <!-- Stage 2 -->
+    <g transform="translate(276, 0)">
+      <rect width="250" height="365" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#shadowBig)" />
+      <rect width="250" height="8" rx="4" fill="#6366f1" />
+      
+      <circle cx="45" cy="48" r="22" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2" />
+      <text x="45" y="55" fill="#4f46e5" font-size="18" font-weight="800" text-anchor="middle">2</text>
+      
+      <text x="45" y="112" fill="#0f172a" font-size="22" font-weight="800">SPF &amp; DKIM</text>
+      <text x="45" y="138" fill="#64748b" font-size="14" font-weight="600">DNS Cryptography</text>
+
+      <rect x="20" y="165" width="210" height="115" rx="10" fill="#f8fafc" stroke="#e2e8f0" />
+      <text x="32" y="196" fill="#1e293b" font-size="14" font-weight="700">• Unified v=spf1 Record</text>
+      <text x="32" y="226" fill="#1e293b" font-size="14" font-weight="700">• 2048-Bit DKIM Selector</text>
+      <text x="32" y="256" fill="#1e293b" font-size="14" font-weight="700">• Fix 550 5.7.26 Mismatch</text>
+
+      <rect x="20" y="300" width="210" height="42" rx="8" fill="#eef2ff" />
+      <text x="125" y="327" fill="#4f46e5" font-size="13" font-weight="800" text-anchor="middle">100% Cryptographic Match</text>
+    </g>
+
+    <!-- Arrow 2 -->
+    <g transform="translate(531, 170)">
+      <path d="M0 0 L15 10 L0 20 Z" fill="#94a3b8" />
+    </g>
+
+    <!-- Stage 3 -->
+    <g transform="translate(552, 0)">
+      <rect width="250" height="365" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#shadowBig)" />
+      <rect width="250" height="8" rx="4" fill="#0ea5e9" />
+      
+      <circle cx="45" cy="48" r="22" fill="#f0f9ff" stroke="#bae6fd" stroke-width="2" />
+      <text x="45" y="55" fill="#0284c7" font-size="18" font-weight="800" text-anchor="middle">3</text>
+      
+      <text x="45" y="112" fill="#0f172a" font-size="22" font-weight="800">DMARC Policy</text>
+      <text x="45" y="138" fill="#64748b" font-size="14" font-weight="600">Domain Firewall</text>
+
+      <rect x="20" y="165" width="210" height="115" rx="10" fill="#f8fafc" stroke="#e2e8f0" />
+      <text x="32" y="196" fill="#1e293b" font-size="14" font-weight="700">• Relaxed p=none Host</text>
+      <text x="32" y="226" fill="#1e293b" font-size="14" font-weight="700">• rua= Aggregate Reports</text>
+      <text x="32" y="256" fill="#1e293b" font-size="14" font-weight="700">• Alignment Verification</text>
+
+      <rect x="20" y="300" width="210" height="42" rx="8" fill="#f0f9ff" />
+      <text x="125" y="327" fill="#0284c7" font-size="13" font-weight="800" text-anchor="middle">RBL &amp; Trap Protection</text>
+    </g>
+
+    <!-- Arrow 3 -->
+    <g transform="translate(807, 170)">
+      <path d="M0 0 L15 10 L0 20 Z" fill="#94a3b8" />
+    </g>
+
+    <!-- Stage 4 -->
+    <g transform="translate(828, 0)">
+      <rect width="250" height="365" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#shadowBig)" />
+      <rect width="250" height="8" rx="4" fill="#10b981" />
+      
+      <circle cx="45" cy="48" r="22" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2" />
+      <text x="45" y="55" fill="#047857" font-size="18" font-weight="800" text-anchor="middle">4</text>
+      
+      <text x="45" y="112" fill="#0f172a" font-size="22" font-weight="800">Inbox Placement</text>
+      <text x="45" y="138" fill="#64748b" font-size="14" font-weight="600">Verified Delivery</text>
+
+      <rect x="20" y="165" width="210" height="115" rx="10" fill="#f8fafc" stroke="#e2e8f0" />
+      <text x="32" y="196" fill="#1e293b" font-size="14" font-weight="700">• Primary Tab Routing</text>
+      <text x="32" y="226" fill="#1e293b" font-size="14" font-weight="700">• Bounce Rate &lt; 1.5%</text>
+      <text x="32" y="256" fill="#1e293b" font-size="14" font-weight="700">• 100/100 Postmaster Score</text>
+
+      <rect x="20" y="300" width="210" height="42" rx="8" fill="#ecfdf5" />
+      <text x="125" y="327" fill="#047857" font-size="13" font-weight="800" text-anchor="middle">95%+ Primary Reach</text>
+    </g>
+
+  </g>
+
+  <!-- Footer Branding -->
+  <g transform="translate(60, 595)">
+    <text x="0" y="0" fill="#64748b" font-size="13" font-weight="700">Willay Haider • Senior BDR &amp; Outbound Systems Specialist</text>
+    <text x="1080" y="0" fill="#2563eb" font-size="13" font-weight="800" text-anchor="end">willayhaider.pro</text>
+  </g>
+</svg>
