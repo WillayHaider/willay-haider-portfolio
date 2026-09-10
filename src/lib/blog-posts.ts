@@ -20,7 +20,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Most agency cold calls crash in the first ten seconds because reps pitch deliverables instead of pipeline economics. Here is how to structure real peer-to-peer conversations with founders.",
     date: "2026-09-10",
     readTime: "6 min read",
-    content: `![Visual Diagram: The 4-Step Founder Cold Call Architecture showing Permission Opener, ICP Pain Anchor, Diagnostic Hook, and Low-Friction Close](/cold-call-script-startup-founders-framework-diagram.svg)
+    content: `![Cold Call Example for Digital Marketing Agency Selling to Startup Founders](/cold-call-example-marketing-agency.jpg)
 
 Most agency cold calls die in the first eight seconds. You pick up the phone, dial a founder's cell, and lead with something like: *"Hi Alex, my name is Willay with Apex Growth, how's your day going?"*
 
@@ -47,6 +47,8 @@ The only real goal of the first thirty seconds on the phone is not to close a co
 ---
 
 ## The Four Moves of an Effective Founder Cold Call
+
+![Visual Diagram: The 4-Step Founder Cold Call Architecture showing Permission Opener, ICP Pain Anchor, Diagnostic Hook, and Low-Friction Close](/cold-call-script-startup-founders-framework-diagram.svg)
 
 Over thousands of live dials into seed and Series A startups, I found that the best calls follow a very natural four-part rhythm. You do not need to memorize these word-for-word like a robot, but you do need to understand what each stage accomplishes psychologically.
 
@@ -156,6 +158,8 @@ Acknowledge their priority and remove all financial pressure from the conversati
 ---
 
 ## Practical Checklist Before You Pick Up the Phone
+
+![Sales Representative Executing an Outbound Cold Calling Cadence](/cold-calling-cadence-sales-rep.jpg)
 
 Even the sharpest script will fall flat if your operational workflow is sloppy. A few ground rules I stick to every day:
 
