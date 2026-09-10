@@ -153,12 +153,14 @@ function Reveal({
   as: Tag = "div",
   className = "",
   style,
+  ...props
 }: {
   children: React.ReactNode;
   delay?: number;
   as?: any;
   className?: string;
   style?: React.CSSProperties;
+  [key: string]: any;
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -191,6 +193,7 @@ function Reveal({
       className={`transition-all duration-750 ease-out will-change-transform ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
       } ${className}`}
+      {...props}
     >
       {children}
     </Tag>
@@ -890,27 +893,38 @@ function ServicesSection({ onOpenModal }: { onOpenModal: (service?: string) => v
             <Reveal
               key={svc.title}
               delay={i * 50}
-              className="glass-card flex flex-col justify-between rounded-xl p-4 sm:p-4.5"
+              onClick={() => onOpenModal(svc.title)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Inquire about ${svc.title}`}
+              onKeyDown={(e: React.KeyboardEvent) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  onOpenModal(svc.title);
+                }
+              }}
+              className="glass-card group flex flex-col justify-between rounded-xl p-4 sm:p-4.5 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-md hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary select-none active:scale-[0.99]"
             >
               <div>
                 <div
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-primary-foreground shadow-xs"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg text-primary-foreground shadow-xs transition-transform duration-300 group-hover:scale-105"
                   style={{ background: "var(--gradient-primary)" }}
                 >
                   <svc.icon className="h-4 w-4" />
                 </div>
-                <h3 className="mt-2.5 text-sm sm:text-base font-bold text-foreground">{svc.title}</h3>
-                <p className="mt-1 text-xs text-foreground/80 leading-relaxed font-medium">{svc.outcome}</p>
+                <h3 className="mt-2.5 text-sm sm:text-base font-bold text-foreground transition-colors group-hover:text-primary">
+                  {svc.title}
+                </h3>
+                <p className="mt-1 text-xs text-foreground/80 leading-relaxed font-medium">
+                  {svc.outcome}
+                </p>
               </div>
 
               <div className="mt-2.5 pt-1">
-                <button
-                  onClick={() => onOpenModal(svc.title)}
-                  className="btn-click-effect inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline"
-                >
+                <div className="btn-click-effect inline-flex items-center gap-1 text-xs font-bold text-primary group-hover:underline">
                   <span>Inquire now</span>
-                  <ArrowRight className="h-3 w-3" />
-                </button>
+                  <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
               </div>
             </Reveal>
           ))}

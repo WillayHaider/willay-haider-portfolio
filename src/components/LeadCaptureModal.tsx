@@ -17,9 +17,13 @@ interface LeadCaptureModalProps {
 const SERVICES = [
   "Cold Calling & Outbound Prospecting",
   "Appointment Setting & Demo Booking",
-  "B2B Lead Generation & Pipeline",
-  "CRM Setup & Management",
-  "Custom Web & App Development",
+  "Lead Generation & Pipeline Building",
+  "CRM Setup & RevOps Management",
+  "Custom Web Development",
+  "Custom App Development",
+  "Flexible (Hourly) Outbound",
+  "Starter Monthly Engine",
+  "Growth Monthly Partner",
   "In-house Hiring / Consulting (Pakistan-based agencies)",
 ];
 
@@ -303,7 +307,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                   className="mt-1 w-full min-h-[46px] rounded-xl border border-border bg-secondary/40 px-3.5 py-2.5 text-xs sm:text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
                 >
-                  {SERVICES.map((s) => (
+                  {(SERVICES.includes(formData.service) ? SERVICES : [formData.service, ...SERVICES]).map((s) => (
                     <option key={s} value={s} className="bg-card text-foreground py-1">
                       {s}
                     </option>
