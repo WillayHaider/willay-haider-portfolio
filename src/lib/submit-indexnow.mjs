@@ -10,6 +10,7 @@ const URLS = [
   `https://${HOST}/contact`,
   `https://${HOST}/gallery`,
   `https://${HOST}/blog`,
+  `https://${HOST}/blog/cold-call-script-digital-marketing-startup-founders`,
   `https://${HOST}/blog/google-workspace-email-blocked-fix-550-permanent-failure-bounce`,
   `https://${HOST}/blog/top-5-cold-call-objection-handling-techniques-b2b`,
   `https://${HOST}/blog/top-bdr-sdr-interview-questions-and-answers`,
