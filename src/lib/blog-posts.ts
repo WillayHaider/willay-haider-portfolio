@@ -56,9 +56,7 @@ When a founder answers their direct mobile line, their immediate mental reaction
 
 Acknowledge the interruption immediately to defuse their defensive barrier:
 
-\`\`\`text
-Rep: "Hey Alex, Willay here with GrowthPipe. I know I caught you completely out of the blue. Do you have 30 seconds to hear why I called, and if it makes zero sense, you can hang up on me?"
-\`\`\`
+> **Rep:** *"Hey Alex, Willay here with GrowthPipe. I know I caught you completely out of the blue. Do you have 30 seconds to hear why I called, and if it makes zero sense, you can hang up on me?"*
 
 **Why this works:**
 1. **Radical Transparency:** You state upfront that it is an unscheduled call.
@@ -69,9 +67,7 @@ Rep: "Hey Alex, Willay here with GrowthPipe. I know I caught you completely out 
 
 Do not launch into an agency pitch deck. Reference a specific, high-friction revenue bottleneck that other founders in their exact space are dealing with right now:
 
-\`\`\`text
-Rep: "Appreciate that. We work with early-stage B2B SaaS founders across North America. The common issue we are hearing right now is that they are burning $8k to $12k a month on LinkedIn ads and paid search, but their demo conversion rate is stalling because their landing page messaging is speaking to users instead of economic buyers."
-\`\`\`
+> **Rep:** *"Appreciate that. We work with early-stage B2B SaaS founders across North America. The common issue we are hearing right now is that they are burning $8k to $12k a month on LinkedIn ads and paid search, but their demo conversion rate is stalling because their landing page messaging is speaking to users instead of economic buyers."*
 
 **Why this works:**
 * It positions you as an industry specialist rather than a generalist agency.
@@ -81,15 +77,11 @@ Rep: "Appreciate that. We work with early-stage B2B SaaS founders across North A
 
 Once you have established the problem, immediately pass the conversation back to the founder with an open-ended diagnostic question:
 
-\`\`\`text
-Rep: "Curious: how is your team currently approaching converting outbound visitors into qualified discovery calls right now?"
-\`\`\`
+> **Rep:** *"Curious: how is your team currently approaching converting outbound visitors into qualified discovery calls right now?"*
 
 Alternatively, for paid ads or SEO outreach:
 
-\`\`\`text
-Rep: "Are you primarily relying on founder-led sales and organic referrals at this stage, or are you actively running dedicated paid acquisition campaigns?"
-\`\`\`
+> **Rep:** *"Are you primarily relying on founder-led sales and organic referrals at this stage, or are you actively running dedicated paid acquisition campaigns?"*
 
 **Why this works:**
 * You are no longer pitching: you are diagnosing.
@@ -99,9 +91,7 @@ Rep: "Are you primarily relying on founder-led sales and organic referrals at th
 
 Once the founder shares details about their current marketing setup, do not try to close a contract on the phone. Propose a zero-pressure, high-value exploratory session:
 
-\`\`\`text
-Rep: "Look Alex, I am not asking you to make any commitments or buy anything today. How about we put 15 minutes on the calendar for Thursday? I will pull a quick tear-down of your current acquisition funnel and show you the exact 3 messaging adjustments we used to lower CAC for a similar Series A tech team. If nothing else, you keep the tear-down notes for your internal marketing team. Would Thursday morning work better, or afternoon?"
-\`\`\`
+> **Rep:** *"Look Alex, I am not asking you to make any commitments or buy anything today. How about we put 15 minutes on the calendar for Thursday? I will pull a quick tear-down of your current acquisition funnel and show you the exact 3 messaging adjustments we used to lower CAC for a similar Series A tech team. If nothing else, you keep the tear-down notes for your internal marketing team. Would Thursday morning work better, or afternoon?"*
 
 **Why this works:**
 * The risk is zero for the founder.
@@ -111,27 +101,25 @@ Rep: "Look Alex, I am not asking you to make any commitments or buy anything tod
 
 ## The Complete Script at a Glance
 
-Here is the entire conversation flow consolidated into one copy-pasteable script:
+Here is the entire conversation flow from pickup to booked calendar meeting:
 
-\`\`\`text
-[RING... RING...]
-
-Founder: "Hello, this is Alex."
-
-Rep: "Hey Alex, Willay here with Growth Systems. I know I caught you completely out of the blue. Do you have 30 seconds to hear why I called, and if it makes zero sense, you can hang up on me?"
-
-Founder: "Uh, sure. Make it quick, I'm between meetings."
-
-Rep: "Appreciate that. We work with early-stage B2B SaaS founders across the US. The main bottleneck we keep hearing right now is that they're driving decent traffic from organic and paid search, but only a tiny fraction is converting into booked executive demos because their messaging isn't speaking to economic buyers."
-
-Rep: "Curious: is improving your demo conversion rate a priority for your pipeline this quarter, or are you already happy with your inbound numbers?"
-
-Founder: "Well, we get traffic, but honestly our ad costs went up and conversions have been pretty flat the last two months."
-
-Rep: "That matches what we're seeing across most Seed and Series A teams right now. Look Alex, I know you're busy and I don't expect you to make any decisions on a cold call. How about we put 15 minutes on the calendar for Thursday? I'll show you the exact messaging framework we used to double demo conversions for a similar SaaS team, and you can take the teardown notes for your in-house team. Would Thursday morning or afternoon work better?"
-
-Founder: "Thursday at 2:00 PM works. Send the invite to alex@targetcompany.com."
-\`\`\`
+> **[Phone connects after two rings]**
+>
+> **Founder:** *"Hello, this is Alex."*
+>
+> **Rep:** *"Hey Alex, Willay here with Growth Systems. I know I caught you completely out of the blue. Do you have 30 seconds to hear why I called, and if it makes zero sense, you can hang up on me?"*
+>
+> **Founder:** *"Uh, sure. Make it quick, I am between meetings."*
+>
+> **Rep:** *"Appreciate that. We work with early-stage B2B SaaS founders across North America. The main bottleneck we keep hearing right now is that they are driving decent traffic from organic and paid search, but only a tiny fraction is converting into booked executive demos because their messaging isn't speaking to economic buyers."*
+>
+> **Rep:** *"Curious: is improving your demo conversion rate a priority for your pipeline this quarter, or are you already happy with your inbound numbers?"*
+>
+> **Founder:** *"Well, we get traffic, but honestly our ad costs went up and conversions have been pretty flat the last two months."*
+>
+> **Rep:** *"That matches what we are seeing across most Seed and Series A teams right now. Look Alex, I know you are busy and I don't expect you to make any decisions on a cold call. How about we put 15 minutes on the calendar for Thursday? I will show you the exact messaging framework we used to double demo conversions for a similar SaaS team, and you can take the teardown notes for your in-house team. Would Thursday morning or afternoon work better?"*
+>
+> **Founder:** *"Thursday at 2:00 PM works. Send the invite to alex@targetcompany.com."*
 
 ---
 
@@ -148,9 +136,7 @@ When founders say this in the first 20 seconds, it is an automated reflex to end
 * **Amateur Mistake:** Saying *"Sure, what is your email?"* and sending a 10-page PDF deck that never gets opened.
 * **The Practitioner Pivot:**
 
-\`\`\`text
-Rep: "I am happy to send an email, but I want to make sure I don't clutter your inbox with generic brochures. If I can ask just one quick question: are you focused on optimizing your paid ad funnel or scaling organic search pipeline this quarter so I only send what is relevant?"
-\`\`\`
+> **Rep:** *"I am happy to send an email, but I want to make sure I don't clutter your inbox with generic brochures. If I can ask just one quick question: are you focused on optimizing your paid ad funnel or scaling organic search pipeline this quarter so I only send what is relevant?"*
 
 Once they answer, you have re-engaged them in discovery and can transition naturally back to a calendar invite.
 
@@ -159,18 +145,14 @@ Once they answer, you have re-engaged them in discovery and can transition natur
 * **Amateur Mistake:** Trying to convince them that their internal team is incompetent or that your agency is cheaper.
 * **The Practitioner Pivot:**
 
-\`\`\`text
-Rep: "That makes total sense, and honestly most founders we partner with already have a solid internal team. We don't replace in-house marketers: we usually act as a dedicated outbound execution arm to book meetings while your internal team focuses on brand and product marketing. How is your team currently balancing outbound dialing alongside running ads?"
-\`\`\`
+> **Rep:** *"That makes total sense, and honestly most founders we partner with already have a solid internal team. We don't replace in-house marketers: we usually act as a dedicated outbound execution arm to book meetings while your internal team focuses on brand and product marketing. How is your team currently balancing outbound dialing alongside running ads?"*
 
 ### 3. "We don't have budget for marketing right now."
 
 * **Amateur Mistake:** Offering discounts or arguing about their financial priorities.
 * **The Practitioner Pivot:**
 
-\`\`\`text
-Rep: "Totally understand. Preserving runway is priority number one right now. I am not asking you to sign any retainers today. How about I share our 3-step acquisition framework on a quick 15-minute call so you have the playbook ready for when you are looking to scale in Q3? Would Thursday morning work?"
-\`\`\`
+> **Rep:** *"Totally understand. Preserving runway is priority number one right now. I am not asking you to sign any retainers today. How about I share our 3-step acquisition framework on a quick 15-minute call so you have the playbook ready for when you are looking to scale in Q3? Would Thursday morning work?"*
 
 ---
 

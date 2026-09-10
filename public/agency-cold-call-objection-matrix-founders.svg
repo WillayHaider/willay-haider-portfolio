@@ -1,100 +1,93 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%" style="background:#FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-  <defs>
-    <filter id="boxShadow" x="-2%" y="-2%" width="104%" height="108%" filterUnits="userSpaceOnUse">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.05" />
-    </filter>
-  </defs>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650" width="100%" height="100%" style="background:#FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
   <!-- Header -->
-  <g transform="translate(60, 40)">
-    <rect x="0" y="0" width="165" height="26" rx="13" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1" />
-    <text x="82.5" y="17" text-anchor="middle" font-size="11" font-weight="700" fill="#2563EB" letter-spacing="0.5">OBJECTION RECOVERY</text>
-    <text x="0" y="58" font-size="28" font-weight="800" fill="#0F172A">Founder Cold Call Objection Matrix</text>
-    <text x="0" y="84" font-size="14" font-weight="500" fill="#64748B">How to pivot the 3 most common startup founder brush-offs into qualified calendar meetings</text>
+  <g transform="translate(40, 35)">
+    <rect x="0" y="0" width="170" height="28" rx="14" fill="#EFF6FF" />
+    <text x="85" y="19" text-anchor="middle" font-size="13" font-weight="800" fill="#2563EB" letter-spacing="0.5">OBJECTION MATRIX</text>
+    <text x="0" y="66" font-size="30" font-weight="900" fill="#0F172A">Founder Objection Response Framework</text>
+    <text x="0" y="94" font-size="16" font-weight="600" fill="#64748B">How to pivot the 3 most common startup founder brush-offs into booked meetings</text>
   </g>
 
-  <!-- 3 Rows Matrix Grid -->
-  <g transform="translate(60, 155)">
+  <!-- 3 Stacked High-Legibility Cards -->
+  <g transform="translate(40, 140)">
     <!-- Objection 1 -->
     <g transform="translate(0, 0)">
-      <rect x="0" y="0" width="1080" height="135" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#boxShadow)" />
+      <rect x="0" y="0" width="880" height="140" rx="14" fill="#F8FAFC" />
       
-      <!-- Objection Tag -->
-      <rect x="20" y="20" width="220" height="95" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-      <text x="32" y="42" font-size="11" font-weight="700" fill="#64748B" letter-spacing="0.5">OBJECTION 01</text>
-      <text x="32" y="65" font-size="13" font-weight="800" fill="#0F172A">&quot;Just send me an email,</text>
-      <text x="32" y="85" font-size="13" font-weight="800" fill="#0F172A">I’m swamped right now.&quot;</text>
+      <!-- Objection Box -->
+      <rect x="16" y="16" width="220" height="108" rx="10" fill="#FFFFFF" />
+      <text x="30" y="42" font-size="11" font-weight="800" fill="#64748B" letter-spacing="0.5">OBJECTION 01</text>
+      <text x="30" y="66" font-size="15" font-weight="800" fill="#0F172A">&quot;Just send an email,</text>
+      <text x="30" y="88" font-size="15" font-weight="800" fill="#0F172A">I'm busy now.&quot;</text>
+      <text x="30" y="110" font-size="11" font-weight="700" fill="#EF4444">&#x2715; 90% hang-up reflex</text>
 
-      <!-- Amateur Response -->
-      <rect x="260" y="20" width="370" height="95" rx="10" fill="#FEF2F2" stroke="#FEE2E2" stroke-width="1" />
-      <text x="275" y="40" font-size="11" font-weight="700" fill="#991B1B">&#x2715; Amateur Response (Immediate Death):</text>
-      <text x="275" y="60" font-size="10.5" font-weight="500" fill="#7F1D1D">&quot;Sure! What is the best email address? I’ll send over</text>
-      <text x="275" y="78" font-size="10.5" font-weight="500" fill="#7F1D1D">our agency pitch deck and pricing overview right away.&quot;</text>
-      <text x="275" y="98" font-size="9.5" font-weight="600" fill="#B91C1C">Outcome: Email marked as spam. Lead permanently lost.</text>
+      <!-- Amateur vs Pro -->
+      <rect x="250" y="16" width="295" height="108" rx="10" fill="#FEF2F2" />
+      <text x="264" y="38" font-size="11" font-weight="800" fill="#991B1B">AMATEUR RESPONSE (HANG-UP):</text>
+      <text x="264" y="62" font-size="13" font-weight="600" fill="#7F1D1D">&quot;Sure! What's your email? I'll send</text>
+      <text x="264" y="82" font-size="13" font-weight="600" fill="#7F1D1D">our full 20-page agency deck</text>
+      <text x="264" y="102" font-size="13" font-weight="600" fill="#7F1D1D">and case studies right over.&quot;</text>
 
-      <!-- Practitioner Pivot -->
-      <rect x="650" y="20" width="410" height="95" rx="10" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1" />
-      <text x="665" y="40" font-size="11" font-weight="700" fill="#15803D">&#x2713; Practitioner Pivot (Pattern Interrupt):</text>
-      <text x="665" y="60" font-size="10.5" font-weight="500" fill="#166534">&quot;Happy to send an email, but I don’t want to clutter your inbox.</text>
-      <text x="665" y="78" font-size="10.5" font-weight="500" fill="#166534">If I can ask just one thing: are you focused on paid ads or organic</text>
-      <text x="665" y="96" font-size="10.5" font-weight="500" fill="#166534">search right now so I only send relevant numbers?&quot;</text>
+      <rect x="560" y="16" width="304" height="108" rx="10" fill="#F0FDF4" />
+      <text x="574" y="38" font-size="11" font-weight="800" fill="#15803D">&#x2713; PRACTITIONER PIVOT (CONVERTS):</text>
+      <text x="574" y="62" font-size="13" font-weight="700" fill="#166534">&quot;Happy to send it, but I won't clutter</text>
+      <text x="574" y="82" font-size="13" font-weight="700" fill="#166534">your inbox. Are you focused on paid</text>
+      <text x="574" y="102" font-size="13" font-weight="700" fill="#166534">ads or SEO pipeline this quarter?&quot;</text>
     </g>
 
     <!-- Objection 2 -->
     <g transform="translate(0, 155)">
-      <rect x="0" y="0" width="1080" height="135" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#boxShadow)" />
+      <rect x="0" y="0" width="880" height="140" rx="14" fill="#F8FAFC" />
       
-      <!-- Objection Tag -->
-      <rect x="20" y="20" width="220" height="95" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-      <text x="32" y="42" font-size="11" font-weight="700" fill="#64748B" letter-spacing="0.5">OBJECTION 02</text>
-      <text x="32" y="65" font-size="13" font-weight="800" fill="#0F172A">&quot;We do all of our digital</text>
-      <text x="32" y="85" font-size="13" font-weight="800" fill="#0F172A">marketing in-house.&quot;</text>
+      <!-- Objection Box -->
+      <rect x="16" y="16" width="220" height="108" rx="10" fill="#FFFFFF" />
+      <text x="30" y="42" font-size="11" font-weight="800" fill="#64748B" letter-spacing="0.5">OBJECTION 02</text>
+      <text x="30" y="66" font-size="15" font-weight="800" fill="#0F172A">&quot;We do marketing</text>
+      <text x="30" y="88" font-size="15" font-weight="800" fill="#0F172A">in-house.&quot;</text>
+      <text x="30" y="110" font-size="11" font-weight="700" fill="#EF4444">&#x2715; Defensive brush-off</text>
 
-      <!-- Amateur Response -->
-      <rect x="260" y="20" width="370" height="95" rx="10" fill="#FEF2F2" stroke="#FEE2E2" stroke-width="1" />
-      <text x="275" y="40" font-size="11" font-weight="700" fill="#991B1B">&#x2715; Amateur Response (Combative):</text>
-      <text x="275" y="60" font-size="10.5" font-weight="500" fill="#7F1D1D">&quot;Our agency has 10+ years of experience and better tools</text>
-      <text x="275" y="78" font-size="10.5" font-weight="500" fill="#7F1D1D">than in-house teams. Let me show you what we can do.&quot;</text>
-      <text x="275" y="98" font-size="9.5" font-weight="600" fill="#B91C1C">Outcome: Triggers founder defensiveness and disconnect.</text>
+      <!-- Amateur vs Pro -->
+      <rect x="250" y="16" width="295" height="108" rx="10" fill="#FEF2F2" />
+      <text x="264" y="38" font-size="11" font-weight="800" fill="#991B1B">AMATEUR RESPONSE (COMBATIVE):</text>
+      <text x="264" y="62" font-size="13" font-weight="600" fill="#7F1D1D">&quot;Our agency has better tools and</text>
+      <text x="264" y="82" font-size="13" font-weight="600" fill="#7F1D1D">more experience than in-house</text>
+      <text x="264" y="102" font-size="13" font-weight="600" fill="#7F1D1D">teams. Let me prove it to you.&quot;</text>
 
-      <!-- Practitioner Pivot -->
-      <rect x="650" y="20" width="410" height="95" rx="10" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1" />
-      <text x="665" y="40" font-size="11" font-weight="700" fill="#15803D">&#x2713; Practitioner Pivot (Collaborative Sourcing):</text>
-      <text x="665" y="60" font-size="10.5" font-weight="500" fill="#166534">&quot;That makes total sense. We don’t replace in-house teams.</text>
-      <text x="665" y="78" font-size="10.5" font-weight="500" fill="#166534">Most founders we partner with have internal marketers, but lack</text>
-      <text x="665" y="96" font-size="10.5" font-weight="500" fill="#166534">the outbound bandwidth to run high-volume dialing alongside ads.&quot;</text>
+      <rect x="560" y="16" width="304" height="108" rx="10" fill="#F0FDF4" />
+      <text x="574" y="38" font-size="11" font-weight="800" fill="#15803D">&#x2713; PRACTITIONER PIVOT (COLLABORATIVE):</text>
+      <text x="574" y="62" font-size="13" font-weight="700" fill="#166534">&quot;Makes total sense. We don't replace</text>
+      <text x="574" y="82" font-size="13" font-weight="700" fill="#166534">internal marketers: we act as your</text>
+      <text x="574" y="102" font-size="13" font-weight="700" fill="#166534">outbound arm booking vetted demos.&quot;</text>
     </g>
 
     <!-- Objection 3 -->
     <g transform="translate(0, 310)">
-      <rect x="0" y="0" width="1080" height="135" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#boxShadow)" />
+      <rect x="0" y="0" width="880" height="140" rx="14" fill="#F8FAFC" />
       
-      <!-- Objection Tag -->
-      <rect x="20" y="20" width="220" height="95" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-      <text x="32" y="42" font-size="11" font-weight="700" fill="#64748B" letter-spacing="0.5">OBJECTION 03</text>
-      <text x="32" y="65" font-size="13" font-weight="800" fill="#0F172A">&quot;We don’t have budget</text>
-      <text x="32" y="85" font-size="13" font-weight="800" fill="#0F172A">for marketing right now.&quot;</text>
+      <!-- Objection Box -->
+      <rect x="16" y="16" width="220" height="108" rx="10" fill="#FFFFFF" />
+      <text x="30" y="42" font-size="11" font-weight="800" fill="#64748B" letter-spacing="0.5">OBJECTION 03</text>
+      <text x="30" y="66" font-size="15" font-weight="800" fill="#0F172A">&quot;No budget for</text>
+      <text x="30" y="88" font-size="15" font-weight="800" fill="#0F172A">marketing now.&quot;</text>
+      <text x="30" y="110" font-size="11" font-weight="700" fill="#EF4444">&#x2715; Cash runway protection</text>
 
-      <!-- Amateur Response -->
-      <rect x="260" y="20" width="370" height="95" rx="10" fill="#FEF2F2" stroke="#FEE2E2" stroke-width="1" />
-      <text x="275" y="40" font-size="11" font-weight="700" fill="#991B1B">&#x2715; Amateur Response (Pushy Pitching):</text>
-      <text x="275" y="60" font-size="10.5" font-weight="500" fill="#7F1D1D">&quot;We offer flexible monthly retainers starting at only</text>
-      <text x="275" y="78" font-size="10.5" font-weight="500" fill="#7F1D1D">$1,500/month. Surely you have that for growth?&quot;</text>
-      <text x="275" y="98" font-size="9.5" font-weight="600" fill="#B91C1C">Outcome: Alienates founder by trivializing their cash flow.</text>
+      <!-- Amateur vs Pro -->
+      <rect x="250" y="16" width="295" height="108" rx="10" fill="#FEF2F2" />
+      <text x="264" y="38" font-size="11" font-weight="800" fill="#991B1B">AMATEUR RESPONSE (DESPERATE):</text>
+      <text x="264" y="62" font-size="13" font-weight="600" fill="#7F1D1D">&quot;We have flexible discounts and</text>
+      <text x="264" y="82" font-size="13" font-weight="600" fill="#7F1D1D">low monthly retainers starting at</text>
+      <text x="264" y="102" font-size="13" font-weight="600" fill="#7F1D1D">only $1,500. Can you do that?&quot;</text>
 
-      <!-- Practitioner Pivot -->
-      <rect x="650" y="20" width="410" height="95" rx="10" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1" />
-      <text x="665" y="40" font-size="11" font-weight="700" fill="#15803D">&#x2713; Practitioner Pivot (Zero-Risk Teardown):</text>
-      <text x="665" y="60" font-size="10.5" font-weight="500" fill="#166534">&quot;Totally understand, preserving runway is priority number one.</text>
-      <text x="665" y="78" font-size="10.5" font-weight="500" fill="#166534">I am not asking for a contract. How about I share our 3-step</text>
-      <text x="665" y="96" font-size="10.5" font-weight="500" fill="#166534">pipeline framework for Q3 so you have it when timing aligns?&quot;</text>
+      <rect x="560" y="16" width="304" height="108" rx="10" fill="#F0FDF4" />
+      <text x="574" y="38" font-size="11" font-weight="800" fill="#15803D">&#x2713; PRACTITIONER PIVOT (ZERO RISK):</text>
+      <text x="574" y="62" font-size="13" font-weight="700" fill="#166534">&quot;Totally get it. Preserving runway is</text>
+      <text x="574" y="82" font-size="13" font-weight="700" fill="#166534">key. How about I share our CAC</text>
+      <text x="574" y="102" font-size="13" font-weight="700" fill="#166534">playbook so you have it for Q3?&quot;</text>
     </g>
   </g>
 
-  <!-- Bottom Brand Footer -->
-  <g transform="translate(60, 630)">
-    <line x1="0" y1="0" x2="1080" y2="0" stroke="#E2E8F0" stroke-width="1" />
-    <text x="0" y="24" font-size="11.5" font-weight="600" fill="#64748B">Willay Haider | Senior BDR &amp; Outbound Growth Specialist</text>
-    <text x="1080" y="24" text-anchor="end" font-size="11.5" font-weight="600" fill="#2563EB">willayhaider.pro/blog</text>
+  <!-- Footer Signature -->
+  <g transform="translate(40, 620)">
+    <text x="0" y="0" font-size="13" font-weight="700" fill="#64748B">Willay Haider | Senior Outbound Sales Specialist (57,000+ Dials)</text>
+    <text x="880" y="0" text-anchor="end" font-size="13" font-weight="800" fill="#2563EB">willayhaider.pro</text>
   </g>
 </svg>

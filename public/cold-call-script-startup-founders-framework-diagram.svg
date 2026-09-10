@@ -1,137 +1,89 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="100%" height="100%" style="background:#FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="100%" height="100%" style="background:#FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
   <defs>
-    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#2563EB" />
       <stop offset="100%" stop-color="#1D4ED8" />
     </linearGradient>
-    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#10B981" />
       <stop offset="100%" stop-color="#059669" />
     </linearGradient>
-    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="110%" filterUnits="userSpaceOnUse">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.06" />
-    </filter>
   </defs>
 
-  <!-- Header Section -->
-  <g transform="translate(60, 40)">
-    <rect x="0" y="0" width="140" height="26" rx="13" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1" />
-    <text x="70" y="17" text-anchor="middle" font-size="11" font-weight="700" fill="#2563EB" letter-spacing="0.5">OUTBOUND PLAYBOOK</text>
-    <text x="0" y="58" font-size="28" font-weight="800" fill="#0F172A">4-Step Founder Cold Call Architecture</text>
-    <text x="0" y="84" font-size="14" font-weight="500" fill="#64748B">How to pitch digital marketing to early-stage &amp; Series A founders without getting hung up on</text>
+  <!-- Top Title Bar -->
+  <g transform="translate(40, 35)">
+    <rect x="0" y="0" width="170" height="28" rx="14" fill="#EFF6FF" />
+    <text x="85" y="19" text-anchor="middle" font-size="13" font-weight="800" fill="#2563EB" letter-spacing="0.5">OUTBOUND PLAYBOOK</text>
+    <text x="0" y="66" font-size="30" font-weight="900" fill="#0F172A">4-Step Founder Cold Call Architecture</text>
+    <text x="0" y="94" font-size="16" font-weight="600" fill="#64748B">How to pitch growth services to startup founders without triggering sales resistance</text>
   </g>
 
-  <!-- 4 Framework Cards Grid -->
-  <g transform="translate(60, 160)">
-    <!-- Stage 1 -->
+  <!-- 4 Step Cards (2x2 Grid with Extra-Large High-Contrast Text) -->
+  <g transform="translate(40, 155)">
+    <!-- STEP 1 -->
     <g transform="translate(0, 0)">
-      <rect x="0" y="0" width="250" height="390" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#cardShadow)" />
-      <rect x="16" y="16" width="36" height="36" rx="10" fill="url(#primaryGrad)" />
-      <text x="34" y="39" text-anchor="middle" font-size="16" font-weight="800" fill="#FFFFFF">1</text>
-      <text x="64" y="32" font-size="11" font-weight="700" fill="#2563EB" letter-spacing="0.5">SECONDS 0 - 10</text>
-      <text x="64" y="48" font-size="14" font-weight="700" fill="#0F172A">Permission Opener</text>
-      <line x1="16" y1="68" x2="234" y2="68" stroke="#F1F5F9" stroke-width="1.5" />
+      <rect x="0" y="0" width="425" height="195" rx="16" fill="#F8FAFC" />
+      <rect x="18" y="18" width="38" height="38" rx="10" fill="url(#blueGrad)" />
+      <text x="37" y="44" text-anchor="middle" font-size="20" font-weight="900" fill="#FFFFFF">1</text>
+      <text x="68" y="32" font-size="12" font-weight="800" fill="#2563EB" letter-spacing="0.5">SECONDS 0 - 10</text>
+      <text x="68" y="52" font-size="18" font-weight="800" fill="#0F172A">Permission Opener</text>
+      <text x="18" y="82" font-size="13" font-weight="700" fill="#475569">Goal: Acknowledge interruption &amp; transfer control</text>
       
-      <text x="16" y="94" font-size="12" font-weight="600" fill="#0F172A">The Objective:</text>
-      <text x="16" y="114" font-size="11" font-weight="400" fill="#475569">Defuse defensive fight-or-flight reflex by acknowledging the interruption.</text>
-      
-      <rect x="14" y="140" width="222" height="120" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-      <text x="24" y="160" font-size="11" font-weight="700" fill="#1E293B">Verbatim Script:</text>
-      <text x="24" y="180" font-size="10.5" font-weight="500" fill="#334155">&quot;Hey Alex, Willay here. I know</text>
-      <text x="24" y="198" font-size="10.5" font-weight="500" fill="#334155">I caught you out of the blue.</text>
-      <text x="24" y="216" font-size="10.5" font-weight="500" fill="#334155">Do you have 30 seconds to</text>
-      <text x="24" y="234" font-size="10.5" font-weight="500" fill="#334155">decide if we hang up or not?&quot;</text>
-      
-      <rect x="14" y="275" width="222" height="95" rx="10" fill="#FEF2F2" stroke="#FEE2E2" stroke-width="1" />
-      <text x="24" y="295" font-size="10.5" font-weight="700" fill="#991B1B">&#x2715; Never Say:</text>
-      <text x="24" y="315" font-size="10" font-weight="500" fill="#7F1D1D">&quot;Hi, how are you today? I’m</text>
-      <text x="24" y="332" font-size="10" font-weight="500" fill="#7F1D1D">calling with an award-winning</text>
-      <text x="24" y="349" font-size="10" font-weight="500" fill="#7F1D1D">full-service marketing agency.&quot;</text>
+      <rect x="18" y="96" width="389" height="82" rx="10" fill="#FFFFFF" />
+      <text x="30" y="122" font-size="14" font-weight="700" fill="#0F172A">&quot;Hey Alex, Willay here. I know I caught you</text>
+      <text x="30" y="144" font-size="14" font-weight="700" fill="#0F172A">out of the blue. Do you have 30 seconds to</text>
+      <text x="30" y="166" font-size="14" font-weight="800" fill="#2563EB">hear why I called, or should you hang up?&quot;</text>
     </g>
 
-    <!-- Stage 2 -->
-    <g transform="translate(275, 0)">
-      <rect x="0" y="0" width="250" height="390" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#cardShadow)" />
-      <rect x="16" y="16" width="36" height="36" rx="10" fill="url(#primaryGrad)" />
-      <text x="34" y="39" text-anchor="middle" font-size="16" font-weight="800" fill="#FFFFFF">2</text>
-      <text x="64" y="32" font-size="11" font-weight="700" fill="#2563EB" letter-spacing="0.5">SECONDS 10 - 25</text>
-      <text x="64" y="48" font-size="14" font-weight="700" fill="#0F172A">ICP Pain Anchor</text>
-      <line x1="16" y1="68" x2="234" y2="68" stroke="#F1F5F9" stroke-width="1.5" />
+    <!-- STEP 2 -->
+    <g transform="translate(455, 0)">
+      <rect x="0" y="0" width="425" height="195" rx="16" fill="#F8FAFC" />
+      <rect x="18" y="18" width="38" height="38" rx="10" fill="url(#blueGrad)" />
+      <text x="37" y="44" text-anchor="middle" font-size="20" font-weight="900" fill="#FFFFFF">2</text>
+      <text x="68" y="32" font-size="12" font-weight="800" fill="#2563EB" letter-spacing="0.5">SECONDS 10 - 25</text>
+      <text x="68" y="52" font-size="18" font-weight="800" fill="#0F172A">ICP Pain Anchor</text>
+      <text x="18" y="82" font-size="13" font-weight="700" fill="#475569">Goal: Reference peer bottlenecks (CAC &amp; drop-off)</text>
       
-      <text x="16" y="94" font-size="12" font-weight="600" fill="#0F172A">The Objective:</text>
-      <text x="16" y="114" font-size="11" font-weight="400" fill="#475569">Reference specific revenue or acquisition bottlenecks facing their peer group.</text>
-      
-      <rect x="14" y="140" width="222" height="120" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-      <text x="24" y="160" font-size="11" font-weight="700" fill="#1E293B">Verbatim Script:</text>
-      <text x="24" y="180" font-size="10.5" font-weight="500" fill="#334155">&quot;We speak with B2B SaaS</text>
-      <text x="24" y="198" font-size="10.5" font-weight="500" fill="#334155">founders who are burning paid</text>
-      <text x="24" y="216" font-size="10.5" font-weight="500" fill="#334155">ad spend on LinkedIn clicks</text>
-      <text x="24" y="234" font-size="10.5" font-weight="500" fill="#334155">that never convert to SQLs.&quot;</text>
-      
-      <rect x="14" y="275" width="222" height="95" rx="10" fill="#EFF6FF" stroke="#DBEAFE" stroke-width="1" />
-      <text x="24" y="295" font-size="10.5" font-weight="700" fill="#1E40AF">&#x2713; The Golden Rule:</text>
-      <text x="24" y="315" font-size="10" font-weight="500" fill="#1E3A8A">Pitch business outcomes</text>
-      <text x="24" y="332" font-size="10" font-weight="500" fill="#1E3A8A">(CAC, pipeline, bookings),</text>
-      <text x="24" y="349" font-size="10" font-weight="500" fill="#1E3A8A">never tactical deliverables.</text>
+      <rect x="18" y="96" width="389" height="82" rx="10" fill="#FFFFFF" />
+      <text x="30" y="122" font-size="14" font-weight="700" fill="#0F172A">&quot;We speak with SaaS founders burning $10k/mo</text>
+      <text x="30" y="144" font-size="14" font-weight="700" fill="#0F172A">on ads while demo conversions stall because</text>
+      <text x="30" y="166" font-size="14" font-weight="800" fill="#2563EB">messaging fails to reach economic buyers.&quot;</text>
     </g>
 
-    <!-- Stage 3 -->
-    <g transform="translate(550, 0)">
-      <rect x="0" y="0" width="250" height="390" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#cardShadow)" />
-      <rect x="16" y="16" width="36" height="36" rx="10" fill="url(#primaryGrad)" />
-      <text x="34" y="39" text-anchor="middle" font-size="16" font-weight="800" fill="#FFFFFF">3</text>
-      <text x="64" y="32" font-size="11" font-weight="700" fill="#2563EB" letter-spacing="0.5">SECONDS 25 - 45</text>
-      <text x="64" y="48" font-size="14" font-weight="700" fill="#0F172A">Diagnostic Hook</text>
-      <line x1="16" y1="68" x2="234" y2="68" stroke="#F1F5F9" stroke-width="1.5" />
+    <!-- STEP 3 -->
+    <g transform="translate(0, 215)">
+      <rect x="0" y="0" width="425" height="195" rx="16" fill="#F8FAFC" />
+      <rect x="18" y="18" width="38" height="38" rx="10" fill="url(#blueGrad)" />
+      <text x="37" y="44" text-anchor="middle" font-size="20" font-weight="900" fill="#FFFFFF">3</text>
+      <text x="68" y="32" font-size="12" font-weight="800" fill="#2563EB" letter-spacing="0.5">SECONDS 25 - 45</text>
+      <text x="68" y="52" font-size="18" font-weight="800" fill="#0F172A">Diagnostic Hook</text>
+      <text x="18" y="82" font-size="13" font-weight="700" fill="#475569">Goal: Ask an open-ended funnel diagnostic question</text>
       
-      <text x="16" y="94" font-size="12" font-weight="600" fill="#0F172A">The Objective:</text>
-      <text x="16" y="114" font-size="11" font-weight="400" fill="#475569">Ask an open-ended diagnostic question that forces them to self-evaluate.</text>
-      
-      <rect x="14" y="140" width="222" height="120" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-      <text x="24" y="160" font-size="11" font-weight="700" fill="#1E293B">Verbatim Script:</text>
-      <text x="24" y="180" font-size="10.5" font-weight="500" fill="#334155">&quot;Curious how you’re currently</text>
-      <text x="24" y="198" font-size="10.5" font-weight="500" fill="#334155">converting top-of-funnel</text>
-      <text x="24" y="216" font-size="10.5" font-weight="500" fill="#334155">visitors into enterprise demo</text>
-      <text x="24" y="234" font-size="10.5" font-weight="500" fill="#334155">requests right now?&quot;</text>
-      
-      <rect x="14" y="275" width="222" height="95" rx="10" fill="#ECFDF5" stroke="#D1FAE5" stroke-width="1" />
-      <text x="24" y="295" font-size="10.5" font-weight="700" fill="#065F46">&#x2713; Psychological Shift:</text>
-      <text x="24" y="315" font-size="10" font-weight="500" fill="#064E3B">You transition from a</text>
-      <text x="24" y="332" font-size="10" font-weight="500" fill="#064E3B">solicitor to a peer growth</text>
-      <text x="24" y="349" font-size="10" font-weight="500" fill="#064E3B">advisor diagnosing an issue.</text>
+      <rect x="18" y="96" width="389" height="82" rx="10" fill="#FFFFFF" />
+      <text x="30" y="122" font-size="14" font-weight="700" fill="#0F172A">&quot;Curious: how is your team currently</text>
+      <text x="30" y="144" font-size="14" font-weight="700" fill="#0F172A">approaching converting outbound traffic</text>
+      <text x="30" y="166" font-size="14" font-weight="800" fill="#2563EB">into qualified executive discovery calls?&quot;</text>
     </g>
 
-    <!-- Stage 4 -->
-    <g transform="translate(825, 0)">
-      <rect x="0" y="0" width="255" height="390" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#cardShadow)" />
-      <rect x="16" y="16" width="36" height="36" rx="10" fill="url(#emeraldGrad)" />
-      <text x="34" y="39" text-anchor="middle" font-size="16" font-weight="800" fill="#FFFFFF">4</text>
-      <text x="64" y="32" font-size="11" font-weight="700" fill="#10B981" letter-spacing="0.5">SECONDS 45 - 60</text>
-      <text x="64" y="48" font-size="14" font-weight="700" fill="#0F172A">Low-Friction Close</text>
-      <line x1="16" y1="68" x2="239" y2="68" stroke="#F1F5F9" stroke-width="1.5" />
+    <!-- STEP 4 -->
+    <g transform="translate(455, 215)">
+      <rect x="0" y="0" width="425" height="195" rx="16" fill="#F0FDF4" />
+      <rect x="18" y="18" width="38" height="38" rx="10" fill="url(#greenGrad)" />
+      <text x="37" y="44" text-anchor="middle" font-size="20" font-weight="900" fill="#FFFFFF">4</text>
+      <text x="68" y="32" font-size="12" font-weight="800" fill="#15803D" letter-spacing="0.5">SECONDS 45 - 60</text>
+      <text x="68" y="52" font-size="18" font-weight="800" fill="#064E3B">Low-Friction Close</text>
+      <text x="18" y="82" font-size="13" font-weight="700" fill="#15803D">Goal: Trade a free 15-min teardown for meeting</text>
       
-      <text x="16" y="94" font-size="12" font-weight="600" fill="#0F172A">The Objective:</text>
-      <text x="16" y="114" font-size="11" font-weight="400" fill="#475569">Trade a no-obligation audit or case walkthrough for 15 minutes.</text>
-      
-      <rect x="14" y="140" width="227" height="120" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-      <text x="24" y="160" font-size="11" font-weight="700" fill="#1E293B">Verbatim Script:</text>
-      <text x="24" y="180" font-size="10.5" font-weight="500" fill="#334155">&quot;Look, I am not asking you to</text>
-      <text x="24" y="198" font-size="10.5" font-weight="500" fill="#334155">buy anything today. Would you</text>
-      <text x="24" y="216" font-size="10.5" font-weight="500" fill="#334155">be open to 15 min Thursday to</text>
-      <text x="24" y="234" font-size="10.5" font-weight="500" fill="#334155">see our CAC teardown?&quot;</text>
-      
-      <rect x="14" y="275" width="227" height="95" rx="10" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1" />
-      <text x="24" y="295" font-size="10.5" font-weight="700" fill="#15803D">&#x2713; Conversion Metric:</text>
-      <text x="24" y="315" font-size="10" font-weight="500" fill="#166534">Reduces friction to zero.</text>
-      <text x="24" y="332" font-size="10" font-weight="500" fill="#166534">Books calendar slot before</text>
-      <text x="24" y="349" font-size="10" font-weight="500" fill="#166534">founder resistance triggers.</text>
+      <rect x="18" y="96" width="389" height="82" rx="10" fill="#FFFFFF" />
+      <text x="30" y="122" font-size="14" font-weight="700" fill="#0F172A">&quot;I am not asking you to buy anything today.</text>
+      <text x="30" y="144" font-size="14" font-weight="700" fill="#0F172A">How about 15 min Thursday to see our teardown</text>
+      <text x="30" y="166" font-size="14" font-weight="800" fill="#15803D">notes? Would morning or afternoon work?&quot;</text>
     </g>
   </g>
 
-  <!-- Bottom Brand Footer -->
-  <g transform="translate(60, 585)">
-    <line x1="0" y1="0" x2="1080" y2="0" stroke="#E2E8F0" stroke-width="1" />
-    <text x="0" y="24" font-size="11.5" font-weight="600" fill="#64748B">Willay Haider | Senior BDR &amp; Outbound Growth Specialist</text>
-    <text x="1080" y="24" text-anchor="end" font-size="11.5" font-weight="600" fill="#2563EB">willayhaider.pro/blog</text>
+  <!-- Bottom Details -->
+  <g transform="translate(40, 590)">
+    <text x="0" y="0" font-size="13" font-weight="700" fill="#64748B">Willay Haider | Senior Outbound Sales Specialist (57,000+ Dials)</text>
+    <text x="880" y="0" text-anchor="end" font-size="13" font-weight="800" fill="#2563EB">willayhaider.pro</text>
   </g>
 </svg>

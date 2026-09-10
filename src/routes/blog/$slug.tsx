@@ -258,7 +258,7 @@ function parseMarkdown(content: string): ParsedBlock[] {
 
     if (trimmed.startsWith(">")) {
       const quoteLines: string[] = [];
-      while(i < lines.length && lines[i].trim() !== "" && !lines[i].trim().startsWith("#") && !lines[i].trim().startsWith("```") && !lines[i].trim().startsWith("- ") && !lines[i].trim().startsWith("* ") && !lines[i].trim().startsWith("|") && !/^\d+\.\s+/.test(lines[i].trim()) && lines[i].trim() !== "---") {
+      while (i < lines.length && lines[i].trim().startsWith(">")) {
         quoteLines.push(lines[i].trim().replace(/^>\s*/, ""));
         i++;
       }
@@ -331,8 +331,8 @@ function RenderContent({ content }: { content: string }) {
         if (block.type === "hr") return <hr key={idx} className="my-6 border-border" />;
         if (block.type === "image") return (
             <div key={idx} className="my-6 flex justify-center">
-              <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm w-full">
-                <img src={block.src} alt={block.alt} className="w-full h-auto object-contain" loading="lazy" decoding="async" />
+              <div className="w-full">
+                <img src={block.src} alt={block.alt} className="w-full h-auto object-contain rounded-xl" loading="lazy" decoding="async" />
               </div>
             </div>
           );
@@ -353,8 +353,8 @@ function RenderContent({ content }: { content: string }) {
             </div>
           );
         if (block.type === "blockquote") return (
-            <blockquote key={idx} className="border-l-2 border-border/80 bg-secondary/30 rounded-r-lg p-3.5 sm:p-4 my-3 text-sm sm:text-base leading-relaxed text-foreground italic space-y-1">
-              {block.lines.map((qLine, qIdx) => <p key={qIdx}>{formatInline(qLine.replace(/^["“”']+|["“”']+$/g, "").trim())}</p>)}
+            <blockquote key={idx} className="border-l-4 border-primary/70 bg-secondary/30 rounded-r-xl p-4 sm:p-5 my-4 text-sm sm:text-base leading-relaxed text-foreground space-y-2">
+              {block.lines.map((qLine, qIdx) => qLine.trim() ? <p key={qIdx}>{formatInline(qLine.trim())}</p> : <div key={qIdx} className="h-2" />)}
             </blockquote>
           );
         if (block.type === "table") return (
