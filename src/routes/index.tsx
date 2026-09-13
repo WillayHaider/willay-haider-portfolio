@@ -225,6 +225,7 @@ const FOOTER_NAV_LINKS = [
   { label: "About Me", href: "/about" },
   { label: "Insights", href: "/blog" },
   { label: "Contact Me", href: "/contact" },
+  { label: "Sitemap", href: "/sitemap" },
 ];
 
 const CLIENT_TRUST_SIGNALS = [
@@ -1888,12 +1889,15 @@ function FooterSection() {
           <div>
             © 2026 All rights are reserved by Mr Haider.
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             <a href="/privacy-policy" className="hover:text-primary transition-colors font-medium">
               Privacy Policy
             </a>
             <a href="/terms-and-conditions" className="hover:text-primary transition-colors font-medium">
               Terms & Conditions
+            </a>
+            <a href="/sitemap" className="hover:text-primary transition-colors font-medium">
+              Sitemap
             </a>
           </div>
         </div>

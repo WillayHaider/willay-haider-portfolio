@@ -118,6 +118,9 @@ function TermsAndConditionsPage() {
               <a href="/contact" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 Contact Me
               </a>
+              <a href="/sitemap" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
+                Sitemap
+              </a>
             </div>
           </div>
         )}
@@ -170,8 +173,23 @@ function TermsAndConditionsPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-background py-8 text-center text-xs font-medium text-muted-foreground">
-        © 2026 All rights are reserved by Mr Haider.
+      <footer className="border-t border-border bg-background py-8">
+        <div className="mx-auto flex max-w-3xl flex-col items-center justify-between gap-3 px-4 text-center sm:px-6 text-xs font-medium text-muted-foreground sm:flex-row">
+          <div>
+            © 2026 All rights are reserved by Mr Haider.
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a href="/privacy-policy" className="hover:text-primary transition-colors font-medium">
+              Privacy Policy
+            </a>
+            <a href="/terms-and-conditions" className="hover:text-primary transition-colors font-medium">
+              Terms & Conditions
+            </a>
+            <a href="/sitemap" className="hover:text-primary transition-colors font-medium">
+              Sitemap
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   )

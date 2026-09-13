@@ -119,6 +119,9 @@ function AboutPage() {
               <a href="/contact" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
                 Contact Me
               </a>
+              <a href="/sitemap" className="rounded-lg p-2 text-xs sm:text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors">
+                Sitemap
+              </a>
             </div>
           </div>
         )}
@@ -319,9 +322,22 @@ function AboutPage() {
             </a>
           </div>
 
-          {/* Copyright Text */}
-          <div className="text-[11px] font-medium text-muted-foreground">
-            © 2026 All rights are reserved by Mr Haider.
+          {/* Copyright & Legal Links */}
+          <div className="flex flex-col items-center justify-between gap-3 text-[11px] font-medium text-muted-foreground sm:flex-row w-full border-t border-border/60 pt-4">
+            <div>
+              © 2026 All rights are reserved by Mr Haider.
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <a href="/privacy-policy" className="hover:text-primary transition-colors font-medium">
+                Privacy Policy
+              </a>
+              <a href="/terms-and-conditions" className="hover:text-primary transition-colors font-medium">
+                Terms & Conditions
+              </a>
+              <a href="/sitemap" className="hover:text-primary transition-colors font-medium">
+                Sitemap
+              </a>
+            </div>
           </div>
         </div>
       </footer>

@@ -15,6 +15,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as HireInHouseRouteImport } from './routes/hire-in-house'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
@@ -50,6 +51,11 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapRoute = SitemapRouteImport.update({
+  id: '/sitemap',
+  path: '/sitemap',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -78,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/hire-in-house': typeof HireInHouseRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap': typeof SitemapRoute
   '/terms': typeof TermsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -90,6 +97,7 @@ export interface FileRoutesByTo {
   '/gallery': typeof GalleryRoute
   '/hire-in-house': typeof HireInHouseRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap': typeof SitemapRoute
   '/terms': typeof TermsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -103,6 +111,7 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/hire-in-house': typeof HireInHouseRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap': typeof SitemapRoute
   '/terms': typeof TermsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -117,6 +126,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/hire-in-house'
     | '/privacy-policy'
+    | '/sitemap'
     | '/terms'
     | '/terms-and-conditions'
     | '/blog/$slug'
@@ -129,6 +139,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/hire-in-house'
     | '/privacy-policy'
+    | '/sitemap'
     | '/terms'
     | '/terms-and-conditions'
     | '/blog/$slug'
@@ -141,6 +152,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/hire-in-house'
     | '/privacy-policy'
+    | '/sitemap'
     | '/terms'
     | '/terms-and-conditions'
     | '/blog/$slug'
@@ -154,6 +166,7 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   HireInHouseRoute: typeof HireInHouseRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  SitemapRoute: typeof SitemapRoute
   TermsRoute: typeof TermsRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -204,6 +217,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap': {
+      id: '/sitemap'
+      path: '/sitemap'
+      fullPath: '/sitemap'
+      preLoaderRoute: typeof SitemapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -242,6 +262,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   HireInHouseRoute: HireInHouseRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
+  SitemapRoute: SitemapRoute,
   TermsRoute: TermsRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
   BlogSlugRoute: BlogSlugRoute,
