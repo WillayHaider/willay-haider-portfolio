@@ -746,9 +746,7 @@ function HeroSection({
 
             {/* High Contrast First Person Body Copy */}
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-foreground/90 font-medium sm:text-base lg:text-lg">
-               I build, manage, and execute high-converting cold calling and appointment-setting campaigns.
-              Serving US, UK, and EU founders: driving qualified decision-maker demos directly to your
-              calendar so you can close more high-ticket deals.
+              I build, manage, and execute high-converting cold calling and appointment-setting campaigns for founders across the US, UK, CA, AU and EU. Driving qualified decision-maker meetings directly to your calendar, so every call you take is already halfway sold, and all that's left for you to do is seal the deal.
             </p>
 
             {/* CTAs: Both buttons sized visually matching */}
