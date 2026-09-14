@@ -281,11 +281,6 @@ function SitemapPage() {
                   </ul>
                 </li>
                 <li>
-                  <a href="/#results" className="text-primary font-medium hover:underline">
-                    Live Cold Call Audio Recordings (Real Unedited Prospect Calls)
-                  </a>
-                </li>
-                <li>
                   <a href="/#pricing" className="text-primary font-medium hover:underline">
                     Transparent Pricing Packages (Retainer + Performance Models)
                   </a>
