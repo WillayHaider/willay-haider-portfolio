@@ -25,8 +25,7 @@ const URLS = [
   `https://${HOST}/blog/how-to-build-high-converting-b2b-cold-calling-script`,
   `https://${HOST}/blog/outsourced-bdr-vs-in-house-appointment-setting-cost-benefit-analysis`,
   `https://${HOST}/privacy-policy`,
-  `https://${HOST}/terms-and-conditions`,
-  `https://${HOST}/terms`
+  `https://${HOST}/terms-and-conditions`
 ];
 
 async function submitIndexNow() {

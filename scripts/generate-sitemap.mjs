@@ -20,7 +20,6 @@ const STATIC_ROUTES = [
   { path: "/sitemap", priority: "0.8", changefreq: "weekly" },
   { path: "/privacy-policy", priority: "0.5", changefreq: "monthly" },
   { path: "/terms-and-conditions", priority: "0.5", changefreq: "monthly" },
-  { path: "/terms", priority: "0.5", changefreq: "monthly" },
 ];
 
 function extractBlogPosts() {

@@ -337,11 +337,6 @@ function SitemapPage() {
                   </a>
                 </li>
                 <li>
-                  <a href="/terms" className="text-primary font-medium hover:underline">
-                    Terms of Service
-                  </a>
-                </li>
-                <li>
                   <a href="/sitemap" className="text-primary font-medium hover:underline">
                     HTML Sitemap (Current Page)
                   </a>

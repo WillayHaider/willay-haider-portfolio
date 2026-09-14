@@ -114,9 +114,6 @@ export function Footer() {
             <a href="/terms-and-conditions" className="hover:text-primary transition-colors font-medium">
               Terms & Conditions
             </a>
-            <a href="/terms" className="hover:text-primary transition-colors font-medium">
-              Terms of Service
-            </a>
             <a href="/sitemap" className="hover:text-primary transition-colors font-medium">
               HTML Sitemap
             </a>
