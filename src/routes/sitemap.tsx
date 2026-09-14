@@ -85,7 +85,7 @@ function SitemapPage() {
               className="btn-click-effect rounded-full px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-xs transition-transform hover:opacity-90 active:scale-95 sm:px-4 sm:py-2"
               style={{ background: "var(--gradient-primary)" }}
             >
-              Let's Talk
+              Schedule Call
             </a>
           </div>
         </div>

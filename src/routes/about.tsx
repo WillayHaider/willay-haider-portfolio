@@ -230,7 +230,7 @@ function AboutPage() {
                 className="btn-click-effect inline-flex min-h-[34px] items-center justify-center gap-1.5 rounded-full px-5.5 py-2 text-[12.5px] font-bold text-primary-foreground shadow-sm transition-transform hover:opacity-90 active:scale-95"
                 style={{ background: "var(--gradient-primary)" }}
               >
-                <span>Let's Talk</span>
+                <span>Schedule Call</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </div>

@@ -228,10 +228,10 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
           <div>
             <div className="pr-8">
               <h3 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">
-                Request Your <span className="text-primary">Outbound Plan</span>
+                Schedule Your <span className="text-primary">Strategy Call</span>
               </h3>
               <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                Fill in your details below. I will personally review your request and get back to you within 24 hours.
+                Fill in your details below. I will personally review your goals and get back to you within 24 hours to confirm our call.
               </p>
             </div>
 
@@ -341,12 +341,12 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
                   {isSubmitting ? (
                     <span className="inline-flex items-center gap-2">
                       <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                      Submitting request...
+                      Scheduling call...
                     </span>
                   ) : (
                     <>
                       <Send className="h-4 w-4" />
-                      <span>Send Proposal Request</span>
+                      <span>Schedule Call</span>
                       <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
                     </>
                   )}
