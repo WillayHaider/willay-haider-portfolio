@@ -16,7 +16,6 @@ export function Footer() {
             <a href="/gallery" className="transition-colors hover:text-primary">Gallery</a>
             <a href="/blog" className="transition-colors hover:text-primary">Blog</a>
             <a href="/contact" className="transition-colors hover:text-primary">Contact</a>
-            <a href="/sitemap" className="transition-colors hover:text-primary">Sitemap</a>
           </div>
 
           {/* Minimal Filled Brand Social Badges */}
