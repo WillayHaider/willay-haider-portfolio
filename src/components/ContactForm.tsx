@@ -102,7 +102,7 @@ export default function ContactForm() {
       from_name: "Willay Haider",
       reply_to: "contact.whaider@gmail.com",
       subject: "Got your details, thanks!",
-      message: `Hi ${firstName},\n\nThanks for reaching out through my site. I've received your details and will personally review them shortly.\n\nI'll get back to you within 24 hours with next steps tailored to what you're looking for. If you'd like to get in touch more quickly, feel free to message me on WhatsApp or grab a slot directly on my calendar.\n\nTalk soon,\nWillay Haider`,
+      message: `Hi ${firstName},\n\nThanks for reaching out through my site. I've received your details and will personally review them shortly.\n\nI'll get back to you within 48 hours with next steps tailored to what you're looking for. If you'd like to get in touch more quickly, feel free to message me on WhatsApp or grab a slot directly on my calendar.\n\nTalk soon,\nWillay Haider`,
     };
 
     try {

@@ -120,7 +120,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
       from_name: "Willay Haider",
       reply_to: "contact.whaider@gmail.com",
       subject: "Got your details, thanks!",
-      message: `Hi ${firstName},\n\nThanks for reaching out through my site. I've received your details and will personally review them shortly.\n\nI'll get back to you within 24 hours with next steps tailored to what you're looking for. If you'd like to get in touch more quickly, feel free to message me on WhatsApp or grab a slot directly on my calendar.\n\nTalk soon,\nWillay Haider`,
+      message: `Hi ${firstName},\n\nThanks for reaching out through my site. I've received your details and will personally review them shortly.\n\nI'll get back to you within 48 hours with next steps tailored to what you're looking for. If you'd like to get in touch more quickly, feel free to message me on WhatsApp or grab a slot directly on my calendar.\n\nTalk soon,\nWillay Haider`,
     };
 
     try {
@@ -231,7 +231,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
                 Request Your <span className="text-primary">Discovery Call</span>
               </h3>
               <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                Fill in your details below. I will personally review your goals and get back to you within 24 hours to confirm our call.
+                Fill in your details below. I will personally review your goals and get back to you within 48 hours to confirm our call.
               </p>
             </div>
 
@@ -365,7 +365,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
             </h3>
             <p className="mt-1.5 text-xs sm:text-sm text-foreground/85 font-medium max-w-sm mx-auto">
               Thanks, <span className="font-bold text-foreground">{firstName}</span>! I've got your details and will
-              personally review them and get back to you within 24 hours.
+              personally review them and get back to you within 48 hours.
             </p>
 
             {/* Optional, Low-Pressure Speed-Up Framing */}
