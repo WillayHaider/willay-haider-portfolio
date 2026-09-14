@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="100%" height="100%" style="background:#ffffff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <!-- Background with subtle border -->
+  <rect width="1000" height="620" fill="#ffffff" />
+  <rect x="20" y="20" width="960" height="580" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" />
+
+  <!-- Header Section -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="160" height="28" rx="14" fill="#eff6ff" />
+    <text x="80" y="18" font-size="12" font-weight="700" fill="#2563eb" text-anchor="middle" letter-spacing="1">COST &amp; ARCHITECTURE MATRIX</text>
+    <text x="0" y="60" font-size="24" font-weight="800" fill="#0f172a">VICIdial vs. RingCentral RingCX: 100-Seat Scale &amp; Feature Comparison</text>
+    <text x="0" y="85" font-size="14" fill="#64748b">Direct economic and operational trade-offs for high-volume outbound contact centers.</text>
+  </g>
+
+  <!-- Table Container -->
+  <g transform="translate(50, 180)">
+    <!-- Header Row -->
+    <rect x="0" y="0" width="900" height="48" rx="8" fill="#1e293b" />
+    <text x="30" y="30" font-size="14" font-weight="700" fill="#f8fafc">EVALUATION METRIC</text>
+    <text x="360" y="30" font-size="14" font-weight="700" fill="#38bdf8">VICIDIAL (OPEN SOURCE / MANAGED)</text>
+    <text x="680" y="30" font-size="14" font-weight="700" fill="#f59e0b">RINGCENTRAL RINGCX (UCAAS CLOUD)</text>
+
+    <!-- Row 1: Licensing Model -->
+    <rect x="0" y="52" width="900" height="52" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+    <text x="30" y="83" font-size="13" font-weight="700" fill="#1e293b">Per-Seat License Cost</text>
+    <text x="360" y="83" font-size="13" font-weight="600" fill="#10b981">$0 / seat (Free GPLv2 Open Source)</text>
+    <text x="680" y="83" font-size="13" font-weight="600" fill="#0f172a">$65 – $120+ / agent / month</text>
+
+    <!-- Row 2: 100-Seat Monthly Cost -->
+    <rect x="0" y="106" width="900" height="52" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+    <text x="30" y="137" font-size="13" font-weight="700" fill="#1e293b">100-Seat Software Cost</text>
+    <text x="360" y="137" font-size="13" font-weight="800" fill="#10b981">$400 – $1,200/mo (Server Hardware/SIP)</text>
+    <text x="680" y="137" font-size="13" font-weight="800" fill="#ef4444">$6,500 – $12,000/mo (Seat Subscriptions)</text>
+
+    <!-- Row 3: Dialing Horsepower & Lines -->
+    <rect x="0" y="160" width="900" height="52" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+    <text x="30" y="191" font-size="13" font-weight="700" fill="#1e293b">Outbound Dialing Intensity</text>
+    <text x="360" y="191" font-size="13" fill="#334155">Up to 4:1 to 8:1 lines/agent (Max Velocity)</text>
+    <text x="680" y="191" font-size="13" fill="#334155">Typically 2:1 to 3:1 lines (Compliance focus)</text>
+
+    <!-- Row 4: AI & Speech Analytics -->
+    <rect x="0" y="214" width="900" height="52" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+    <text x="30" y="245" font-size="13" font-weight="700" fill="#1e293b">Native AI &amp; Real-Time Assist</text>
+    <text x="360" y="245" font-size="13" fill="#64748b">Requires custom AGI scripts / 3rd party APIs</text>
+    <text x="680" y="245" font-size="13" font-weight="700" fill="#10b981">Built-in AI Agent Assist &amp; Live Sentiment</text>
+
+    <!-- Row 5: Omnichannel & UCaaS -->
+    <rect x="0" y="268" width="900" height="52" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+    <text x="30" y="299" font-size="13" font-weight="700" fill="#1e293b">Omnichannel Integration</text>
+    <text x="360" y="299" font-size="13" fill="#334155">Voice-first; basic email/chat addons</text>
+    <text x="680" y="299" font-size="13" font-weight="700" fill="#10b981">Voice, SMS, WhatsApp, Webchat, Video in 1 app</text>
+
+    <!-- Row 6: Setup & Maintenance Barrier -->
+    <rect x="0" y="322" width="900" height="52" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+    <text x="30" y="353" font-size="13" font-weight="700" fill="#1e293b">Deployment &amp; Tech Barrier</text>
+    <text x="360" y="353" font-size="13" font-weight="600" fill="#ea580c">High: Needs Asterisk / Linux engineer</text>
+    <text x="680" y="353" font-size="13" font-weight="600" fill="#10b981">Low: Cloud turnkey browser launch in 24h</text>
+  </g>
+
+  <!-- Bottom Insight Badge -->
+  <g transform="translate(50, 560)">
+    <rect x="0" y="0" width="900" height="32" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1" />
+    <text x="450" y="21" font-size="12" font-weight="600" fill="#1e40af" text-anchor="middle">
+      Strategic Takeaway: VICIdial wins on raw economic velocity for 50+ cold callers; RingCX wins on turnkey AI, CRM integration, and unified UCaaS.
+    </text>
+  </g>
+</svg>
