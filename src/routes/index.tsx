@@ -649,7 +649,7 @@ function Navbar({
             tabIndex={showCta ? 0 : -1}
             aria-hidden={!showCta}
           >
-            Request Proposal
+            Let's Talk
           </button>
         </div>
       </div>
@@ -758,7 +758,7 @@ function HeroSection({
                 className="btn-click-effect inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs hover:opacity-95 active:scale-95 transition-all duration-300"
                 style={{ background: "var(--gradient-primary)" }}
               >
-                <span>Request Proposal</span>
+                <span>Let's Talk</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
 
