@@ -2,20 +2,7 @@ import { Footer } from "@/components/Footer";
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 import { BLOG_POSTS } from '../lib/blog-posts'
-import { 
-  FileText, 
-  Layers, 
-  PhoneCall, 
-  Shield, 
-  ExternalLink, 
-  Code2, 
-  ChevronRight, 
-  Search, 
-  Calendar, 
-  Clock,
-  Sparkles,
-  ArrowRight
-} from 'lucide-react'
+import { Code2, ChevronRight, ExternalLink } from 'lucide-react'
 
 export const Route = createFileRoute('/sitemap')({
   head: () => ({
@@ -24,7 +11,7 @@ export const Route = createFileRoute('/sitemap')({
       {
         name: "description",
         content:
-          "Complete HTML and XML site architecture for willayhaider.pro. Rapid indexing of all B2B cold calling guides, outbound sales services, case studies, and legal documents.",
+          "Complete HTML site architecture for willayhaider.pro. Comprehensive hierarchical crawl index of all outbound sales services, case studies, playbooks, and legal documents.",
       },
       { name: "robots", content: "index, follow" },
       { name: "author", content: "Willay Haider" },
@@ -32,7 +19,7 @@ export const Route = createFileRoute('/sitemap')({
       {
         property: "og:description",
         content:
-          "Complete index of all service pages, conversion frameworks, industry playbooks, case studies, and outbound sales resources designed for search engine indexing.",
+          "Complete hierarchical site tree of all pages, conversion frameworks, industry playbooks, case studies, and outbound sales resources.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://willayhaider.pro/sitemap" },
@@ -42,7 +29,7 @@ export const Route = createFileRoute('/sitemap')({
       {
         name: "twitter:description",
         content:
-          "Complete HTML and XML site architecture for willayhaider.pro. Rapid indexing of all outbound sales guides and services.",
+          "Complete HTML site architecture for willayhaider.pro. Rapid indexing of all outbound sales guides and services.",
       },
     ],
     links: [{ rel: "canonical", href: "https://willayhaider.pro/sitemap" }],
@@ -50,54 +37,14 @@ export const Route = createFileRoute('/sitemap')({
   component: SitemapPage,
 })
 
-const MAIN_PAGES = [
-  { title: "Home", href: "/", desc: "Senior BDR portfolio, outbound sales systems, verified metrics & live call audio." },
-  { title: "About Me", href: "/about", desc: "Background, sales philosophy, metrics across 57,000+ dials and $3.5M+ generated." },
-  { title: "Hire In-House SDR", href: "/hire-in-house", desc: "Full-time dedicated BDR placement for agencies with 30-day trial & zero agency markup." },
-  { title: "Contact & Book Call", href: "/contact", desc: "Direct calendar booking, proposal requests, WhatsApp, and email contact." },
-  { title: "Personal Gallery", href: "/gallery", desc: "Professional and personal photo gallery showcasing workspaces and milestones." },
-  { title: "Insights & Articles Hub", href: "/blog", desc: "Comprehensive repository of tactical outbound sales guides, scripts, and playbooks." },
-]
-
-const CORE_SERVICES = [
-  { title: "Cold Calling & Outbound Prospecting", href: "/#services", desc: "Direct dials into VP & C-suite calendars with unscripted conversational discovery." },
-  { title: "Appointment Setting & Demo Booking", href: "/#services", desc: "Turning cold accounts into pre-qualified discovery calls on Account Executive calendars." },
-  { title: "B2B Lead Generation & TAM Lists", href: "/#services", desc: "Building verified TAM account lists with validated direct dials and buyer intent signals." },
-  { title: "CRM Setup & RevOps Management", href: "/#services", desc: "Structuring sales tech stacks, lifecycle stages, and rep performance analytics." },
-  { title: "Custom Web & App Development", href: "/#services", desc: "High-converting digital sales solutions engineered to capture and convert leads." },
-  { title: "Live Cold Call Audio Recordings", href: "/#results", desc: "Real unedited cold call recordings showcasing live tonality and objection handling." },
-  { title: "Client Case Studies & Verified Metrics", href: "/#results", desc: "Track record of 1,800+ demos booked and millions in generated pipeline." },
-  { title: "Transparent Pricing Packages", href: "/#pricing", desc: "Flexible retainer + commission structures and guaranteed qualified meeting models." },
-  { title: "Verified Client Reviews", href: "/#reviews", desc: "Testimonials from founders, sales directors, and agency executives." },
-  { title: "Frequently Asked Questions", href: "/#faq", desc: "Detailed answers regarding ramp time, list sourcing, CRM integrations, and contracts." },
-]
-
-const LEGAL_PAGES = [
-  { title: "Privacy Policy", href: "/privacy-policy", desc: "GDPR & CCPA compliance, data retention, third-party analytics, and cookie practices." },
-  { title: "Terms & Conditions", href: "/terms-and-conditions", desc: "Terms of use, intellectual property, user conduct, and governing laws." },
-  { title: "Terms of Service", href: "/terms", desc: "Scope of work, transparent deliverables, and client engagement terms." },
-  { title: "Raw XML Sitemap", href: "/sitemap.xml", desc: "Standard XML protocol URL feed designed for Googlebot, Bingbot, and search engines." },
-]
-
 function SitemapPage() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [filterQuery, setFilterQuery] = useState("");
-
-  const filteredBlogPosts = BLOG_POSTS.filter((post) => {
-    if (!filterQuery) return true;
-    const q = filterQuery.toLowerCase();
-    return (
-      post.title.toLowerCase().includes(q) ||
-      post.excerpt.toLowerCase().includes(q) ||
-      post.keywords?.toLowerCase().includes(q)
-    );
-  });
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
-      {/* Top Header with 50% transparency */}
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary/20 flex flex-col justify-between">
+      {/* Top Header */}
       <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/50 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
           <div className="relative z-50">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -130,7 +77,7 @@ function SitemapPage() {
               className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-border bg-card/60 px-3 py-1.5 text-xs font-semibold text-foreground transition-colors hover:bg-secondary hover:text-primary"
             >
               <Code2 className="h-3.5 w-3.5 text-primary" />
-              <span>Raw XML Feed</span>
+              <span>XML Sitemap</span>
             </a>
 
             <a
@@ -185,207 +132,239 @@ function SitemapPage() {
         )}
       </header>
 
-      {/* Main Content */}
+      {/* Main Content: British Council Style Hierarchical Tree */}
       <main className="pt-24 pb-16 sm:pt-32 sm:pb-24 px-4 sm:px-6">
-        <div className="max-w-5xl mx-auto">
-          {/* Header */}
-          <div className="mb-10 text-center sm:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary mb-4">
-              <Layers className="h-3.5 w-3.5" />
-              <span>Site Architecture & Index</span>
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
-              Complete Site <span className="text-primary">Sitemap</span>
-            </h1>
-            <p className="mt-3 text-sm sm:text-base text-muted-foreground max-w-3xl leading-relaxed">
-              A comprehensive directory of all pages, outbound sales services, case studies, conversion frameworks, and in-depth tactical sales articles across willayhaider.pro.
-            </p>
+        <div className="max-w-4xl mx-auto">
+          {/* Breadcrumb */}
+          <nav className="mb-4 text-xs text-muted-foreground flex items-center gap-1.5 font-medium" aria-label="Breadcrumb">
+            <a href="/" className="hover:text-primary transition-colors">Home</a>
+            <ChevronRight className="h-3 w-3 text-muted-foreground/60" />
+            <span className="text-foreground font-semibold">Sitemap</span>
+          </nav>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <a
-                href="/sitemap.xml"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-xs transition-all hover:bg-primary/90"
-              >
-                <Code2 className="h-4 w-4" />
-                <span>Open XML Sitemap (Search Engine Protocol)</span>
-                <ExternalLink className="h-3 w-3 opacity-70" />
-              </a>
-              <a
-                href="https://www.google.com/ping?sitemap=https://willayhaider.pro/sitemap.xml"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground shadow-2xs transition-all hover:bg-secondary hover:text-primary"
-              >
-                <Sparkles className="h-3.5 w-3.5 text-primary" />
-                <span>Google Crawler Ready</span>
-              </a>
-            </div>
+          {/* Heading */}
+          <div className="border-b border-border/80 pb-5 mb-8">
+            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+              Site map
+            </h1>
+            <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
+              A hierarchical index of all pages, outbound sales solutions, verified client case studies, and tactical sales articles on willayhaider.pro.
+            </p>
           </div>
 
-          <div className="space-y-12">
-            {/* 1. Main Pages */}
-            <section>
-              <div className="flex items-center gap-2 border-b border-border pb-3 mb-6">
-                <Layers className="h-5 w-5 text-primary" />
-                <h2 className="text-xl font-bold text-foreground">Primary Pages</h2>
-                <span className="text-xs text-muted-foreground ml-auto">({MAIN_PAGES.length} routes)</span>
+          {/* Site Map Tree Container */}
+          <div className="space-y-8 text-sm sm:text-base leading-relaxed text-foreground">
+            
+            {/* 1. Front page */}
+            <div className="space-y-2">
+              <h2 className="text-lg sm:text-xl font-bold text-foreground border-b border-border/50 pb-1.5">
+                Front page
+              </h2>
+              <div className="pl-4 sm:pl-6 pt-1">
+                <a
+                  href="/"
+                  className="text-primary font-medium hover:underline inline-flex items-center gap-1"
+                >
+                  Front page of <em>Willay Haider | Outbound Sales Systems & Senior BDR</em>
+                </a>
               </div>
-              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-                {MAIN_PAGES.map((page) => (
-                  <a
-                    key={page.href}
-                    href={page.href}
-                    className="group flex flex-col justify-between rounded-xl border border-border bg-card p-4 shadow-2xs transition-all hover:border-primary/50 hover:shadow-xs"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <span className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">
-                          {page.title}
-                        </span>
-                        <ChevronRight className="h-4 w-4 text-muted-foreground opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:text-primary transition-all" />
-                      </div>
-                      <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                        {page.desc}
-                      </p>
-                    </div>
-                    <span className="mt-3 text-[11px] font-mono text-primary/80 group-hover:underline">
-                      {page.href}
+            </div>
+
+            {/* 2. Main Navigation & Core Pages */}
+            <div className="space-y-2">
+              <h2 className="text-lg sm:text-xl font-bold text-foreground border-b border-border/50 pb-1.5">
+                Main menu
+              </h2>
+              <ul className="list-disc pl-6 sm:pl-8 space-y-2">
+                <li>
+                  <a href="/" className="text-primary font-medium hover:underline">
+                    Homepage
+                  </a>
+                </li>
+                <li>
+                  <a href="/about" className="text-primary font-medium hover:underline">
+                    About Me (Background, Philosophy & Track Record)
+                  </a>
+                </li>
+                <li>
+                  <a href="/hire-in-house" className="text-primary font-medium hover:underline">
+                    Hire In-House SDR (Agency Talent Placement & Consulting)
+                  </a>
+                </li>
+                <li>
+                  <a href="/gallery" className="text-primary font-medium hover:underline">
+                    Personal Gallery & Media
+                  </a>
+                </li>
+                <li>
+                  <a href="/contact" className="text-primary font-medium hover:underline">
+                    Contact & Direct Meeting Booking
+                  </a>
+                </li>
+                <li>
+                  <a href="/blog" className="text-primary font-medium hover:underline">
+                    Outbound Insights & Articles Hub
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* 3. Outbound Services & Solutions */}
+            <div className="space-y-2">
+              <h2 className="text-lg sm:text-xl font-bold text-foreground border-b border-border/50 pb-1.5">
+                Services & Solutions
+              </h2>
+              <ul className="list-disc pl-6 sm:pl-8 space-y-2.5">
+                <li>
+                  <a href="/#services" className="text-primary font-medium hover:underline">
+                    Cold Calling & Outbound Prospecting
+                  </a>
+                  <ul className="list-circle pl-6 sm:pl-8 mt-1.5 space-y-1 text-xs sm:text-sm text-muted-foreground">
+                    <li>Unscripted conversational discovery dials into VP & C-Suite calendars</li>
+                    <li>Live objection handling and pattern interrupt tonality</li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="/#services" className="text-primary font-medium hover:underline">
+                    Appointment Setting & Demo Booking
+                  </a>
+                  <ul className="list-circle pl-6 sm:pl-8 mt-1.5 space-y-1 text-xs sm:text-sm text-muted-foreground">
+                    <li>Pre-qualified discovery calls delivered directly to Account Executive calendars</li>
+                    <li>Strict qualification criteria (ICP fit, budget, and timeline)</li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="/#services" className="text-primary font-medium hover:underline">
+                    B2B Lead Generation & TAM Lists
+                  </a>
+                  <ul className="list-circle pl-6 sm:pl-8 mt-1.5 space-y-1 text-xs sm:text-sm text-muted-foreground">
+                    <li>Verified account sourcing with direct dials and validated emails</li>
+                    <li>Buyer intent filtering and trigger event tracking</li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="/#services" className="text-primary font-medium hover:underline">
+                    CRM Setup & RevOps Management
+                  </a>
+                  <ul className="list-circle pl-6 sm:pl-8 mt-1.5 space-y-1 text-xs sm:text-sm text-muted-foreground">
+                    <li>HubSpot and Salesforce pipeline structuring and automated routing</li>
+                    <li>Rep activity tracking and conversion analytics dashboards</li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="/#services" className="text-primary font-medium hover:underline">
+                    Custom Web & App Development
+                  </a>
+                  <ul className="list-circle pl-6 sm:pl-8 mt-1.5 space-y-1 text-xs sm:text-sm text-muted-foreground">
+                    <li>High-converting landing pages engineered to capture outbound traffic</li>
+                    <li>Full-stack web applications, client portals, and custom internal tools</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            {/* 4. Proof, Case Studies & Results */}
+            <div className="space-y-2">
+              <h2 className="text-lg sm:text-xl font-bold text-foreground border-b border-border/50 pb-1.5">
+                Client Proof & Verification
+              </h2>
+              <ul className="list-disc pl-6 sm:pl-8 space-y-2">
+                <li>
+                  <a href="/#results" className="text-primary font-medium hover:underline">
+                    Client Case Studies & Verified Metrics ($3.5M+ Closed Pipeline)
+                  </a>
+                  <ul className="list-circle pl-6 sm:pl-8 mt-1.5 space-y-1 text-xs sm:text-sm text-muted-foreground">
+                    <li>Million Dials Pvt Ltd. (1,800+ Demos Booked in B2B SaaS)</li>
+                    <li>Vizocom ICT LLC ($1.8M+ Generated in Healthcare & Industrial)</li>
+                    <li>OMC Group LLC (75% Connect Rate in Legal SEO Outbound)</li>
+                    <li>Autolift Transport / Nexus LTD (1,700+ Freight Loads Dispatched)</li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="/#results" className="text-primary font-medium hover:underline">
+                    Live Cold Call Audio Recordings (Real Unedited Prospect Calls)
+                  </a>
+                </li>
+                <li>
+                  <a href="/#pricing" className="text-primary font-medium hover:underline">
+                    Transparent Pricing Packages (Retainer + Performance Models)
+                  </a>
+                </li>
+                <li>
+                  <a href="/#reviews" className="text-primary font-medium hover:underline">
+                    Verified Client Reviews & Testimonials
+                  </a>
+                </li>
+                <li>
+                  <a href="/#faq" className="text-primary font-medium hover:underline">
+                    Frequently Asked Questions (Ramp Time, CRM Integrations & SLAs)
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* 5. In-Depth Articles, Playbooks & Insights */}
+            <div className="space-y-2">
+              <h2 className="text-lg sm:text-xl font-bold text-foreground border-b border-border/50 pb-1.5">
+                Insights, Playbooks & Guides ({BLOG_POSTS.length} Published Articles)
+              </h2>
+              <ul className="list-disc pl-6 sm:pl-8 space-y-2">
+                {BLOG_POSTS.map((post) => (
+                  <li key={post.slug}>
+                    <a
+                      href={`/blog/${post.slug}`}
+                      className="text-primary font-medium hover:underline"
+                    >
+                      {post.title}
+                    </a>
+                    <span className="text-xs text-muted-foreground ml-2">
+                      ({post.date} • {post.readTime})
                     </span>
-                  </a>
+                  </li>
                 ))}
-              </div>
-            </section>
+              </ul>
+            </div>
 
-            {/* 2. Core Outbound Services & Conversion Sections */}
-            <section>
-              <div className="flex items-center gap-2 border-b border-border pb-3 mb-6">
-                <PhoneCall className="h-5 w-5 text-primary" />
-                <h2 className="text-xl font-bold text-foreground">Services, Proof & Solutions</h2>
-                <span className="text-xs text-muted-foreground ml-auto">({CORE_SERVICES.length} sections)</span>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
-                {CORE_SERVICES.map((item, idx) => (
+            {/* 6. Legal, Compliance & Feeds */}
+            <div className="space-y-2">
+              <h2 className="text-lg sm:text-xl font-bold text-foreground border-b border-border/50 pb-1.5">
+                Legal & Feeds
+              </h2>
+              <ul className="list-disc pl-6 sm:pl-8 space-y-2">
+                <li>
+                  <a href="/privacy-policy" className="text-primary font-medium hover:underline">
+                    Privacy Policy (GDPR & CCPA Compliance)
+                  </a>
+                </li>
+                <li>
+                  <a href="/terms-and-conditions" className="text-primary font-medium hover:underline">
+                    Terms & Conditions
+                  </a>
+                </li>
+                <li>
+                  <a href="/terms" className="text-primary font-medium hover:underline">
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a href="/sitemap" className="text-primary font-medium hover:underline">
+                    HTML Sitemap (Current Page)
+                  </a>
+                </li>
+                <li>
                   <a
-                    key={idx}
-                    href={item.href}
-                    className="group flex flex-col justify-between rounded-xl border border-border bg-card p-4 shadow-2xs transition-all hover:border-primary/50 hover:shadow-xs"
+                    href="/sitemap.xml"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary font-medium hover:underline inline-flex items-center gap-1"
                   >
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <span className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">
-                          {item.title}
-                        </span>
-                        <ChevronRight className="h-4 w-4 text-muted-foreground opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:text-primary transition-all" />
-                      </div>
-                      <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-                    <span className="mt-3 text-[11px] font-mono text-primary/80 group-hover:underline">
-                      {item.href}
-                    </span>
+                    <span>XML Sitemap Feed (Standard Googlebot & Search Engine Protocol)</span>
+                    <ExternalLink className="h-3.5 w-3.5 opacity-75" />
                   </a>
-                ))}
-              </div>
-            </section>
+                </li>
+              </ul>
+            </div>
 
-            {/* 3. Tactical Insights & In-Depth Articles */}
-            <section>
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border pb-3 mb-6">
-                <div className="flex items-center gap-2">
-                  <FileText className="h-5 w-5 text-primary" />
-                  <h2 className="text-xl font-bold text-foreground">Insights, Playbooks & Guides</h2>
-                  <span className="text-xs text-muted-foreground">({BLOG_POSTS.length} articles)</span>
-                </div>
-
-                {/* Filter Search */}
-                <div className="relative w-full sm:w-64">
-                  <Search className="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-muted-foreground" />
-                  <input
-                    type="text"
-                    placeholder="Search articles..."
-                    value={filterQuery}
-                    onChange={(e) => setFilterQuery(e.target.value)}
-                    className="w-full rounded-lg border border-border bg-card py-1.5 pl-8 pr-3 text-xs text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                  />
-                </div>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {filteredBlogPosts.map((post) => (
-                  <a
-                    key={post.slug}
-                    href={`/blog/${post.slug}`}
-                    className="group flex flex-col justify-between rounded-xl border border-border bg-card p-5 shadow-2xs transition-all hover:border-primary/50 hover:shadow-xs"
-                  >
-                    <div>
-                      <div className="flex items-center gap-3 text-[11px] text-muted-foreground mb-2">
-                        <span className="inline-flex items-center gap-1 font-medium">
-                          <Calendar className="h-3 w-3" />
-                          {post.date}
-                        </span>
-                        <span>•</span>
-                        <span className="inline-flex items-center gap-1 font-medium">
-                          <Clock className="h-3 w-3" />
-                          {post.readTime}
-                        </span>
-                      </div>
-                      <h3 className="font-bold text-sm sm:text-base text-foreground group-hover:text-primary transition-colors leading-snug">
-                        {post.title}
-                      </h3>
-                      <p className="mt-2 text-xs text-muted-foreground line-clamp-2 leading-relaxed">
-                        {post.excerpt}
-                      </p>
-                    </div>
-
-                    <div className="mt-4 flex items-center justify-between border-t border-border/50 pt-3 text-xs">
-                      <span className="font-mono text-[10px] text-muted-foreground">
-                        /blog/{post.slug}
-                      </span>
-                      <span className="inline-flex items-center gap-1 font-semibold text-primary group-hover:underline text-xs">
-                        <span>Read</span>
-                        <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
-                      </span>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </section>
-
-            {/* 4. Legal & Governance */}
-            <section>
-              <div className="flex items-center gap-2 border-b border-border pb-3 mb-6">
-                <Shield className="h-5 w-5 text-primary" />
-                <h2 className="text-xl font-bold text-foreground">Legal & Compliance</h2>
-                <span className="text-xs text-muted-foreground ml-auto">({LEGAL_PAGES.length} links)</span>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-                {LEGAL_PAGES.map((page) => (
-                  <a
-                    key={page.href}
-                    href={page.href}
-                    className="group flex flex-col justify-between rounded-xl border border-border bg-card p-4 shadow-2xs transition-all hover:border-primary/50 hover:shadow-xs"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <span className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">
-                          {page.title}
-                        </span>
-                        <ChevronRight className="h-4 w-4 text-muted-foreground opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:text-primary transition-all" />
-                      </div>
-                      <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                        {page.desc}
-                      </p>
-                    </div>
-                    <span className="mt-3 text-[11px] font-mono text-primary/80 group-hover:underline">
-                      {page.href}
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </section>
           </div>
         </div>
       </main>
