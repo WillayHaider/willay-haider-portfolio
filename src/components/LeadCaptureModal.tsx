@@ -22,6 +22,7 @@ const SERVICES = [
   "Custom Web Development",
   "Custom App Development",
   "In-house Hiring / Consulting (Pakistan-based agencies)",
+  "Others",
 ];
 
 export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnect }: LeadCaptureModalProps) {
