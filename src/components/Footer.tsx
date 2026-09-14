@@ -1,41 +1,10 @@
-import { BLOG_POSTS } from "@/lib/blog-posts";
-
-const ALL_SITEMAP_LINKS = [
-  // Main Site Pages
-  { label: "Home", href: "/" },
-  { label: "About Me", href: "/about" },
-  { label: "Hire In-House SDR", href: "/hire-in-house" },
-  { label: "Contact & Book Call", href: "/contact" },
-  { label: "Personal Gallery", href: "/gallery" },
-  { label: "Insights & Articles Hub", href: "/blog" },
-  { label: "HTML Sitemap Index", href: "/sitemap" },
-  { label: "XML Sitemap Feed", href: "/sitemap.xml" },
-  
-  // Legal Pages
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms & Conditions", href: "/terms-and-conditions" },
-  { label: "Terms of Service", href: "/terms" },
-
-  // Core Service Sections & Conversion Anchors
-  { label: "Cold Calling & Outbound Prospecting", href: "/#services" },
-  { label: "Appointment Setting & Demo Booking", href: "/#services" },
-  { label: "B2B Lead Generation & TAM Lists", href: "/#services" },
-  { label: "CRM Setup & RevOps Management", href: "/#services" },
-  { label: "Custom Web & App Development", href: "/#services" },
-  { label: "Live Cold Call Audio Recordings", href: "/#results" },
-  { label: "Client Case Studies & Verified Metrics", href: "/#results" },
-  { label: "Transparent Pricing Packages", href: "/#pricing" },
-  { label: "Verified Client Reviews", href: "/#reviews" },
-  { label: "Frequently Asked Questions", href: "/#faq" },
-  { label: "Request Proposal / Get In Touch", href: "/#contact" },
-];
-
 export function Footer() {
   return (
     <footer className="border-t border-border bg-background py-10 text-foreground">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Top Branding & Social Links */}
-        <div className="flex flex-col items-center justify-between gap-6 pb-8 border-b border-border/60 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+          {/* Quick Links */}
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-muted-foreground sm:gap-6">
             <a href="/" className="transition-colors hover:text-primary">Home</a>
             <a href="/about" className="transition-colors hover:text-primary">About</a>
@@ -133,71 +102,12 @@ export function Footer() {
           </div>
         </div>
 
-        {/* CRAWLABLE SITEMAP DIRECT LINK LIST (SEARCH ENGINE & GOOGLEBOT CRAWL TREE) */}
-        <div className="py-8 text-xs text-muted-foreground border-b border-border/60">
-          <div className="mb-4">
-            <h3 className="text-sm font-bold text-foreground tracking-wide uppercase">
-              Sitemap & All Indexed Pages (Direct Google Crawl Index)
-            </h3>
-            <p className="mt-1 text-[11px] text-muted-foreground">
-              Direct HTML crawl index of all primary pages, services, conversion playbooks, and blog resources on willayhaider.pro.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {/* Main Pages */}
-            <div>
-              <h4 className="mb-2 font-semibold text-foreground">Main Pages</h4>
-              <ul className="space-y-1.5 list-disc list-inside">
-                {ALL_SITEMAP_LINKS.slice(0, 11).map((link) => (
-                  <li key={link.href + link.label}>
-                    <a href={link.href} className="hover:text-primary hover:underline transition-colors">
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Core Services & Solutions */}
-            <div>
-              <h4 className="mb-2 font-semibold text-foreground">Services & Solutions</h4>
-              <ul className="space-y-1.5 list-disc list-inside">
-                {ALL_SITEMAP_LINKS.slice(11).map((link) => (
-                  <li key={link.label}>
-                    <a href={link.href} className="hover:text-primary hover:underline transition-colors">
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* All In-Depth Blog Guides */}
-            <div className="lg:col-span-2">
-              <h4 className="mb-2 font-semibold text-foreground">All Articles & Playbooks</h4>
-              <ul className="space-y-1.5 list-disc list-inside">
-                {BLOG_POSTS.map((post) => (
-                  <li key={post.slug}>
-                    <a
-                      href={`/blog/${post.slug}`}
-                      className="hover:text-primary hover:underline transition-colors"
-                    >
-                      {post.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Copyright & Legal Bar */}
-        <div className="mt-6 flex flex-col items-center justify-between gap-3 text-[11px] font-medium text-muted-foreground sm:flex-row">
+        {/* Updated Copyright & Legal/Sitemap Links */}
+        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-4 text-[11px] font-medium text-muted-foreground sm:flex-row">
           <div>
             © 2026 All rights are reserved by Mr Haider.
           </div>
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <a href="/privacy-policy" className="hover:text-primary transition-colors font-medium">
               Privacy Policy
             </a>
