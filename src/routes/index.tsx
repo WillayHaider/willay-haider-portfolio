@@ -382,7 +382,7 @@ const PRICING_TIERS = [
       "Weekly performance summary report",
     ],
     contract: "Week-to-week, cancel anytime",
-    serviceTarget: "Flexible (Hourly) Outbound",
+    serviceTarget: "Cold Calling & Outbound Prospecting",
     ctaText: "Select Flexible (Hourly)",
   },
   {
@@ -401,7 +401,7 @@ const PRICING_TIERS = [
       "Weekly report, live dashboard, and weekly strategy call",
     ],
     contract: "Month-to-month, no long-term contract",
-    serviceTarget: "Starter Monthly Engine",
+    serviceTarget: "Cold Calling & Outbound Prospecting",
     ctaText: "Get Started Free",
   },
   {
@@ -421,7 +421,7 @@ const PRICING_TIERS = [
       "Daily reporting, live dashboard, and two strategy calls a week",
     ],
     contract: "Month-to-month, no long-term contract",
-    serviceTarget: "Growth Outbound Engine",
+    serviceTarget: "Appointment Setting & Demo Booking",
     ctaText: "Get Started Free",
   },
   {
@@ -442,7 +442,7 @@ const PRICING_TIERS = [
       "6-month partnership (enough time to build and optimize a real system, not just run a short campaign)",
     specialClause:
       "First 30 days include a performance check-in: if the system is not tracking toward your targets, we adjust the approach together.",
-    serviceTarget: "Enterprise Pipeline Partnership",
+    serviceTarget: "Lead Generation & Pipeline Building",
     ctaText: "Select Enterprise",
   },
 ];

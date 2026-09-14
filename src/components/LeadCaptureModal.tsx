@@ -21,9 +21,6 @@ const SERVICES = [
   "CRM Setup & RevOps Management",
   "Custom Web Development",
   "Custom App Development",
-  "Flexible (Hourly) Outbound",
-  "Starter Monthly Engine",
-  "Growth Monthly Partner",
   "In-house Hiring / Consulting (Pakistan-based agencies)",
 ];
 
@@ -32,7 +29,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
     name: "",
     email: "",
     company: "",
-    service: defaultService || SERVICES[0],
+    service: (defaultService && SERVICES.includes(defaultService)) ? defaultService : SERVICES[0],
     goal: "",
   });
   const [errors, setErrors] = useState<{ name?: string; email?: string; company?: string }>({});
@@ -40,7 +37,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    if (defaultService) {
+    if (defaultService && SERVICES.includes(defaultService)) {
       setFormData((prev) => ({ ...prev, service: defaultService }));
     }
   }, [defaultService]);
@@ -307,7 +304,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                   className="mt-1 w-full min-h-[46px] rounded-xl border border-border bg-secondary/40 px-3.5 py-2.5 text-xs sm:text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
                 >
-                  {(SERVICES.includes(formData.service) ? SERVICES : [formData.service, ...SERVICES]).map((s) => (
+                  {SERVICES.map((s) => (
                     <option key={s} value={s} className="bg-card text-foreground py-1">
                       {s}
                     </option>
