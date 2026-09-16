@@ -25,12 +25,25 @@ const SERVICES = [
   "Others",
 ];
 
+const REFERRAL_SOURCES = [
+  "LinkedIn",
+  "Google / Search",
+  "Referral / Word of Mouth",
+  "Cold Email / Direct Outreach",
+  "Twitter / X",
+  "Upwork / Freelance Platform",
+  "Blog / Online Article",
+  "Others",
+];
+
 export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnect }: LeadCaptureModalProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
     service: (defaultService && SERVICES.includes(defaultService)) ? defaultService : SERVICES[0],
+    source: "",
+    otherSource: "",
     goal: "",
   });
   const [errors, setErrors] = useState<{ name?: string; email?: string; company?: string }>({});
@@ -87,6 +100,10 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
     });
 
     // 1. Admin Notification Parameters (sent using "Contact Us" template to contact.whaider@gmail.com)
+    const referralDisplay = formData.source === "Others" && formData.otherSource.trim()
+      ? `Others (${formData.otherSource.trim()})`
+      : (formData.source || "Not specified");
+
     const adminNotificationParams = {
       to_email: "contact.whaider@gmail.com",
       from_name: formData.name,
@@ -99,8 +116,11 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
       client_email: formData.email,
       company: formData.company,
       service: formData.service,
+      source: referralDisplay,
+      referral_source: referralDisplay,
+      found_via: referralDisplay,
       goal: formData.goal || "Not specified",
-      message: `Need / Service: ${formData.service}\nGoal: ${formData.goal || "Not specified"}`,
+      message: `Need / Service: ${formData.service}\nWhere did they find you: ${referralDisplay}\nGoal: ${formData.goal || "Not specified"}`,
       subject: `New Discovery Form Submission: ${formData.name}`,
       timestamp: submissionTime,
     };
@@ -311,6 +331,35 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
                     </option>
                   ))}
                 </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-foreground">
+                  Where did you find out about me? <span className="text-muted-foreground font-normal lowercase">(optional)</span>
+                </label>
+                <select
+                  value={formData.source}
+                  onChange={(e) => setFormData({ ...formData, source: e.target.value })}
+                  className="mt-1 w-full min-h-[46px] rounded-xl border border-border bg-secondary/40 px-3.5 py-2.5 text-xs sm:text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
+                >
+                  <option value="" className="bg-card text-muted-foreground py-1">
+                    Select where you found me (e.g. LinkedIn, Google, Referral)...
+                  </option>
+                  {REFERRAL_SOURCES.map((s) => (
+                    <option key={s} value={s} className="bg-card text-foreground py-1">
+                      {s}
+                    </option>
+                  ))}
+                </select>
+                {formData.source === "Others" && (
+                  <input
+                    type="text"
+                    placeholder="Please specify (e.g. podcast, event, mutual connection)..."
+                    value={formData.otherSource}
+                    onChange={(e) => setFormData({ ...formData, otherSource: e.target.value })}
+                    className="mt-2 w-full min-h-[42px] rounded-xl border border-border bg-secondary/30 px-3.5 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary animate-fade-in"
+                  />
+                )}
               </div>
 
               <div>
