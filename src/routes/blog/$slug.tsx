@@ -383,6 +383,22 @@ interface CommentItem {
 }
 
 const DEFAULT_COMMENTS: Record<string, CommentItem[]> = {
+  "how-to-answer-where-did-you-get-my-number-cold-call-objection": [
+    {
+      id: "c1",
+      name: "Tariq M.",
+      date: "Yesterday",
+      content: "The Transparent Approach naming ZoomInfo works like a charm. Total game-changer for disarming privacy friction! 👏",
+      likes: 16,
+    },
+    {
+      id: "c2",
+      name: "Hannah C.",
+      date: "2 days ago",
+      content: "That 1-second pause before replying stops the nervous stutter completely. Booked a VP of Ops this morning using the Professional Pivot! 🔥",
+      likes: 11,
+    },
+  ],
   "how-b2b-cold-calling-actually-works": [
     {
       id: "c2",
