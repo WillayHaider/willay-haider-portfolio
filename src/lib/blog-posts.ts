@@ -38,13 +38,17 @@ export const BLOG_POSTS: BlogPost[] = [
 
 ---
 
-When a B2B prospect stops you mid-sentence with *"Where did you get my number?"*, most sales reps freeze.
+Six words make 90% of cold callers freeze in their tracks:
 
-They stutter. They make up awkward excuses about *“our marketing team”* or *“public records.”* Within four seconds, the call is dead. The prospect feels their privacy was invaded, trust evaporates, and the rep marks the contact as hostile in their CRM.
+*"Where did you get my number?"*
 
-Over 57,000+ cold calls and $3.5M+ in pipeline generated across US tech startups, healthcare logistics, and enterprise services, I have faced this question hundreds of times. In reality, this objection is not a death sentence for your conversation. It is often a golden opportunity to establish extreme professionalism, demonstrate data compliance, and pivot directly into a high-value discovery dialogue.
+Most reps panic, stammer about "public records," and burn the lead in under four seconds. The prospect feels spammed. The rep marks the account as hostile.
 
-Here is the exact practitioner blueprint, the underlying psychology, and three compliance-safe scripts to turn privacy friction into qualified pipeline.
+Across 57,000+ cold dials and $3.5M+ in pipeline, I learned the truth: this objection is not a rejection. It is a credibility test.
+
+When an executive asks where you got their direct line, they are testing whether you are an offshore robocaller or a legitimate B2B peer. Answer with calm transparency, and you unlock the entire discovery conversation.
+
+Here is the practitioner playbook and 3 compliance-safe scripts to turn privacy friction into booked pipeline.
 
 ---
 
