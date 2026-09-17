@@ -68,9 +68,11 @@ If you [hire an SDR / BDR](/#services) or work with an outbound partner, how you
 
 Before picking a response script, you must diagnose the tone behind the question. In modern outbound calling, this objection falls into two distinct categories:
 
-> ### The Two Mindsets Behind The Question
-> * **1. Genuine Curiosity & Verification:** The prospect is open to talking, but wants to confirm your company is a legitimate B2B vendor rather than an offshore scraper.
-> * **2. High-Tension Privacy Challenge:** The prospect is annoyed, guarded, or bound by strict corporate security protocols and testing whether you respect compliance rules.
+> **The Two Mindsets Behind The Question**
+> 
+> 1. **Genuine Curiosity & Verification:** The prospect is open to talking, but wants to confirm your company is a legitimate B2B vendor rather than an offshore scraper.
+> 
+> 2. **High-Tension Privacy Challenge:** The prospect is annoyed, guarded, or bound by strict corporate security protocols and testing whether you respect compliance rules.
 
 Your objective is never to argue or hide your tools. Your objective is total transparency delivered with grounded vocal tonality.
 
@@ -96,13 +98,11 @@ Use a neutral, downward vocal inflection. State the exact source with pride rath
 
 This is your primary workhorse script for everyday B2B prospecting. By openly citing enterprise data intelligence platforms, you immediately validate your legitimacy as a professional outbound operator.
 
-\`\`\`text
-PROSPECT: "Where did you get my direct number?"
-
-REP: "Great question, [First Name]. Our research team pulled your corporate direct line through our verified ZoomInfo and LinkedIn Sales Navigator database because you lead [Department/Function] at [Company Name]. 
-
-I know I reached out unannounced, but I noticed your team is currently scaling [Specific Initiative/Hiring], and I wanted to share one quick metric on how peer leaders are handling [Core Operational Bottleneck]. Do you have 30 seconds for context?"
-\`\`\`
+> **Prospect:** *"Where did you get my direct number?"*
+> 
+> **Rep:** *"Great question, [First Name]. Our research team pulled your corporate direct line through our verified ZoomInfo and LinkedIn Sales Navigator database because you lead [Department/Function] at [Company Name].*
+> 
+> *I know I reached out unannounced, but I noticed your team is currently scaling [Specific Initiative/Hiring], and I wanted to share one quick metric on how peer leaders are handling [Core Operational Bottleneck]. Do you have 30 seconds for context?"*
 
 #### Why This Script Works:
 * **Removes Mystery:** Naming industry standards like [ZoomInfo](https://www.zoominfo.com), [Apollo.io](https://www.apollo.io), or [LinkedIn Sales Navigator](https://www.linkedin.com/sales) proves you are using compliant enterprise databases.
@@ -115,15 +115,13 @@ I know I reached out unannounced, but I noticed your team is currently scaling [
 
 When dealing with senior executives, VPs, and founders who care less about data vendors and more about why you are interrupting their workday, use the Professional Pivot.
 
-\`\`\`text
-PROSPECT: "How did you get this number? This is my private line."
-
-REP: "Fair point, [First Name]. Your contact info came through our B2B executive directory specifically because you oversee [Operations/Revenue] at [Company Name]. 
-
-Look, I know your time is tight. The reason I reached out directly is that most [Title/Role] in [Industry] tell us their biggest headache right now is [Specific Pain Point, e.g., 20% pipeline leakage or high SDR churn]. 
-
-I am not asking for a 30-minute demo today. Would you be open to hearing 20 seconds on how we solved that for [Reference Client/Case Study], and you can decide if it is even relevant?"
-\`\`\`
+> **Prospect:** *"How did you get this number? This is my private line."*
+> 
+> **Rep:** *"Fair point, [First Name]. Your contact info came through our B2B executive directory specifically because you oversee [Operations/Revenue] at [Company Name].*
+> 
+> *Look, I know your time is tight. The reason I reached out directly is that most [Title/Role] in [Industry] tell us their biggest headache right now is [Specific Pain Point, e.g., 20% pipeline leakage or high SDR churn].*
+> 
+> *I am not asking for a 30-minute demo today. Would you be open to hearing 20 seconds on how we solved that for [Reference Client/Case Study], and you can decide if it is even relevant?"*
 
 #### Why This Script Works:
 * **Disarms Defensive Tension:** Starting with *"Fair point"* acknowledges their boundary without backing down.
@@ -136,15 +134,13 @@ I am not asking for a 30-minute demo today. Would you be open to hearing 20 seco
 
 If a prospect sounds visibly irritated, mentions privacy laws, or demands removal, do not force a pitch. Execute a soft compliance reset with total grace.
 
-\`\`\`text
-PROSPECT: "I never gave you permission to call this number. Who gave you this?"
-
-REP: "I completely understand your frustration, [First Name], and I apologize for catching you off guard. We source our enterprise lists through compliant B2B databases like Apollo and ZoomInfo, but I respect your privacy 100%. 
-
-If you prefer, I can take your number off our system immediately so you never receive another dial from us. 
-
-Before I do, the only reason I reached out was regarding [One-Sentence Core Problem]. If that is totally off your radar, I will remove your record right now. What makes the most sense for you?"
-\`\`\`
+> **Prospect:** *"I never gave you permission to call this number. Who gave you this?"*
+> 
+> **Rep:** *"I completely understand your frustration, [First Name], and I apologize for catching you off guard. We source our enterprise lists through compliant B2B databases like Apollo and ZoomInfo, but I respect your privacy 100%.*
+> 
+> *If you prefer, I can take your number off our system immediately so you never receive another dial from us.*
+> 
+> *Before I do, the only reason I reached out was regarding [One-Sentence Core Problem]. If that is totally off your radar, I will remove your record right now. What makes the most sense for you?"*
 
 #### Why This Script Works:
 * **De-escalates Hostility Instantly:** Agreeing with their frustration defuses emotional anger within two seconds.

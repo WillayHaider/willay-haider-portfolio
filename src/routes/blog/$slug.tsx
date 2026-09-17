@@ -348,14 +348,21 @@ function RenderContent({ content }: { content: string }) {
                   <span className="text-[10px] text-muted-foreground lowercase">copy-pasteable snippet</span>
                 </div>
               )}
-              <pre className="overflow-x-auto p-4 text-xs sm:text-sm font-mono text-emerald-400 leading-relaxed selection:bg-primary/30">
+              <pre className="overflow-x-auto p-4 text-xs sm:text-sm font-mono text-emerald-400 leading-relaxed selection:bg-primary/30 whitespace-pre-wrap break-words">
                 <code>{block.code}</code>
               </pre>
             </div>
           );
         if (block.type === "blockquote") return (
             <blockquote key={idx} className="border-l-4 border-primary/70 bg-secondary/30 rounded-r-xl p-4 sm:p-5 my-4 text-sm sm:text-base leading-relaxed text-foreground space-y-2">
-              {block.lines.map((qLine, qIdx) => qLine.trim() ? <p key={qIdx}>{formatInline(qLine.trim())}</p> : <div key={qIdx} className="h-2" />)}
+              {block.lines.map((qLine, qIdx) => {
+                const line = qLine.trim();
+                if (!line) return <div key={qIdx} className="h-1.5" />;
+                if (line.startsWith("### ")) {
+                  return <h4 key={qIdx} className="font-bold text-foreground text-sm sm:text-base mb-1">{formatInline(line.replace(/^###\s+/, ""))}</h4>;
+                }
+                return <p key={qIdx} className="leading-relaxed">{formatInline(line)}</p>;
+              })}
             </blockquote>
           );
         if (block.type === "table") return (
