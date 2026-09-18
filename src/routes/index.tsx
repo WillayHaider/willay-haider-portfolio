@@ -388,9 +388,8 @@ const PRICING_TIERS = [
   {
     id: "starter",
     name: "Starter",
-    badge: "Free 1-week trial available",
     bestFor: "For teams ready to build a consistent outbound engine",
-    startingPrice: "$500",
+    startingPrice: "$700",
     priceUnit: "/mo",
     tagline:
       "A dedicated rep running your outreach full-time: calls, qualified appointments, and messaging built to convert your specific buyers.",
@@ -402,7 +401,7 @@ const PRICING_TIERS = [
     ],
     contract: "Month-to-month, no long-term contract",
     serviceTarget: "Cold Calling & Outbound Prospecting",
-    ctaText: "Get Started Free",
+    ctaText: "Select Starter",
   },
   {
     id: "growth",
@@ -410,7 +409,7 @@ const PRICING_TIERS = [
     badge: "Free 1-week trial available",
     isPopular: true,
     bestFor: "For companies with a proven ICP ready to scale",
-    startingPrice: "$800",
+    startingPrice: "$1,000",
     priceUnit: "/mo",
     tagline:
       "Outreach, appointments, and demo bookings running as one engine: meetings land on your calendar already qualified and ready to close.",
@@ -428,7 +427,7 @@ const PRICING_TIERS = [
     id: "enterprise",
     name: "Enterprise",
     bestFor: "For agencies and companies that want their entire pipeline handled",
-    startingPrice: "$1,500",
+    startingPrice: "$1,800",
     priceUnit: "/mo",
     tagline:
       "Cold outreach, lead generation, CRM management, and reporting: one accountable partner instead of juggling five freelancers and tools.",
@@ -1226,7 +1225,7 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
             <span>Pricing</span>
           </div>
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Transparent, <span className="text-primary">ROI-Driven</span> Pricing
+            Transparent, <span className="text-primary">ROI-Driven</span> Investment
           </h2>
           <p className="mt-2 max-w-xl text-xs sm:text-sm text-foreground/80 font-medium">
             Swipe or select a tier below to view details. All packages start with a short discovery call.
