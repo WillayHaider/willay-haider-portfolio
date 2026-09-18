@@ -426,6 +426,7 @@ const PRICING_TIERS = [
   {
     id: "enterprise",
     name: "Enterprise",
+    badge: "Free 1-week trial available",
     bestFor: "For agencies and companies that want their entire pipeline handled",
     startingPrice: "$1,800",
     priceUnit: "/mo",
