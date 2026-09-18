@@ -388,6 +388,7 @@ const PRICING_TIERS = [
   {
     id: "starter",
     name: "Starter",
+    badge: "Free 1-week trial available",
     bestFor: "For teams ready to build a consistent outbound engine",
     startingPrice: "$700",
     priceUnit: "/mo",
