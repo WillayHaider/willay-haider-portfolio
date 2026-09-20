@@ -1269,10 +1269,10 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
             <span>Pricing</span>
           </div>
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Transparent, <span className="text-primary">ROI-Driven</span> Investment
+            Predictable, <span className="text-primary">High-Return</span> Investment
           </h2>
           <p className="mt-2 max-w-xl text-xs sm:text-sm text-foreground/80 font-medium">
-            Predictable outbound models engineered to scale qualified pipeline with zero long-term lock-in. Test live dials with a 1-week risk-free trial.
+            Swipe or select a tier below to view details. All packages start with a short discovery call.
           </p>
         </div>
 
