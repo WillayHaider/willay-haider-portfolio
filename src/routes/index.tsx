@@ -231,7 +231,7 @@ const FOOTER_NAV_LINKS = [
 
 const CLIENT_TRUST_SIGNALS = [
   { name: "Million Dials Pvt Ltd.", category: "B2B SaaS & Startups", metric: "1,800+ Demos Booked" },
-  { name: "Vizocom ICT LLC", category: "Industrial & Healthcare", metric: "$1.8M+ Generated" },
+  { name: "Vizocom ICT LLC", category: "Industrial & Healthcare", metric: "$1.2M+ Generated" },
   { name: "OMC Group LLC", category: "Legal SEO Outbound", metric: "75% Connect Rate" },
   { name: "Autolift Transport / Nexus LTD", category: "Freight Logistics", metric: "1,700+ Loads" },
 ];
@@ -315,10 +315,10 @@ const CASE_STUDIES = [
     dialsLabel: "20,000+ Calls Dialed",
     meetingsLabel: "1,800+ Meetings Booked",
     showUpRate: "67% Show-up Rate",
-    dealsClosed: "150+ Deals Closed",
-    revenueTarget: 1.2,
-    revenueDecimals: 1,
-    revenueSuffix: "M+ Generated",
+    dealsClosed: "110+ Deals Closed",
+    revenueTarget: 900,
+    revenueDecimals: 0,
+    revenueSuffix: "K+ Generated",
     summary:
       "Ran multi-region outbound campaigns targeting founders, CTOs, and VPs of Sales for B2B SaaS clients across US, UK, and EU markets.",
   },
@@ -329,8 +329,8 @@ const CASE_STUDIES = [
     dialsLabel: "18,000 Calls Dialed",
     leads: "350+ Qualified MQL/SQLs",
     connectRate: "48% Connect Rate",
-    ordersSecured: "77+ Purchase Orders Secured",
-    revenueTarget: 1.8,
+    ordersSecured: "55+ Purchase Orders Secured",
+    revenueTarget: 1.2,
     revenueDecimals: 1,
     revenueSuffix: "M+ Generated",
     summary:
@@ -341,10 +341,10 @@ const CASE_STUDIES = [
     category: "SEO Services for Legal Professionals",
     engagement: "2-month engagement",
     dialsLabel: "7,500+ Calls Dialed",
-    leads: "2,000+ Leads Generated",
+    leads: "1,400+ Leads Generated",
     connectRate: "75% Connect Rate",
     dealsClosed: "Attorney Profiles Signed",
-    revenueTarget: 450,
+    revenueTarget: 300,
     revenueDecimals: 0,
     revenueSuffix: "K+ Generated",
     summary:
@@ -355,10 +355,10 @@ const CASE_STUDIES = [
     category: "Freight Logistics & Dispatching",
     engagement: "3-month engagement",
     dialsLabel: "12,000+ Calls Dialed",
-    quotes: "2,200+ Quotations Sent",
+    quotes: "1,500+ Quotations Sent",
     connectRate: "55% Connect Rate",
-    loadsBooked: "1,700+ Loads Booked",
-    revenueTarget: 150,
+    loadsBooked: "1,100+ Loads Booked",
+    revenueTarget: 100,
     revenueDecimals: 0,
     revenueSuffix: "K+ Generated",
     summary:
@@ -531,7 +531,7 @@ const FAQS = [
   {
     question: "Do you only work with one specific industry?",
     answer:
-      "No. I have generated over $3.5M+ in verified revenue across diverse verticals including B2B SaaS, enterprise technology, industrial and medical procurement, legal services, e-commerce, and logistics. Cold calling fundamentals: rapport, pattern interrupt, value proposition, and objection handling: apply powerfully across any high-ticket B2B market.",
+      "No. I have generated over $2.5M+ in verified revenue across diverse verticals including B2B SaaS, enterprise technology, industrial and medical procurement, legal services, e-commerce, and logistics. Cold calling fundamentals: rapport, pattern interrupt, value proposition, and objection handling: apply powerfully across any high-ticket B2B market.",
   },
   {
     question: "How fast can we launch outbound calls?",
@@ -773,7 +773,7 @@ function HeroSection({
             <div className="mt-8 grid grid-cols-3 gap-3 border-t border-border/80 pt-5 sm:mt-10 sm:flex sm:flex-wrap sm:gap-10 sm:pt-7">
               <div>
                 <p className="text-xl font-extrabold text-[var(--emerald-accent)] sm:text-3xl">
-                  <CountUp end={3.5} decimals={1} prefix="$" suffix="M+" />
+                  <CountUp end={2.5} decimals={1} prefix="$" suffix="M+" />
                 </p>
                 <p className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-[11px]">
                   Revenue Closed
@@ -825,7 +825,7 @@ function HeroSection({
                   <TrendingUp className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-foreground">$3.5M+ Pipeline Closed</p>
+                  <p className="text-xs font-bold text-foreground">$2.5M+ Pipeline Closed</p>
                   <p className="text-[10px] text-muted-foreground">Verified Client Outcomes</p>
                 </div>
               </div>

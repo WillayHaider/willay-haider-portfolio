@@ -177,7 +177,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               email: "contact.whaider@gmail.com",
               telephone: "+923206990099",
               description:
-                "Professional BDR and Outbound Sales Leader with 57,000+ dialed calls and $3.5M+ in verified closed revenue across SaaS, healthcare, and enterprise B2B verticals.",
+                "Professional BDR and Outbound Sales Leader with 57,000+ dialed calls and $2.5M+ in verified closed revenue across SaaS, healthcare, and enterprise B2B verticals.",
               knowsAbout: [
                 "B2B Cold Calling",
                 "Appointment Setting",

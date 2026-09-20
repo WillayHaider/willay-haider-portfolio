@@ -271,13 +271,13 @@ function SitemapPage() {
               <ul className="list-disc pl-6 sm:pl-8 space-y-2">
                 <li>
                   <a href="/#results" className="text-primary font-medium hover:underline">
-                    Client Case Studies & Verified Metrics ($3.5M+ Closed Pipeline)
+                    Client Case Studies & Verified Metrics ($2.5M+ Closed Pipeline)
                   </a>
                   <ul className="list-circle pl-6 sm:pl-8 mt-1.5 space-y-1 text-xs sm:text-sm text-muted-foreground">
                     <li>Million Dials Pvt Ltd. (1,800+ Demos Booked in B2B SaaS)</li>
-                    <li>Vizocom ICT LLC ($1.8M+ Generated in Healthcare & Industrial)</li>
+                    <li>Vizocom ICT LLC ($1.2M+ Generated in Healthcare & Industrial)</li>
                     <li>OMC Group LLC (75% Connect Rate in Legal SEO Outbound)</li>
-                    <li>Autolift Transport / Nexus LTD (1,700+ Freight Loads Dispatched)</li>
+                    <li>Autolift Transport / Nexus LTD (1,100+ Freight Loads Dispatched)</li>
                   </ul>
                 </li>
                 <li>

@@ -20,7 +20,7 @@ export const Route = createFileRoute("/hire-in-house")({
       {
         name: "description",
         content:
-          "Hire Willay Haider: Senior BDR with 57,000+ dials, $3.5M+ pipeline generated, and deep expertise in outbound cold calling and sales systems.",
+          "Hire Willay Haider: Senior BDR with 57,000+ dials, $2.5M+ pipeline generated, and deep expertise in outbound cold calling and sales systems.",
       },
       {
         name: "keywords",
@@ -92,7 +92,7 @@ const CAREER_HIGHLIGHTS = [
     role: "Business Development Representative",
     company: "Vizocom ICT LLC",
     period: "Jun 2025 to Dec 2025",
-    desc: "Ran enterprise outbound cold calling targeting hospital supply procurement directors and battery systems, generating 320+ qualified MQLs and securing 77+ high-ticket purchase orders.",
+    desc: "Ran enterprise outbound cold calling targeting hospital supply procurement directors and battery systems, generating 320+ qualified MQLs and securing 55+ high-ticket purchase orders.",
   },
   {
     role: "Sales Development Representative",
@@ -216,7 +216,7 @@ function HireInHousePage() {
               </span>
             </h1>
             <p className="mt-4 text-xs sm:text-sm md:text-base leading-relaxed text-foreground/90 font-medium max-w-3xl">
-              BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems. Over the past 1.5+ years, I have dialed 57,000+ cold calls and generated $3.5M+ in verified closed revenue.
+              BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems. Over the past 1.5+ years, I have dialed 57,000+ cold calls and generated $2.5M+ in verified closed revenue.
             </p>
             <p className="mt-3 text-xs sm:text-sm md:text-base leading-relaxed text-foreground/90 font-medium max-w-3xl">
               Cold calling is not just about following a script, it's about building high-trust conversations to find their real business pain points.
