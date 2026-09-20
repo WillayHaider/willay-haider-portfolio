@@ -1003,18 +1003,15 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
   return (
     <section className="relative py-10 sm:py-14 bg-background">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="glass-card relative overflow-hidden rounded-2xl p-6 sm:p-8 border border-primary/30 shadow-xl bg-card/85 backdrop-blur-md">
-          {/* Ambient Glow Elements */}
-          <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
-
+        <div className="glass-card relative overflow-hidden rounded-2xl p-6 sm:p-8 border border-border shadow-md bg-card">
           <div className="relative z-10 grid grid-cols-1 items-center gap-6 lg:grid-cols-[1.25fr_0.75fr]">
             <div>
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-primary">
-                <Flame className="h-3.5 w-3.5 text-primary animate-pulse" />
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[var(--emerald-accent)]">
+                <Flame className="h-3.5 w-3.5 text-[var(--emerald-accent)] animate-pulse" />
                 <span>1-Week Risk-Free Revenue Pilot</span>
               </div>
               <h2 className="mt-3 text-xl font-bold tracking-tight text-foreground sm:text-2xl lg:text-[1.65rem] leading-tight">
-                Unlock Rapid Pipeline Revenue In Just 1 Week: <br />
+                See <span className="text-[var(--emerald-accent)]">Results</span> Before You Commit: <br />
                 <span className="text-primary">Zero Risk. Zero Lock-In. Zero Loss.</span>
               </h2>
               <p className="mt-2 text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">
@@ -1022,42 +1019,39 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
               </p>
 
               <div className="mt-4 grid grid-cols-3 gap-2.5">
-                <div className="rounded-xl border border-border bg-card/80 p-2.5 text-center shadow-2xs hover:border-primary/40 transition-colors">
+                <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3 text-center shadow-2xs hover:border-primary/40 transition-colors">
                   <PhoneCall className="h-4 w-4 text-primary mx-auto" />
-                  <p className="mt-1 text-xs font-bold text-foreground">500+ Live Dials</p>
-                  <p className="text-[9px] text-muted-foreground font-medium">Aggressive 5-day sprint</p>
+                  <p className="mt-1.5 text-xs font-bold text-foreground">500+ Live Dials</p>
                 </div>
-                <div className="rounded-xl border border-primary/35 bg-primary/5 p-2.5 text-center shadow-2xs hover:border-primary/50 transition-colors">
+                <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3 text-center shadow-2xs hover:border-primary/40 transition-colors">
                   <Calendar className="h-4 w-4 text-primary mx-auto" />
-                  <p className="mt-1 text-xs font-bold text-foreground">2 Guaranteed Meetings</p>
-                  <p className="text-[9px] text-primary font-semibold">Verified show-ups on calendar</p>
+                  <p className="mt-1.5 text-xs font-bold text-foreground">2 Guaranteed Meetings</p>
                 </div>
-                <div className="rounded-xl border border-border bg-card/80 p-2.5 text-center shadow-2xs hover:border-primary/40 transition-colors">
-                  <ShieldCheck className="h-4 w-4 text-primary mx-auto" />
-                  <p className="mt-1 text-xs font-bold text-foreground">100% Zero Loss</p>
-                  <p className="text-[9px] text-muted-foreground font-medium">Zero cost if not satisfied</p>
+                <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3 text-center shadow-2xs hover:border-[var(--emerald-accent)]/50 transition-colors">
+                  <ShieldCheck className="h-4 w-4 text-[var(--emerald-accent)] mx-auto" />
+                  <p className="mt-1.5 text-xs font-bold text-[var(--emerald-accent)]">100% Zero Loss</p>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col items-center justify-center rounded-2xl border border-primary/35 bg-gradient-to-b from-primary/10 via-secondary/40 to-secondary/70 p-5 sm:p-6 text-center shadow-md relative overflow-hidden group">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/15 text-primary mb-2 shadow-inner ring-4 ring-primary/10">
+            <div className="flex flex-col items-center justify-center rounded-2xl border border-border bg-card p-5 sm:p-6 text-center shadow-xs relative overflow-hidden">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-border bg-secondary/60 text-primary mb-2 shadow-2xs">
                 <Calendar className="h-5.5 w-5.5 text-primary" />
               </div>
               <h3 className="text-base font-bold text-foreground">Claim 1-Week Revenue Sprint</h3>
               <p className="mt-1 text-xs text-foreground/80 font-medium leading-relaxed">
-                Provide your dialer &amp; leads and I start dialing within 48 hours. Only 2 pilot slots available this month.
+                Only 2 pilot spots available this month to maintain quality. Instant setup within 72 hours.
               </p>
               <button
                 onClick={() => onOpenModal("1-Week Risk-Free Outbound Trial")}
-                className="btn-click-effect animate-gentle-shake mt-4 w-full rounded-xl py-3 px-4 text-xs sm:text-sm font-bold text-primary-foreground shadow-md hover:opacity-95 active:scale-95 transition-all flex items-center justify-center gap-2 group/btn cursor-pointer ring-2 ring-primary/30 hover:ring-primary/60"
-                style={{ background: "var(--gradient-primary)" }}
+                className="btn-click-effect animate-gentle-shake mt-4 w-full rounded-xl py-3 px-4 text-xs sm:text-sm font-bold text-white shadow-md hover:opacity-95 active:scale-95 transition-all flex items-center justify-center gap-2 group/btn cursor-pointer ring-2 ring-emerald-500/30 hover:ring-emerald-500/60"
+                style={{ background: "var(--gradient-emerald)" }}
               >
                 <span>Start 1-Week Risk-Free Pilot</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
               </button>
               <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] text-muted-foreground font-medium">
-                <Lock className="h-3 w-3 text-primary shrink-0" />
+                <Lock className="h-3 w-3 text-[var(--emerald-accent)] shrink-0" />
                 <span>Zero Risk · No Long-Term Contract · Zero Loss</span>
               </div>
             </div>
