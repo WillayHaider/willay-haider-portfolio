@@ -1019,18 +1019,18 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
                 </p>
               </div>
 
-              <div className="mt-6 sm:mt-7 grid grid-cols-3 gap-1.5 sm:gap-2.5">
-                <div className="flex items-center justify-center gap-1 sm:gap-1.5 rounded-xl border border-border bg-card py-2 px-1 sm:px-2 md:px-2.5 text-center shadow-2xs hover:border-primary/40 transition-colors whitespace-nowrap min-w-0">
-                  <PhoneCall className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary shrink-0" />
-                  <span className="text-[10px] sm:text-[11px] md:text-xs font-bold text-foreground tracking-tight whitespace-nowrap">700+ Live Dials</span>
+              <div className="mt-6 sm:mt-7 grid grid-cols-3 gap-2 sm:gap-3">
+                <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-2.5 sm:p-3 text-center shadow-2xs hover:border-primary/40 transition-colors">
+                  <PhoneCall className="h-4 w-4 text-primary mx-auto" />
+                  <p className="mt-1.5 text-[11px] sm:text-xs font-bold text-foreground leading-tight">700+ Live Dials</p>
                 </div>
-                <div className="flex items-center justify-center gap-1 sm:gap-1.5 rounded-xl border border-border bg-card py-2 px-1 sm:px-2 md:px-2.5 text-center shadow-2xs hover:border-primary/40 transition-colors whitespace-nowrap min-w-0">
-                  <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary shrink-0" />
-                  <span className="text-[10px] sm:text-[11px] md:text-xs font-bold text-foreground tracking-tight whitespace-nowrap">2 Guaranteed Meetings</span>
+                <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-2.5 sm:p-3 text-center shadow-2xs hover:border-primary/40 transition-colors">
+                  <Calendar className="h-4 w-4 text-primary mx-auto" />
+                  <p className="mt-1.5 text-[11px] sm:text-xs font-bold text-foreground leading-tight">2 Guaranteed Meetings</p>
                 </div>
-                <div className="flex items-center justify-center gap-1 sm:gap-1.5 rounded-xl border border-border bg-card py-2 px-1 sm:px-2 md:px-2.5 text-center shadow-2xs hover:border-[var(--emerald-accent)]/50 transition-colors whitespace-nowrap min-w-0">
-                  <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[var(--emerald-accent)] shrink-0" />
-                  <span className="text-[10px] sm:text-[11px] md:text-xs font-bold text-[var(--emerald-accent)] tracking-tight whitespace-nowrap">100% Zero Loss</span>
+                <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-2.5 sm:p-3 text-center shadow-2xs hover:border-[var(--emerald-accent)]/50 transition-colors">
+                  <ShieldCheck className="h-4 w-4 text-[var(--emerald-accent)] mx-auto" />
+                  <p className="mt-1.5 text-[11px] sm:text-xs font-bold text-[var(--emerald-accent)] leading-tight">100% Zero Loss</p>
                 </div>
               </div>
             </div>
