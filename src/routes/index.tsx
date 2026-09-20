@@ -1006,12 +1006,11 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
         <div className="glass-card relative overflow-hidden rounded-2xl p-6 sm:p-8 border border-primary/30 shadow-xl bg-card/85 backdrop-blur-md">
           {/* Ambient Glow Elements */}
           <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
-          <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl" />
 
           <div className="relative z-10 grid grid-cols-1 items-center gap-6 lg:grid-cols-[1.25fr_0.75fr]">
             <div>
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[var(--emerald-accent)]">
-                <Flame className="h-3.5 w-3.5 text-[var(--emerald-accent)] animate-pulse" />
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-primary">
+                <Flame className="h-3.5 w-3.5 text-primary animate-pulse" />
                 <span>1-Week Risk-Free Revenue Pilot</span>
               </div>
               <h2 className="mt-3 text-xl font-bold tracking-tight text-foreground sm:text-2xl lg:text-[1.65rem] leading-tight">
@@ -1019,7 +1018,7 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
                 <span className="text-primary">Zero Risk. Zero Lock-In. Zero Loss.</span>
               </h2>
               <p className="mt-2 text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">
-                Got a dialer, target lead lists, and hungry closers ready? Hand me the phone. I’ll run high-conviction, unscripted outbound dials for 5 straight business days and pack your calendar with pre-qualified decision-makers ready to buy. If I don't produce qualified conversations and real pipeline momentum, you walk away with zero loss.
+                Got a dialer, target lead lists, and hungry closers ready? Hand me the phone. I will run high-conviction outbound dials for 5 straight business days to pack your calendar. If I deliver 2 qualified meetings that actually show up, we roll into an ongoing monthly engagement. If not, you walk away with zero loss.
               </p>
 
               <div className="mt-4 grid grid-cols-3 gap-2.5">
@@ -1028,13 +1027,13 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
                   <p className="mt-1 text-xs font-bold text-foreground">500+ Live Dials</p>
                   <p className="text-[9px] text-muted-foreground font-medium">Aggressive 5-day sprint</p>
                 </div>
-                <div className="rounded-xl border border-border bg-card/80 p-2.5 text-center shadow-2xs hover:border-primary/40 transition-colors">
-                  <Headphones className="h-4 w-4 text-primary mx-auto" />
-                  <p className="mt-1 text-xs font-bold text-foreground">Your Dialer & Leads</p>
-                  <p className="text-[9px] text-muted-foreground font-medium">Instant 48h onboarding</p>
+                <div className="rounded-xl border border-primary/35 bg-primary/5 p-2.5 text-center shadow-2xs hover:border-primary/50 transition-colors">
+                  <Calendar className="h-4 w-4 text-primary mx-auto" />
+                  <p className="mt-1 text-xs font-bold text-foreground">2 Guaranteed Meetings</p>
+                  <p className="text-[9px] text-primary font-semibold">Verified show-ups on calendar</p>
                 </div>
                 <div className="rounded-xl border border-border bg-card/80 p-2.5 text-center shadow-2xs hover:border-primary/40 transition-colors">
-                  <ShieldCheck className="h-4 w-4 text-[var(--emerald-accent)] mx-auto" />
+                  <ShieldCheck className="h-4 w-4 text-primary mx-auto" />
                   <p className="mt-1 text-xs font-bold text-foreground">100% Zero Loss</p>
                   <p className="text-[9px] text-muted-foreground font-medium">Zero cost if not satisfied</p>
                 </div>
@@ -1042,23 +1041,23 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
             </div>
 
             <div className="flex flex-col items-center justify-center rounded-2xl border border-primary/35 bg-gradient-to-b from-primary/10 via-secondary/40 to-secondary/70 p-5 sm:p-6 text-center shadow-md relative overflow-hidden group">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/15 text-primary mb-2 shadow-inner ring-4 ring-primary/10">
-                <Sparkles className="h-5 w-5 text-primary animate-bounce" />
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/15 text-primary mb-2 shadow-inner ring-4 ring-primary/10">
+                <Calendar className="h-5.5 w-5.5 text-primary" />
               </div>
               <h3 className="text-base font-bold text-foreground">Claim 1-Week Revenue Sprint</h3>
               <p className="mt-1 text-xs text-foreground/80 font-medium leading-relaxed">
-                Provide your dialer & leads — I start dialing within 48 hours. Only 2 pilot slots available this month.
+                Provide your dialer &amp; leads and I start dialing within 48 hours. Only 2 pilot slots available this month.
               </p>
               <button
                 onClick={() => onOpenModal("1-Week Risk-Free Outbound Trial")}
-                className="btn-click-effect mt-4 w-full rounded-xl py-3 px-4 text-xs sm:text-sm font-bold text-primary-foreground shadow-md hover:opacity-95 active:scale-95 transition-all flex items-center justify-center gap-2 group/btn cursor-pointer ring-2 ring-primary/30 hover:ring-primary/60"
+                className="btn-click-effect animate-gentle-shake mt-4 w-full rounded-xl py-3 px-4 text-xs sm:text-sm font-bold text-primary-foreground shadow-md hover:opacity-95 active:scale-95 transition-all flex items-center justify-center gap-2 group/btn cursor-pointer ring-2 ring-primary/30 hover:ring-primary/60"
                 style={{ background: "var(--gradient-primary)" }}
               >
                 <span>Start 1-Week Risk-Free Pilot</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
               </button>
               <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] text-muted-foreground font-medium">
-                <Lock className="h-3 w-3 text-emerald-500 shrink-0" />
+                <Lock className="h-3 w-3 text-primary shrink-0" />
                 <span>Zero Risk · No Long-Term Contract · Zero Loss</span>
               </div>
             </div>

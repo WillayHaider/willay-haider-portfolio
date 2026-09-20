@@ -175,6 +175,32 @@
   animation: floatSlow 5s ease-in-out infinite;
 }
 
+/* Attention-Grabbing Gentle Shake for CTAs */
+@keyframes gentleShake {
+  0%, 80%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  83% {
+    transform: scale(1.025) rotate(-1.5deg);
+  }
+  86% {
+    transform: scale(1.025) rotate(1.5deg);
+  }
+  89% {
+    transform: scale(1.025) rotate(-1.5deg);
+  }
+  92% {
+    transform: scale(1.025) rotate(1.5deg);
+  }
+  95% {
+    transform: scale(1.01) rotate(0deg);
+  }
+}
+
+.animate-gentle-shake {
+  animation: gentleShake 3.2s ease-in-out infinite;
+}
+
 /* Seamless Continuous Marquee Animation */
 @keyframes marqueeScroll {
   0% {
