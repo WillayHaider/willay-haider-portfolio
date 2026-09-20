@@ -15,7 +15,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems. $2.6M+ closed revenue generated.",
+          "BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems. $2.5M+ closed revenue generated.",
       },
       {
         name: "keywords",
@@ -141,7 +141,7 @@ function AboutPage() {
 
             <div className="space-y-4">
               <p className="text-base sm:text-lg font-medium text-foreground leading-relaxed">
-                BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems. Over the past 1.5+ years, I have dialed 57,000+ cold calls and generated $2.6M+ in verified closed revenue.
+                BDR and Outbound Sales Strategist partnering with US, UK, and European B2B organizations to implement full-fledged outbound systems. Over the past 1.5+ years, I have dialed 57,000+ cold calls and generated $2.5M+ in verified closed revenue.
               </p>
 
               <p>
@@ -159,7 +159,7 @@ function AboutPage() {
                 Why I Threw Away the Sales Script
               </span>
               <span className="block mt-1 sm:mt-2 text-primary">
-                And Built a $2.6M+ Pipeline Instead
+                And Built a $2.5M+ Pipeline Instead
               </span>
             </h1>
           </header>
@@ -187,7 +187,7 @@ function AboutPage() {
               <div className="grid grid-cols-3 gap-3 border-y border-border/80 py-5 my-4 sm:flex sm:flex-wrap sm:gap-10 sm:py-6">
                 <div>
                   <p className="text-xl font-extrabold text-[var(--emerald-accent)] sm:text-3xl">
-                    $2.6M+
+                    $2.5M+
                   </p>
                   <p className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-[11px]">
                     Revenue Closed

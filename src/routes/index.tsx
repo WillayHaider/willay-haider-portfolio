@@ -540,7 +540,7 @@ const FAQS = [
   {
     question: "Do you only work with one specific industry?",
     answer:
-      "No. I have generated over $2.6M+ in verified revenue across diverse verticals including B2B SaaS, enterprise technology, industrial and medical procurement, legal services, e-commerce, and logistics. Cold calling fundamentals: rapport, pattern interrupt, value proposition, and objection handling: apply powerfully across any high-ticket B2B market.",
+      "No. I have generated over $2.5M+ in verified revenue across diverse verticals including B2B SaaS, enterprise technology, industrial and medical procurement, legal services, e-commerce, and logistics. Cold calling fundamentals: rapport, pattern interrupt, value proposition, and objection handling: apply powerfully across any high-ticket B2B market.",
   },
   {
     question: "How fast can we launch outbound calls?",
@@ -782,7 +782,7 @@ function HeroSection({
             <div className="mt-8 grid grid-cols-3 gap-3 border-t border-border/80 pt-5 sm:mt-10 sm:flex sm:flex-wrap sm:gap-10 sm:pt-7">
               <div>
                 <p className="text-xl font-extrabold text-[var(--emerald-accent)] sm:text-3xl">
-                  <CountUp end={2.6} decimals={1} prefix="$" suffix="M+" />
+                  <CountUp end={2.5} decimals={1} prefix="$" suffix="M+" />
                 </p>
                 <p className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-[11px]">
                   Revenue Closed
@@ -834,7 +834,7 @@ function HeroSection({
                   <TrendingUp className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-foreground">$2.6M+ Pipeline Closed</p>
+                  <p className="text-xs font-bold text-foreground">$2.5M+ Pipeline Closed</p>
                   <p className="text-[10px] text-muted-foreground">Verified Client Outcomes</p>
                 </div>
               </div>
@@ -1063,7 +1063,7 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
                   <div className="flex items-center gap-3.5 sm:gap-4">
                     {/* Prominent, easily scannable Logo Badge */}
                     <div
-                      className={`flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-xl border p-2 shadow-xs transition-transform duration-300 hover:scale-105 ${
+                      className={`flex h-14 w-20 sm:h-16 sm:w-24 shrink-0 items-center justify-center rounded-xl border p-1 sm:p-1.5 shadow-xs overflow-hidden transition-transform duration-300 hover:scale-105 ${
                         cs.client.includes("Vizocom")
                           ? "bg-slate-950 border-slate-800 dark:bg-slate-900 dark:border-slate-700"
                           : cs.client.includes("OMC")
@@ -1074,9 +1074,17 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
                       <img
                         src={cs.logo}
                         alt={cs.logoAlt}
-                        width={64}
+                        width={96}
                         height={64}
-                        className="h-full w-full object-contain"
+                        className={`h-full w-full object-contain transition-transform duration-300 ${
+                          cs.client.includes("Vizocom")
+                            ? "scale-[1.35]"
+                            : cs.client.includes("OMC")
+                            ? "scale-[1.30]"
+                            : cs.client.includes("Autolift")
+                            ? "scale-[1.35]"
+                            : "scale-105"
+                        }`}
                         loading="lazy"
                         decoding="async"
                       />

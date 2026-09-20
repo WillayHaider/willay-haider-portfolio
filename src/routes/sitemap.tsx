@@ -271,7 +271,7 @@ function SitemapPage() {
               <ul className="list-disc pl-6 sm:pl-8 space-y-2">
                 <li>
                   <a href="/#results" className="text-primary font-medium hover:underline">
-                    Client Case Studies & Verified Metrics ($2.6M+ Closed Pipeline)
+                    Client Case Studies & Verified Metrics ($2.5M+ Closed Pipeline)
                   </a>
                   <ul className="list-circle pl-6 sm:pl-8 mt-1.5 space-y-1 text-xs sm:text-sm text-muted-foreground">
                     <li>Million Dials Pvt Ltd. (1,800+ Demos Booked, $1.2M+ Generated in B2B SaaS)</li>
