@@ -1337,7 +1337,7 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
             <BarChart3 className="h-3 w-3" />
             <span>Pricing</span>
           </div>
-          <h2 className="mt-3 text-lg sm:text-2xl md:text-3xl font-bold tracking-tight text-foreground whitespace-nowrap">
+          <h2 className="mt-3 text-[1.25rem] xs:text-[1.45rem] sm:text-3xl lg:text-[2rem] font-bold tracking-tight text-foreground whitespace-nowrap">
             Predictable, <span className="text-primary">Revenue-Driven</span> Investment
           </h2>
           <p className="mt-2 max-w-xl text-xs sm:text-sm text-foreground/80 font-medium">
