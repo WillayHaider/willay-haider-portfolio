@@ -15,6 +15,7 @@ interface LeadCaptureModalProps {
 }
 
 const SERVICES = [
+  "1-Week Risk-Free Outbound Trial",
   "Cold Calling & Outbound Prospecting",
   "Appointment Setting & Demo Booking",
   "Lead Generation & Pipeline Building",

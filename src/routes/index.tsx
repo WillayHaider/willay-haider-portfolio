@@ -22,6 +22,8 @@ import {
   Bot,
   Award,
   Star,
+  Flame,
+  Lock,
 } from "lucide-react";
 import heroPortrait from "@/assets/willay-portrait-final-nobg.webp";
 import ranaAvatar from "@/assets/rana-ammad-ali.jpg";
@@ -576,6 +578,7 @@ function ServiceBusinessPage() {
         <TrustBarSection />
         <ServicesSection onOpenModal={openLeadModal} />
         <CertificationsSection />
+        <RiskFreeTrialSection onOpenModal={openLeadModal} />
         <ToolsGridSection />
         <CaseStudiesSection onOpenModal={openLeadModal} />
         <PricingCarouselSection onOpenModal={openLeadModal} />
@@ -992,12 +995,86 @@ function CertificationsSection() {
 }
 
 /* =========================================================================
-   6. TECH STACK SECTION (4 CORE PLATFORMS)
+   6. 1-WEEK RISK-FREE TRIAL CTA SECTION (NO-BRAINER PILOT OFFER)
+   ========================================================================= */
+
+function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
+  return (
+    <section className="relative py-10 sm:py-14 bg-background">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="glass-card relative overflow-hidden rounded-2xl p-6 sm:p-8 border border-primary/30 shadow-xl bg-card/85 backdrop-blur-md">
+          {/* Ambient Glow Elements */}
+          <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
+          <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl" />
+
+          <div className="relative z-10 grid grid-cols-1 items-center gap-6 lg:grid-cols-[1.25fr_0.75fr]">
+            <div>
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[var(--emerald-accent)]">
+                <Flame className="h-3.5 w-3.5 text-[var(--emerald-accent)] animate-pulse" />
+                <span>100% Risk-Free Pilot Offer</span>
+              </div>
+              <h2 className="mt-3 text-xl font-bold tracking-tight text-foreground sm:text-2xl lg:text-[1.65rem] leading-tight">
+                Test Drive My Outbound Engine For 1 Week: <br />
+                <span className="text-primary">Zero Risk. Zero Lock-In. Zero Retainer.</span>
+              </h2>
+              <p className="mt-2 text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">
+                Want proof before committing? I’ll build your custom ICP lead list, craft high-converting objection-handling scripts, and execute live outbound dials for 5 business days. If you don't experience qualified conversations and real pipeline traction, you owe nothing.
+              </p>
+
+              <div className="mt-4 grid grid-cols-3 gap-2.5">
+                <div className="rounded-xl border border-border bg-card/80 p-2.5 text-center shadow-2xs hover:border-primary/40 transition-colors">
+                  <PhoneCall className="h-4 w-4 text-primary mx-auto" />
+                  <p className="mt-1 text-xs font-bold text-foreground">500+ Live Dials</p>
+                  <p className="text-[9px] text-muted-foreground font-medium">Dedicated caller sprint</p>
+                </div>
+                <div className="rounded-xl border border-border bg-card/80 p-2.5 text-center shadow-2xs hover:border-primary/40 transition-colors">
+                  <Target className="h-4 w-4 text-primary mx-auto" />
+                  <p className="mt-1 text-xs font-bold text-foreground">Custom ICP Leads</p>
+                  <p className="text-[9px] text-muted-foreground font-medium">Verified direct dials</p>
+                </div>
+                <div className="rounded-xl border border-border bg-card/80 p-2.5 text-center shadow-2xs hover:border-primary/40 transition-colors">
+                  <ShieldCheck className="h-4 w-4 text-[var(--emerald-accent)] mx-auto" />
+                  <p className="mt-1 text-xs font-bold text-foreground">Pay On Value</p>
+                  <p className="text-[9px] text-muted-foreground font-medium">Zero cost if not satisfied</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center justify-center rounded-2xl border border-primary/35 bg-gradient-to-b from-primary/10 via-secondary/40 to-secondary/70 p-5 sm:p-6 text-center shadow-md relative overflow-hidden group">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/15 text-primary mb-2 shadow-inner ring-4 ring-primary/10">
+                <Sparkles className="h-5 w-5 text-primary animate-bounce" />
+              </div>
+              <h3 className="text-base font-bold text-foreground">Claim Your 1-Week Trial</h3>
+              <p className="mt-1 text-xs text-foreground/80 font-medium leading-relaxed">
+                Only 2 pilot spots available this month to maintain dial quality. Instant setup within 48 hours.
+              </p>
+              <button
+                onClick={() => onOpenModal("1-Week Risk-Free Outbound Trial")}
+                className="btn-click-effect mt-4 w-full rounded-xl py-3 px-4 text-xs sm:text-sm font-bold text-primary-foreground shadow-md hover:opacity-95 active:scale-95 transition-all flex items-center justify-center gap-2 group/btn cursor-pointer ring-2 ring-primary/30 hover:ring-primary/60"
+                style={{ background: "var(--gradient-primary)" }}
+              >
+                <span>Start 1-Week Risk-Free Pilot</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+              </button>
+              <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] text-muted-foreground font-medium">
+                <Lock className="h-3 w-3 text-emerald-500 shrink-0" />
+                <span>No credit card required · Zero commitment</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================================
+   7. TECH STACK SECTION (4 CORE PLATFORMS)
    ========================================================================= */
 
 function ToolsGridSection() {
   return (
-    <section className="relative border-b border-border/70 bg-background py-8 sm:py-12">
+    <section className="relative border-y border-border/70 bg-secondary/30 py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="text-center mb-6">
           <p className="text-xs font-semibold uppercase tracking-wider text-primary">
