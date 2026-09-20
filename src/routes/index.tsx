@@ -1019,18 +1019,18 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
                 </p>
               </div>
 
-              <div className="mt-6 sm:mt-7 grid grid-cols-3 gap-2.5 sm:gap-3">
-                <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3 text-center shadow-2xs hover:border-primary/40 transition-colors">
-                  <PhoneCall className="h-4 w-4 text-primary mx-auto" />
-                  <p className="mt-1.5 text-xs font-bold text-foreground">700+ Live Dials</p>
+              <div className="mt-6 sm:mt-7 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+                <div className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card py-2.5 px-3 text-center shadow-2xs hover:border-primary/40 transition-colors">
+                  <PhoneCall className="h-4 w-4 text-primary shrink-0" />
+                  <span className="text-xs font-bold text-foreground whitespace-nowrap">700+ Live Dials</span>
                 </div>
-                <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3 text-center shadow-2xs hover:border-primary/40 transition-colors">
-                  <Calendar className="h-4 w-4 text-primary mx-auto" />
-                  <p className="mt-1.5 text-xs font-bold text-foreground">2 Guaranteed Meetings</p>
+                <div className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card py-2.5 px-3 text-center shadow-2xs hover:border-primary/40 transition-colors">
+                  <Calendar className="h-4 w-4 text-primary shrink-0" />
+                  <span className="text-xs font-bold text-foreground whitespace-nowrap">2 Guaranteed Meetings</span>
                 </div>
-                <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3 text-center shadow-2xs hover:border-[var(--emerald-accent)]/50 transition-colors">
-                  <ShieldCheck className="h-4 w-4 text-[var(--emerald-accent)] mx-auto" />
-                  <p className="mt-1.5 text-xs font-bold text-[var(--emerald-accent)]">100% Zero Loss</p>
+                <div className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card py-2.5 px-3 text-center shadow-2xs hover:border-[var(--emerald-accent)]/50 transition-colors">
+                  <ShieldCheck className="h-4 w-4 text-[var(--emerald-accent)] shrink-0" />
+                  <span className="text-xs font-bold text-[var(--emerald-accent)] whitespace-nowrap">100% Zero Loss</span>
                 </div>
               </div>
             </div>
