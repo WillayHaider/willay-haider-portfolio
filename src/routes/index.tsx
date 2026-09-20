@@ -31,6 +31,7 @@ import googleLogo from "@/assets/google-logo.png";
 import deloitteLogo from "@/assets/deloitte-logo.png";
 import awsLogo from "@/assets/aws-logo.png";
 import adbiLogo from "@/assets/adbi-logo.png";
+import millionDialsLogo from "@/assets/million-dials-logo.png";
 import omcLogo from "@/assets/omc-group-logo.png";
 import vizocomLogo from "@/assets/vizocom-logo.png";
 import autoliftLogo from "@/assets/autolift-transport-logo.png";
@@ -230,10 +231,34 @@ const FOOTER_NAV_LINKS = [
 ];
 
 const CLIENT_TRUST_SIGNALS = [
-  { name: "Million Dials Pvt Ltd.", category: "B2B SaaS & Startups", metric: "1,800+ Demos Booked" },
-  { name: "Vizocom ICT LLC", category: "Industrial & Healthcare", metric: "$1.2M+ Generated" },
-  { name: "OMC Group LLC", category: "Legal SEO Outbound", metric: "75% Connect Rate" },
-  { name: "Autolift Transport / Nexus LTD", category: "Freight Logistics", metric: "1,700+ Loads" },
+  {
+    name: "Million Dials Pvt Ltd.",
+    category: "B2B SaaS & Startups",
+    metric: "1,800+ Demos Booked",
+    logo: millionDialsLogo,
+    logoAlt: "Million Dials company logo - B2B SaaS and startup outbound partner",
+  },
+  {
+    name: "Vizocom ICT LLC",
+    category: "Industrial & Healthcare",
+    metric: "$1.2M+ Generated",
+    logo: vizocomLogo,
+    logoAlt: "Vizocom ICT LLC company logo - Industrial and healthcare supply procurement client",
+  },
+  {
+    name: "OMC Group LLC",
+    category: "Legal SEO Outbound",
+    metric: "75% Connect Rate",
+    logo: omcLogo,
+    logoAlt: "OMC Group LLC company logo - Legal SEO and attorney outreach partner",
+  },
+  {
+    name: "Autolift Transport / Nexus LTD",
+    category: "Freight Logistics",
+    metric: "1,700+ Loads",
+    logo: autoliftLogo,
+    logoAlt: "Auto Lift Transport company logo - Freight logistics and fleet dispatching partner",
+  },
 ];
 
 const SERVICES_DATA = [
@@ -310,6 +335,8 @@ const CERTIFICATIONS_DATA = [
 const CASE_STUDIES = [
   {
     client: "Million Dials Pvt Ltd.",
+    logo: millionDialsLogo,
+    logoAlt: "Million Dials company logo - B2B SaaS outbound sales and appointment setting client",
     category: "B2B SaaS & Startup Outbound",
     engagement: "7-month engagement",
     dialsLabel: "20,000+ Calls Dialed",
@@ -324,6 +351,8 @@ const CASE_STUDIES = [
   },
   {
     client: "Vizocom ICT LLC",
+    logo: vizocomLogo,
+    logoAlt: "Vizocom ICT LLC company logo - Industrial and healthcare bulk procurement sales client",
     category: "Industrial & Healthcare Bulk Procurement",
     engagement: "5-month engagement",
     dialsLabel: "18,000 Calls Dialed",
@@ -338,6 +367,8 @@ const CASE_STUDIES = [
   },
   {
     client: "OMC Group LLC",
+    logo: omcLogo,
+    logoAlt: "OMC Group LLC company logo - Legal SEO services and North American attorney outreach client",
     category: "SEO Services for Legal Professionals",
     engagement: "2-month engagement",
     dialsLabel: "7,500+ Calls Dialed",
@@ -352,6 +383,8 @@ const CASE_STUDIES = [
   },
   {
     client: "Autolift Transport / Nexus LTD",
+    logo: autoliftLogo,
+    logoAlt: "Auto Lift Transport company logo - US freight logistics and fleet dispatching client",
     category: "Freight Logistics & Dispatching",
     engagement: "3-month engagement",
     dialsLabel: "12,000+ Calls Dialed",
@@ -845,14 +878,31 @@ function TrustBarSection() {
   return (
     <section className="relative border-y border-border/70 bg-secondary/40 py-7 sm:py-9">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        {/* 2x2 Grid Layout */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-3xl mx-auto">
+        {/* 2x2 or 4-column Grid Layout */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto">
           {CLIENT_TRUST_SIGNALS.map((client) => (
             <div
               key={client.name}
-              className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3.5 sm:p-4 text-center shadow-xs transition-colors hover:border-primary/40"
+              className="flex flex-col items-center justify-between rounded-xl border border-border bg-card p-3.5 sm:p-4 text-center shadow-xs transition-all hover:border-primary/40 hover:shadow-sm"
             >
-              <span className="text-xs sm:text-sm font-extrabold tracking-tight text-foreground">
+              <div
+                className={`flex h-12 w-28 sm:h-13 sm:w-32 items-center justify-center rounded-lg border p-1.5 mb-2 shadow-2xs ${
+                  client.name.includes("Vizocom")
+                    ? "bg-slate-950 border-slate-800 dark:bg-slate-900 dark:border-slate-700"
+                    : "bg-white border-slate-200/90 dark:bg-white/95 dark:border-slate-200"
+                }`}
+              >
+                <img
+                  src={client.logo}
+                  alt={client.logoAlt}
+                  width={110}
+                  height={34}
+                  className="h-full w-full object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <span className="text-xs sm:text-sm font-extrabold tracking-tight text-foreground line-clamp-1">
                 {client.name}
               </span>
               <span className="mt-0.5 text-[11px] text-muted-foreground font-medium">{client.category}</span>
@@ -1050,18 +1100,41 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
               className="revenue-card relative flex flex-col justify-between rounded-xl p-5 sm:p-6"
             >
               <div>
-                <div className="flex items-center justify-between gap-2">
-                  <div>
-                    <h3 className="text-base sm:text-lg font-extrabold text-foreground">{cs.client}</h3>
-                    <p className="text-xs font-semibold text-primary">{cs.category}</p>
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3.5 sm:gap-4">
+                    {/* Prominent, easily scannable Logo Badge */}
+                    <div
+                      className={`flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-xl border p-2 shadow-xs transition-transform duration-300 hover:scale-105 ${
+                        cs.client.includes("Vizocom")
+                          ? "bg-slate-950 border-slate-800 dark:bg-slate-900 dark:border-slate-700"
+                          : "bg-white border-slate-200/90 dark:bg-white/95 dark:border-slate-200"
+                      }`}
+                    >
+                      <img
+                        src={cs.logo}
+                        alt={cs.logoAlt}
+                        width={64}
+                        height={64}
+                        className="h-full w-full object-contain"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+
+                    <div>
+                      <h3 className="text-base sm:text-lg font-extrabold text-foreground leading-tight">
+                        {cs.client}
+                      </h3>
+                      <p className="text-xs font-semibold text-primary mt-0.5">{cs.category}</p>
+                      <p className="text-[11px] text-muted-foreground font-medium mt-0.5">{cs.engagement}</p>
+                    </div>
                   </div>
-                  <span className="inline-flex items-center gap-1 rounded-full border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] px-2 py-0.5 text-[10px] font-bold text-[var(--emerald-accent)]">
-                    <ShieldCheck className="h-3 w-3" />
+
+                  <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] px-2.5 py-1 text-[10px] font-bold text-[var(--emerald-accent)]">
+                    <ShieldCheck className="h-3.5 w-3.5" />
                     Verified
                   </span>
                 </div>
-
-                <p className="mt-0.5 text-[11px] text-muted-foreground font-medium">{cs.engagement}</p>
 
                 {/* Softened Revenue Impact Box with Slower Count-Up Animation (3.0s) */}
                 <div className="mt-3.5 rounded-lg border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] p-3 text-left">
