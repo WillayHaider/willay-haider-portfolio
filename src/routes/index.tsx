@@ -1006,22 +1006,23 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
         <div className="glass-card relative overflow-hidden rounded-2xl p-6 sm:p-8 border border-border shadow-md bg-card">
           <div className="relative z-10 grid grid-cols-1 items-center gap-6 lg:grid-cols-[1.25fr_0.75fr]">
             <div>
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[var(--emerald-accent)]">
-                <Flame className="h-3.5 w-3.5 text-[var(--emerald-accent)] animate-pulse" />
-                <span>1-Week Risk-Free Revenue Pilot</span>
-              </div>
-              <h2 className="mt-3 text-xl font-bold tracking-tight text-foreground sm:text-2xl lg:text-[1.65rem] leading-tight">
+              <h2 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl lg:text-[1.65rem] leading-tight">
                 See <span className="text-[var(--emerald-accent)]">Results</span> Before You Commit: <br />
                 <span className="text-primary">Zero Risk. Zero Lock-In. Zero Loss.</span>
               </h2>
-              <p className="mt-2 text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">
-                Got a dialer, target lead lists, and hungry closers ready? Hand me the phone. I will run high-conviction outbound dials for 5 straight business days to pack your calendar. If I deliver 2 qualified meetings that actually show up, we roll into an ongoing monthly engagement. If not, you walk away with zero loss.
-              </p>
+              <div className="mt-3 space-y-1.5 text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">
+                <p>
+                  Got a dialer, target lead lists, and hungry closers ready? Hand me the phone.
+                </p>
+                <p className="text-foreground/80">
+                  I will run high-conviction outbound dials for 5 business days. If I deliver 2 qualified meetings that actually show up, we roll into an ongoing monthly engagement. If not, you walk away with zero loss.
+                </p>
+              </div>
 
-              <div className="mt-4 grid grid-cols-3 gap-2.5">
+              <div className="mt-6 sm:mt-7 grid grid-cols-3 gap-2.5 sm:gap-3">
                 <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3 text-center shadow-2xs hover:border-primary/40 transition-colors">
                   <PhoneCall className="h-4 w-4 text-primary mx-auto" />
-                  <p className="mt-1.5 text-xs font-bold text-foreground">500+ Live Dials</p>
+                  <p className="mt-1.5 text-xs font-bold text-foreground">700+ Live Dials</p>
                 </div>
                 <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3 text-center shadow-2xs hover:border-primary/40 transition-colors">
                   <Calendar className="h-4 w-4 text-primary mx-auto" />
@@ -1044,7 +1045,7 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
               </p>
               <button
                 onClick={() => onOpenModal("1-Week Risk-Free Outbound Trial")}
-                className="btn-click-effect animate-gentle-shake mt-4 w-full rounded-xl py-3 px-4 text-xs sm:text-sm font-bold text-white shadow-md hover:opacity-95 active:scale-95 transition-all flex items-center justify-center gap-2 group/btn cursor-pointer ring-2 ring-emerald-500/30 hover:ring-emerald-500/60"
+                className="btn-click-effect animate-smooth-bounce mt-4 w-full rounded-xl py-3 px-4 text-xs sm:text-sm font-bold text-white shadow-md hover:opacity-95 active:scale-95 transition-all flex items-center justify-center gap-2 group/btn cursor-pointer ring-2 ring-emerald-500/30 hover:ring-emerald-500/60"
                 style={{ background: "var(--gradient-emerald)" }}
               >
                 <span>Start 1-Week Risk-Free Pilot</span>
