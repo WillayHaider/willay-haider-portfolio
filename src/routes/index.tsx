@@ -1269,7 +1269,7 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
             <span>Pricing</span>
           </div>
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Predictable, <span className="text-primary">High-Return</span> Investment
+            Predictable, <span className="text-primary">Revenue-Driven</span> Investment
           </h2>
           <p className="mt-2 max-w-xl text-xs sm:text-sm text-foreground/80 font-medium">
             Swipe or select a tier below to view details. All packages start with a short discovery call.
