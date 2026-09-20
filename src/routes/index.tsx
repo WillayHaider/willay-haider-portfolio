@@ -1063,7 +1063,7 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
                   <div className="flex items-center gap-3.5 sm:gap-4">
                     {/* Prominent, easily scannable Logo Badge */}
                     <div
-                      className={`flex h-14 w-20 sm:h-16 sm:w-24 shrink-0 items-center justify-center rounded-xl border p-1 sm:p-1.5 shadow-xs overflow-hidden transition-transform duration-300 hover:scale-105 ${
+                      className={`flex h-12 w-16 sm:h-13 sm:w-20 shrink-0 items-center justify-center rounded-xl border p-1.5 shadow-2xs overflow-hidden transition-transform duration-300 hover:scale-105 ${
                         cs.client.includes("Vizocom")
                           ? "bg-slate-950 border-slate-800 dark:bg-slate-900 dark:border-slate-700"
                           : cs.client.includes("OMC")
@@ -1074,16 +1074,16 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
                       <img
                         src={cs.logo}
                         alt={cs.logoAlt}
-                        width={96}
-                        height={64}
+                        width={80}
+                        height={52}
                         className={`h-full w-full object-contain transition-transform duration-300 ${
                           cs.client.includes("Vizocom")
-                            ? "scale-[1.35]"
+                            ? "scale-[1.10]"
                             : cs.client.includes("OMC")
-                            ? "scale-[1.30]"
+                            ? "scale-[1.05]"
                             : cs.client.includes("Autolift")
-                            ? "scale-[1.35]"
-                            : "scale-105"
+                            ? "scale-[1.10]"
+                            : "scale-100"
                         }`}
                         loading="lazy"
                         decoding="async"
