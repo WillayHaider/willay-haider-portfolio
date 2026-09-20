@@ -1601,12 +1601,21 @@ function ReviewsSection() {
     let animId: number;
     let lastTime = performance.now();
 
+    const updateSegmentWidth = () => {
+      if (trackRef.current) {
+        // Correctly calculate half the total scrollable track width across all items
+        const totalWidth = trackRef.current.scrollWidth;
+        if (totalWidth > 0) {
+          segmentWidthRef.current = totalWidth / 2;
+        }
+      }
+    };
+
     const track = trackRef.current;
     if (track) {
-      const ro = new ResizeObserver((entries) => {
-        for (const entry of entries) {
-          segmentWidthRef.current = entry.contentRect.width / 2;
-        }
+      updateSegmentWidth();
+      const ro = new ResizeObserver(() => {
+        updateSegmentWidth();
       });
       ro.observe(track);
 
@@ -1616,7 +1625,7 @@ function ReviewsSection() {
 
         // When not dragging and not hovered, advance offset via GPU transform
         if (!isDraggingRef.current && !isHoveredRef.current && trackRef.current && segmentWidthRef.current > 0) {
-          const speed = 40; // 40px per second
+          const speed = 35; // 35px per second
           offsetRef.current += (speed * delta) / 1000;
 
           // Wrap seamlessly
@@ -1646,11 +1655,9 @@ function ReviewsSection() {
     startXRef.current = e.clientX;
     startOffsetRef.current = offsetRef.current;
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
-    if (trackRef.current) {
-      try {
-        (trackRef.current as HTMLElement).setPointerCapture?.(e.pointerId);
-      } catch (_) {}
-    }
+    try {
+      (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId);
+    } catch (_) {}
   };
 
   const onPointerMove = (e: React.PointerEvent) => {
@@ -1676,11 +1683,9 @@ function ReviewsSection() {
   const onPointerUp = (e: React.PointerEvent) => {
     if (!isDraggingRef.current) return;
     isDraggingRef.current = false;
-    if (trackRef.current) {
-      try {
-        (trackRef.current as HTMLElement).releasePointerCapture?.(e.pointerId);
-      } catch (_) {}
-    }
+    try {
+      (e.currentTarget as HTMLElement).releasePointerCapture?.(e.pointerId);
+    } catch (_) {}
     // Resume auto-scroll smoothly after 1.2s
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     resumeTimerRef.current = setTimeout(() => {
@@ -1709,7 +1714,9 @@ function ReviewsSection() {
       <div
         ref={containerRef}
         onMouseEnter={() => {
-          isHoveredRef.current = true;
+          if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
+            isHoveredRef.current = true;
+          }
         }}
         onMouseLeave={() => {
           isHoveredRef.current = false;
@@ -1729,7 +1736,7 @@ function ReviewsSection() {
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
           onPointerCancel={onPointerUp}
-          className="flex gap-4 sm:gap-6 cursor-grab active:cursor-grabbing select-none py-2 px-4 will-change-transform transform-gpu"
+          className="flex w-max gap-4 sm:gap-6 cursor-grab active:cursor-grabbing select-none py-2 px-4 will-change-transform transform-gpu"
           style={{
             transform: "translate3d(0px, 0, 0)",
             touchAction: "pan-y",
