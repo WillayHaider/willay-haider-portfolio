@@ -392,7 +392,7 @@ const PRICING_TIERS = [
     ],
     contract: "Week-to-week, cancel anytime",
     serviceTarget: "Cold Calling & Outbound Prospecting",
-    ctaText: "Select Flexible (Hourly)",
+    ctaText: "Start Flexible Outbound",
   },
   {
     id: "starter",
@@ -411,7 +411,7 @@ const PRICING_TIERS = [
     ],
     contract: "Month-to-month, no long-term contract",
     serviceTarget: "Cold Calling & Outbound Prospecting",
-    ctaText: "Select Starter",
+    ctaText: "Claim 1-Week Free Trial",
   },
   {
     id: "growth",
@@ -431,7 +431,7 @@ const PRICING_TIERS = [
     ],
     contract: "Month-to-month, no long-term contract",
     serviceTarget: "Appointment Setting & Demo Booking",
-    ctaText: "Get Started Free",
+    ctaText: "Claim 1-Week Free Trial",
   },
   {
     id: "enterprise",
@@ -453,7 +453,7 @@ const PRICING_TIERS = [
     specialClause:
       "First 30 days include a performance check-in: if the system is not tracking toward your targets, we adjust the approach together.",
     serviceTarget: "Lead Generation & Pipeline Building",
-    ctaText: "Select Enterprise",
+    ctaText: "Claim 1-Week Free Trial",
   },
 ];
 
@@ -1272,7 +1272,7 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
             Transparent, <span className="text-primary">ROI-Driven</span> Investment
           </h2>
           <p className="mt-2 max-w-xl text-xs sm:text-sm text-foreground/80 font-medium">
-            Swipe or select a tier below to view details. All packages start with a short discovery call.
+            Predictable outbound models engineered to scale qualified pipeline with zero long-term lock-in. Test live dials with a 1-week risk-free trial.
           </p>
         </div>
 
