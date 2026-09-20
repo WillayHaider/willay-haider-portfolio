@@ -231,34 +231,10 @@ const FOOTER_NAV_LINKS = [
 ];
 
 const CLIENT_TRUST_SIGNALS = [
-  {
-    name: "Million Dials Pvt Ltd.",
-    category: "B2B SaaS & Startups",
-    metric: "1,800+ Demos Booked",
-    logo: millionDialsLogo,
-    logoAlt: "Million Dials company logo - B2B SaaS and startup outbound partner",
-  },
-  {
-    name: "Vizocom ICT LLC",
-    category: "Industrial & Healthcare",
-    metric: "$1.2M+ Generated",
-    logo: vizocomLogo,
-    logoAlt: "Vizocom ICT LLC company logo - Industrial and healthcare supply procurement client",
-  },
-  {
-    name: "OMC Group LLC",
-    category: "Legal SEO Outbound",
-    metric: "75% Connect Rate",
-    logo: omcLogo,
-    logoAlt: "OMC Group LLC company logo - Legal SEO and attorney outreach partner",
-  },
-  {
-    name: "Autolift Transport / Nexus LTD",
-    category: "Freight Logistics",
-    metric: "1,700+ Loads",
-    logo: autoliftLogo,
-    logoAlt: "Auto Lift Transport company logo - Freight logistics and fleet dispatching partner",
-  },
+  { name: "Million Dials Pvt Ltd.", category: "B2B SaaS & Startups", metric: "1,800+ Demos Booked" },
+  { name: "Vizocom ICT LLC", category: "Industrial & Healthcare", metric: "$900K+ Generated" },
+  { name: "OMC Group LLC", category: "Legal SEO Outbound", metric: "75% Connect Rate" },
+  { name: "Autolift Transport / Nexus LTD", category: "Freight Logistics", metric: "1,700+ Loads" },
 ];
 
 const SERVICES_DATA = [
@@ -343,9 +319,9 @@ const CASE_STUDIES = [
     meetingsLabel: "1,800+ Meetings Booked",
     showUpRate: "67% Show-up Rate",
     dealsClosed: "110+ Deals Closed",
-    revenueTarget: 900,
-    revenueDecimals: 0,
-    revenueSuffix: "K+ Generated",
+    revenueTarget: 1.2,
+    revenueDecimals: 1,
+    revenueSuffix: "M+ Generated",
     summary:
       "Ran multi-region outbound campaigns targeting founders, CTOs, and VPs of Sales for B2B SaaS clients across US, UK, and EU markets.",
   },
@@ -359,9 +335,9 @@ const CASE_STUDIES = [
     leads: "350+ Qualified MQL/SQLs",
     connectRate: "48% Connect Rate",
     ordersSecured: "55+ Purchase Orders Secured",
-    revenueTarget: 1.2,
-    revenueDecimals: 1,
-    revenueSuffix: "M+ Generated",
+    revenueTarget: 900,
+    revenueDecimals: 0,
+    revenueSuffix: "K+ Generated",
     summary:
       "High-stakes procurement cold outreach for life-support, battery systems, and hospital supply verticals, securing large purchase orders.",
   },
@@ -375,7 +351,7 @@ const CASE_STUDIES = [
     leads: "1,400+ Leads Generated",
     connectRate: "75% Connect Rate",
     dealsClosed: "Attorney Profiles Signed",
-    revenueTarget: 300,
+    revenueTarget: 350,
     revenueDecimals: 0,
     revenueSuffix: "K+ Generated",
     summary:
@@ -391,7 +367,7 @@ const CASE_STUDIES = [
     quotes: "1,500+ Quotations Sent",
     connectRate: "55% Connect Rate",
     loadsBooked: "1,100+ Loads Booked",
-    revenueTarget: 100,
+    revenueTarget: 170,
     revenueDecimals: 0,
     revenueSuffix: "K+ Generated",
     summary:
@@ -564,7 +540,7 @@ const FAQS = [
   {
     question: "Do you only work with one specific industry?",
     answer:
-      "No. I have generated over $2.5M+ in verified revenue across diverse verticals including B2B SaaS, enterprise technology, industrial and medical procurement, legal services, e-commerce, and logistics. Cold calling fundamentals: rapport, pattern interrupt, value proposition, and objection handling: apply powerfully across any high-ticket B2B market.",
+      "No. I have generated over $2.6M+ in verified revenue across diverse verticals including B2B SaaS, enterprise technology, industrial and medical procurement, legal services, e-commerce, and logistics. Cold calling fundamentals: rapport, pattern interrupt, value proposition, and objection handling: apply powerfully across any high-ticket B2B market.",
   },
   {
     question: "How fast can we launch outbound calls?",
@@ -806,7 +782,7 @@ function HeroSection({
             <div className="mt-8 grid grid-cols-3 gap-3 border-t border-border/80 pt-5 sm:mt-10 sm:flex sm:flex-wrap sm:gap-10 sm:pt-7">
               <div>
                 <p className="text-xl font-extrabold text-[var(--emerald-accent)] sm:text-3xl">
-                  <CountUp end={2.5} decimals={1} prefix="$" suffix="M+" />
+                  <CountUp end={2.6} decimals={1} prefix="$" suffix="M+" />
                 </p>
                 <p className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-[11px]">
                   Revenue Closed
@@ -858,7 +834,7 @@ function HeroSection({
                   <TrendingUp className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-foreground">$2.5M+ Pipeline Closed</p>
+                  <p className="text-xs font-bold text-foreground">$2.6M+ Pipeline Closed</p>
                   <p className="text-[10px] text-muted-foreground">Verified Client Outcomes</p>
                 </div>
               </div>
@@ -878,31 +854,14 @@ function TrustBarSection() {
   return (
     <section className="relative border-y border-border/70 bg-secondary/40 py-7 sm:py-9">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        {/* 2x2 or 4-column Grid Layout */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto">
+        {/* 2x2 Grid Layout */}
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-3xl mx-auto">
           {CLIENT_TRUST_SIGNALS.map((client) => (
             <div
               key={client.name}
-              className="flex flex-col items-center justify-between rounded-xl border border-border bg-card p-3.5 sm:p-4 text-center shadow-xs transition-all hover:border-primary/40 hover:shadow-sm"
+              className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3.5 sm:p-4 text-center shadow-xs transition-colors hover:border-primary/40"
             >
-              <div
-                className={`flex h-12 w-28 sm:h-13 sm:w-32 items-center justify-center rounded-lg border p-1.5 mb-2 shadow-2xs ${
-                  client.name.includes("Vizocom")
-                    ? "bg-slate-950 border-slate-800 dark:bg-slate-900 dark:border-slate-700"
-                    : "bg-white border-slate-200/90 dark:bg-white/95 dark:border-slate-200"
-                }`}
-              >
-                <img
-                  src={client.logo}
-                  alt={client.logoAlt}
-                  width={110}
-                  height={34}
-                  className="h-full w-full object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <span className="text-xs sm:text-sm font-extrabold tracking-tight text-foreground line-clamp-1">
+              <span className="text-xs sm:text-sm font-extrabold tracking-tight text-foreground">
                 {client.name}
               </span>
               <span className="mt-0.5 text-[11px] text-muted-foreground font-medium">{client.category}</span>
@@ -1107,6 +1066,8 @@ function CaseStudiesSection({ onOpenModal }: { onOpenModal: (service?: string) =
                       className={`flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-xl border p-2 shadow-xs transition-transform duration-300 hover:scale-105 ${
                         cs.client.includes("Vizocom")
                           ? "bg-slate-950 border-slate-800 dark:bg-slate-900 dark:border-slate-700"
+                          : cs.client.includes("OMC")
+                          ? "bg-[#002B49] border-[#003d66]"
                           : "bg-white border-slate-200/90 dark:bg-white/95 dark:border-slate-200"
                       }`}
                     >
@@ -1489,18 +1450,11 @@ function ClientAvatar({ item }: { item: (typeof TESTIMONIALS)[0] }) {
     );
   }
 
-  if (item.id === "robin" && item.logo) {
+  if (item.id === "robin") {
     return (
-      <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-slate-700/80 bg-slate-950 p-1 flex items-center justify-center shadow-xs">
-        <img
-          src={item.logo}
-          alt="Vizocom ICT LLC - Client Logo"
-          width={52}
-          height={52}
-          className="h-full w-full object-contain scale-125"
-          loading="lazy"
-          decoding="async"
-        />
+      <div className="relative h-12 w-12 sm:h-13 sm:w-13 shrink-0 overflow-hidden rounded-full border border-emerald-800/40 bg-slate-950 flex flex-col items-center justify-center shadow-xs">
+        <span className="text-[9px] font-black text-emerald-400 leading-none tracking-tight">VIZOCOM</span>
+        <span className="text-[7px] font-bold text-emerald-300/80 uppercase tracking-widest leading-none mt-0.5">GLOBAL</span>
       </div>
     );
   }
