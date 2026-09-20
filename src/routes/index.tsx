@@ -548,9 +548,9 @@ const FAQS = [
       "Once we complete the initial onboarding discovery session and approve the target decision-maker criteria and call scripts, outbound dials typically launch within 48 to 72 hours.",
   },
   {
-    question: "How does the 1-week free trial work, and is there any upfront risk?",
+    question: "How does the 1-week risk-free trial work, and is there any upfront risk?",
     answer:
-      "There is zero financial risk and no credit card required upfront. During your 1-week free trial on Starter or Growth plans, I build your targeted ICP list, dial live decision-makers, and book qualified meetings directly to your calendar. You receive live CRM notes and verified prospect data. If you love the booked pipeline, we transition seamlessly into the monthly package. If not, you walk away with zero obligation and keep all generated leads.",
+      "There is zero financial risk, zero long-term lock-in, and no upfront retainer required. During the 1-week risk-free trial, I execute focused, high-conviction outbound dialing to engage key decision-makers and book qualified meetings directly to your calendar. You receive real-time CRM updates, detailed conversation notes, and verified prospect intelligence. If you are thrilled with the booked pipeline and qualified show-ups, we seamlessly transition into an ongoing monthly engagement. If not, you walk away with zero obligation and zero loss.",
   },
 ];
 
@@ -1337,7 +1337,7 @@ function PricingCarouselSection({ onOpenModal }: { onOpenModal: (service?: strin
             <BarChart3 className="h-3 w-3" />
             <span>Pricing</span>
           </div>
-          <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 className="mt-3 text-lg sm:text-2xl md:text-3xl font-bold tracking-tight text-foreground whitespace-nowrap">
             Predictable, <span className="text-primary">Revenue-Driven</span> Investment
           </h2>
           <p className="mt-2 max-w-xl text-xs sm:text-sm text-foreground/80 font-medium">
