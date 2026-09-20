@@ -24,6 +24,7 @@ import {
   Star,
   Flame,
   Lock,
+  Headphones,
 } from "lucide-react";
 import heroPortrait from "@/assets/willay-portrait-final-nobg.webp";
 import ranaAvatar from "@/assets/rana-ammad-ali.jpg";
@@ -995,7 +996,7 @@ function CertificationsSection() {
 }
 
 /* =========================================================================
-   6. 1-WEEK RISK-FREE TRIAL CTA SECTION (NO-BRAINER PILOT OFFER)
+   6. 1-WEEK RISK-FREE TRIAL CTA SECTION (NO-BRAINER REVENUE PILOT)
    ========================================================================= */
 
 function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string) => void }) {
@@ -1011,30 +1012,30 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
             <div>
               <div className="inline-flex items-center gap-1.5 rounded-full border border-[var(--badge-emerald-border)] bg-[var(--badge-emerald-bg)] px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[var(--emerald-accent)]">
                 <Flame className="h-3.5 w-3.5 text-[var(--emerald-accent)] animate-pulse" />
-                <span>100% Risk-Free Pilot Offer</span>
+                <span>1-Week Risk-Free Revenue Pilot</span>
               </div>
               <h2 className="mt-3 text-xl font-bold tracking-tight text-foreground sm:text-2xl lg:text-[1.65rem] leading-tight">
-                Test Drive My Outbound Engine For 1 Week: <br />
-                <span className="text-primary">Zero Risk. Zero Lock-In. Zero Retainer.</span>
+                Unlock Rapid Pipeline Revenue In Just 1 Week: <br />
+                <span className="text-primary">Zero Risk. Zero Lock-In. Zero Loss.</span>
               </h2>
               <p className="mt-2 text-xs sm:text-sm text-foreground/85 font-medium leading-relaxed">
-                Want proof before committing? I’ll build your custom ICP lead list, craft high-converting objection-handling scripts, and execute live outbound dials for 5 business days. If you don't experience qualified conversations and real pipeline traction, you owe nothing.
+                Got a dialer, target lead lists, and hungry closers ready? Hand me the phone. I’ll run high-conviction, unscripted outbound dials for 5 straight business days and pack your calendar with pre-qualified decision-makers ready to buy. If I don't produce qualified conversations and real pipeline momentum, you walk away with zero loss.
               </p>
 
               <div className="mt-4 grid grid-cols-3 gap-2.5">
                 <div className="rounded-xl border border-border bg-card/80 p-2.5 text-center shadow-2xs hover:border-primary/40 transition-colors">
                   <PhoneCall className="h-4 w-4 text-primary mx-auto" />
                   <p className="mt-1 text-xs font-bold text-foreground">500+ Live Dials</p>
-                  <p className="text-[9px] text-muted-foreground font-medium">Dedicated caller sprint</p>
+                  <p className="text-[9px] text-muted-foreground font-medium">Aggressive 5-day sprint</p>
                 </div>
                 <div className="rounded-xl border border-border bg-card/80 p-2.5 text-center shadow-2xs hover:border-primary/40 transition-colors">
-                  <Target className="h-4 w-4 text-primary mx-auto" />
-                  <p className="mt-1 text-xs font-bold text-foreground">Custom ICP Leads</p>
-                  <p className="text-[9px] text-muted-foreground font-medium">Verified direct dials</p>
+                  <Headphones className="h-4 w-4 text-primary mx-auto" />
+                  <p className="mt-1 text-xs font-bold text-foreground">Your Dialer & Leads</p>
+                  <p className="text-[9px] text-muted-foreground font-medium">Instant 48h onboarding</p>
                 </div>
                 <div className="rounded-xl border border-border bg-card/80 p-2.5 text-center shadow-2xs hover:border-primary/40 transition-colors">
                   <ShieldCheck className="h-4 w-4 text-[var(--emerald-accent)] mx-auto" />
-                  <p className="mt-1 text-xs font-bold text-foreground">Pay On Value</p>
+                  <p className="mt-1 text-xs font-bold text-foreground">100% Zero Loss</p>
                   <p className="text-[9px] text-muted-foreground font-medium">Zero cost if not satisfied</p>
                 </div>
               </div>
@@ -1044,9 +1045,9 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/15 text-primary mb-2 shadow-inner ring-4 ring-primary/10">
                 <Sparkles className="h-5 w-5 text-primary animate-bounce" />
               </div>
-              <h3 className="text-base font-bold text-foreground">Claim Your 1-Week Trial</h3>
+              <h3 className="text-base font-bold text-foreground">Claim 1-Week Revenue Sprint</h3>
               <p className="mt-1 text-xs text-foreground/80 font-medium leading-relaxed">
-                Only 2 pilot spots available this month to maintain dial quality. Instant setup within 48 hours.
+                Provide your dialer & leads — I start dialing within 48 hours. Only 2 pilot slots available this month.
               </p>
               <button
                 onClick={() => onOpenModal("1-Week Risk-Free Outbound Trial")}
@@ -1058,7 +1059,7 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
               </button>
               <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] text-muted-foreground font-medium">
                 <Lock className="h-3 w-3 text-emerald-500 shrink-0" />
-                <span>No credit card required · Zero commitment</span>
+                <span>Zero Risk · No Long-Term Contract · Zero Loss</span>
               </div>
             </div>
           </div>
