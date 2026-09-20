@@ -1019,18 +1019,18 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
                 </p>
               </div>
 
-              <div className="mt-6 sm:mt-7 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
-                <div className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card py-2.5 px-3 text-center shadow-2xs hover:border-primary/40 transition-colors">
+              <div className="mt-6 sm:mt-7 grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-2.5">
+                <div className="flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl border border-border bg-card py-2.5 px-2.5 sm:px-2 md:px-3 text-center shadow-2xs hover:border-primary/40 transition-colors whitespace-nowrap">
                   <PhoneCall className="h-4 w-4 text-primary shrink-0" />
-                  <span className="text-xs font-bold text-foreground whitespace-nowrap">700+ Live Dials</span>
+                  <span className="text-xs font-bold text-foreground tracking-tight whitespace-nowrap">700+ Live Dials</span>
                 </div>
-                <div className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card py-2.5 px-3 text-center shadow-2xs hover:border-primary/40 transition-colors">
+                <div className="flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl border border-border bg-card py-2.5 px-2.5 sm:px-2 md:px-3 text-center shadow-2xs hover:border-primary/40 transition-colors whitespace-nowrap">
                   <Calendar className="h-4 w-4 text-primary shrink-0" />
-                  <span className="text-xs font-bold text-foreground whitespace-nowrap">2 Guaranteed Meetings</span>
+                  <span className="text-xs font-bold text-foreground tracking-tight whitespace-nowrap">2 Guaranteed Meetings</span>
                 </div>
-                <div className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card py-2.5 px-3 text-center shadow-2xs hover:border-[var(--emerald-accent)]/50 transition-colors">
+                <div className="flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl border border-border bg-card py-2.5 px-2.5 sm:px-2 md:px-3 text-center shadow-2xs hover:border-[var(--emerald-accent)]/50 transition-colors whitespace-nowrap">
                   <ShieldCheck className="h-4 w-4 text-[var(--emerald-accent)] shrink-0" />
-                  <span className="text-xs font-bold text-[var(--emerald-accent)] whitespace-nowrap">100% Zero Loss</span>
+                  <span className="text-xs font-bold text-[var(--emerald-accent)] tracking-tight whitespace-nowrap">100% Zero Loss</span>
                 </div>
               </div>
             </div>
@@ -1039,7 +1039,7 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-border bg-secondary/60 text-primary mb-2 shadow-2xs">
                 <Calendar className="h-5.5 w-5.5 text-primary" />
               </div>
-              <h3 className="text-base font-bold text-foreground">Claim 1-Week Revenue Sprint</h3>
+              <h3 className="text-base font-bold text-foreground">Claim 1-Week Revenue Pilot</h3>
               <p className="mt-1 text-xs text-foreground/80 font-medium leading-relaxed">
                 Only 2 pilot spots available this month to maintain quality. Instant setup within 72 hours.
               </p>
@@ -1048,7 +1048,7 @@ function RiskFreeTrialSection({ onOpenModal }: { onOpenModal: (service?: string)
                 className="btn-click-effect animate-smooth-bounce mt-4 w-full rounded-xl py-3 px-4 text-xs sm:text-sm font-bold text-white shadow-md hover:opacity-95 active:scale-95 transition-all flex items-center justify-center gap-2 group/btn cursor-pointer ring-2 ring-emerald-500/30 hover:ring-emerald-500/60"
                 style={{ background: "var(--gradient-emerald)" }}
               >
-                <span>Start 1-Week Risk-Free Pilot</span>
+                <span>Start Risk-Free Trial</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
               </button>
               <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] text-muted-foreground font-medium">
