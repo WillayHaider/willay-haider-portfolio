@@ -272,14 +272,11 @@ const SERVICES_DATA = [
 
 const TOOLS_STRIP = [
   { name: "HubSpot CRM", category: "RevOps & Pipeline" },
-  { name: "Salesforce", category: "Enterprise CRM" },
   { name: "Apollo.io", category: "Lead Intelligence" },
-  { name: "LinkedIn Sales Nav", category: "Executive Sourcing" },
   { name: "VICIdial", category: "Call Center Dialer" },
-  { name: "Five9", category: "Cloud Contact Center" },
   { name: "RingCentral", category: "Enterprise VoIP" },
-  { name: "Convoso", category: "Predictive Outbound Dialer" },
 ];
+
 
 const CERTIFICATIONS_DATA = [
   {
@@ -578,8 +575,8 @@ function ServiceBusinessPage() {
         />
         <TrustBarSection />
         <ServicesSection onOpenModal={openLeadModal} />
-        <ToolsGridSection />
         <CertificationsSection />
+        <ToolsGridSection />
         <CaseStudiesSection onOpenModal={openLeadModal} />
         <PricingCarouselSection onOpenModal={openLeadModal} />
         <ReviewsSection />
@@ -945,46 +942,12 @@ function ServicesSection({ onOpenModal }: { onOpenModal: (service?: string) => v
 }
 
 /* =========================================================================
-   5. TECH STACK SECTION (UPDATED WITH 4 DIALERS)
-   ========================================================================= */
-
-function ToolsGridSection() {
-  return (
-    <section className="relative border-y border-border/70 bg-secondary/30 py-8 sm:py-12">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="text-center mb-6">
-          <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-            Modern Sales & Dialing Tech Stack
-          </p>
-          <h3 className="text-base sm:text-lg font-bold text-foreground mt-1">
-            Integrated With CRMs, Dialers & Lead Platforms
-          </h3>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 max-w-4xl mx-auto">
-          {TOOLS_STRIP.map((tool) => (
-            <div
-              key={tool.name}
-              className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3.5 text-center shadow-xs transition-colors hover:border-primary/40"
-            >
-              <Bot className="h-4 w-4 text-primary mb-1" />
-              <span className="text-xs font-bold text-foreground">{tool.name}</span>
-              <span className="text-[10px] text-muted-foreground font-medium">{tool.category}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* =========================================================================
-   6. CERTIFICATIONS SECTION (SHORTENED SUBHEADING)
+   5. CERTIFICATIONS SECTION (SHORTENED SUBHEADING)
    ========================================================================= */
 
 function CertificationsSection() {
   return (
-    <section id="certifications" className="relative py-10 sm:py-14 border-b border-border/70 bg-background">
+    <section id="certifications" className="relative border-y border-border/70 bg-secondary/30 py-10 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="text-center mb-6">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
@@ -1020,6 +983,40 @@ function CertificationsSection() {
               <span className="text-xs font-bold text-foreground leading-tight">{cert.name}</span>
               <span className="text-[11px] font-semibold text-primary mt-0.5">{cert.issuer}</span>
               <span className="text-[10px] text-muted-foreground font-medium mt-0.5">{cert.category}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================================
+   6. TECH STACK SECTION (4 CORE PLATFORMS)
+   ========================================================================= */
+
+function ToolsGridSection() {
+  return (
+    <section className="relative border-b border-border/70 bg-background py-8 sm:py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="text-center mb-6">
+          <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+            Modern Sales & Dialing Tech Stack
+          </p>
+          <h3 className="text-base sm:text-lg font-bold text-foreground mt-1">
+            Integrated With CRMs, Dialers & Lead Platforms
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 max-w-4xl mx-auto">
+          {TOOLS_STRIP.map((tool) => (
+            <div
+              key={tool.name}
+              className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-3.5 text-center shadow-xs transition-colors hover:border-primary/40"
+            >
+              <Bot className="h-4 w-4 text-primary mb-1" />
+              <span className="text-xs font-bold text-foreground">{tool.name}</span>
+              <span className="text-[10px] text-muted-foreground font-medium">{tool.category}</span>
             </div>
           ))}
         </div>
