@@ -579,11 +579,11 @@ function ServiceBusinessPage() {
         <TrustBarSection />
         <ServicesSection onOpenModal={openLeadModal} />
         <CertificationsSection />
-        <RiskFreeTrialSection onOpenModal={openLeadModal} />
         <ToolsGridSection />
         <CaseStudiesSection onOpenModal={openLeadModal} />
         <PricingCarouselSection onOpenModal={openLeadModal} />
         <ReviewsSection />
+        <RiskFreeTrialSection onOpenModal={openLeadModal} />
         <TeamCapabilitiesSection onOpenModal={openLeadModal} />
         <FAQSection />
       </main>
