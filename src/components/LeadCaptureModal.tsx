@@ -298,7 +298,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
 
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-foreground">
-                    Company / Website <span className="text-primary">*</span>
+                    Company Website <span className="text-primary">*</span>
                   </label>
                   <input
                     type="text"
@@ -319,7 +319,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
 
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-foreground">
-                  Where did you find out about me? <span className="text-muted-foreground font-normal lowercase">(optional)</span>
+                  Where did you find out about me? <span className="text-muted-foreground font-normal normal-case">(Optional)</span>
                 </label>
                 <select
                   value={formData.source}
@@ -348,7 +348,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
 
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-foreground">
-                  Target or Monthly Meeting Goal (Optional)
+                  Target or Monthly Meeting Goal <span className="text-muted-foreground font-normal normal-case">(Optional)</span>
                 </label>
                 <input
                   type="text"
