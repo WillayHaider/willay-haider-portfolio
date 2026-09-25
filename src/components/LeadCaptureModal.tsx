@@ -42,7 +42,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
     name: "",
     email: "",
     company: "",
-    service: (defaultService && SERVICES.includes(defaultService)) ? defaultService : SERVICES[0],
+    service: defaultService || "General Outbound Discovery",
     source: "",
     otherSource: "",
     goal: "",
@@ -52,7 +52,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    if (defaultService && SERVICES.includes(defaultService)) {
+    if (defaultService) {
       setFormData((prev) => ({ ...prev, service: defaultService }));
     }
   }, [defaultService]);
@@ -315,23 +315,6 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
                   />
                   {errors.company && <p className="text-destructive text-xs mt-1">{errors.company}</p>}
                 </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-foreground">
-                  Primary Need / Service <span className="text-primary">*</span>
-                </label>
-                <select
-                  value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className="mt-1 w-full min-h-[46px] rounded-xl border border-border bg-secondary/40 px-3.5 py-2.5 text-xs sm:text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
-                >
-                  {SERVICES.map((s) => (
-                    <option key={s} value={s} className="bg-card text-foreground py-1">
-                      {s}
-                    </option>
-                  ))}
-                </select>
               </div>
 
               <div>
