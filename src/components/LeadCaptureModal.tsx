@@ -308,7 +308,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
                   <input
                     type="text"
                     required
-                    placeholder="e.g. acme.com or https://acme.com"
+                    placeholder="e.g. Acme Corp"
                     value={formData.company}
                     onChange={(e) => {
                       setFormData({ ...formData, company: e.target.value });
