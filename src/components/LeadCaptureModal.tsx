@@ -76,6 +76,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
   const validate = () => {
     const newErrors: { name?: string; email?: string; company?: string } = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const urlRegex = /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{2,24}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/i;
 
     if (!formData.name.trim()) newErrors.name = "Full name is required";
     if (!formData.email.trim()) {
@@ -83,7 +84,11 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
     } else if (!emailRegex.test(formData.email.trim())) {
       newErrors.email = "Enter a valid email address";
     }
-    if (!formData.company.trim()) newErrors.company = "Company or website is required";
+    if (!formData.company.trim()) {
+      newErrors.company = "Company website is required";
+    } else if (!urlRegex.test(formData.company.trim())) {
+      newErrors.company = "Enter a valid website URL (e.g. acme.com)";
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -303,7 +308,7 @@ export function LeadCaptureModal({ isOpen, onClose, defaultService, directConnec
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Acme Corp"
+                    placeholder="e.g. acme.com or https://acme.com"
                     value={formData.company}
                     onChange={(e) => {
                       setFormData({ ...formData, company: e.target.value });
